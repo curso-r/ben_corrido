@@ -1,1 +1,6 @@
 # Análise Energética e Dados Agregados
+
+```{r, echo = FALSE}
+source("R/exemplo.R")
+fazer_grafico(mtcars, xlab = "peso", ylab = "milhas por galão")
+```
