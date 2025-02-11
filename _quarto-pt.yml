@@ -1,0 +1,32 @@
+project:
+  output-dir: ./docs/pt
+
+book:
+  title: "BALANÇO ENERGÉTICO NACIONAL 2024"
+  subtitle: "Ano base 2023"
+  navbar:
+    background: primary
+    search: true
+    right:
+      - text: "Inglês"
+        href: ../en/index.html
+  chapters:
+    - text: Sobre
+      href: index.qmd
+    - autoria.qmd
+    - capitulo_1.qmd
+    - referencias.qmd
+
+bibliography: referencias.bib
+
+format:
+  html:
+    theme: cosmo
+    css: 
+      - style.css
+      - style-pt.css
+    smooth-scroll: true
+
+lang: pt
+language:
+  crossref-ch-prefix: "Capítulo"

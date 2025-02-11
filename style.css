@@ -1,0 +1,11 @@
+.centro {
+  text-align: center;
+}
+
+.nao-mostrar {
+   display: none;
+}
+
+ .chapter-number::after {
+   content: ":";
+ }

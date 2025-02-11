@@ -1,0 +1,33 @@
+project:
+  output-dir: ./docs/en
+
+book:
+  title: "2024 BRAZILIAN ENERGY BALANCE"
+  subtitle: "Base year 2023"
+  navbar:
+    background: primary
+    search: true
+    right:
+      - text: "Portuguese"
+        href: ../pt/index.html
+  chapters:
+    - text: About
+      href: index.qmd
+    - autoria-en.qmd
+    - capitulo_1-en.qmd
+    - referencias-en.qmd
+
+bibliography: referencias-en.bib
+
+format:
+  html:
+    theme: cosmo
+    css: 
+      - style.css
+      - style-en.css
+    smooth-scroll: true
+
+lang: en
+language:
+  crossref-ch-prefix: "Chapter"
+

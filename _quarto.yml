@@ -1,23 +1,11 @@
 project:
   type: book
 
-book:
-  title: "../ben_corrido"
-  author: "Norah Jones"
-  date: "2/11/2025"
-  chapters:
-    - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
+profile:
+  group: 
+    - [pt, en]
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-
-
-
+    smooth-scroll: true

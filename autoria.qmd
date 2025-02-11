@@ -1,0 +1,39 @@
+
+:::{.nao-mostrar}
+# Autoria {.unnumbered}
+:::
+
+![](img/governo_federal.png){fig-align="center" width=40%}
+
+:::{.centro}
+GOVERNO FEDERAL \
+MINISTÉRIO DE MINAS E ENERGIA \
+MME
+
+\
+**Ministério de Minas e Energia**
+
+**Ministro** \
+Alexandre Silveira de Oliveira
+
+**Secretário Executivo** \
+Arthur Cerqueira Valerio
+
+**Secretário Nacional de Transição Energética e Planejamento** \
+Thiago Vasconcellos Barral Ferreira
+
+**Secretário Nacional de Energia Elétrica** \
+Gentil Nogueira de Sá Júnior
+
+**Secretário Nacional de Petróleo, Gás Natural e Combustíveis Renováveis** \
+Pietro Adamo Sampaio Mendes
+
+**Secretário Nacional de Geologia, Mineração e Transformação Mineral** \
+Vitor Eduardo de Almeida Saback
+
+\
+
+Rio de Janeiro \
+Agosto de 2024
+:::
+

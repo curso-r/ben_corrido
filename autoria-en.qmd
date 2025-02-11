@@ -1,0 +1,39 @@
+
+:::{.nao-mostrar}
+# Authoring {.unnumbered}
+:::
+
+![](img/governo_federal.png){fig-align="center" width=40%}
+
+:::{.centro}
+FEDERAL GOVERNMENT \
+MINISTRY OF MINES AND ENERGY \
+MME
+
+\
+**Ministry of Mines and Energy**
+
+**Minister** \
+Alexandre Silveira de Oliveira
+
+**Executive Secretary** \
+Arthur Cerqueira Valerio
+
+**National Secretary of Energy Transition and Planning** \
+Thiago Vasconcellos Barral Ferreira
+
+**National Secretary of Electric Energy** \
+Gentil Nogueira de Sá Júnior
+
+**National Secretary of Oil, Natural Gas and Renewable Fuels** \
+Pietro Adamo Sampaio Mendes
+
+**National Secretary of Geology, Mining and Mineral Processing** \
+Vitor Eduardo de Almeida Saback
+
+\
+
+Rio de Janeiro \
+August 2024
+:::
+
