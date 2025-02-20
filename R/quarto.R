@@ -12,11 +12,11 @@ gerar_livro <- function(con = NULL, ano = 2023,
     execute_params = list(ano = ano, duckdb_path = duckdb_path),
     profile = "pt"
   )
-  # quarto::quarto_render(
-  #   input = glue::glue("{out_dir}/quarto"),
-  #   as_job = FALSE,
-  #   execute_params = list(ano = ano, duckdb_path = duckdb_path),
-  #   profile = "en"
-  # )
+  quarto::quarto_render(
+    input = glue::glue("{out_dir}/quarto"),
+    as_job = FALSE,
+    execute_params = list(ano = ano, duckdb_path = duckdb_path),
+    profile = "en"
+  )
   fs::dir_delete(glue::glue("{out_dir}/quarto"))
 }

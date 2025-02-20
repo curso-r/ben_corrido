@@ -1,4 +1,10 @@
-# References {.unnumbered}
+::: {.content-visible when-profile="pt"}
+# Referências {.unnumbered}
+:::
+
+::: {.content-visible when-profile="en"}
+# Rerefences {.unnumbered}
+:::
 
 ::: {#refs}
 :::

@@ -1,10 +1,20 @@
+#' Geração de Energia Elétrica: fontes não-renováveis
+#' 
+#' Capítulo I
+#' 
+#' @param con Conexão com o banco de dados
+#' 
 #' @export 
-grafico_geracao_energia_fontes_nr <- function(con) {
+grafico_geracao_energia_fontes_nr <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_geracao_energia_fontes_nr") |>
     dplyr::collect() |>
     dplyr::mutate(
       cor = pegar_cor(variavel)
     )
+
+  if (lang != "pt") {
+    tab$variavel <- tab[[glue::glue("variavel_{lang}")]]
+  }
 
   cores <- setNames(tab$cor, tab$variavel)
 

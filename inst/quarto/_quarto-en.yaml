@@ -15,7 +15,8 @@ book:
       href: index.qmd
     - autoria-en.qmd
     - capitulo_1-en.qmd
-    - referencias-en.qmd
+    - text: References
+      href: referencias.qmd
 
 bibliography: referencias-en.bib
 

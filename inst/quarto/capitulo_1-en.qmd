@@ -1,1 +1,56 @@
+---
+params:
+  ano: ""
+  duckdb_path: ""
+---
+
+```{r}
+con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
+ano <- params$ano
+```
+
 # Energy Analysis and Aggregated Data
+
+## Energy Highlights by Source – year 2023
+
+This chapter presents briefly a short analysis on the energy highlights for 2023 and comparisons with the previous year, for the main energy sources: oil, natural gas, electricity, coal, wind, biodiesel and sugarcane products
+
+### Biodiesel
+
+In 2023, the production of B100 increased 20.3% when compared to the previous year, reaching 7,527,659 m³.
+
+The average percentage of B100 compulsorily added to mineral diesel increased from 10.0% to 11.5% in 2023. The main raw material was the soybean oil (62.2%), followed by other fatty materials (14.7%).
+
+### Sugarcane, Sugar and Ethanol
+
+According to the Ministry of Agriculture, Livestock and Food Supply (MAPA), the sugar cane production in the calendar year 2023 was 712.7 million tons. This amount was 19.7% higher than in the previous calendar year, when the milling was 595.3 million tons.
+
+In 2023, the national sugar production was 45.8 million tons, 26.1% higher than the previous year, and the production of ethanol increased by 11.3%, yielding the amount of 31.2 million m³.
+
+About 59.8% of this total refers to hydrous ethanol: 18.7 million m³. In comparative terms, the production of this fuel increased 14.4% compared to 2022.
+
+Regarding the production of anhydrous ethanol, which is blended with gasoline A to form the gasoline C, there was an increase of 7.0%, totaling 12.5 million m³.
+
+### Corn Ethanol and Other Biomass
+
+The production of ethanol from corn and other biomass reached 5.86 million m³ (being 3.53 million m³ of hydrated ethanol and 2.33 million m³ of anhydrous ethanol) in 2023, representing 15.8% of the total produced in Brazil.
+
+### Electricity
+
+The electricity generation in the Brazilian public service and self-producers power plants reached 708.1 TWh in 2023, an amount 4.6% higher than the result for 2022.
+
+The public service plants remain as the main contributors, with 79.9% of total generation. Hydropower, the main source, decreased 0.3% compared to the previous year.
+
+The autoproducers (APE) generation in 2023 accounted for 20.1% of total production, considering the aggregate of all sources used, reaching 142 TWh. Of this total, 81.1 TWh are produced and consumed in loco i.e. by own generating facility usually named as classic APE. The classic self-production aggregates the many different industrial facilities that produce energy for their own consumption, like Pulp and Paper sector, Steel, Sugar and Alcohol, Chemical, among others, besides the Energy Sector.
+
+The electricity generation from non-renewable sources accounted for 11.0% of the national total, compared with 12.3% in 2022.
+
+Net imports of 15.1 TWh, added to internal generation, allowed a domestic electricity supply of 723.2 TWh, an amount 4.8% higher than 2022. The final consumption was 616.3 TWh, an expansion of 5.2% compared with the previous year.
+
+@fig-geracao-energia-fontes-nr shows the structure of the domestic supply of electricity in Brazil in 2023.
+
+```{r, fig.width=5, fig.height=2, out.width = "100%"}
+#| label: fig-geracao-energia-fontes-nr
+#| fig-cap: "Electricity generation: non-renewable sources"
+benCorrido::grafico_geracao_energia_fontes_nr(con, lang = "en")
+```

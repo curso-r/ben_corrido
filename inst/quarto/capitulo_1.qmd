@@ -49,8 +49,10 @@ A geração elétrica a partir de fontes não renováveis representou 11,0% do t
 
 Importações líquidas de 15,1 TWh, somadas à geração nacional, asseguraram uma oferta interna de energia elétrica de 723,2 TWh, montante 4,8% superior a 2022. O consumo final de energia elétrica foi de 616,3 TWh, uma expansão de 5,2% em comparação ao ano anterior.
 
-O gráfico 1.1.b apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
+A @fig-geracao-energia-fontes-nr apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
 
-```{r, echo = FALSE, fig.width=5, fig.height=2, out.width = "100%"}
+```{r, fig.width=5, fig.height=2, out.width = "100%"}
+#| label: fig-geracao-energia-fontes-nr
+#| fig-cap: "Geração de Energia Elétrica: fontes não-renováveis"
 benCorrido::grafico_geracao_energia_fontes_nr(con)
 ```
