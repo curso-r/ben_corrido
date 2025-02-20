@@ -9,3 +9,7 @@
  .chapter-number::after {
    content: ":";
  }
+
+ img {
+  margin-bottom: 1rem;
+ }

@@ -1,0 +1,56 @@
+---
+params:
+  ano: ""
+  duckdb_path: ""
+---
+
+```{r}
+con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
+ano <- params$ano
+```
+
+# Análise Energética e Dados Agregados
+
+![](img/capas/imagem_cap_1.png)
+
+## Destaques de Energia por Fonte - ano base 2023
+
+Este capítulo apresenta, resumidamente, a análise dos principais movimentos referentes à produção e ao consumo de energia em 2023 em comparação com o ano anterior, para as principais fontes energéticas: petróleo, gás natural, energia elétrica, carvão mineral, energia eólica, biodiesel e produtos da cana.
+
+### Biodiesel
+
+Em 2023 a produção de biodiesel no país cresceu 20,3% em relação ao ano anterior, atingindo o montante de 7.527.659 m³.
+
+O percentual médio de biodiesel adicionado compulsoriamente ao diesel mineral, aumentou de 10,0% para 11,5% em 2023. O principal insumo foi o óleo de soja (62,2%), seguido de outros materiais graxos (14,7%).
+
+### Cana-de-Açúcar, Açúcar e Etanol
+
+De acordo com o Ministério da Agricultura, Pecuária e Abastecimento (MAPA), a produção de cana-de-açúcar no ano civil 2023 alcançou 712,7 milhões de toneladas, crescimento de 19,7% em relação ao ano civil anterior, quando a moagem foi de 595,3 milhões de toneladas.
+
+Em 2023, a produção nacional de açúcar foi de 45,8 milhões de toneladas, aumento de 26,1% em relação ao ano anterior, e a fabricação de etanol a partir da cana de açúcar cresceu 11,3% e atingiu um montante de 31,2 milhões de m³.
+
+Deste total, 59,8% referem-se ao etanol hidratado: 18,7 milhões de m³. Em termos comparativos, houve um aumento de 14,4% na produção deste combustível em relação a 2022.
+
+Já a produção de etanol anidro, que é misturado à gasolina A para formar a gasolina C, registrou um aumento de 7,0% e totalizou 12,5 milhões de m³ em 2023.
+
+### Etanol de Milho e Outras Biomassas
+
+A produção de etanol de milho e outras biomassas atingiu 5,86 milhões de m³ (3,53 milhões de m³ de etanol hidratado e 2,33 milhões de m³ de etanol anidro) em 2023, representando 15,8% do total produzido no Brasil.
+
+### Energia Elétrica
+
+A geração de energia elétrica no Brasil em centrais de serviço público e autoprodutores atingiu 708,1 TWh em 2023, resultado 4,6% acima de 2022.
+
+As centrais elétricas de serviço público, participaram com 79,9% da geração total. A geração hídrica, principal fonte de produção de energia elétrica no Brasil, reduziu 0,3% na comparação com o ano anterior.
+
+A autoprodução (APE) em 2023 participou com 20,1% do total produzido, considerando o agregado de todas as fontes utilizadas, atingindo um montante de 142 TWh. Desse total, 81,1 TWh não foram injetados na rede, ou seja, produzidos e consumidos pela própria instalação geradora, usualmente denominada como APE clássica. A autoprodução clássica agrega as mais diversas instalações industriais que produzem energia para consumo próprio, a exemplo dos setores de Papel e Celulose, Siderurgia, Açúcar e Álcool, Química, entre outros, além do Setor Energético. 
+
+A geração elétrica a partir de fontes não renováveis representou 11,0% do total nacional, contra 12,3% em 2022.
+
+Importações líquidas de 15,1 TWh, somadas à geração nacional, asseguraram uma oferta interna de energia elétrica de 723,2 TWh, montante 4,8% superior a 2022. O consumo final de energia elétrica foi de 616,3 TWh, uma expansão de 5,2% em comparação ao ano anterior.
+
+O gráfico 1.1.b apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
+
+```{r, echo = FALSE, fig.width=5, fig.height=2, out.width = "100%"}
+benCorrido::grafico_geracao_energia_fontes_nr(con)
+```

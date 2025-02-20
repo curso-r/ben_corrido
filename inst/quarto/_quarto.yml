@@ -5,7 +5,15 @@ profile:
   group: 
     - [pt, en]
 
+execute:
+  echo: false
+  message: false
+  warning: false
+
+number-depth: 2
+
 format:
   html:
     theme: cosmo
     smooth-scroll: true
+    

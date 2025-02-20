@@ -1,6 +1,0 @@
-# Energy Analysis and Aggregated Data
-
-```{r, echo = FALSE}
-source("R/exemplo.R")
-fazer_grafico(mtcars, xlab = "weight", ylab = "miles per gallon")
-```

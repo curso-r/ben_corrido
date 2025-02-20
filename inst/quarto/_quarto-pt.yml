@@ -1,5 +1,5 @@
 project:
-  output-dir: ./docs/pt
+  output-dir: ../pt
 
 book:
   title: "BALANÇO ENERGÉTICO NACIONAL 2024"

@@ -1,4 +1,4 @@
 /.quarto/
-/docs/
 .DS_Store
-data-raw/codigo_original/
+data-raw/
+.Rproj.user
