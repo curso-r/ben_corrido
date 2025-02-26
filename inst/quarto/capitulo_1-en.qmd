@@ -51,6 +51,6 @@ Net imports of 15.1 TWh, added to internal generation, allowed a domestic electr
 
 ```{r, fig.width=5, fig.height=2, out.width = "100%"}
 #| label: fig-geracao-energia-fontes-nr
-#| fig-cap: "Electricity generation: non-renewable sources"
+#| fig-cap: 'Electricity generation: non-renewable sources. The category "Others" includes: other non-renewables, other secondary, and coke oven gas.'
 benCorrido::grafico_geracao_energia_fontes_nr(con, lang = "en")
 ```

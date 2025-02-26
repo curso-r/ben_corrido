@@ -49,10 +49,263 @@ A geração elétrica a partir de fontes não renováveis representou 11,0% do t
 
 Importações líquidas de 15,1 TWh, somadas à geração nacional, asseguraram uma oferta interna de energia elétrica de 723,2 TWh, montante 4,8% superior a 2022. O consumo final de energia elétrica foi de 616,3 TWh, uma expansão de 5,2% em comparação ao ano anterior.
 
-A @fig-geracao-energia-fontes-nr apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
+A @fig-oferta-interna-el-fonte apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
 
 ```{r, fig.width=5, fig.height=2, out.width = "100%"}
 #| label: fig-geracao-energia-fontes-nr
-#| fig-cap: "Geração de Energia Elétrica: fontes não-renováveis"
+#| fig-cap: 'Geração de Energia Elétrica: fontes não-renováveis. A categoria "Outras" inclui: outras não renováveis, outras secundárias e gás de coqueira.'
 benCorrido::grafico_geracao_energia_fontes_nr(con)
+```
+
+```{r, fig.width=5, fig.height=3, out.width = "100%"}
+#| label: fig-oferta-interna-el-fonte
+#| fig-cap: 'Oferta interna de energia elétrica por fonte. A categoria "outras renováveis" inclui lenha, biodiesel e outras renováveis. a categoria "outras não renováveis" inclui óleo combustível, gás de coqueria, outras secundárias e outras não renováveis.'
+
+benCorrido::grafico_oferta_interna_el_fonte(con)
+```
+
+O Brasil dispõe de uma matriz elétrica de origem predominantemente renovável, com destaque para a fonte hídrica. Considerando que quase a totalidade das importações são oriundas da usina de Itaipu, a fonte hídrica participou com 58,9% da oferta interna de energia elétrica em 2023. As fontes renováveis representam 89% da oferta interna de eletricidade no Brasil, que é a resultante da soma dos montantes referentes à produção nacional mais as importações, que são essencialmente de origem renovável.
+
+O consumo final foi de 616,3 TWh, representando uma expansão de 5,2% em comparação ao ano anterior, com destaque para os setores industrial e residencial, que participaram com 36,4% e 27,5% respectivamente.
+
+Os gráficos @fig-variacao-consumo-setorial-el e @fig-crescimento-consumo-eletricidade-industria mostram as variações do consumo setorial de energia elétrica de 2023 em relação ao ano anterior.
+
+```{r, fig.width=5, fig.height=2, out.width = "100%"}
+#| label: fig-variacao-consumo-setorial-el
+#| fig-cap: 'Variação % do consumo setorial de Eletricidade.'
+
+benCorrido::grafico_variacao_consumo_setorial_el(con)
+```
+
+
+```{r, fig.width=5, fig.height=2, out.width = "100%"}
+#| label: fig-crescimento-consumo-eletricidade-industria
+#| fig-cap: 'Crescimento do consumo de eletricidade no setor indústria.'
+
+benCorrido::grafico_crescimento_consumo_eletricidade_industria(con)
+```
+
+Nota-se que os setores industrial, residencial e comercial consumiram 80,8% da energia elétrica disponibilizada no país em 2023.
+
+Em 2023, a capacidade total instalada de geração de energia elétrica do Brasil (centrais de serviço público e autoprodutoras) alcançou 199.325 MW, acréscimo de 10.198 MW, não incluída a mini e micro geração distribuída.
+
+```{r, fig.width=5, fig.height=3, out.width = "100%"}
+#| label: fig-participacao-setorial-consumo-eletricidade
+#| fig-cap: 'Participação setorial no consumo de eletricidade.'
+
+benCorrido::grafico_participacao_setorial_consumo_el(con)
+```
+
+Na expansão da capacidade instalada, as centrais eólicas contribuíram com 4.920 MW, ou seja, cerca de 48% do total adicionado.
+
+Nesta edição o BEN publica a nota técnica referente à solar térmica no Anexo VI.
+
+```{r, fig.width=5, fig.height=3, out.width = "100%"}
+#| label: fig-participacao-fontes-capacidade-instalada
+#| fig-cap: 'Participação das fontes na capacidade instalada.'
+
+benCorrido::grafico_participacao_fontes_capacidade_instalada(con)
+```
+
+### Energia Eólica
+
+A produção de eletricidade a partir da fonte eólica alcançou 95,8 TWh em 2023, equivalente a um aumento de 17,4% em relação ao ano anterior, quando se atingiu 81,6 TWh.
+
+Em 2023, a potência instalada para geração eólica no país expandiu 20,7%. Segundo o Banco de Informações da Geração (SIGA), da Agência Nacional de Energia Elétrica (ANEEL), o parque eólico nacional atingiu 28.664 MW ao final de 2023.
+
+### Micro e mini geração distribuída de energia elétrica
+
+A micro e minigeração distribuída de energia elétrica teve seu crescimento incentivado por ações regulatórias, tais como a que estabelece a possibilidade de compensação da energia excedente produzida por sistemas de menor porte (Net Metering). Em 2023, a micro e minigeração distribuída atingiu 30.950 GWh com uma potência instalada de 26.627 MW, com destaque para a fonte solar fotovoltaica, com 29.813 GWh e 26.366 MW de geração e potência instalada, respectivamente. Os detalhamentos da geração e da capacidade instalada de micro e minigeração distribuída estão expostos nas tabelas 5.5.b e 8.4.b, respectivamente.
+
+### Petróleo e Derivados
+
+A produção nacional de petróleo cresceu 12,6% em 2023, atingindo a média de 3,4 milhões de barris diários, dos quais 98% são de origem marítima. Em relação aos estados produtores, o Rio de Janeiro foi responsável pela maior parcela: 85,6% do montante anual. Já a produção terrestre, continua sendo liderada pelo Estado do Rio Grande do Norte, com 41,0% do total onshore.
+
+Pelo lado do consumo foram registrados aumentos de 1,8% de óleo diesel fóssil e de 6,9% de gasolina automotiva. O setor de transporte respondeu por 71% do consumo total energético de óleo diesel fóssil.
+
+### Gás Natural
+
+A média diária de produção do ano foi de 149,8 milhões de m³/dia e o volume de gás natural importado foi de 17,7 milhões de m³/dia. O gás natural participa com 9,6 % na matriz energética nacional.
+
+A demanda de gás natural reduziu 6,1% em relação ao ano anterior, devido principalmente ao recuo da geração de energia elétrica a gás natural que caiu 11,4% em relação ao ano anterior.
+
+O gráfico fig-consumo-gas-natural mostra a destinação do gás natural para os anos 2022 e 2023. Em 2023, 28,6% do gás consumido no país foi destinado à geração de energia elétrica. Já em 2022, esse percentual foi de 30,3%.
+
+### Carvão Vapor e Carvão Metalúrgico
+
+Na geração elétrica, o carvão utilizado é o carvão vapor, predominantemente de origem nacional, cujos estados produtores são Paraná, Santa Catarina e Rio Grande do Sul. A demanda de carvão vapor para este uso final aumentou 14,7% em relação ao ano anterior.
+
+O carvão metalúrgico destinado à produção de coque, acompanhando o movimento da siderurgia, reduziu seu consumo em 4,9%.
+
+## Dados Agregados
+
+São apresentados nesta seção as tabelas e gráficos com os dados consolidados da evolução da produção, consumo, dependência externa de energia, composição setorial do consumo de energéticos e resumo da oferta interna de energia – período 2014/2023.
+
+```{r}
+#| label: tab-producao-energia-primaria
+#| fig-cap: 'Produção de Energia Primária'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-producao-energia-primaria
+#| fig-cap: 'Produção de Energia Primária'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-oferta-interna-energia-1
+#| fig-cap: 'Oferta Interna de Energia'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-1
+#| fig-cap: 'Oferta Interna de Energia'
+
+plot(1:10)
+```
+```{r}
+#| label: tab-consumo-final-fonte
+#| fig-cap: 'Consumo Final por Fonte'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-consumo-final-fonte
+#| fig-cap: 'Consumo Final por Fonte'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-consumo-final-setor
+#| fig-cap: 'Consumo Final por Setor'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-consumo-final-setor
+#| fig-cap: 'Consumo Final por Setor'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-consumo-final-energetico-fonte
+#| fig-cap: 'Consumo Final Energético por Fonte'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: tab-consumo-final-nao-energetico-fonte
+#| fig-cap: 'Consumo Final Não Energético por Fonte'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: tab-dependencia-externa-energia
+#| fig-cap: 'Dependência Externa de Energia'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-dependencia-externa-energia
+#| fig-cap: 'Dependência Externa de Energia'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-composicao-setorial-consumo-derivados-petroleo
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-derivados-petroleo
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-composicao-setorial-consumo-eletricidade
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-eletricidade
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-composicao-setorial-consumo-carvao
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-carvao
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-composicao-setorial-consumo-final-biomassa
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-final-biomassa
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa'
+
+plot(1:10)
+```
+
+```{r}
+#| label: tab-oferta-interna-energia-2
+#| fig-cap: 'Oferta Interna de Energia'
+
+reactable::reactable(mtcars[1:10,])
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-2
+#| fig-cap: 'Oferta Interna de Energia'
+
+plot(1:10)
+```
+
+
+```{r}
+#| label: fig-fluxo-energetico
+#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023'
+
+plot(1:10)
+```
+
+
+```{r}
+#| label: fig-fluxo-energia-eletrica
+#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023'
+
+plot(1:10)
 ```
