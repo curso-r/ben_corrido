@@ -13,3 +13,26 @@
  img {
   margin-bottom: 1rem;
  }
+
+.cell-output-display:not(.no-overflow-x), .knitsql-table:not(.no-overflow-x) {
+  overflow-x: visible;
+}
+
+/* Slicker */
+
+.slick-dots {
+  margin-bottom: 24px;
+}
+
+.slick-dots > li {
+  margin-right: 16px;
+  cursor: pointer;
+  width: unset;
+  height: unset;
+  padding: 8px;
+}
+
+li.slick-active {
+  border: 1px solid black;
+  border-radius: 8px;
+}

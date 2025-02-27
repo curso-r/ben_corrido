@@ -159,37 +159,28 @@ São apresentados nesta seção as tabelas e gráficos com os dados consolidados
 ## Valor absoluto
 
 ```{r}
-#| label: tab-producao-energia-primaria-abs
-
 benCorrido::tab_producao_energia_primaria(con)
 ```
 
-
 ```{r}
-#| label: fig-producao-energia-primaria-abs
-#| fig-cap: 'Produção de Energia Primária (valores absolutos).'
-#| fig-height: 6
-#| fig-width: 8
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Absoluto")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
 
-benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
-#| label: tab-producao-energia-primaria-perc
-
 benCorrido::tab_producao_energia_primaria(con, .tipo = "Percentual")
 ```
 
 
 ```{r}
-#| label: fig-producao-energia-primaria-perc
-#| fig-cap: 'Produção de Energia Primária (valores percentuais).'
-#| fig-height: 6
-#| fig-width: 8
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Percentual")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
 
-benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
+benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
