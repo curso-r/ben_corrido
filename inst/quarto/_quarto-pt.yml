@@ -27,6 +27,8 @@ format:
       - style.css
       - style-pt.css
     smooth-scroll: true
+    grid:
+      body-width: 1400px
 
 lang: pt
 language:

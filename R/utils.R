@@ -46,6 +46,7 @@ pegar_cor <- function(x) {
     x == "Termeletricidade" ~ "#ffc000",
     x == "Comercial e Público" ~ "#FFD966",
     x == "Carvão Mineral e Derivados" ~ "#a5a5a5",
+    x == "Carvão Metalúrgico" ~ "#a5a5a5",
     x == "Hidráulica e Eletricidade" ~ "#95B3D7",
     x == "Petróleo, Gás Natural e Derivados" ~ "#0D223F",
     TRUE ~ NA_character_

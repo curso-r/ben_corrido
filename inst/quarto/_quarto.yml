@@ -12,8 +12,8 @@ execute:
 
 number-depth: 2
 
-format:
-  html:
-    theme: cosmo
-    smooth-scroll: true
-    
+knitr:
+  opts_chunk: 
+    fig-width: 5
+    fig-height: 2
+    out.width: '70%'

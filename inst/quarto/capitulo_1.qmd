@@ -51,15 +51,16 @@ Importações líquidas de 15,1 TWh, somadas à geração nacional, asseguraram 
 
 A @fig-oferta-interna-el-fonte apresenta a estrutura da oferta interna de eletricidade no Brasil em 2023.
 
-```{r, fig.width=5, fig.height=2, out.width = "100%"}
+```{r}
 #| label: fig-geracao-energia-fontes-nr
 #| fig-cap: 'Geração de Energia Elétrica: fontes não-renováveis. A categoria "Outras" inclui: outras não renováveis, outras secundárias e gás de coqueira.'
 benCorrido::grafico_geracao_energia_fontes_nr(con)
 ```
 
-```{r, fig.width=5, fig.height=3, out.width = "100%"}
+```{r}
 #| label: fig-oferta-interna-el-fonte
 #| fig-cap: 'Oferta interna de energia elétrica por fonte. A categoria "outras renováveis" inclui lenha, biodiesel e outras renováveis. a categoria "outras não renováveis" inclui óleo combustível, gás de coqueria, outras secundárias e outras não renováveis.'
+#| fig-height: 3
 
 benCorrido::grafico_oferta_interna_el_fonte(con)
 ```
@@ -70,7 +71,7 @@ O consumo final foi de 616,3 TWh, representando uma expansão de 5,2% em compara
 
 Os gráficos @fig-variacao-consumo-setorial-el e @fig-crescimento-consumo-eletricidade-industria mostram as variações do consumo setorial de energia elétrica de 2023 em relação ao ano anterior.
 
-```{r, fig.width=5, fig.height=2, out.width = "100%"}
+```{r}
 #| label: fig-variacao-consumo-setorial-el
 #| fig-cap: 'Variação % do consumo setorial de Eletricidade.'
 
@@ -78,7 +79,7 @@ benCorrido::grafico_variacao_consumo_setorial_el(con)
 ```
 
 
-```{r, fig.width=5, fig.height=2, out.width = "100%"}
+```{r}
 #| label: fig-crescimento-consumo-eletricidade-industria
 #| fig-cap: 'Crescimento do consumo de eletricidade no setor indústria.'
 
@@ -89,9 +90,10 @@ Nota-se que os setores industrial, residencial e comercial consumiram 80,8% da e
 
 Em 2023, a capacidade total instalada de geração de energia elétrica do Brasil (centrais de serviço público e autoprodutoras) alcançou 199.325 MW, acréscimo de 10.198 MW, não incluída a mini e micro geração distribuída.
 
-```{r, fig.width=5, fig.height=3, out.width = "100%"}
+```{r}
 #| label: fig-participacao-setorial-consumo-eletricidade
 #| fig-cap: 'Participação setorial no consumo de eletricidade.'
+#| fig-height: 3
 
 benCorrido::grafico_participacao_setorial_consumo_el(con)
 ```
@@ -100,9 +102,10 @@ Na expansão da capacidade instalada, as centrais eólicas contribuíram com 4.9
 
 Nesta edição o BEN publica a nota técnica referente à solar térmica no Anexo VI.
 
-```{r, fig.width=5, fig.height=3, out.width = "100%"}
+```{r}
 #| label: fig-participacao-fontes-capacidade-instalada
 #| fig-cap: 'Participação das fontes na capacidade instalada.'
+#| fig-height: 3
 
 benCorrido::grafico_participacao_fontes_capacidade_instalada(con)
 ```
@@ -129,7 +132,15 @@ A média diária de produção do ano foi de 149,8 milhões de m³/dia e o volum
 
 A demanda de gás natural reduziu 6,1% em relação ao ano anterior, devido principalmente ao recuo da geração de energia elétrica a gás natural que caiu 11,4% em relação ao ano anterior.
 
-O gráfico fig-consumo-gas-natural mostra a destinação do gás natural para os anos 2022 e 2023. Em 2023, 28,6% do gás consumido no país foi destinado à geração de energia elétrica. Já em 2022, esse percentual foi de 30,3%.
+O gráfico @fig-consumo-gas-natural mostra a destinação do gás natural para os anos 2022 e 2023. Em 2023, 28,6% do gás consumido no país foi destinado à geração de energia elétrica. Já em 2022, esse percentual foi de 30,3%.
+
+```{r}
+#| label: fig-consumo-gas-natural
+#| fig-cap: 'Consumo de gás natural'
+#| fig-height: 4
+
+benCorrido::grafico_consumo_gas_natural(con)
+```
 
 ### Carvão Vapor e Carvão Metalúrgico
 
@@ -141,19 +152,47 @@ O carvão metalúrgico destinado à produção de coque, acompanhando o moviment
 
 São apresentados nesta seção as tabelas e gráficos com os dados consolidados da evolução da produção, consumo, dependência externa de energia, composição setorial do consumo de energéticos e resumo da oferta interna de energia – período 2014/2023.
 
-```{r}
-#| label: tab-producao-energia-primaria
-#| fig-cap: 'Produção de Energia Primária'
+### Produção de Energia Primária
 
-reactable::reactable(mtcars[1:10,])
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| label: tab-producao-energia-primaria-abs
+
+benCorrido::tab_producao_energia_primaria(con)
 ```
 
-```{r}
-#| label: fig-producao-energia-primaria
-#| fig-cap: 'Produção de Energia Primária'
 
-plot(1:10)
+```{r}
+#| label: fig-producao-energia-primaria-abs
+#| fig-cap: 'Produção de Energia Primária (valores absolutos).'
+#| fig-height: 6
+#| fig-width: 8
+
+benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
 ```
+
+## Valor percentual
+
+```{r}
+#| label: tab-producao-energia-primaria-perc
+
+benCorrido::tab_producao_energia_primaria(con, .tipo = "Percentual")
+```
+
+
+```{r}
+#| label: fig-producao-energia-primaria-perc
+#| fig-cap: 'Produção de Energia Primária (valores percentuais).'
+#| fig-height: 6
+#| fig-width: 8
+
+benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
+```
+
+:::
 
 ```{r}
 #| label: tab-oferta-interna-energia-1
