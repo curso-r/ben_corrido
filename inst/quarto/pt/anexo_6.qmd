@@ -1,0 +1,13 @@
+params:
+  ano: ""
+  duckdb_path: ""
+---
+
+```{r}
+con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
+ano <- params$ano
+```
+
+```{r}
+htmltools::tags$script(src = "js/fix_slider.js")
+```

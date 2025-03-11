@@ -185,157 +185,96 @@ benCorrido::criar_carrossel(area, linha)
 
 :::
 
-```{r}
-#| label: tab-oferta-interna-energia-1
-#| fig-cap: 'Oferta Interna de Energia'
 
-reactable::reactable(mtcars[1:10,])
+<!-- Fazer visualizações abaixos -->
+
+### Oferta Interna de Energia
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_producao_energia_primaria(con)
 ```
 
 ```{r}
-#| label: fig-oferta-interna-energia-1
-#| fig-cap: 'Oferta Interna de Energia'
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Absoluto")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
 
-plot(1:10)
-```
-```{r}
-#| label: tab-consumo-final-fonte
-#| fig-cap: 'Consumo Final por Fonte'
-
-reactable::reactable(mtcars[1:10,])
+benCorrido::criar_carrossel(area, linha)
 ```
 
-```{r}
-#| label: fig-consumo-final-fonte
-#| fig-cap: 'Consumo Final por Fonte'
-
-plot(1:10)
-```
+## Valor percentual
 
 ```{r}
-#| label: tab-consumo-final-setor
-#| fig-cap: 'Consumo Final por Setor'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-consumo-final-setor
-#| fig-cap: 'Consumo Final por Setor'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-consumo-final-energetico-fonte
-#| fig-cap: 'Consumo Final Energético por Fonte'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: tab-consumo-final-nao-energetico-fonte
-#| fig-cap: 'Consumo Final Não Energético por Fonte'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: tab-dependencia-externa-energia
-#| fig-cap: 'Dependência Externa de Energia'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-dependencia-externa-energia
-#| fig-cap: 'Dependência Externa de Energia'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-composicao-setorial-consumo-derivados-petroleo
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-derivados-petroleo
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-composicao-setorial-consumo-eletricidade
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-eletricidade
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-composicao-setorial-consumo-carvao
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-carvao
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-composicao-setorial-consumo-final-biomassa
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-final-biomassa
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa'
-
-plot(1:10)
-```
-
-```{r}
-#| label: tab-oferta-interna-energia-2
-#| fig-cap: 'Oferta Interna de Energia'
-
-reactable::reactable(mtcars[1:10,])
-```
-
-```{r}
-#| label: fig-oferta-interna-energia-2
-#| fig-cap: 'Oferta Interna de Energia'
-
-plot(1:10)
+benCorrido::tab_producao_energia_primaria(con, .tipo = "Percentual")
 ```
 
 
 ```{r}
-#| label: fig-fluxo-energetico
-#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023'
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Percentual")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
 
-plot(1:10)
+benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
+
+### Consumo Final por Fonte
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_producao_energia_primaria(con)
+```
+
+```{r}
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Absoluto")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
+
+benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_producao_energia_primaria(con, .tipo = "Percentual")
 ```
 
 
 ```{r}
-#| label: fig-fluxo-energia-eletrica
-#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023'
+linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Percentual")
+area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
 
-plot(1:10)
+benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
+### Consumo Final por Setor
+
+### Consumo Final Não Energético por Fonte
+
+### Dependência Externa de Energia
+
+### Composição Setorial do Consumo de Derivados de Petróleo
+
+### Composição Setorial do Consumo de Eletricidade
+
+### Composição Setorial de Consumo de Carvão Vapor
+
+### Composição Setorial do Consumo Final de Biomassa
+
+### Oferta Interna de Energia
+
+### Fluxo Energético - BEN 2024/ano base 2023
+
+### Fluxo de Energia Elétrica - BEN 2024/ano base 2023
+
+```{r}
+htmltools::tags$script(src = "js/fix_slider.js")
 ```
