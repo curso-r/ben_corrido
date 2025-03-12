@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,43 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Anexo III — Dados Mundiais de Energia {-}
+
+Fonte: Agência Internacional de Energia (IEA)
+
+## Oferta de Energia por Fonte
+
+```{r}
+tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
+  dplyr::collect()
+
+ct_tab <- crosstalk::SharedData$new(tab)
+
+crosstalk::filter_select(
+  id = "ano",
+  label = "Ano de comparação",
+  sharedData = ct_tab,
+  group = ~ano
+)
+
+plotly::plot_ly(
+  data = ct_tab,
+  x = ~variavel,
+  y = ~valores,
+  type = "bar",
+  color = ~ano
+)
+```
+
 ```{r}
 htmltools::tags$script(src = "js/fix_slider.js")
+```
+
+## Teste
+
+```{r}
+benCorrido::create_dropdown_plot(
+  plots = c("a", "b", "c"),
+  params = c("a", "b", "c")
+)
 ```

@@ -75,4 +75,14 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_2_traduzido.rds") 
 
 DBI::dbWriteTable(con, "grafico_producao_energia_primaria", tab, overwrite = TRUE)
 
+
+# grafico_comp_oferta_energia_fonte
+
+tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_1.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_1.rds") |>
+  dplyr::select(variavel_en = variavel)
+tab <- cbind(tab, tab_en)
+DBI::dbWriteTable(con, "grafico_comp_oferta_energia_fonte", tab, overwrite = TRUE)
+
+
 DBI::dbDisconnect(con)

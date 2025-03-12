@@ -56,3 +56,63 @@ pegar_cor <- function(x) {
 sys_file <- function(x) {
   system.file(x, package = "benCorrido")
 }
+
+#' Create a dropdown plot
+#' 
+#' @export 
+create_dropdown_plot <- function(plots, params) {
+  if (length(plots) != length(params)) {
+    stop("The number of plots must match the number of parameters")
+  }
+
+  # Create a unique ID for the dropdown and plot container
+  dropdown_id <- paste0("dropdown_", sample(1:10000, 1))
+
+  # Create the dropdown HTML
+  dropdown_html <- htmltools::tags$select(
+    id = dropdown_id,
+    onchange = sprintf("updatePlot('%s')", dropdown_id)
+  )
+  for (param in params) {
+    dropdown_html <- htmltools::tagAppendChild(
+      dropdown_html,
+      htmltools::tags$option(value = param, param)
+    )
+  }
+
+  # Create the JavaScript function to update the plot
+  js_code <- sprintf("
+    <script>
+      function updatePlot(dropdown_id) {
+        var selected_param = document.getElementById(dropdown_id).value;
+        var plot_divs = document.getElementsByClassName('plot_container');
+        for (var i = 0; i < plot_divs.length; i++) {
+          plot_divs[i].style.display = 'none';
+        }
+        var plot_div = document.getElementById('plot_' + selected_param);
+        if (plot_div) {
+          plot_div.style.display = 'block';
+        }
+      }
+    </script>
+  ")
+
+  # Create the HTML for each plot
+  plot_htmls <- lapply(seq_along(plots), function(i) {
+    plot_id <- paste0("plot_", params[i])
+    plot_div <- htmltools::tags$div(
+      id = plot_id,
+      class = "plot_container",
+      style = "display: none;",
+      plots[[i]]
+    )
+    plot_div
+  })
+
+  # Combine everything into a single HTML document
+  htmltools::tagList(
+    dropdown_html,
+    htmltools::HTML(js_code),
+    plot_htmls
+  )
+}
