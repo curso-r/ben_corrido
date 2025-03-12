@@ -17,46 +17,37 @@ Fonte: Agência Internacional de Energia (IEA)
 
 ```{r}
 tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
-  dplyr::collect()
+  dplyr::collect() |>
+  dplyr::mutate(ano = as.character(ano))
 
-ct_tab <- crosstalk::SharedData$new(tab)
+anos <- unique(tab$ano)
+anos_comparacao <- sort(anos[anos != max(anos, na.rm = TRUE)])
 
-crosstalk::filter_select(
-  id = "ano",
+plots <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    tab_filtrada <- tab |> dplyr::filter(ano %in% c(.ano, max(ano, na.rm = TRUE)))
+    ggplot2::ggplot(tab_filtrada) +
+      ggplot2::geom_col(
+        ggplot2::aes(x = variavel, y = valores, fill = ano),
+        position = "dodge"
+      ) +
+      ggplot2::theme_minimal()
+  }
+)
+
+benCorrido::create_dropdown_plot(
+  plots = plots,
+  params = anos_comparacao,
   label = "Ano de comparação",
-  sharedData = ct_tab,
-  group = ~ano
+  fig_width = 11,
+  fig_height = 3,
+  dropdown_width = "200px"
 )
 
-plotly::plot_ly(
-  data = ct_tab,
-  x = ~variavel,
-  y = ~valores,
-  type = "bar",
-  color = ~ano
-)
 ```
 
 ```{r}
 htmltools::tags$script(src = "js/fix_slider.js")
 ```
 
-## Teste
-
-```{r}
-parmas <- c("wt", "cyl", "disp")
-plots <- purrr::map(
-  c("wt", "cyl", "disp"),
-  \(x) {
-    ggplot2::ggplot(mtcars) +
-      ggplot2::geom_point(ggplot2::aes(x = .data[[x]], y = mpg))
-  }
-)
-
-benCorrido::create_dropdown_plot(
-  plots = plots,
-  params = parmas,
-  label = "Ano de comparação",
-  width = "200px"
-)
-```

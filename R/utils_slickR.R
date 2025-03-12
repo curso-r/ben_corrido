@@ -1,18 +1,3 @@
-#' Transformar gráfico em SVG
-#'
-#' @export
-transformar_svg <- function(p, html = FALSE) {
-  svg <- svglite::xmlSVG(show(p), standalone = TRUE, width = 8, height = 4)
-
-  if (html) {
-    svg <- svg |>
-      as.character() |>
-      htmltools::HTML()
-  }
-
-  return(svg)
-}
-
 #' Gerar carrossel com gráficos
 #'
 #' Esta função cria um carrossel de gráficos utilizando a biblioteca `slickR`.

@@ -57,15 +57,49 @@ sys_file <- function(x) {
   system.file(x, package = "benCorrido")
 }
 
+#' Transformar gráfico em SVG
+#'
+#' @export
+transformar_svg <- function(p, width = 8, height = 4, html = FALSE) {
+  svg <- svglite::xmlSVG(
+    show(p),
+    standalone = TRUE,
+    width = width,
+    height = height
+  )
+
+  if (html) {
+    svg <- svg |>
+      as.character() |>
+      htmltools::HTML()
+  }
+
+  return(svg)
+}
+
 #' Create a dropdown plot
 #'
 #' @export
-create_dropdown_plot <- function(plots, params, label = "", width = "300px") {
+create_dropdown_plot <- function(plots, params, label = "", html = FALSE,
+                                 fig_width = 8, fig_height = 4,
+                                 dropdown_width = "300px") {
   if (length(plots) != length(params)) {
     stop("The number of plots must match the number of parameters")
   }
 
-  plots <- purrr::map(plots, \(x) transformar_svg(x, html = TRUE))
+  if (!html) {
+    plots <- purrr::map(
+      plots,
+      \(x) {
+        transformar_svg(
+          x,
+          html = TRUE,
+          width = fig_width,
+          height = fig_height
+        )
+      }
+    )
+  }
 
   # Create a unique ID for the dropdown and plot container
   dropdown_id <- paste0("dropdown_", sample(1:10000, 1))
@@ -75,7 +109,7 @@ create_dropdown_plot <- function(plots, params, label = "", width = "300px") {
     id = dropdown_id,
     class = "form-select",
     onchange = sprintf("updatePlot('%s')", dropdown_id),
-    style = glue::glue("width: {width};")
+    style = glue::glue("width: {dropdown_width};")
   )
 
   for (param in params) {
@@ -115,7 +149,7 @@ create_dropdown_plot <- function(plots, params, label = "", width = "300px") {
     plot_div <- htmltools::tags$div(
       id = plot_id,
       class = "plot_container",
-      style = glue::glue("display: {display}; width: 100%;"),
+      style = glue::glue("display: {display}; width: 100%; margin: auto"),
       plots[[i]]
     )
     plot_div
