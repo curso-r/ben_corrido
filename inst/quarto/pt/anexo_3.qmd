@@ -44,8 +44,19 @@ htmltools::tags$script(src = "js/fix_slider.js")
 ## Teste
 
 ```{r}
+parmas <- c("wt", "cyl", "disp")
+plots <- purrr::map(
+  c("wt", "cyl", "disp"),
+  \(x) {
+    ggplot2::ggplot(mtcars) +
+      ggplot2::geom_point(ggplot2::aes(x = .data[[x]], y = mpg))
+  }
+)
+
 benCorrido::create_dropdown_plot(
-  plots = c("a", "b", "c"),
-  params = c("a", "b", "c")
+  plots = plots,
+  params = parmas,
+  label = "Ano de comparação",
+  width = "200px"
 )
 ```

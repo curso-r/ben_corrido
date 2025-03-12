@@ -58,27 +58,38 @@ sys_file <- function(x) {
 }
 
 #' Create a dropdown plot
-#' 
-#' @export 
-create_dropdown_plot <- function(plots, params) {
+#'
+#' @export
+create_dropdown_plot <- function(plots, params, label = "", width = "300px") {
   if (length(plots) != length(params)) {
     stop("The number of plots must match the number of parameters")
   }
+
+  plots <- purrr::map(plots, \(x) transformar_svg(x, html = TRUE))
 
   # Create a unique ID for the dropdown and plot container
   dropdown_id <- paste0("dropdown_", sample(1:10000, 1))
 
   # Create the dropdown HTML
-  dropdown_html <- htmltools::tags$select(
+  select_html <- htmltools::tags$select(
     id = dropdown_id,
-    onchange = sprintf("updatePlot('%s')", dropdown_id)
+    class = "form-select",
+    onchange = sprintf("updatePlot('%s')", dropdown_id),
+    style = glue::glue("width: {width};")
   )
+
   for (param in params) {
-    dropdown_html <- htmltools::tagAppendChild(
-      dropdown_html,
+    select_html <- htmltools::tagAppendChild(
+      select_html,
       htmltools::tags$option(value = param, param)
     )
   }
+
+  dropdown_html <- htmltools::div(
+    class = "form-group mb-3",
+    htmltools::tags$label(label, `for` = dropdown_id),
+    select_html
+  )
 
   # Create the JavaScript function to update the plot
   js_code <- sprintf("
@@ -100,10 +111,11 @@ create_dropdown_plot <- function(plots, params) {
   # Create the HTML for each plot
   plot_htmls <- lapply(seq_along(plots), function(i) {
     plot_id <- paste0("plot_", params[i])
+    display <- ifelse(i == 1, "block", "none")
     plot_div <- htmltools::tags$div(
       id = plot_id,
       class = "plot_container",
-      style = "display: none;",
+      style = glue::glue("display: {display}; width: 100%;"),
       plots[[i]]
     )
     plot_div

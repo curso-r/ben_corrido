@@ -1,5 +1,16 @@
-transformar_svg <- function(p) {
-  svglite::xmlSVG(show(p), standalone = TRUE, width = 8, height = 4)
+#' Transformar gráfico em SVG
+#'
+#' @export
+transformar_svg <- function(p, html = FALSE) {
+  svg <- svglite::xmlSVG(show(p), standalone = TRUE, width = 8, height = 4)
+
+  if (html) {
+    svg <- svg |>
+      as.character() |>
+      htmltools::HTML()
+  }
+
+  return(svg)
 }
 
 #' Gerar carrossel com gráficos
@@ -13,9 +24,9 @@ transformar_svg <- function(p) {
 #'
 #' @examples
 #' \dontrun{
-#'   p1 <- ggplot2::qplot(mpg, wt, data = mtcars)
-#'   p2 <- ggplot2::qplot(hp, wt, data = mtcars)
-#'   gerar_carrossel(p1, p2)
+#' p1 <- ggplot2::qplot(mpg, wt, data = mtcars)
+#' p2 <- ggplot2::qplot(hp, wt, data = mtcars)
+#' gerar_carrossel(p1, p2)
 #' }
 #'
 #' @export

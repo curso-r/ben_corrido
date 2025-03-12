@@ -19,9 +19,9 @@ Esta função cria um carrossel de gráficos utilizando a biblioteca \code{slick
 }
 \examples{
 \dontrun{
-  p1 <- ggplot2::qplot(mpg, wt, data = mtcars)
-  p2 <- ggplot2::qplot(hp, wt, data = mtcars)
-  gerar_carrossel(p1, p2)
+p1 <- ggplot2::qplot(mpg, wt, data = mtcars)
+p2 <- ggplot2::qplot(hp, wt, data = mtcars)
+gerar_carrossel(p1, p2)
 }
 
 }

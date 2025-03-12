@@ -4,7 +4,7 @@
 \alias{create_dropdown_plot}
 \title{Create a dropdown plot}
 \usage{
-create_dropdown_plot(plots, params)
+create_dropdown_plot(plots, params, width = "300px")
 }
 \description{
 Create a dropdown plot
