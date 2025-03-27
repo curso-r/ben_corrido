@@ -2,6 +2,12 @@ conectar_bd <- function() {
   DBI::dbConnect(duckdb::duckdb(), "data-raw/bd_ouro.duckdb")
 }
 
+salvar_tab_bd <- function(tab, tab_name) {
+  con <- DBI::dbConnect(duckdb::duckdb(), "data-raw/bd_ouro.duckdb")
+  DBI::dbWriteTable(con, tab_name, tab, overwrite = TRUE)
+  DBI::dbDisconnect(con)
+}
+
 pegar_cor <- function(x) {
   dplyr::case_when(
     x == "Óleo Combustível" ~ "#953735",
@@ -51,6 +57,18 @@ pegar_cor <- function(x) {
     x == "Petróleo, Gás Natural e Derivados" ~ "#0D223F",
     TRUE ~ NA_character_
   )
+}
+
+pegar_locale <- function(lang) {
+  if (lang == "pt") {
+    return("pt-BR")
+  } else {
+    return(NULL)
+  }
+}
+
+determinar_menor_ano <- function(anos) {
+  max(anos) - 9
 }
 
 sys_file <- function(x) {

@@ -1,3 +1,5 @@
+# Capítulo I -------------------------------------------------------------------
+
 #' Tabela do Capítulo I
 #'
 #' @param con Conexão com o banco de dados
@@ -9,71 +11,245 @@ tab_producao_energia_primaria <- function(con, lang = "pt", .tipo = "Absoluto") 
   tab <- dplyr::tbl(con, "tab_producao_energia_primaria") |>
     dplyr::collect()
 
-  if (lang != "pt") {
-    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
-    tab$macro_grupo <- tab[[glue::glue("macro_grupo_{lang}")]]
-    locale <- NULL
-  } else {
-    locale <- "pt-BR"
-  }
-
-  ano_atual <- lubridate::year(Sys.Date())
-  casas_dec <- ifelse(.tipo == "Absoluto", 0, 1)
-
-  tab |>
-    dplyr::filter(
-      tipo_dado == .tipo,
-      ano > ano_atual - 10
-    ) |>
-    dplyr::select(macro_grupo, grupo, ano, total) |>
-    tidyr::pivot_wider(
-      names_from = ano,
-      values_from = total
-    ) |>
-    reactable::reactable(
-      striped = TRUE,
-      sortable = FALSE,
-      resizable = TRUE,
-      groupBy = "macro_grupo",
-      theme = reactable::reactableTheme(
-        borderColor = "black",
-        style = list(
-          fontSize = "85%"
-        )
-      ),
-      defaultColDef = reactable::colDef(
-        aggregate = "sum",
-        minWidth = 90,
-        format = reactable::colFormat(
-          digits = casas_dec,
-          separators = TRUE,
-          locales = locale
-        )
-      ),
-      columns = list(
-        macro_grupo = reactable::colDef(
-          name = "Renovabilidade",
-          align = "left",
-          minWidth = 100,
-          width = 220
-        ),
-        grupo = reactable::colDef(
-          aggregate = htmlwidgets::JS(""),
-          name = "Fonte",
-          align = "left",
-          minWidth = 100,
-          width = 220
-        )
-      )
-    )
-
-
-  # se tiver um parametro macro grupo, ele vai agrupar por esse macro grupo, aso
-  # contrario, ele nao vai precisar agrupar nada e vai retornar direto o grupo 'menor'.
-
-  # if(is.null(numero_de_linhas)){
-  #   linhas_na_tabela <- 10
-  # }else{
-  #   linhas_na_tabela <- numero_de_linhas
-  # }
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Renovabilidade",
+    lab2 = "Fonte",
+    min_width = 100
+  )
 }
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_oferta_interna_energia <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_oferta_interna_energia") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Renovabilidade",
+    lab2 = "Fonte",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_consumo_final_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_consumo_final_fonte") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Fontes",
+    lab2 = "Derivados",
+    lab3 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_consumo_final_setor <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_consumo_final_setor") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "Setor",
+    lab3 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_consumo_final_energetico_fonte") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "Derivados",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_consumo_final_nao_energetico_fonte") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "Derivados",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_dependencia_externa_energia") |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Identificação",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_derivados_petroleo") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_eletricidade") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Setores",
+    lab2 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_carvao_vapor") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Setores",
+    lab2 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_final_biomassa") |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Setores",
+    lab2 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo I
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo Tipo de dado
+#'
+#' @export
+tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo = "Absoluto") {
+  tab <- dplyr::tbl(con, "tab_oferta_interna_energia_2") |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    .tipo = .tipo,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+# Capítulo II -------------------------------------------------------------------

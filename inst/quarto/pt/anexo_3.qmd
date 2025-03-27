@@ -48,6 +48,6 @@ benCorrido::create_dropdown_plot(
 ```
 
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```
 
