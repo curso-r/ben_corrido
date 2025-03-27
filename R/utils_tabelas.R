@@ -7,7 +7,7 @@ tema_reactable <- function() {
   )
 }
 
-reactable_painel_simples <- function(tab, .tipo, lang, lab1, min_width = 100) {
+reactable_painel_simples <- function(tab, .tipo_dado, lang, lab1, min_width = 100) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
   }
@@ -15,11 +15,11 @@ reactable_painel_simples <- function(tab, .tipo, lang, lab1, min_width = 100) {
   locale <- pegar_locale(lang)
 
   menor_ano <- determinar_menor_ano(tab$ano)
-  casas_dec <- ifelse(.tipo == "Absoluto", 0, 1)
+  casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
   tab |>
     dplyr::filter(
-      tipo_dado == .tipo,
+      tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
     dplyr::select(grupo, ano, total) |>
@@ -53,7 +53,7 @@ reactable_painel_simples <- function(tab, .tipo, lang, lab1, min_width = 100) {
     )
 }
 
-reactable_painel_nivel_1 <- function(tab, .tipo, lang, lab1, lab2,
+reactable_painel_nivel_1 <- function(tab, .tipo_dado, lang, lab1, lab2,
                                      min_width = 100) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
@@ -63,11 +63,11 @@ reactable_painel_nivel_1 <- function(tab, .tipo, lang, lab1, lab2,
   locale <- pegar_locale(lang)
 
   menor_ano <- determinar_menor_ano(tab$ano)
-  casas_dec <- ifelse(.tipo == "Absoluto", 0, 1)
+  casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
   tab |>
     dplyr::filter(
-      tipo_dado == .tipo,
+      tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
     dplyr::select(macro_grupo, grupo, ano, total) |>
@@ -106,7 +106,7 @@ reactable_painel_nivel_1 <- function(tab, .tipo, lang, lab1, lab2,
     )
 }
 
-reactable_painel_nivel_2 <- function(tab, .tipo, lang, lab1, lab2, lab3,
+reactable_painel_nivel_2 <- function(tab, .tipo_dado, lang, lab1, lab2, lab3,
                                      min_width = 100) {
   if (lang != "pt") {
     tab$grupo_nivel_1 <- tab[[glue::glue("grupo_nivel_1_{lang}")]]
@@ -117,11 +117,11 @@ reactable_painel_nivel_2 <- function(tab, .tipo, lang, lab1, lab2, lab3,
   locale <- pegar_locale(lang)
 
   menor_ano <- determinar_menor_ano(tab$ano)
-  casas_dec <- ifelse(.tipo == "Absoluto", 0, 1)
+  casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
   tab |>
     dplyr::filter(
-      tipo_dado == .tipo,
+      tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
     dplyr::select(grupo_nivel_1, grupo_nivel_2, grupo_nivel_menor, ano, total) |>

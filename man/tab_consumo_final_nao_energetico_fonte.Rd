@@ -4,14 +4,18 @@
 \alias{tab_consumo_final_nao_energetico_fonte}
 \title{Tabela do Capítulo I}
 \usage{
-tab_consumo_final_nao_energetico_fonte(con, lang = "pt", .tipo = "Absoluto")
+tab_consumo_final_nao_energetico_fonte(
+  con,
+  lang = "pt",
+  .tipo_dado = "Absoluto"
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
 
-\item{.tipo}{Tipo de dado}
+\item{.tipo_dado}{Tipo de dado}
 }
 \description{
 Tabela do Capítulo I

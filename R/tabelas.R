@@ -4,16 +4,16 @@
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_producao_energia_primaria <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_producao_energia_primaria") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Renovabilidade",
     lab2 = "Fonte",
@@ -25,16 +25,16 @@ tab_producao_energia_primaria <- function(con, lang = "pt", .tipo = "Absoluto") 
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_oferta_interna_energia <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_oferta_interna_energia") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Renovabilidade",
     lab2 = "Fonte",
@@ -46,16 +46,16 @@ tab_oferta_interna_energia <- function(con, lang = "pt", .tipo = "Absoluto") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_consumo_final_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_consumo_final_fonte") |>
     dplyr::collect()
 
   reactable_painel_nivel_2(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Fontes",
     lab2 = "Derivados",
@@ -68,16 +68,16 @@ tab_consumo_final_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_consumo_final_setor <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_consumo_final_setor") |>
     dplyr::collect()
 
   reactable_painel_nivel_2(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Identificação",
     lab2 = "Setor",
@@ -90,16 +90,16 @@ tab_consumo_final_setor <- function(con, lang = "pt", .tipo = "Absoluto") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_consumo_final_energetico_fonte") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Fonte",
     lab2 = "Derivados",
@@ -111,16 +111,16 @@ tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo = "Absolu
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_consumo_final_nao_energetico_fonte") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Fonte",
     lab2 = "Derivados",
@@ -132,16 +132,16 @@ tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo = "Ab
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_dependencia_externa_energia") |>
     dplyr::collect()
 
   reactable_painel_simples(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Identificação",
     min_width = 220
@@ -152,16 +152,16 @@ tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo = "Absoluto"
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_derivados_petroleo") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Identificação",
     lab2 = "",
@@ -173,16 +173,16 @@ tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt",
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_eletricidade") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Setores",
     lab2 = "",
@@ -194,16 +194,16 @@ tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_carvao_vapor") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Setores",
     lab2 = "",
@@ -215,16 +215,16 @@ tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_composicao_setorial_consumo_final_biomassa") |>
     dplyr::collect()
 
   reactable_painel_nivel_1(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Setores",
     lab2 = "",
@@ -236,16 +236,16 @@ tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .ti
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo Tipo de dado
+#' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo = "Absoluto") {
+tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado = "Absoluto") {
   tab <- dplyr::tbl(con, "tab_oferta_interna_energia_2") |>
     dplyr::collect()
 
   reactable_painel_simples(
     tab = tab,
-    .tipo = .tipo,
+    .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = "Fontes",
     min_width = 220

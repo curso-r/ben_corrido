@@ -305,42 +305,26 @@ grafico_consumo_gas_natural <- function(con, lang = "pt") {
 #' @param lang Idioma
 #'
 #' @export
-grafico_producao_energia_primaria_area <- function(con, lang = "pt", .tipo = "Absoluto") {
+grafico_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
   tab <- dplyr::tbl(con, "grafico_producao_energia_primaria") |>
     dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
+    dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo == "Absoluto", "10³ tep", "%")
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
 
-  grafico_area(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
-}
-
-#' Gráfico do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#'
-#' @export
-grafico_producao_energia_primaria_linha <- function(con, lang = "pt", .tipo = "Absoluto") {
-  tab <- dplyr::tbl(con, "grafico_producao_energia_primaria") |>
-    dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
-
-  if (.tipo == "Absoluto") {
-    rotulo_y <- "10³ tep"
-  } else {
-    rotulo_y <- "%"
+  if (.tipo_grafico == "area") {
+    grafico_area(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
+  } else if (.tipo_grafico == "linha") {
+    grafico_linha(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
   }
-
-  grafico_linha(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
 }
 
 #' Gráfico do Capítulo I
@@ -349,43 +333,26 @@ grafico_producao_energia_primaria_linha <- function(con, lang = "pt", .tipo = "A
 #' @param lang Idioma
 #'
 #' @export
-grafico_oferta_interna_energia_area <- function(con, lang = "pt", .tipo = "Absoluto") {
+grafico_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
   tab <- dplyr::tbl(con, "grafico_oferta_interna_energia") |>
     dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
+    dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo == "Absoluto", "10³ tep", "%")
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
 
-  grafico_area(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
-}
-
-
-#' Gráfico do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#'
-#' @export
-grafico_oferta_interna_energia_linha <- function(con, lang = "pt", .tipo = "Absoluto") {
-  tab <- dplyr::tbl(con, "grafico_oferta_interna_energia") |>
-    dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
-
-  if (.tipo == "Absoluto") {
-    rotulo_y <- "10³ tep"
-  } else {
-    rotulo_y <- "%"
+  if (.tipo_grafico == "area") {
+    grafico_area(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
+  } else if (.tipo_grafico == "linha") {
+    grafico_linha(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
   }
-
-  grafico_linha(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
 }
 
 #' Gráfico do Capítulo I
@@ -394,41 +361,24 @@ grafico_oferta_interna_energia_linha <- function(con, lang = "pt", .tipo = "Abso
 #' @param lang Idioma
 #'
 #' @export
-grafico_consumo_final_fonte_area <- function(con, lang = "pt", .tipo = "Absoluto") {
+grafico_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
   tab <- dplyr::tbl(con, "grafico_consumo_final_fonte") |>
     dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
+    dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo == "Absoluto", "10³ tep", "%")
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
 
-  grafico_area(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
-}
-
-
-#' Gráfico do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#'
-#' @export
-grafico_consumo_final_fonte_linha <- function(con, lang = "pt", .tipo = "Absoluto") {
-  tab <- dplyr::tbl(con, "grafico_consumo_final_fonte") |>
-    dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo)
-
-  if (.tipo == "Absoluto") {
-    rotulo_y <- "10³ tep"
-  } else {
-    rotulo_y <- "%"
+  if (.tipo_grafico == "area") {
+    grafico_area(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
+  } else if (.tipo_grafico == "linha") {
+    grafico_linha(
+      tab = tab,
+      rotulo_y = rotulo_y,
+      lang = lang
+    )
   }
-
-  grafico_linha(
-    tab = tab,
-    rotulo_y = rotulo_y,
-    lang = lang
-  )
 }

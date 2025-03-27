@@ -4,14 +4,14 @@
 \alias{tab_producao_energia_primaria}
 \title{Tabela do Capítulo I}
 \usage{
-tab_producao_energia_primaria(con, lang = "pt", .tipo = "Absoluto")
+tab_producao_energia_primaria(con, lang = "pt", .tipo_dado = "Absoluto")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
 
-\item{.tipo}{Tipo de dado}
+\item{.tipo_dado}{Tipo de dado}
 }
 \description{
 Tabela do Capítulo I

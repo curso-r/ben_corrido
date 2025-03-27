@@ -161,12 +161,12 @@ São apresentados nesta seção as tabelas e gráficos com os dados consolidados
 ## Valor absoluto
 
 ```{r}
-benCorrido::tab_producao_energia_primaria(con)
+benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Absoluto")
 ```
 
 ```{r}
-linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Absoluto")
-area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Absoluto")
+linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -174,13 +174,13 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor percentual
 
 ```{r}
-benCorrido::tab_producao_energia_primaria(con, .tipo = "Percentual")
+benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Percentual")
 ```
 
 
 ```{r}
-linha <- benCorrido::grafico_producao_energia_primaria_linha(con, .tipo = "Percentual")
-area <- benCorrido::grafico_producao_energia_primaria_area(con, .tipo = "Percentual")
+linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -196,12 +196,12 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor absoluto
 
 ```{r}
-benCorrido::tab_oferta_interna_energia(con)
+benCorrido::tab_oferta_interna_energia(con, .tipo = "Absoluto")
 ```
 
 ```{r}
-linha <- benCorrido::grafico_oferta_interna_energia_linha(con, .tipo = "Absoluto")
-area <- benCorrido::grafico_oferta_interna_energia_area(con, .tipo = "Absoluto")
+linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -214,8 +214,8 @@ benCorrido::tab_oferta_interna_energia(con, .tipo = "Percentual")
 
 
 ```{r}
-linha <- benCorrido::grafico_oferta_interna_energia_linha(con, .tipo = "Percentual")
-area <- benCorrido::grafico_oferta_interna_energia_area(con, .tipo = "Percentual")
+linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -230,12 +230,12 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor absoluto
 
 ```{r}
-benCorrido::tab_consumo_final_fonte(con)
+benCorrido::tab_consumo_final_fonte(con, .tipo = "Absoluto")
 ```
 
 ```{r}
-linha <- benCorrido::grafico_consumo_final_fonte_linha(con, .tipo = "Absoluto")
-area <- benCorrido::grafico_consumo_final_fonte_area(con, .tipo = "Absoluto")
+linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -248,8 +248,8 @@ benCorrido::tab_consumo_final_fonte(con, .tipo = "Percentual")
 
 
 ```{r}
-linha <- benCorrido::grafico_consumo_final_fonte_linha(con, .tipo = "Percentual")
-area <- benCorrido::grafico_consumo_final_fonte_area(con, .tipo = "Percentual")
+linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```

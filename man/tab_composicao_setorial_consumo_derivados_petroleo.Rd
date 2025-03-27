@@ -7,7 +7,7 @@
 tab_composicao_setorial_consumo_derivados_petroleo(
   con,
   lang = "pt",
-  .tipo = "Absoluto"
+  .tipo_dado = "Absoluto"
 )
 }
 \arguments{
@@ -15,7 +15,7 @@ tab_composicao_setorial_consumo_derivados_petroleo(
 
 \item{lang}{Idioma}
 
-\item{.tipo}{Tipo de dado}
+\item{.tipo_dado}{Tipo de dado}
 }
 \description{
 Tabela do Capítulo I
