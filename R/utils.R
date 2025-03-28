@@ -30,7 +30,7 @@ pegar_cor <- function(x) {
     x == "Comercial" ~ "#FFD966",
     x == "Público" ~ "#95B3D7",
     x == "Setor Energético" ~ "#70AD47",
-    x == "Agropecuário" ~ "#C4BD97",
+    x == "Agropecuário" ~ "#997300",
     x == "Transportes" ~ "#953735",
     x == "Hidro" ~ "#95B3D7",
     x == "Não Renovável" ~ "#7F7F7F",

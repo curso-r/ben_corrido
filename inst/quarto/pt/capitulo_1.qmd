@@ -352,6 +352,10 @@ benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual")
 :::
 
 ```{r}
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: 'Dependência externa de energia.'
+#| label: fig-dependencia-externa-energia
 benCorrido::grafico_dependencia_externa_energia(con)
 ```
 
@@ -541,6 +545,8 @@ benCorrido::grafico_sankey_fluxo_energetico(con)
 ### Fluxo de Energia Elétrica - BEN 2024/ano base 2023
 
 ```{r}
+#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023'
+#| label: fig-fluxo-energia-eletrica
 benCorrido::grafico_sankey_fluxo_eletrico(con)
 ```
 

@@ -119,6 +119,7 @@ grafico_sunkey <- function(tab, sufixo) {
     orientation = "h",
     valueformat = ".0f",
     valuesuffix = sufixo,
+    height = 400,
     node = list(
       label = tab_nos$nome,
       pad = 15,
@@ -127,21 +128,20 @@ grafico_sunkey <- function(tab, sufixo) {
         color = "black",
         width = 0.5
       ),
-      hovertemplate = str_glue("{tab_nos$nome}<extra></extra>")
+      hovertemplate = stringr::str_glue("{tab_nos$nome}<extra></extra>")
     ),
     link = list(
       source = tab_id$id_origem,
       target = tab_id$id_destino,
       value = tab_id$valor,
-      label = str_glue("{tab_id$origem} -> {tab_id$destino}<br>{tab_id$valor |> number(accuracy = 0.1, big.mark = '.')} - {tab_id$rotulo_percentual}"),
+      label = stringr::str_glue("{tab_id$origem} -> {tab_id$destino}<br>{tab_id$numero} - {tab_id$rotulo_percentual}"),
       hovertemplate = "%{label}<extra></extra>"
     )
   ) |>
     plotly::layout(
       title = "",
-      heigth = altura_diagrama,
       font = list(
-        size = tamanho_fonte
+        size = 12
       ),
       xaxis = list(showgrid = F, zeroline = F),
       yaxis = list(showgrid = F, zeroline = F)
