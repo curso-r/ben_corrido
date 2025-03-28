@@ -78,3 +78,72 @@ grafico_area <- function(tab, rotulo_y, lang) {
       labels = scales::number_format(decimal.mark = ".")
     )
 }
+
+grafico_sunkey <- function(tab, sufixo) {
+  tab_nos <- tab |>
+    dplyr::select(nome = origem, ordem) |>
+    dplyr::bind_rows(
+      tab |>
+        dplyr::select(nome = destino, ordem)
+    ) |>
+    dplyr::group_by(
+      nome
+    ) |>
+    dplyr::summarise(
+      ordem = min(ordem)
+    ) |>
+    dplyr::arrange(
+      ordem
+    ) |>
+    dplyr::mutate(
+      id_no = dplyr::row_number() - 1
+    )
+
+
+  tab_id <- tab |>
+    dplyr::left_join(
+      tab_nos |> dplyr::rename(id_origem = id_no),
+      by = c("origem" = "nome")
+    ) |>
+    dplyr::left_join(
+      tab_nos |> dplyr::rename(id_destino = id_no),
+      by = c("destino" = "nome")
+    ) |>
+    dplyr::mutate(
+      numero = scales::number(valor, accuracy = 1, big.mark = ".", decimal.mark = ","),
+      legenda = stringr::str_glue("{origem} -> {destino}:<br>{numero} - {rotulo_percentual}<extra></extra>")
+    )
+
+  plotly::plot_ly(
+    type = "sankey",
+    orientation = "h",
+    valueformat = ".0f",
+    valuesuffix = sufixo,
+    node = list(
+      label = tab_nos$nome,
+      pad = 15,
+      thickness = 15,
+      line = list(
+        color = "black",
+        width = 0.5
+      ),
+      hovertemplate = str_glue("{tab_nos$nome}<extra></extra>")
+    ),
+    link = list(
+      source = tab_id$id_origem,
+      target = tab_id$id_destino,
+      value = tab_id$valor,
+      label = str_glue("{tab_id$origem} -> {tab_id$destino}<br>{tab_id$valor |> number(accuracy = 0.1, big.mark = '.')} - {tab_id$rotulo_percentual}"),
+      hovertemplate = "%{label}<extra></extra>"
+    )
+  ) |>
+    plotly::layout(
+      title = "",
+      heigth = altura_diagrama,
+      font = list(
+        size = tamanho_fonte
+      ),
+      xaxis = list(showgrid = F, zeroline = F),
+      yaxis = list(showgrid = F, zeroline = F)
+    )
+}

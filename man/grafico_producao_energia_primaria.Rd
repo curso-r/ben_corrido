@@ -10,6 +10,10 @@ grafico_producao_energia_primaria(con, lang = "pt", .tipo_dado, .tipo_grafico)
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{.tipo_dado}{Tipo de dado}
+
+\item{.tipo_grafico}{Tipo de gráfico}
 }
 \description{
 Gráfico do Capítulo I

@@ -112,6 +112,176 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_4_traduzido.rds") 
 
 salvar_tab_bd(tab, "grafico_consumo_final_fonte")
 
+
+# grafico_consumo_final_setor
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_5_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_1)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_5_traduzido.rds") |>
+  dplyr::select(
+    grupo = grupo_nivel_1,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Consumo Final Não-Energético", "Transportes", "Industrial", "Residencial", "Setor Energético", "Agropecuário"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_consumo_final_setor")
+
+
+# grafico_dependencia_externa_energia
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_8_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_8_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(tipo_dado == "Percentual") |>
+  dplyr::select(
+    grupo,
+    grupo_en,
+    ano,
+    total
+  )
+
+salvar_tab_bd(tab, "grafico_dependencia_externa_energia")
+
+# grafico_composicao_setorial_consumo_derivados_petroleo
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_9_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_9_traduzido.rds") |>
+  dplyr::select(
+    grupo,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Consumo Final Não-Energético", "Transportes", "Industrial", "Residencial", "Setor Energético", "Agropecuário"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_derivados_petroleo")
+
+# grafico_composicao_setorial_consumo_eletricidade
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_10_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_10_traduzido.rds") |>
+  dplyr::select(
+    grupo,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Transportes", "Comercial", "Público", "Industrial", "Residencial", "Setor Energético", "Agropecuário"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_eletricidade")
+
+# grafico_composicao_setorial_consumo_carvao_vapor
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_11_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_11_traduzido.rds") |>
+  dplyr::select(
+    grupo,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Termeletricidade", "Industrial", "Outros Setores"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_carvao_vapor")
+
+
+# grafico_composicao_setorial_consumo_biomassa
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_12_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_12_traduzido.rds") |>
+  dplyr::select(
+    grupo = macro_grupo,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Agropecuário", "Industrial", "Residencial", "Setor Energético", "Transportes", "Comercial e Público"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_biomassa")
+
+# grafico_oferta_interna_energia
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_13_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_13_traduzido.rds") |>
+  dplyr::select(
+    grupo,
+    ano,
+    tipo_dado,
+    total
+  ) |>
+  dplyr::bind_cols(tab_en)
+
+salvar_tab_bd(tab, "grafico_oferta_interna_energia")
+
+# grafico_sankey_fluxo_energetico
+
+source("inst/scripts/gerar_fluxo_energetico.R")
+salvar_tab_bd(grafico_sankey_fluxo_energetico, "grafico_sankey_fluxo_energetico")
+
+# grafico_sankey_fluxo_eletrico
+
+source("inst/scripts/gerar_fluxo_energetico.R")
+salvar_tab_bd(grafico_sankey_fluxo_eletrico, "grafico_sankey_fluxo_eletrico")
+
+
 # grafico_comp_oferta_energia_fonte
 
 tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_1.rds")
