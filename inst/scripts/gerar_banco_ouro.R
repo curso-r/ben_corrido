@@ -207,11 +207,11 @@ salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_eletricidade")
 
 # grafico_composicao_setorial_consumo_carvao_vapor
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_11_traduzido.rds") |>
-  dplyr::select(grupo_en = grupo)
+  dplyr::select(grupo_en = macro_grupo)
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_11_traduzido.rds") |>
   dplyr::select(
-    grupo,
+    grupo = macro_grupo,
     ano,
     tipo_dado,
     total

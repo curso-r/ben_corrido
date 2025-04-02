@@ -1,5 +1,5 @@
 project:
-  output-dir: ../pt
+  output-dir: ../livro
 
 book:
   title: "BALANÇO ENERGÉTICO NACIONAL 2024"
@@ -9,17 +9,17 @@ book:
     search: true
     right:
       - text: "Inglês"
-        href: ../en/index.html
+        href: ../book/index.html
   chapters:
     - text: Sobre
       href: index.qmd
-    - autoria.qmd
+    - pt/autoria.qmd
     - pt/capitulo_1.qmd
-    - pt/anexo_3.qmd
+    # - pt/anexo_3.qmd
     - text: Referências
-      href: referencias.qmd
+      href: pt/referencias.qmd
 
-bibliography: referencias.bib
+bibliography: pt/referencias.bib
 
 format:
   html:
@@ -31,6 +31,6 @@ format:
     grid:
       body-width: 1400px
 
-lang: pt
+lang: pt-BR
 language:
   crossref-ch-prefix: "Capítulo"

@@ -1,5 +1,5 @@
 project:
-  output-dir: ../en
+  output-dir: ../book
 
 book:
   title: "2024 BRAZILIAN ENERGY BALANCE"
@@ -9,14 +9,14 @@ book:
     search: true
     right:
       - text: "Portuguese"
-        href: ../pt/index.html
+        href: ../livro/index.html
   chapters:
     - text: About
       href: index.qmd
-    - autoria-en.qmd
+    - en/autoria-en.qmd
     - en/capitulo_1.qmd
     - text: References
-      href: referencias.qmd
+      href: en/referencias.qmd
 
 bibliography: referencias-en.bib
 

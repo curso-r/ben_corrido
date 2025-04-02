@@ -7,7 +7,7 @@ tema_reactable <- function() {
   )
 }
 
-reactable_painel_simples <- function(tab, .tipo_dado, lang, lab1, min_width = 100) {
+reactable_painel_simples <- function(tab, tab_name, .tipo_dado, lang, lab1, min_width = 100) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
   }
@@ -17,16 +17,23 @@ reactable_painel_simples <- function(tab, .tipo_dado, lang, lab1, min_width = 10
   menor_ano <- determinar_menor_ano(tab$ano)
   casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
-  tab |>
+  tab_long <- tab |>
     dplyr::filter(
       tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
-    dplyr::select(grupo, ano, total) |>
+    dplyr::select(grupo, ano, total)
+
+  tab_wide <- tab_long |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
-    ) |>
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = .tipo_dado)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = .tipo_dado)
+
+  tab_wide |>
     reactable::reactable(
       striped = TRUE,
       sortable = FALSE,
@@ -53,7 +60,7 @@ reactable_painel_simples <- function(tab, .tipo_dado, lang, lab1, min_width = 10
     )
 }
 
-reactable_painel_nivel_1 <- function(tab, .tipo_dado, lang, lab1, lab2,
+reactable_painel_nivel_1 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2,
                                      min_width = 100) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
@@ -65,16 +72,23 @@ reactable_painel_nivel_1 <- function(tab, .tipo_dado, lang, lab1, lab2,
   menor_ano <- determinar_menor_ano(tab$ano)
   casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
-  tab |>
+  tab_long <- tab |>
     dplyr::filter(
       tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
-    dplyr::select(macro_grupo, grupo, ano, total) |>
+    dplyr::select(macro_grupo, grupo, ano, total)
+
+  tab_wide <- tab_long |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
-    ) |>
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = .tipo_dado)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = .tipo_dado)
+
+  tab_wide |>
     reactable::reactable(
       striped = TRUE,
       sortable = FALSE,
@@ -106,7 +120,7 @@ reactable_painel_nivel_1 <- function(tab, .tipo_dado, lang, lab1, lab2,
     )
 }
 
-reactable_painel_nivel_2 <- function(tab, .tipo_dado, lang, lab1, lab2, lab3,
+reactable_painel_nivel_2 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2, lab3,
                                      min_width = 100) {
   if (lang != "pt") {
     tab$grupo_nivel_1 <- tab[[glue::glue("grupo_nivel_1_{lang}")]]
@@ -119,16 +133,23 @@ reactable_painel_nivel_2 <- function(tab, .tipo_dado, lang, lab1, lab2, lab3,
   menor_ano <- determinar_menor_ano(tab$ano)
   casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
 
-  tab |>
+  tab_long <- tab |>
     dplyr::filter(
       tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
-    dplyr::select(grupo_nivel_1, grupo_nivel_2, grupo_nivel_menor, ano, total) |>
+    dplyr::select(grupo_nivel_1, grupo_nivel_2, grupo_nivel_menor, ano, total)
+
+  tab_wide <- tab_long |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
-    ) |>
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = .tipo_dado)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = .tipo_dado)
+
+  tab_wide |>
     reactable::reactable(
       striped = TRUE,
       resizable = TRUE,

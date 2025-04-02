@@ -162,6 +162,7 @@ São apresentados nesta seção as tabelas e gráficos com os dados consolidados
 
 ```{r}
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
@@ -175,8 +176,8 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Percentual")
 ```
-
 
 ```{r}
 linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
@@ -197,6 +198,7 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
@@ -210,8 +212,8 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Percentual")
 ```
-
 
 ```{r}
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
@@ -231,6 +233,7 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
@@ -244,6 +247,7 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Percentual")
 ```
 
 
@@ -266,6 +270,7 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_consumo_final_setor(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
@@ -279,6 +284,7 @@ area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .t
 
 ```{r}
 benCorrido::tab_consumo_final_setor(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Percentual")
 ```
 
 
@@ -301,12 +307,14 @@ area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", 
 
 ```{r}
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual")
 ```
 
 :::
@@ -321,12 +329,14 @@ benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual")
 
 ```{r}
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual")
 ```
 
 :::
@@ -341,12 +351,14 @@ benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual")
 
 ```{r}
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual")
 ```
 
 :::
@@ -369,6 +381,7 @@ benCorrido::grafico_dependencia_externa_energia(con)
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
@@ -382,6 +395,7 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Percentual")
 ```
 
 
@@ -404,19 +418,21 @@ benCorrido::criar_carrossel(area, linha)
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
 linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Percentual")
 ```
 
 
@@ -424,7 +440,7 @@ benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentua
 linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
@@ -439,19 +455,21 @@ area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
 linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Percentual")
 ```
 
 
@@ -459,7 +477,7 @@ benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentua
 linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
@@ -474,19 +492,21 @@ area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
 linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Percentual")
 ```
 
 
@@ -494,7 +514,7 @@ benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percent
 linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
@@ -509,19 +529,21 @@ area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado
 
 ```{r}
 benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
 benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Percentual")
 ```
 
 

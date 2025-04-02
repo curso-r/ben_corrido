@@ -41,3 +41,7 @@ li.slick-active {
   display: block;
   margin: auto;
 }
+
+.download a {
+  text-decoration: none;
+}

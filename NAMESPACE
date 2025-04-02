@@ -2,6 +2,7 @@
 
 export(create_dropdown_plot)
 export(criar_carrossel)
+export(gerar_botoes_download)
 export(grafico_composicao_setorial_consumo_biomassa)
 export(grafico_composicao_setorial_consumo_carvao_vapor)
 export(grafico_composicao_setorial_consumo_derivados_petroleo)
