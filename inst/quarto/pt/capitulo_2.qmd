@@ -8,6 +8,115 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Oferta e Demanda de Energia por Fonte
+
+##  Total de Fontes Primárias
+
+## Estrutura do Consumo de Fontes Primárias
+
+## Fontes Primárias
+
+## Petróleo
+
+## Gás Natural
+
+## Estrutura do Consumo de Gás Natural
+
+## Carvão Vapor
+
+## Carvão Metalúrgico
+
+## Energia Hidráulica
+
+## Transformação da Energia Hidráulica
+
+## Energia Eólica
+
+## Energia Solar Fotovoltaica
+
+## Energia Solar Térmica
+
+## Consumo Final da Energia Solar Térmica por Setor
+
+## Urânio (U₃O₈)
+
+## Lenha
+
+## Estrutura do Consumo de Lenha
+
+## Caldo de Cana
+
+## Melaço
+
+## Bagaço de Cana
+
+## Estrutura do Consumo de Bagaço-de-Cana
+
+## Lixívia
+
+## Outras Fontes Primárias
+
+## Estrutura do Consumo de Outras Fontes Primárias
+
+## Total de Fontes Secundárias
+
+## Estrutura do Consumo de Fontes Secundárias
+
+## Fontes Secundárias
+
+## Derivados de Petróleo e de Gás Natural
+
+## Estrutura de Consumo de Derivados de Petróleo e de Gás Natural
+
+## Óleo Diesel Total
+
+## Diesel de Petróleo
+
+## Biodiesel
+
+## Óleo Combustível
+
+## Gasolina
+
+## Gás Liquefeito de Petróleo – GLP
+
+## Nafta
+
+## Estrutura do Consumo de Nafta
+
+## Fluxo da Nafta
+
+## Coque de Carvão Mineral
+
+## Querosene
+
+## Gás de Cidade
+
+## Estrutura do Consumo de Gás de Coqueria
+
+## Eletricidade
+
+## Consumo Final de Eletricidade por Setor
+
+## Carvão Vegetal
+
+## Álcool Etílico Total
+
+## Estrutura de Consumo do Álcool Etílico
+
+## Álcool Anidro
+
+## Álcool Hidratado
+
+## Outras Secundárias de Petróleo
+
+## Alcatrão
+
+## Produtos Não Energéticos de Petróleo
+
+
+![](../img/capas/imagem_cap_2.png)
+
 ```{r}
 htmltools::tags$script(src = "js/fix_slider.js")
 ```
