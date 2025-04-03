@@ -96,23 +96,58 @@ benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absolut
 
 ## Lenha
 
+```{r}
+benCorrido::tab_lenha(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_lenha", .tipo_dado = "Absoluto")
+```
+
 ## Estrutura do Consumo de Lenha
 
 ## Caldo de Cana
 
+```{r}
+benCorrido::tab_caldo_cana(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_caldo_cana", .tipo_dado = "Absoluto")
+```
+
 ## Melaço
 
+```{r}
+benCorrido::tab_melaco(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_melaco", .tipo_dado = "Absoluto")
+```
+
 ## Bagaço de Cana
+
+```{r}
+benCorrido::tab_bagaco_cana(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Bagaço-de-Cana
 
 ## Lixívia
 
+```{r}
+benCorrido::tab_lixivia(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_lixivia", .tipo_dado = "Absoluto")
+```
+
 ## Outras Fontes Primárias
+
+```{r}
+benCorrido::tab_outras_fontes_primarias(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_outras_fontes_primarias", .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Outras Fontes Primárias
 
 ## Total de Fontes Secundárias
+
+```{r}
+benCorrido::tab_total_fontes_secundarias(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_secundarias", .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Fontes Secundárias
 
@@ -120,21 +155,66 @@ benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absolut
 
 ## Derivados de Petróleo e de Gás Natural
 
+```{r}
+benCorrido::tab_derivados_petroleo_e_gas_natural(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natural", .tipo_dado = "Absoluto")
+```
+
 ## Estrutura de Consumo de Derivados de Petróleo e de Gás Natural
+
+```{r}
+benCorrido::tab_derivados_petroleo_e_gas_natural(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natural", .tipo_dado = "Absoluto")
+```
 
 ## Óleo Diesel Total
 
+```{r}
+benCorrido::tab_oleo_diesel_total(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oleo_diesel_total", .tipo_dado = "Absoluto")
+```
+
 ## Diesel de Petróleo
+
+```{r}
+benCorrido::tab_diesel_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_diesel_petroleo", .tipo_dado = "Absoluto")
+```
 
 ## Biodiesel
 
+```{r}
+benCorrido::tab_biodiesel(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_biodiesel", .tipo_dado = "Absoluto")
+```
+
 ## Óleo Combustível
+
+```{r}
+benCorrido::tab_oleo_combustivel(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oleo_combustivel", .tipo_dado = "Absoluto")
+```
 
 ## Gasolina
 
+```{r}
+benCorrido::tab_gasolina(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_gasolina", .tipo_dado = "Absoluto")
+```
+
 ## Gás Liquefeito de Petróleo – GLP
 
+```{r}
+benCorrido::tab_gas_liquefeito_de_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_gas_liquefeito_de_petroleo", .tipo_dado = "Absoluto")
+```
+
 ## Nafta
+
+```{r}
+benCorrido::tab_nafta(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_nafta", .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Nafta
 
@@ -142,35 +222,28 @@ benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absolut
 
 ## Coque de Carvão Mineral
 
+```{r}
+benCorrido::tab_coque_carvao_mineral(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_coque_carvao_mineral", .tipo_dado = "Absoluto")
+```
+
 ## Querosene
+
+```{r}
+benCorrido::tab_querosene(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_querosene", .tipo_dado = "Absoluto")
+```
 
 ## Gás de Cidade
 
-## Estrutura do Consumo de Gás de Coqueria
+```{r}
+benCorrido::tab_gas_cidade(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_gas_cidade", .tipo_dado = "Absoluto")
+```
 
-## Eletricidade
-
-## Consumo Final de Eletricidade por Setor
-
-## Carvão Vegetal
-
-## Álcool Etílico Total
-
-## Estrutura de Consumo do Álcool Etílico
-
-## Álcool Anidro
-
-## Álcool Hidratado
-
-## Outras Secundárias de Petróleo
-
-## Alcatrão
-
-## Produtos Não Energéticos de Petróleo
-
-
-![](../img/capas/imagem_cap_2.png)
+## Gás de Coqueira
 
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+benCorrido::tab_gas_coqueira(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_gas_coqueira", .tipo_dado = "Absoluto")
 ```
