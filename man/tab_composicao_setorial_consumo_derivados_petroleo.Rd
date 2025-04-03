@@ -7,7 +7,7 @@
 tab_composicao_setorial_consumo_derivados_petroleo(
   con,
   lang = "pt",
-  .tipo_dado = "Absoluto"
+  .tipo_dado
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{tab_oferta_interna_energia}
 \title{Tabela do Capítulo I}
 \usage{
-tab_oferta_interna_energia(con, lang = "pt", .tipo_dado = "Absoluto")
+tab_oferta_interna_energia(con, lang = "pt", .tipo_dado)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

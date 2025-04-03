@@ -4,7 +4,7 @@
 \alias{tab_consumo_final_energetico_fonte}
 \title{Tabela do Capítulo I}
 \usage{
-tab_consumo_final_energetico_fonte(con, lang = "pt", .tipo_dado = "Absoluto")
+tab_consumo_final_energetico_fonte(con, lang = "pt", .tipo_dado)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

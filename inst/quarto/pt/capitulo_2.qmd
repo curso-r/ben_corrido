@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -10,7 +11,14 @@ ano <- params$ano
 
 # Oferta e Demanda de Energia por Fonte
 
+![](../img/capas/imagem_cap_2.png)
+
+
 ##  Total de Fontes Primárias
+
+```{r}
+benCorrido::tab_total_fontes_primarias(con, .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Fontes Primárias
 
@@ -18,27 +26,63 @@ ano <- params$ano
 
 ## Petróleo
 
+```{r}
+benCorrido::tab_petroleo(con, .tipo_dado = "Absoluto")
+```
+
 ## Gás Natural
+
+```{r}
+benCorrido::tab_gas_natural(con, .tipo_dado = "Absoluto")
+```
 
 ## Estrutura do Consumo de Gás Natural
 
 ## Carvão Vapor
 
+```{r}
+benCorrido::tab_carvao_vapor(con, .tipo_dado = "Absoluto")
+```
+
 ## Carvão Metalúrgico
 
+```{r}
+benCorrido::tab_carvao_metalurgico(con, .tipo_dado = "Absoluto")
+```
+
 ## Energia Hidráulica
+
+```{r}
+benCorrido::tab_energia_hidraulica(con, .tipo_dado = "Absoluto")
+```
 
 ## Transformação da Energia Hidráulica
 
 ## Energia Eólica
 
+```{r}
+benCorrido::tab_energia_eolica(con, .tipo_dado = "Absoluto")
+```
+
 ## Energia Solar Fotovoltaica
 
+```{r}
+benCorrido::tab_energia_solar_fotovoltaica(con, .tipo_dado = "Absoluto")
+```
+
 ## Energia Solar Térmica
+
+```{r}
+benCorrido::tab_energia_solar_termica(con, .tipo_dado = "Absoluto")
+```
 
 ## Consumo Final da Energia Solar Térmica por Setor
 
 ## Urânio (U₃O₈)
+
+```{r}
+benCorrido::tab_uranio(con, .tipo_dado = "Absoluto")
+```
 
 ## Lenha
 

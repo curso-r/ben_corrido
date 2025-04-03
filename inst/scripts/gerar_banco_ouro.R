@@ -294,6 +294,8 @@ salvar_tab_bd(tab, "grafico_comp_oferta_energia_fonte")
 
 # Tabelas ---------------------------------------------------------------------
 
+# CAPÍTULO 1
+
 # tab_producao_energia_primaria
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_2_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_2_traduzido.rds") |>
@@ -393,3 +395,124 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_13_traduzido.rd
 
 tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_oferta_interna_energia_2")
+
+# CAPÍTULO 2
+
+# tab_total_fontes_primarias
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_3_en = grupo_nivel_3,
+    grupo_nivel_4_en = grupo_nivel_4,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_total_fontes_primarias")
+
+# tab_petroleo
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_petroleo")
+
+# tab_gas_natural
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_3_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_3_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_3_en = grupo_nivel_3,
+    grupo_nivel_4_en = grupo_nivel_4,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_gas_natural")
+
+# tab_carvao_vapor
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_4_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_4_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_3_en = grupo_nivel_3,
+    grupo_nivel_4_en = grupo_nivel_4,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_carvao_vapor")
+
+# tab_carvao_metalurgico
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_5_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_5_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_carvao_metalurgico")
+
+# tab_energia_hidraulica
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_6_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_6_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_energia_hidraulica")
+
+# tab_energia_eolica
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_7_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_energia_eolica")
+
+# tab_energia_solar_fotovoltaica
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_8_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_8_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_energia_solar_fotovoltaica")
+
+# tab_energia_solar_termica
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_9_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_9_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_energia_solar_termica")
+
+# tab_uranio
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_10_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_10_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_uranio")

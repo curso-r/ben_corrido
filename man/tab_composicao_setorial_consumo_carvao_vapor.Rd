@@ -4,11 +4,7 @@
 \alias{tab_composicao_setorial_consumo_carvao_vapor}
 \title{Tabela do Capítulo I}
 \usage{
-tab_composicao_setorial_consumo_carvao_vapor(
-  con,
-  lang = "pt",
-  .tipo_dado = "Absoluto"
-)
+tab_composicao_setorial_consumo_carvao_vapor(con, lang = "pt", .tipo_dado)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

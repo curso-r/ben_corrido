@@ -4,7 +4,7 @@
 \alias{tab_dependencia_externa_energia}
 \title{Tabela do Capítulo I}
 \usage{
-tab_dependencia_externa_energia(con, lang = "pt", .tipo_dado = "Absoluto")
+tab_dependencia_externa_energia(con, lang = "pt", .tipo_dado)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
