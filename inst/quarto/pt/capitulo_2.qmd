@@ -18,6 +18,7 @@ ano <- params$ano
 
 ```{r}
 benCorrido::tab_total_fontes_primarias(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo_dado = "Absoluto")
 ```
 
 ## Estrutura do Consumo de Fontes Primárias
@@ -28,12 +29,14 @@ benCorrido::tab_total_fontes_primarias(con, .tipo_dado = "Absoluto")
 
 ```{r}
 benCorrido::tab_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_petroleo", .tipo_dado = "Absoluto")
 ```
 
 ## Gás Natural
 
 ```{r}
 benCorrido::tab_gas_natural(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_gas_natural", .tipo_dado = "Absoluto")
 ```
 
 ## Estrutura do Consumo de Gás Natural
@@ -42,18 +45,21 @@ benCorrido::tab_gas_natural(con, .tipo_dado = "Absoluto")
 
 ```{r}
 benCorrido::tab_carvao_vapor(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vapor", .tipo_dado = "Absoluto")
 ```
 
 ## Carvão Metalúrgico
 
 ```{r}
 benCorrido::tab_carvao_metalurgico(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvao_metalurgico", .tipo_dado = "Absoluto")
 ```
 
 ## Energia Hidráulica
 
 ```{r}
 benCorrido::tab_energia_hidraulica(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_energia_hidraulica", .tipo_dado = "Absoluto")
 ```
 
 ## Transformação da Energia Hidráulica
@@ -62,18 +68,21 @@ benCorrido::tab_energia_hidraulica(con, .tipo_dado = "Absoluto")
 
 ```{r}
 benCorrido::tab_energia_eolica(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_energia_eolica", .tipo_dado = "Absoluto")
 ```
 
 ## Energia Solar Fotovoltaica
 
 ```{r}
 benCorrido::tab_energia_solar_fotovoltaica(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_fotovoltaica", .tipo_dado = "Absoluto")
 ```
 
 ## Energia Solar Térmica
 
 ```{r}
 benCorrido::tab_energia_solar_termica(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_termica", .tipo_dado = "Absoluto")
 ```
 
 ## Consumo Final da Energia Solar Térmica por Setor
@@ -82,6 +91,7 @@ benCorrido::tab_energia_solar_termica(con, .tipo_dado = "Absoluto")
 
 ```{r}
 benCorrido::tab_uranio(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absoluto")
 ```
 
 ## Lenha
