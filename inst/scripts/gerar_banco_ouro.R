@@ -1,5 +1,7 @@
 # Gráficos ---------------------------------------------------------------------
 
+# CAPÍTULO 1
+
 # grafico_geracao_energia_fontes_nr
 tab <- readr::read_rds("data-raw/rds/pt/dados_agregados_1_1_a_tratados.rds")
 tab_en <- readr::read_rds("data-raw/rds/en/dados_agregados_1_1_a_tratados.rds") |>
@@ -86,7 +88,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_3_traduzido.rds") 
 
 salvar_tab_bd(tab, "grafico_oferta_interna_energia")
 
-
 # grafico_consumo_final_fonte
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_4_traduzido.rds") |>
   dplyr::select(grupo_en = grupo_nivel_1)
@@ -112,7 +113,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_4_traduzido.rds") 
 
 salvar_tab_bd(tab, "grafico_consumo_final_fonte")
 
-
 # grafico_consumo_final_setor
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_5_traduzido.rds") |>
   dplyr::select(grupo_en = grupo_nivel_menor)
@@ -137,7 +137,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_5_traduzido.rds") 
   dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_consumo_final_setor")
-
 
 # grafico_dependencia_externa_energia
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_8_traduzido.rds") |>
@@ -230,7 +229,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_11_traduzido.rds")
 
 salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_carvao_vapor")
 
-
 # grafico_composicao_setorial_consumo_biomassa
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_12_traduzido.rds") |>
   dplyr::select(grupo_en = macro_grupo)
@@ -290,6 +288,48 @@ tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_1.rds") |>
 tab <- cbind(tab, tab_en)
 
 salvar_tab_bd(tab, "grafico_comp_oferta_energia_fonte")
+
+# CAPÍTULO 2
+
+# grafico_estrutura_consumo_fontes_primarias
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |> 
+  dplyr::select(grupo_en = grupo_nivel_2)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(grupo %in% c("Transformação", "Consumo Final")) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |> 
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_estrutura_consumo_fontes_primarias")
+
+# grafico_fontes_primarias
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |> 
+  dplyr::select(grupo_en = grupo_nivel_1)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_1, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(grupo %in% c("Produção", "Consumo Total")) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |> 
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_fontes_primarias")
 
 
 # Tabelas ---------------------------------------------------------------------
@@ -397,6 +437,7 @@ tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_oferta_interna_energia_2")
 
 # CAPÍTULO 2
+
 
 # tab_total_fontes_primarias
 
@@ -881,5 +922,3 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_37_traduzido.rd
 
 tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_produtos_nao_energeticos_petroleo")
-
-

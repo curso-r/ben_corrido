@@ -660,3 +660,24 @@ grafico_sankey_fluxo_eletrico <- function(con, lang = "pt") {
     sufixo = sufixo
   )
 }
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_fontes_primarias") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}

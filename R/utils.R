@@ -55,6 +55,15 @@ pegar_cor <- function(x) {
     x == "Carvão Metalúrgico" ~ "#a5a5a5",
     x == "Hidráulica e Eletricidade" ~ "#95B3D7",
     x == "Petróleo, Gás Natural e Derivados" ~ "#0D223F",
+    x == "Transformação" ~ "#FFC000",
+    x == "Consumo Final" ~ "#00678E",
+    x == "Produção" ~ "#953735",
+    x == "Consumo Total" ~ "#1F4E79",
+    x == "Consumo Final Energético" ~ "#1F4E79",
+    x == "Geração Pública" ~ "#70AD47",
+    x == "Geração de Autoprodutores" ~ "#A9D18E",
+    x == "Comercial e Público" ~ "#FFD966",
+    x == "Consumo Final Não-Energético" ~ "#5089bc",
     TRUE ~ NA_character_
   )
 }
