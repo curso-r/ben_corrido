@@ -7,7 +7,7 @@
 gerar_botoes_download <- function(tab_name, .tipo_dado) {
   tab_name <- stringr::str_remove(tab_name, "^tab_")
   htmltools::div(
-    class = "download mt-4 mb-4",
+    class = "download mt-4 mb-4 text-end",
     htmltools::tags$a(
       href = glue::glue("dados/matriz_{tab_name}_{.tipo_dado}.xlsx"),
       htmltools::tags$button(

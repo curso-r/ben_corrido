@@ -850,3 +850,276 @@ grafico_estrutura_consumo_lenha <- function(con, lang = "pt", .tipo_dado) {
     lang = lang
   )
 }
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_bagaco_cana <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_bagaco_cana") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_lixivia <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_lixivia") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_outras_fontes_primarias") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_outras_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_outras_fontes_secundarias") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_fontes_secundarias") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_derivados_petrolo_gas_natural <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_derivados_petrolo_gas_natural") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_oleo_diesel_total") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_diesel_petroleo <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_diesel_petroleo") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_oleo_combustivel <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_oleo_combustivel") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_gasolina <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_gasolina") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_glp <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_glp") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_estrutura_consumo_nafta <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_nafta") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+grafico_nafta <- function(con, lang = "pt", .tipo_dado) {
+  tab <- dplyr::tbl(con, "grafico_nafta") |>
+    dplyr::collect() |>
+    dplyr::filter(tipo_dado == .tipo_dado)
+
+  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}

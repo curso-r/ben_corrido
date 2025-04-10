@@ -266,12 +266,58 @@ benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Ab
 
 ## Estrutura do Consumo de Bagaço-de-Cana
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Percentual")
+```
+
+:::
+
 ## Lixívia
 
 ```{r}
 benCorrido::tab_lixivia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_lixivia", .tipo_dado = "Absoluto")
 ```
+
+## Estrutura do Consumo de Lixívia
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Outras Fontes Primárias
 
@@ -282,6 +328,28 @@ benCorrido::gerar_botoes_download(tab_name = "tab_outras_fontes_primarias", .tip
 
 ## Estrutura do Consumo de Outras Fontes Primárias
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Percentual")
+```
+
+:::
+
 ## Total de Fontes Secundárias
 
 ```{r}
@@ -291,7 +359,36 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_secundarias", .ti
 
 ## Estrutura do Consumo de Fontes Secundárias
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Percentual")
+```
+
+:::
+
 ## Fontes Secundárias
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_fontes_secundarias(con, .tipo_dado = "Absoluto")
+```
 
 ## Derivados de Petróleo e de Gás Natural
 
@@ -302,10 +399,27 @@ benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natur
 
 ## Estrutura de Consumo de Derivados de Petróleo e de Gás Natural
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
 ```{r}
-benCorrido::tab_derivados_petroleo_e_gas_natural(con, .tipo_dado = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natural", .tipo_dado = "Absoluto")
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Absoluto")
 ```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Óleo Diesel Total
 
@@ -314,11 +428,25 @@ benCorrido::tab_oleo_diesel_total(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_oleo_diesel_total", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_oleo_diesel_total(con, .tipo_dado = "Absoluto")
+```
+
 ## Diesel de Petróleo
 
 ```{r}
 benCorrido::tab_diesel_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_diesel_petroleo", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_diesel_petroleo(con, .tipo_dado = "Absoluto")
 ```
 
 ## Biodiesel
@@ -335,6 +463,13 @@ benCorrido::tab_oleo_combustivel(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_oleo_combustivel", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_oleo_combustivel(con, .tipo_dado = "Absoluto")
+```
+
 ## Gasolina
 
 ```{r}
@@ -342,11 +477,25 @@ benCorrido::tab_gasolina(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gasolina", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_gasolina(con, .tipo_dado = "Absoluto")
+```
+
 ## Gás Liquefeito de Petróleo – GLP
 
 ```{r}
 benCorrido::tab_gas_liquefeito_de_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_liquefeito_de_petroleo", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_glp(con, .tipo_dado = "Absoluto")
 ```
 
 ## Nafta
@@ -358,7 +507,36 @@ benCorrido::gerar_botoes_download(tab_name = "tab_nafta", .tipo_dado = "Absoluto
 
 ## Estrutura do Consumo de Nafta
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Percentual")
+```
+
+:::
+
 ## Fluxo da Nafta
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_nafta(con, .tipo_dado = "Absoluto")
+```
 
 ## Coque de Carvão Mineral
 
