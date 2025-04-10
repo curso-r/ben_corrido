@@ -292,15 +292,18 @@ salvar_tab_bd(tab, "grafico_comp_oferta_energia_fonte")
 # CAPÍTULO 2
 
 # grafico_estrutura_consumo_fontes_primarias
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |>
   dplyr::select(grupo_en = grupo_nivel_2)
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
   dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total, tipo_dado) |>
-  dplyr::filter(grupo %in% c("Transformação", "Consumo Final")) |>
+  dplyr::filter(
+    grupo %in% c("Transformação", "Consumo Final"),
+    tipo_dado == "Absoluto"
+  ) |>
   dplyr::group_by(ano, grupo, grupo_en) |>
   dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
-  dplyr::group_by(ano) |> 
+  dplyr::group_by(ano) |>
   dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
   dplyr::ungroup() |>
   tidyr::pivot_longer(
@@ -312,15 +315,18 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") 
 salvar_tab_bd(tab, "grafico_estrutura_consumo_fontes_primarias")
 
 # grafico_fontes_primarias
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_1_traduzido.rds") |>
   dplyr::select(grupo_en = grupo_nivel_1)
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
   dplyr::select(grupo = grupo_nivel_1, grupo_en, ano, total, tipo_dado) |>
-  dplyr::filter(grupo %in% c("Produção", "Consumo Total")) |>
+  dplyr::filter(
+    grupo %in% c("Produção", "Consumo Total"),
+    tipo_dado == "Absoluto"
+  ) |>
   dplyr::group_by(ano, grupo, grupo_en) |>
   dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
-  dplyr::group_by(ano) |> 
+  dplyr::group_by(ano) |>
   dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
   dplyr::ungroup() |>
   tidyr::pivot_longer(
@@ -330,6 +336,201 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_1_traduzido.rds") 
   )
 
 salvar_tab_bd(tab, "grafico_fontes_primarias")
+
+
+# grafico_petroleo
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_2_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_2_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = macro_grupo, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c("Produção", "Consumo Total"),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_petroleo")
+
+# grafico_gas_natural
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_3_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_3, grupo_aux_en = grupo_nivel_2)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_3_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_3, grupo_aux = grupo_nivel_2, grupo_en, grupo_aux_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c(
+      "Produção de Derivados de Petróleo",
+      "Geração Elétrica",
+      "Consumo Final Não-Energético",
+      "Consumo Final Energético"
+    ),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::mutate(
+    grupo_en = dplyr::case_when(
+      grupo %in% c("Produção de Derivados de Petróleo", "Geração Elétrica") ~ grupo_aux_en,
+      .default = grupo_en
+    ),
+    grupo = dplyr::case_when(
+      grupo %in% c("Produção de Derivados de Petróleo", "Geração Elétrica") ~ grupo_aux,
+      .default = grupo
+    )
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_estrutura_consumo_gas_natural")
+
+# grafico_carvao_vapor
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_4_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_2)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_4_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c("Transformação", "Consumo Final"),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_carvao_vapor")
+
+# grafico_transformacao_energia_hidraulica
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_6_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_menor)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_6_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c("Geração Pública", "Geração de Autoprodutores"),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_transformacao_energia_hidraulica")
+
+# grafico_consumo_energia_solar_termica_setor
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_9_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_2)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_9_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c("Residencial", "Comercial", "Industrial"),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_consumo_energia_solar_termica_setor")
+
+# grafico_uranio
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_10_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_10_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = macro_grupo, grupo_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c("Produção", "Consumo Total"),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_uranio")
+
+# grafico_estrutura_consumo_lenha
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_11_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo_nivel_menor, grupo_aux_en = grupo_nivel_2)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_11_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_aux = grupo_nivel_2, grupo_en, grupo_aux_en, ano, total, tipo_dado) |>
+  dplyr::filter(
+    grupo %in% c(
+      "Geração Elétrica",
+      "Produção de Carvão Vegetal",
+      "Residencial",
+      "Agropecuário",
+      "Industrial"
+    ),
+    tipo_dado == "Absoluto"
+  ) |>
+  dplyr::mutate(
+    grupo_en = dplyr::case_when(
+      grupo %in% c("Produção de Carvão Vegetal", "Geração Elétrica") ~ grupo_aux_en,
+      .default = grupo_en
+    ),
+    grupo = dplyr::case_when(
+      grupo %in% c("Produção de Carvão Vegetal", "Geração Elétrica") ~ grupo_aux,
+      .default = grupo
+    )
+  ) |>
+  dplyr::group_by(ano, grupo, grupo_en) |>
+  dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
+  dplyr::group_by(ano) |>
+  dplyr::mutate(Percentual = Absoluto / sum(Absoluto) * 100) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_longer(
+    cols = c(Absoluto, Percentual),
+    names_to = "tipo_dado",
+    values_to = "total"
+  )
+
+salvar_tab_bd(tab, "grafico_estrutura_consumo_lenha")
 
 
 # Tabelas ---------------------------------------------------------------------

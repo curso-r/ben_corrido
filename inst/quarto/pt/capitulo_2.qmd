@@ -29,7 +29,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo
 
 ```{r}
 #| fig-width: 7
-#| fig-height: 2.5
+#| fig-height: 2.8
 #| out-width: 90%
 benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absoluto")
 ```
@@ -38,7 +38,7 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absolu
 
 ```{r}
 #| fig-width: 7
-#| fig-height: 2.5
+#| fig-height: 2.8
 #| out-width: 90%
 benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percentual")
 ```
@@ -49,7 +49,7 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percen
 
 ```{r}
 #| label: fig-fontes-primarias
-#| fig-height: 2.5
+#| fig-height: 2.8
 #| fig-width: 7
 #| out-width: 90%
 benCorrido::grafico_fontes_primarias(con, .tipo_dado = "Absoluto")
@@ -62,6 +62,14 @@ benCorrido::tab_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_petroleo", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| label: fig-petroleo
+#| fig-height: 2.8
+#| fig-width: 7
+#| out-width: 90%
+benCorrido::grafico_petroleo(con, .tipo_dado = "Absoluto")
+```
+
 ## Gás Natural
 
 ```{r}
@@ -71,12 +79,56 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_natural", .tipo_dado = "Ab
 
 ## Estrutura do Consumo de Gás Natural
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Percentual")
+```
+
+:::
+
 ## Carvão Vapor
 
 ```{r}
 benCorrido::tab_carvao_vapor(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vapor", .tipo_dado = "Absoluto")
 ```
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Carvão Metalúrgico
 
@@ -93,6 +145,28 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_hidraulica", .tipo_dad
 ```
 
 ## Transformação da Energia Hidráulica
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Energia Eólica
 
@@ -117,11 +191,25 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_termica", .tipo_
 
 ## Consumo Final da Energia Solar Térmica por Setor
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_consumo_energia_solar_termica_setor(con, .tipo_dado = "Absoluto")
+```
+
 ## Urânio (U₃O₈)
 
 ```{r}
 benCorrido::tab_uranio(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_uranio(con, .tipo_dado = "Absoluto")
 ```
 
 ## Lenha
@@ -132,6 +220,28 @@ benCorrido::gerar_botoes_download(tab_name = "tab_lenha", .tipo_dado = "Absoluto
 ```
 
 ## Estrutura do Consumo de Lenha
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Caldo de Cana
 
