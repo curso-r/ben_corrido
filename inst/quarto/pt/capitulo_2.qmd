@@ -545,11 +545,25 @@ benCorrido::tab_coque_carvao_mineral(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_coque_carvao_mineral", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_coque_carvao_mineral(con, .tipo_dado = "Absoluto")
+```
+
 ## Querosene
 
 ```{r}
 benCorrido::tab_querosene(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_querosene", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_querosene(con, .tipo_dado = "Absoluto")
 ```
 
 ## Gás de Cidade
@@ -564,4 +578,132 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_cidade", .tipo_dado = "Abs
 ```{r}
 benCorrido::tab_gas_coqueira(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_coqueira", .tipo_dado = "Absoluto")
+```
+
+## Estrutura do Consumo de Gás de Coqueria
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Percentual")
+```
+
+:::
+
+## Eletricidade
+
+```{r}
+benCorrido::tab_eletricidade(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_eletricidade", .tipo_dado = "Absoluto")
+```
+
+## Consumo Final de Eletricidade por Setor
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Percentual")
+```
+
+:::
+
+## Carvão Vegetal
+
+```{r}
+benCorrido::tab_carvao_vegetal(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vegetal", .tipo_dado = "Absoluto")
+```
+
+## Álcool Etílico Total
+
+```{r}
+benCorrido::tab_alcool_etilico_total(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_etilico_total", .tipo_dado = "Absoluto")
+```
+
+## Estrutura de Consumo do Álcool Etílico
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Percentual")
+```
+
+:::
+
+## Álcool Anidro
+
+```{r}
+benCorrido::tab_alcool_anidro(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_anidro", .tipo_dado = "Absoluto")
+```
+
+## Álcool Hidratado
+
+```{r}
+benCorrido::tab_alcool_hidratado(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_hidratado", .tipo_dado = "Absoluto")
+```
+
+## Outras Secundárias de Petróleo
+
+```{r}
+benCorrido::tab_outras_secundarias_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_outras_secundarias_petroleo", .tipo_dado = "Absoluto")
+```
+
+## Alcatrão
+
+```{r}
+benCorrido::tab_alcatrao(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcatrao", .tipo_dado = "Absoluto")
+```
+
+## Produtos Não Energéticos de Petróleo
+
+```{r}
+benCorrido::tab_produtos_nao_energeticos_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_produtos_nao_energeticos_petroleo", .tipo_dado = "Absoluto")
 ```
