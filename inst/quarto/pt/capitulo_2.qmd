@@ -28,20 +28,32 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo
 ## Valor absoluto
 
 ```{r}
-#| fig-height: 3
+#| fig-width: 7
+#| fig-height: 2.5
+#| out-width: 90%
 benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
-#| fig-height: 3
+#| fig-width: 7
+#| fig-height: 2.5
+#| out-width: 90%
 benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percentual")
 ```
 
 :::
 
 ## Fontes Primárias
+
+```{r}
+#| label: fig-fontes-primarias
+#| fig-height: 2.5
+#| fig-width: 7
+#| out-width: 90%
+benCorrido::grafico_fontes_primarias(con, .tipo_dado = "Absoluto")
+```
 
 ## Petróleo
 
