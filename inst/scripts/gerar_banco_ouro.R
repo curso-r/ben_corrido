@@ -1571,3 +1571,77 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_37_traduzido.rd
 
 tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_produtos_nao_energeticos_petroleo")
+
+# CAPÍTULO 3
+
+# tab_setor_energetico
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_1_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_energetico")
+
+# tab_setor_comercial
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_comercial")
+
+# tab_setor_publico
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_3_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_3_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_publico")
+
+# tab_setor_residencial
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_4_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_4_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_residencial")
+
+# tab_setor_agropecuario
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_5_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_5_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_agropecuario")
+
+# tab_setor_transportes_geral
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_6_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_6_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_transportes_geral")
+
+# tab_setor_transportes_segmento
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_6_por_segmento_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_6_por_segmento_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_transportes_segmento")
+
+# tab_setor_industrial_geral
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_industrial_geral")
+
+# tab_setor_industrial_segmento
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_por_setor_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_por_setor_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_industrial_segmento")

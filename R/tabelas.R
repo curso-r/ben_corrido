@@ -1311,3 +1311,217 @@ tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado) 
     min_width = 220
   )
 }
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_energetico <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_energetico"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_comercial <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_comercial"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_publico <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_publico"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_residencial <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_residencial"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_agropecuario"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_transportes_geral"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    lab2 = "",
+    min_width = 100
+  )
+}
+
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param .segmento Segmento do setor de transportes
+#'
+#' @export
+tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmento) {
+  tab_name <- "tab_setor_transportes_segmento"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(dado == .segmento) |> 
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_setor_industrial_geral"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo III
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param .segmento Segmento do setor de transportes
+#'
+#' @export
+tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segmento) {
+  tab_name <- "tab_setor_industrial_segmento"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(dado == .segmento) |> 
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fontes",
+    min_width = 220
+  )
+}

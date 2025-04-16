@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -14,51 +15,756 @@ ano <- params$ano
 
 ## Setor Energético
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ## Setor Comercial
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ## Setor Público
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_publico(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_publico(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ## Setor Residencial
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ## Setor Agropecuário
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ## Setor de Transportes
 
 ### Geral
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Aéreo
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", .segmento = "Aéreo")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", .segmento = "Aéreo")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 
 ### Ferroviário
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", .segmento = "Ferroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", .segmento = "Ferroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Hidroviário
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", .segmento = "Hidroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", .segmento = "Hidroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Rodoviário
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", .segmento = "Rodoviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", .segmento = "Rodoviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ## Setor Industrial 
 
 ### Geral
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Alimentos e Bebidas
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Alimentos e Bebidas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Alimentos e Bebidas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ### Cerâmica
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Cerâmica")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Cerâmica")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Cimento
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Cimento")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Cimento")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ### Ferro-gusa e Aço
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Ferro-gusa e Aço")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Ferro-gusa e Aço")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Ferroligas
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Ferroligas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Ferroligas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ### Mineração e Pelotização
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Mineração e Pelotização")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Mineração e Pelotização")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Não Ferrosos e Outros da Metalurgia
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Não Ferrosos e Outros da Metalurgia")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Não Ferrosos e Outros da Metalurgia")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ### Outras Indústrias
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Outras Indústrias")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Outras Indústrias")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Papel e Celulose
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Papel e Celulose")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Papel e Celulose")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 ### Química
 
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Química")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Química")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
+
 ### Têxtil
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", .segmento = "Têxtil")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", .segmento = "Têxtil")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual")
+```
+
+```{r}
+# linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+# area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+# benCorrido::criar_carrossel(area, linha)
+```
+
+:::
 
 
 
