@@ -681,7 +681,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_18_traduzido.rds")
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(ano, grupo, grupo_en) |>
   dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
   dplyr::group_by(ano) |>
@@ -934,7 +934,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_30_traduzido.rds")
   dplyr::filter(
     grupo_nivel_3 == "Consumo Final Energético",
     tipo_dado == "Absoluto"
-  ) |> 
+  ) |>
   dplyr::select(grupo = grupo_nivel_4, grupo_en, ano, total, tipo_dado) |>
   dplyr::mutate(
     grupo = forcats::fct_other(
@@ -943,7 +943,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_30_traduzido.rds")
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(ano, grupo, grupo_en) |>
   dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
   dplyr::group_by(ano) |>
@@ -960,13 +960,14 @@ salvar_tab_bd(tab, "grafico_consumo_final_eletricidade_setor")
 # grafico_estrutura_consumo_alcool_etilico
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_2_32_traduzido.rds") |>
   dplyr::select(grupo_en = grupo_nivel_3)
+
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_32_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
   dplyr::select(grupo = grupo_nivel_3, grupo_en, ano, total, tipo_dado) |>
   dplyr::filter(
     grupo %in% c("Consumo Final Não-Energético", "Consumo Final Energético"),
     tipo_dado == "Absoluto"
-  ) |> 
+  ) |>
   dplyr::group_by(ano, grupo, grupo_en) |>
   dplyr::summarise(Absoluto = sum(total), .groups = "drop") |>
   dplyr::group_by(ano) |>
@@ -980,6 +981,149 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_2_32_traduzido.rds")
 
 salvar_tab_bd(tab, "grafico_estrutura_consumo_alcool_etilico")
 
+# CAPÍTULO 3
+
+# grafico_setor_energetico
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_1_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_1_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Gás Natural", "Bagaço de Cana", "Óleo Combustível", "Eletricidade"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_energetico")
+
+# grafico_setor_comercial
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_2_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Gás Liquefeito de Petróleo", "Óleo Diesel", "Eletricidade", "Solar Térmica"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_comercial")
+
+# grafico_setor_publico
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_3_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_3_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Gás Liquefeito de Petróleo", "Óleo Diesel", "Eletricidade"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_publico")
+
+# grafico_setor_residencial
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_4_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_4_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Lenha", "Gás Liquefeito de Petróleo", "Eletricidade"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_residencial")
+
+# grafico_setor_agropecuario
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_5_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_5_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Lenha", "Eletricidade", "Óleo Diesel"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_agropecuario")
+
+# grafico_setor_transportes_geral
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_6_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_6_traduzido.rds") |>
+  dplyr::select(grupo = macro_grupo, ano, tipo_dado, total) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Óleo Diesel", "Querosene", "Gasolina Automotiva", "Gás Natural", "Biodiesel", "Álcool Etílico"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  ) |>
+  dplyr::group_by(grupo, tipo_dado, ano, grupo_en) |>
+  dplyr::summarise(
+    Absoluto = sum(total, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+salvar_tab_bd(tab, "grafico_setor_transportes_geral")
+
+# grafico_setor_industrial_geral
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Coque de Carvão Mineral", "Gás Natural", "Eletricidade", "Óleo Combustível", "Bagaço de Cana", "Lenha"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_industrial_geral")
+
+# grafico_setor_industrial_segmento
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    grupo = forcats::fct_other(
+      grupo,
+      keep = c("Coque de Carvão Mineral", "Gás Natural", "Eletricidade", "Óleo Combustível", "Bagaço de Cana", "Lenha"),
+      other_level = "Outros"
+    ),
+    grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
+  )
+
+salvar_tab_bd(tab, "grafico_setor_industrial_geral")
 
 # Tabelas ---------------------------------------------------------------------
 
