@@ -8,6 +8,60 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Consumo de Energia por Setor
+
+![](../img/capas/imagem_cap_2.png)
+
+## Setor Energético
+
+## Setor Comercial
+
+## Setor Público
+
+## Setor Residencial
+
+## Setor Agropecuário
+
+## Setor de Transportes
+
+### Geral
+
+### Aéreo
+
+### Ferroviário
+
+### Hidroviário
+
+### Rodoviário
+
+## Setor Industrial 
+
+### Geral
+
+### Alimentos e Bebidas
+
+### Cerâmica
+
+### Cimento
+
+### Ferro-gusa e Aço
+
+### Ferroligas
+
+### Mineração e Pelotização
+
+### Não Ferrosos e Outros da Metalurgia
+
+### Outras Indústrias
+
+### Papel e Celulose
+
+### Química
+
+### Têxtil
+
+
+
 ```{r}
 htmltools::tags$script(src = "js/fix_slider.js")
 ```
