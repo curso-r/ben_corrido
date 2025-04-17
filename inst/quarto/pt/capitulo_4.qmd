@@ -18,11 +18,25 @@ benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_dependencia_externa_energia_2(con)
+```
+
 ## Dependência Externa de Petróleo
 
 ```{r}
 benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_dependencia_externa_petroleo(con)
 ```
 
 ## Importações de Energia
@@ -32,6 +46,13 @@ benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_importacoes_energia(con)
+```
+
 ## Exportações de Energia
 
 ```{r}
@@ -39,11 +60,25 @@ benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_dado = "Absoluto")
 ```
 
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_exportacoes_energia(con)
+```
+
 ## Exportações e/ou Importações Líquidas
 
 ```{r}
 benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquidas", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_exportacoes_importacoes_liquidas(con)
 ```
 
 ```{r}

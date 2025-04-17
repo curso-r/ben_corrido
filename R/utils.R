@@ -82,6 +82,12 @@ pegar_cor <- function(x) {
     x == "Carvão Mineral / Coque de C.m." ~ "#6D6D6D",
     x == "Lixívia" ~ "#2f4538",
     x == "Bagaço de Cana" ~ "#997301",
+    x == "Demanda Total de Energia (a)" ~ "#1F4E79",
+    x == "Produção de Energia Primária (b)" ~ "#953735",
+    x == "Dependência Externa (c)=(a)-(b)" ~ "#FCEEB1",
+    x == "Demanda de Petróleo e Derivados (a)" ~ "#1F4E79",
+    x == "Produção Total de Petróleo (b)" ~ "#953735",
+    x == "Déficit - mil tep (a)-(b)" ~ "#FCEEB1",
     TRUE ~ NA_character_
   )
 }

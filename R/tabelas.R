@@ -1546,7 +1546,7 @@ tab_dependencia_externa_energia_2 <- function(con, lang = "pt", .tipo_dado) {
     lang = lang,
     lab1 = "Identificação",
     lab2 = "",
-    min_width = 100
+    min_width = 260
   )
 }
 
@@ -1570,7 +1570,7 @@ tab_dependencia_externa_petroleo <- function(con, lang = "pt", .tipo_dado) {
     lang = lang,
     lab1 = "Identificação",
     lab2 = "",
-    min_width = 100
+    min_width = 280
   )
 }
 
@@ -1595,7 +1595,7 @@ tab_importacoes_energia <- function(con, lang = "pt", .tipo_dado) {
     lab1 = "Fonte",
     lab2 = "",
     lab3 = "",
-    min_width = 100
+    min_width = 250
   )
 }
 
@@ -1620,7 +1620,7 @@ tab_exportacoes_energia <- function(con, lang = "pt", .tipo_dado) {
     lab1 = "Fonte",
     lab2 = "",
     lab3 = "",
-    min_width = 100
+    min_width = 250
   )
 }
 
@@ -1644,6 +1644,6 @@ tab_exportacoes_importacoes_liquidas <- function(con, lang = "pt", .tipo_dado) {
     lang = lang,
     lab1 = "Fonte",
     lab2 = "",
-    min_width = 100
+    min_width = 250
   )
 }

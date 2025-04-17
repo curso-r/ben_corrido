@@ -25,7 +25,14 @@ grafico_linha <- function(tab, rotulo_y, lang) {
     ) +
     ggplot2::guides(color = ggplot2::guide_legend(byrow = TRUE)) +
     ggplot2::theme(
-      axis.title.y = ggplot2::element_text(angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 10), face = "bold")
+      axis.title.y = ggplot2::element_text(
+        angle = 0,
+        hjust = 1,
+        vjust = 1,
+        margin = ggplot2::margin(r = 10),
+        face = "bold"
+      ),
+      text = ggplot2::element_text(size = 10)
     ) +
     ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10))) +
     ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 10))) +
@@ -66,7 +73,14 @@ grafico_area <- function(tab, rotulo_y, lang) {
     ) +
     ggplot2::guides(fill = ggplot2::guide_legend(byrow = TRUE)) +
     ggplot2::theme(
-      axis.title.y = ggplot2::element_text(angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 10), face = "bold")
+      axis.title.y = ggplot2::element_text(
+        angle = 0,
+        hjust = 1,
+        vjust = 1,
+        margin = ggplot2::margin(r = 10),
+        face = "bold"
+      ),
+      text = ggplot2::element_text(size = 10)
     ) +
     ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10))) +
     ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 10))) +

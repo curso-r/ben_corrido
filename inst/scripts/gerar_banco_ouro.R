@@ -1191,6 +1191,104 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_por_setor_traduz
 
 salvar_tab_bd(tab, "grafico_setor_industrial_segmento")
 
+# CAPÍTULO 4
+
+# grafico_dependencia_externa_energia_2
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_1_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(grupo = macro_grupo, grupo_en, tipo_dado, ano, total) |>
+  dplyr::filter(grupo != "Dependência Externa (c)/(a) %") |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_dependencia_externa_energia_2")
+
+# grafico_dependencia_externa_petroleo
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_2_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(grupo = macro_grupo, grupo_en, tipo_dado, ano, total) |>
+  dplyr::filter(
+    tipo_dado == "Absoluto",
+    grupo %in% c(
+      "Demanda de Petróleo e Derivados (a)",
+      "Produção Total de Petróleo (b)",
+      "Déficit - mil tep (a)-(b)"
+    )
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_dependencia_externa_petroleo")
+
+# grafico_importacoes_energia
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_3_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_3_traduzido.rds") |>
+  dplyr::select(
+    grupo_en = grupo_nivel_1
+  )
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(grupo = grupo_nivel_1, grupo_en, tipo_dado, ano, total) |>
+  dplyr::filter(
+    tipo_dado == "Absoluto",
+    grupo %in% c(
+      "Petróleo",
+      "Total"
+    )
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_importacoes_energia")
+
+# grafico_exportacoes_energia
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_4_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_4_traduzido.rds") |>
+  dplyr::select(
+    grupo_en = grupo_nivel_1
+  )
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(grupo = grupo_nivel_1, grupo_en, tipo_dado, ano, total) |>
+  dplyr::filter(
+    tipo_dado == "Absoluto",
+    grupo == "Total"
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = -sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_exportacoes_energia")
+
+# grafico_exportacoes_importacoes_liquidas
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_5_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_5_traduzido.rds") |>
+  dplyr::select(grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(grupo = macro_grupo, grupo_en, tipo_dado, ano, total) |>
+  dplyr::filter(
+    tipo_dado == "Absoluto",
+    grupo == "Total"
+  ) |>
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_exportacoes_importacoes_liquidas")
+
+# CAPÍTULO 5
+
+# CAPÍTULO 6
+
+# CAPÍTULO 7
+
+# CAPÍTULO 8
+
 # Tabelas ---------------------------------------------------------------------
 
 # CAPÍTULO 1
@@ -1863,7 +1961,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_1_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_1_traduzido.rds") |>
   dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
 
-tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual) |>
+  dplyr::mutate(tipo_dado = "Absoluto")
 salvar_tab_bd(tab, "tab_dependencia_externa_energia_2")
 
 # tab_dependencia_externa_petroleo
