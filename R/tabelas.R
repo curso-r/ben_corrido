@@ -1525,3 +1525,125 @@ tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segment
     min_width = 220
   )
 }
+
+#' Tabela do Capítulo IV
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_dependencia_externa_energia_2 <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_dependencia_externa_energia_2"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    min_width = 100
+  )
+}
+
+#' Tabela do Capítulo IV
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_dependencia_externa_petroleo <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_dependencia_externa_petroleo"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    min_width = 100
+  )
+}
+
+#' Tabela do Capítulo IV
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_importacoes_energia <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_importacoes_energia"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    lab3 = "",
+    min_width = 100
+  )
+}
+
+#' Tabela do Capítulo IV
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_exportacoes_energia <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_exportacoes_energia"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    lab3 = "",
+    min_width = 100
+  )
+}
+
+#' Tabela do Capítulo IV
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_exportacoes_importacoes_liquidas <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_exportacoes_importacoes_liquidas"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 100
+  )
+}

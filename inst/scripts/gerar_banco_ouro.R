@@ -996,7 +996,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_1_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1015,7 +1015,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_2_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1034,7 +1034,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_3_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1053,7 +1053,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_4_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1072,7 +1072,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_5_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1114,7 +1114,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1185,7 +1185,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_por_setor_traduz
       ) |> as.character(),
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano, tipo_dado, dado) |>
   dplyr::summarise(total = sum(total), .groups = "drop")
 
@@ -1855,3 +1855,61 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_por_setor_tra
 
 tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_setor_industrial_segmento")
+
+# CAPÍTULO 4
+
+# tab_dependencia_externa_energia_2
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_1_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_dependencia_externa_energia_2")
+
+# tab_dependencia_externa_petroleo
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_dependencia_externa_petroleo")
+
+# tab_importacoes_energia
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_3_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_3_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en)
+salvar_tab_bd(tab, "tab_importacoes_energia")
+
+# tab_exportacoes_energia
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_4_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_4_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_exportacoes_energia")
+
+# tab_exportacoes_importacoes_liquidas
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_4_5_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_4_5_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_exportacoes_importacoes_liquidas")
+
+# CAPÍTULO 5
+
+# CAPÍTULO 6
+
+# CAPÍTULO 7
+
+# CAPÍTULO 8

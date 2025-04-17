@@ -13,13 +13,38 @@ ano <- params$ano
 
 ## Dependência Externa de Energia
 
+```{r}
+benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2", .tipo_dado = "Absoluto")
+```
+
 ## Dependência Externa de Petróleo
+
+```{r}
+benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo", .tipo_dado = "Absoluto")
+```
 
 ## Importações de Energia
 
+```{r}
+benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_dado = "Absoluto")
+```
+
 ## Exportações de Energia
 
+```{r}
+benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_dado = "Absoluto")
+```
+
 ## Exportações e/ou Importações Líquidas
+
+```{r}
+benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquidas", .tipo_dado = "Absoluto")
+```
 
 ```{r}
 htmltools::tags$script(src = "../js/fix_slider.js")
