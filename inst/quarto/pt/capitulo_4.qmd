@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,18 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Comércio Externo de Energia
+
+## Dependência Externa de Energia
+
+## Dependência Externa de Petróleo
+
+## Importações de Energia
+
+## Exportações de Energia
+
+## Exportações e/ou Importações Líquidas
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```
