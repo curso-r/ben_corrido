@@ -996,7 +996,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_1_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_energetico")
 
@@ -1013,7 +1015,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_2_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_comercial")
 
@@ -1030,7 +1034,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_3_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_publico")
 
@@ -1047,7 +1053,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_4_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_residencial")
 
@@ -1064,7 +1072,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_5_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_agropecuario")
 
@@ -1085,7 +1095,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_6_traduzido.rds") 
   ) |>
   dplyr::group_by(grupo, tipo_dado, ano, grupo_en) |>
   dplyr::summarise(
-    Absoluto = sum(total, na.rm = TRUE),
+    total = sum(total, na.rm = TRUE),
     .groups = "drop"
   )
 
@@ -1104,26 +1114,82 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds") 
       other_level = "Outros"
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_setor_industrial_geral")
 
 # grafico_setor_industrial_segmento
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_traduzido.rds") |>
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_3_7_por_setor_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_traduzido.rds") |>
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_3_7_por_setor_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
   dplyr::mutate(
-    grupo = forcats::fct_other(
-      grupo,
-      keep = c("Coque de Carvão Mineral", "Gás Natural", "Eletricidade", "Óleo Combustível", "Bagaço de Cana", "Lenha"),
-      other_level = "Outros"
+    grupo = dplyr::case_when(
+      dado == "Cimento" ~ forcats::fct_other(
+        grupo,
+        keep = c("Carvão Mineral", "Óleo Combustível", "Eletricidade", "Carvão Vegetal", "Coque de Petróleo"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Ferro-gusa e Aço" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Coque de Carvão Mineral", "Óleo Combustível", "Gás de Coqueria", "Eletricidade", "Carvão Vegetal"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Ferroligas" ~ forcats::fct_other(
+        grupo,
+        keep = c("Eletricidade", "Carvão Vegetal e Lenha"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Mineração e Pelotização" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Carvão Minerale Coque de Cm", "Óleo Diesel", "Óleo Combustível", "Eletricidade", "Coque de Petróleo"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Química" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Óleo Combustível", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Não Ferrosos e Outros da Metalurgia" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Óleo Combustível", "Carvão Mineral / Coque de C.m.", "Eletricidade", "Outras Secundárias de Petróleo"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Têxtil" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Lenha", "Óleo Combustível", "Gás Liquefeito de Petróleo", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Alimentos e Bebidas" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Lenha", "Bagaço de Cana", "Óleo Diesel", "Óleo Combustível", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Papel e Celulose" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Lenha", "Lixívia", "Óleo Diesel", "Óleo Combustível", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Cerâmica" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Lenha", "Óleo Combustível", "Gás Liquefeito de Petróleo", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
+      dado == "Outras Indústrias" ~ forcats::fct_other(
+        grupo,
+        keep = c("Gás Natural", "Lenha", "Gás Liquefeito de Petróleo", "Eletricidade"),
+        other_level = "Outros"
+      ) |> as.character(),
     ),
     grupo_en = ifelse(grupo == "Outros", "Other", grupo_en)
-  )
+  ) |> 
+  dplyr::group_by(grupo, grupo_en, ano, tipo_dado, dado) |>
+  dplyr::summarise(total = sum(total), .groups = "drop")
 
-salvar_tab_bd(tab, "grafico_setor_industrial_geral")
+salvar_tab_bd(tab, "grafico_setor_industrial_segmento")
 
 # Tabelas ---------------------------------------------------------------------
 
