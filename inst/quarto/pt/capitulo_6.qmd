@@ -4,7 +4,7 @@ params:
   duckdb_path: ""
 ---
 
-```{r}
+```{r setup}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
@@ -88,44 +88,74 @@ Biomassa, destinada ao aproveitamento energético, é uma fonte primária de ene
 
 ## Recursos e Reservas Energéticas Brasileiras
 
-```{r}
+```{r recursos-reservas-energeticas-brasileiras-1}
 benCorrido::tab_recursos_reservas_energeticas_brasileiras_1(con)
 ```
 
-\
-
-```{r}
+```{r recursos-reservas-energeticas-brasileiras-2}
 benCorrido::tab_recursos_reservas_energeticas_brasileiras_2(con)
 ```
 
 ## Reservas Provadas de Petróleo e Gás Natural
 
-```{r}
+```{r reservas-provadas-petroleo-gas}
 benCorrido::tab_reservas_provadas_petroleo_gas(con)
 ```
 
 ## Reservas Provadas de Petróleo
 
+```{r reservas-provadas-petroleo}
+#| fig-height: 3
+#| label: fig-reservas-provadas-petroleo
+benCorrido::grafico_reservas_provadas_petroleo(con)
+```
+
 ## Reservas Provadas de Gás Natural
+
+```{r reservas-provadas-gas}
+#| fig-height: 3
+#| label: fig-reservas-provadas-gas
+benCorrido::grafico_reservas_provadas_gas(con)
+```
 
 ## Recursos Hidráulicos
 
-```{r}
+```{r recursos-hidraulicos}
 benCorrido::tab_recursos_hidraulicos(con)
 ```
 
 ## Potencial Hidrelétrico
 
+```{r potencial-hidreletrico}
+#| fig-height: 3
+#| label: fig-potencial-hidreletrico
+benCorrido::grafico_potencial_hidreletrico(con)
+```
+
 ## Reservas de Carvão Mineral e Turfa
 
-```{r}
+```{r reservas-carvao-mineral-turfa}
 benCorrido::tab_reservas_carvao_mineral_turfa(con)
 ```
 
 ## Reservas de Carvão Mineral
 
+```{r reservas-carvao-mineral}
+#| fig-height: 3
+#| label: fig-reservas-carvao-mineral
+benCorrido::grafico_reservas_carvao_mineral(con)
+```
+
 ## Reservas de Urânio
 
-```{r}
+```{r reservas-uranio-tabela}
 benCorrido::tab_reservas_uranio(con)
+```
+
+\
+
+```{r reservas-uranio-grafico}
+#| fig-height: 3
+#| label: fig-reservas-uranio
+benCorrido::grafico_reservas_uranio(con)
 ```

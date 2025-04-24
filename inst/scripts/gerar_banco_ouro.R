@@ -1507,6 +1507,69 @@ salvar_tab_bd(tab, "grafico_micro_mini_geracao_dist")
 
 # CAPÍTULO 6
 
+# grafico_reservas_provadas_petroleo
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+  dplyr::select(
+    ano = grupo,
+    y = `Petróleo (10³ m³)`
+  )
+
+salvar_tab_bd(tab, "grafico_reservas_provadas_petroleo")
+
+# grafico_reservas_provadas_gas
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+  dplyr::select(
+    ano = grupo,
+    y = `Gás Natural (10⁶ m³)`
+  )
+
+salvar_tab_bd(tab, "grafico_reservas_provadas_gas")
+
+# grafico_potencial_hidreletrico
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_grafico_6_3.rds") |> 
+  tidyr::pivot_longer(
+    cols = -grupo,
+    names_to = "grupo_en",
+    values_to = "y"
+  ) |> 
+  dplyr::select(grupo_en)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_grafico_6_3.rds") |> 
+  dplyr::rename(
+    ano = grupo
+  ) |> 
+  tidyr::pivot_longer(
+    cols = -ano,
+    names_to = "grupo",
+    values_to = "y"
+  ) |> 
+  dplyr::bind_cols(tab_en)
+
+salvar_tab_bd(tab, "grafico_potencial_hidreletrico")
+
+# grafico_reservas_carvao_mineral
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds") |> 
+  dplyr::select(
+    ano,
+    y = TOTAL
+  )
+
+salvar_tab_bd(tab, "grafico_reservas_carvao_mineral")
+
+# grafico_reservas_uranio
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_grafico_6_5_traduzido.rds") |> 
+  dplyr::select(
+    ano = grupo,
+    y = `U₃O₈`
+  )
+
+salvar_tab_bd(tab, "grafico_reservas_uranio")
+
 # CAPÍTULO 7
 
 # CAPÍTULO 8

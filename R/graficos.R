@@ -1882,3 +1882,221 @@ grafico_micro_mini_geracao_dist <- function(con, lang = "pt") {
       axis.text.y = ggplot2::element_blank()
     )
 }
+
+
+#' Gráfico do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_reservas_provadas_petroleo <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_reservas_provadas_petroleo") |>
+    dplyr::collect()
+
+  tab |>
+    ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
+    ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#0D223F") +
+    ggplot2::labs(x = "", y = "10³ m³") +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(expand = c(0, 0), breaks = seq(min(tab$ano), max(tab$ano), by = 5)) +
+    ggplot2::scale_y_continuous(
+      breaks = seq(0, 3000000, by = 500000),
+      labels = scales::number_format(decimal.mark = "."),
+      limits = c(0, 3000000)
+    ) +
+    ggplot2::theme(
+      legend.text = ggplot2::element_blank(),
+      legend.title = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_text(
+        angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 2),
+        face = "bold", size = 6.5
+      ),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 5), size = 6.5),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2), size = 6.5)
+    ) +
+    ggplot2::theme(legend.position = "none") +
+    ggplot2::geom_vline(xintercept = min(tab$ano), color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
+}
+
+#' Gráfico do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_reservas_provadas_gas <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_reservas_provadas_gas") |>
+    dplyr::collect()
+
+  tab |>
+    ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
+    ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#ADB8CA") +
+    ggplot2::labs(x = "", y = expression(10^6*m^3)) +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(
+      expand = c(0, 0),
+      breaks = seq(min(tab$ano),
+        max(tab$ano),
+        by = 5
+      )
+    ) +
+    ggplot2::scale_y_continuous(
+      breaks = seq(0, 500000, by = 50000),
+      labels = scales::number_format(decimal.mark = "."),
+      limits = c(0, 500000)
+    ) +
+    ggplot2::theme(
+      legend.text = ggplot2::element_blank(),
+      legend.title = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_text(
+        angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 2),
+        face = "bold", size = 6.5
+      ),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 5), size = 6.5),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2), size = 6.5)
+    ) +
+    ggplot2::theme(legend.position = "none") +
+    ggplot2::geom_vline(xintercept = min(tab$ano), color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
+}
+
+
+#' Gráfico do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_potencial_hidreletrico <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_potencial_hidreletrico") |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
+
+  tab |>
+    ggplot2::ggplot() +
+    ggplot2::geom_line(ggplot2::aes(x = ano, y = y, color = grupo), size = 0.75) +
+    ggplot2::labs(x = "", y = "MW") +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(
+      expand = c(0, 0),
+      breaks = seq(min(tab$ano),
+        max(tab$ano),
+        by = 5
+      )
+    ) +
+    ggplot2::scale_y_continuous(
+      breaks = seq(0, 150000, by = 30000),
+      labels = scales::number_format(decimal.mark = "."),
+      limits = c(0, 150000)
+    ) +
+    ggplot2::theme(
+      legend.title = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_text(
+        angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 2),
+        face = "bold", size = 6.5
+      ),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 5), size = 6.5),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2), size = 6.5)
+    ) +
+    ggplot2::theme(legend.position = "top") +
+    ggplot2::geom_vline(
+      xintercept = min(tab$ano),
+      color = "black", linetype = "solid", size = 0.35
+    ) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
+}
+
+
+#' Gráfico do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_reservas_carvao_mineral <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_reservas_carvao_mineral") |>
+    dplyr::collect()
+
+  tab |>
+    ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
+    ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#a5a5a5") +
+    ggplot2::labs(x = "", y = expression(10^6*" t")) +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(
+      expand = c(0, 0),
+      breaks = seq(min(tab$ano),
+        max(tab$ano),
+        by = 5
+      )
+    ) +
+    ggplot2::scale_y_continuous(
+      breaks = seq(0, 35000, by = 5000),
+      labels = scales::number_format(decimal.mark = "."),
+      limits = c(0, 35000)
+    ) +
+    ggplot2::theme(
+      legend.text = ggplot2::element_blank(),
+      legend.title = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_text(
+        angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 2),
+        face = "bold", size = 6.5
+      ),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 5), size = 6.5),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2), size = 6.5)
+    ) +
+    ggplot2::theme(legend.position = "none") +
+    ggplot2::geom_vline(xintercept = min(tab$ano), color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
+}
+
+#' Gráfico do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_reservas_uranio <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_reservas_uranio") |>
+    dplyr::collect()
+
+  tab |>
+    ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
+    ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#FFCC00") +
+    ggplot2::labs(x = "", y = expression(U[3]*O[8]*"(t)")) +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(
+      expand = c(0, 0),
+      breaks = seq(min(tab$ano),
+        max(tab$ano),
+        by = 5
+      )
+    ) +
+    ggplot2::scale_y_continuous(
+      breaks = seq(0,350000, by = 50000),
+      labels = scales::number_format(decimal.mark = "."),
+      limits = c(0, 350000)
+    ) +
+    ggplot2::theme(
+      legend.text = ggplot2::element_blank(),
+      legend.title = ggplot2::element_blank(),
+      axis.title.y = ggplot2::element_text(
+        angle = 0, hjust = 1, vjust = 1, margin = ggplot2::margin(r = 2),
+        face = "bold", size = 6.5
+      ),
+      axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 5), size = 6.5),
+      axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 2), size = 6.5)
+    ) +
+    ggplot2::theme(legend.position = "none") +
+    ggplot2::geom_vline(xintercept = min(tab$ano), color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
+}

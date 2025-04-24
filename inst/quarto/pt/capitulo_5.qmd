@@ -136,7 +136,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_micro_mini_geracao_distribuida
 
 ```{r fig-micro_mini_geracao_dist}
 #| fig-height: 3
-#| fig-label: fig-micro_mini_geracao_dist
+#| label: fig-micro_mini_geracao_dist
 benCorrido::grafico_micro_mini_geracao_dist(con)
 ```
 
