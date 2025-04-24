@@ -1647,3 +1647,319 @@ tab_exportacoes_importacoes_liquidas <- function(con, lang = "pt", .tipo_dado) {
     min_width = 250
   )
 }
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_refinarias_petroleo <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_refinarias_petroleo"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 260
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_unidades_processamento_gas_natural <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_unidades_processamento_gas_natural"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_centrais_eletricas_total <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_centrais_eletricas_total"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    lab3 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_centrais_eletricas_servico_publico <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_centrais_eletricas_servico_publico"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    lab3 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_centrais_eletricas_autoprodutoras <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_centrais_eletricas_autoprodutoras"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    lab3 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_autoproducao_nao_injetada_rede <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_autoproducao_nao_injetada_rede"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    lab3 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_micro_mini_geracao_distribuida <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_micro_mini_geracao_distribuida"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Identificação",
+    lab2 = "",
+    lab3 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_coqueiras <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_coqueiras"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_destilarias <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_destilarias"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_plantas_biodiesel <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_plantas_biodiesel"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_ciclo_combustivel_nuclear <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_ciclo_combustivel_nuclear"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_carvoarias <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_carvoarias"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}
+
+#' Tabela do Capítulo V
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_usinas_gaseificacao <- function(con, lang = "pt", .tipo_dado) {
+  tab_name <- "tab_usinas_gaseificacao"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_1(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = "Fonte",
+    lab2 = "",
+    min_width = 250
+  )
+}

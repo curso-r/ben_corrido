@@ -11,6 +11,8 @@ ano <- params$ano
 
 # Comércio Externo de Energia
 
+![](../img/capas/imagem_cap_4.png)
+
 ## Dependência Externa de Energia
 
 ```{r}

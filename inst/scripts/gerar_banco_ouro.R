@@ -2008,6 +2008,149 @@ salvar_tab_bd(tab, "tab_exportacoes_importacoes_liquidas")
 
 # CAPÍTULO 5
 
+# tab_refinarias_petroleo
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_1_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual) |>
+  dplyr::mutate(tipo_dado = "Absoluto")
+
+salvar_tab_bd(tab, "tab_refinarias_petroleo")
+
+# tab_unidades_processamento_gas_natural
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual) |>
+  dplyr::mutate(tipo_dado = "Absoluto")
+  
+salvar_tab_bd(tab, "tab_unidades_processamento_gas_natural")
+
+# tab_centrais_eletricas_total
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_3_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_3_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_centrais_eletricas_total")
+
+# tab_centrais_eletricas_servico_publico
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_4_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_4_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_centrais_eletricas_servico_publico")
+
+# tab_centrais_eletricas_autoprodutoras
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_5_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_centrais_eletricas_autoprodutoras")
+
+# tab_autoproducao_nao_injetada_rede
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_a_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_5_a_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_autoproducao_nao_injetada_rede")
+
+# tab_micro_mini_geracao_distribuida
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_b_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_5_b_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_micro_mini_geracao_distribuida")
+
+# tab_coqueiras
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_6_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_6_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_coqueiras")
+
+# tab_destilarias
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_7_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_destilarias")
+
+# tab_plantas_biodiesel
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_8_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_8_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_plantas_biodiesel")
+
+# tab_ciclo_combustivel_nuclear
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_9_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_9_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_ciclo_combustivel_nuclear")
+
+# tab_carvoarias
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_10_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_10_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_carvoarias")
+
+# tab_usinas_gaseificacao
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_11_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_5_11_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_usinas_gaseificacao")
+
 # CAPÍTULO 6
 
 # CAPÍTULO 7

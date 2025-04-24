@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -6,6 +7,117 @@ params:
 ```{r}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
+```
+
+# Balanços de Centros de Transformação
+
+![](../img/capas/imagem_cap_5.png)
+
+## Refinarias de Petróleo
+
+```{r}
+benCorrido::tab_refinarias_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_refinarias_petroleo", .tipo_dado = "Absoluto")
+```
+
+## Unidades de Processamento de Gás Natural
+
+```{r}
+benCorrido::tab_unidades_processamento_gas_natural(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_unidades_processamento_gas_natural", .tipo_dado = "Absoluto")
+```
+
+## Centrais Elétricas - Total (Serviço Público + Autoprodução)
+
+```{r}
+benCorrido::tab_centrais_eletricas_total(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_total", .tipo_dado = "Absoluto")
+```
+
+## Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por tipo de fonte (Renovável ou Não-Renovável)
+
+## Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por Fonte
+
+## Centrais Elétricas de Serviço Público (SP)
+
+```{r}
+benCorrido::tab_centrais_eletricas_servico_publico(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_servico_publico", .tipo_dado = "Absoluto")
+```
+
+## Total da Geração em Centrais Elétricas de Serviço Público por tipo de fonte (Renovável ou Não-Renovável)
+
+## Total da Geração em Centrais Elétricas de Serviço Público por Fonte
+
+## Centrais Elétricas Autoprodutoras (APE)
+
+```{r}
+benCorrido::tab_centrais_eletricas_autoprodutoras(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_autoprodutoras", .tipo_dado = "Absoluto")
+```
+
+## Total da Geração em Centrais Elétricas Autoprodutoras por tipo de Fonte (Renovável ou Não-Renovável)
+
+## Total da Geração em Centrais Elétricas Autoprodutoras por Fonte
+
+## Autoprodução Não Injetada Na Rede
+
+```{r}
+benCorrido::tab_autoproducao_nao_injetada_rede(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_nao_injetada_rede", .tipo_dado = "Absoluto")
+```
+
+## Autoprodução Não-Injetada na Rede por tipo de Fonte (Renovável ou Não-Renovável)
+
+## Autoprodução Não-Injetada na Rede por Fonte
+
+## Micro e Mini Geração Distribuída
+
+```{r}
+benCorrido::tab_micro_mini_geracao_distribuida(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_micro_mini_geracao_distribuida", .tipo_dado = "Absoluto")
+```
+
+## Coquerias
+
+```{r}
+benCorrido::tab_coqueiras(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_coqueiras", .tipo_dado = "Absoluto")
+```
+
+## Destilarias
+
+```{r}
+benCorrido::tab_destilarias(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_destilarias", .tipo_dado = "Absoluto")
+```
+
+## Plantas de Biodiesel
+
+```{r}
+benCorrido::tab_plantas_biodiesel(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_plantas_biodiesel", .tipo_dado = "Absoluto")
+```
+
+## Ciclo do Combustível Nuclear
+
+```{r}
+benCorrido::tab_ciclo_combustivel_nuclear(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_ciclo_combustivel_nuclear", .tipo_dado = "Absoluto")
+```
+
+## Carvoarias
+
+```{r}
+benCorrido::tab_carvoarias(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvoarias", .tipo_dado = "Absoluto")
+```
+
+## Usinas de Gaseificação
+
+```{r}
+benCorrido::tab_usinas_gaseificacao(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_usinas_gaseificacao", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
