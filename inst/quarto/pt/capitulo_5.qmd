@@ -36,7 +36,21 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_total", .ti
 
 ## Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por tipo de fonte (Renovável ou Não-Renovável)
 
+```{r setor_energetico_absoluto_graficos}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
+
 ## Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por Fonte
+
+```{r}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
 
 ## Centrais Elétricas de Serviço Público (SP)
 
@@ -47,7 +61,21 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_servico_pub
 
 ## Total da Geração em Centrais Elétricas de Serviço Público por tipo de fonte (Renovável ou Não-Renovável)
 
+```{r}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
+
 ## Total da Geração em Centrais Elétricas de Serviço Público por Fonte
+
+```{r}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
 
 ## Centrais Elétricas Autoprodutoras (APE)
 
@@ -58,7 +86,21 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_autoproduto
 
 ## Total da Geração em Centrais Elétricas Autoprodutoras por tipo de Fonte (Renovável ou Não-Renovável)
 
+```{r}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
+
 ## Total da Geração em Centrais Elétricas Autoprodutoras por Fonte
+
+```{r}
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
 
 ## Autoprodução Não Injetada Na Rede
 
@@ -69,13 +111,33 @@ benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_nao_injetada_rede
 
 ## Autoprodução Não-Injetada na Rede por tipo de Fonte (Renovável ou Não-Renovável)
 
+```{r}
+linha <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
+
 ## Autoprodução Não-Injetada na Rede por Fonte
+
+```{r}
+linha <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha)
+```
 
 ## Micro e Mini Geração Distribuída
 
 ```{r}
 benCorrido::tab_micro_mini_geracao_distribuida(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_micro_mini_geracao_distribuida", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-micro_mini_geracao_dist
+#| fig-height: 3
+benCorrido::grafico_micro_mini_geracao_dist(con)
 ```
 
 ## Coquerias

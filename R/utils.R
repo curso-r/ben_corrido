@@ -88,6 +88,12 @@ pegar_cor <- function(x) {
     x == "Demanda de Petróleo e Derivados (a)" ~ "#1F4E79",
     x == "Produção Total de Petróleo (b)" ~ "#953735",
     x == "Déficit - mil tep (a)-(b)" ~ "#FCEEB1",
+    x == "Não Renováveis" ~ "#7F7F7F",
+    x == "Renováveis" ~ "#92D050",
+    x == "Biomassa, Solar e Eólica" ~ "#c4bd97",
+    x == "Carvão e Derivados" ~ "#7F7F7F",
+    x == "Derivados de Petróleo" ~ "#953735",
+    x == "Solar e Eólica" ~ "#ED7D31",
     TRUE ~ NA_character_
   )
 }
