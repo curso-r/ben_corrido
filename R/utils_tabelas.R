@@ -7,6 +7,28 @@ tema_reactable <- function() {
   )
 }
 
+reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...) {
+  gerar_matriz_download(tab, tab_name = tab_name, .tipo_dado = .tipo_dado)
+
+  locale <- pegar_locale(lang)
+
+  tab |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultColDef = reactable::colDef(
+        format = reactable::colFormat(
+          digits = 0,
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      ...
+    )
+}
+
 reactable_painel_simples <- function(tab, tab_name, .tipo_dado, lang, lab1, min_width = 100) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]

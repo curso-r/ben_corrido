@@ -9,7 +9,7 @@
 #' @export
 tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado) {
   tab_name <- "tab_producao_energia_primaria"
-  
+
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
@@ -33,7 +33,7 @@ tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado) {
 #' @export
 tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado) {
   tab_name <- "tab_oferta_interna_energia"
-  
+
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
@@ -178,7 +178,7 @@ tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado) {
 #' @export
 tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo_dado) {
   tab_name <- "tab_composicao_setorial_consumo_derivados_petroleo"
-  
+
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
@@ -226,7 +226,7 @@ tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo
 #' @export
 tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
   tab_name <- "tab_composicao_setorial_consumo_carvao_vapor"
-  
+
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
@@ -1465,7 +1465,7 @@ tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmen
   tab_name <- "tab_setor_transportes_segmento"
 
   tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::filter(dado == .segmento) |> 
+    dplyr::filter(dado == .segmento) |>
     dplyr::collect()
 
   reactable_painel_simples(
@@ -1513,7 +1513,7 @@ tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segment
   tab_name <- "tab_setor_industrial_segmento"
 
   tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::filter(dado == .segmento) |> 
+    dplyr::filter(dado == .segmento) |>
     dplyr::collect()
 
   reactable_painel_simples(
@@ -1961,5 +1961,152 @@ tab_usinas_gaseificacao <- function(con, lang = "pt", .tipo_dado) {
     lab1 = "Fonte",
     lab2 = "",
     min_width = 250
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_recursos_reservas_energeticas_brasileiras_1 <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_recursos_reservas_energeticas_brasileiras_1_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    columns = list(
+      grupo = reactable::colDef(
+        name = ""
+      )
+    )
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_recursos_reservas_energeticas_brasileiras_2 <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_recursos_reservas_energeticas_brasileiras_2_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    columns = list(
+      grupo = reactable::colDef(
+        name = ""
+      )
+    )
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_reservas_provadas_petroleo_gas <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_reservas_provadas_petroleo_gas_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    fullWidth = FALSE,
+    width = "500px"
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_recursos_hidraulicos <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_recursos_hidraulicos_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_reservas_carvao_mineral_turfa <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_reservas_carvao_mineral_turfa_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  nome_colunas <- names(tab)
+
+  if (lang == "pt") {
+    column_groups <- list(
+      reactable::colGroup("Carvão Mineral", columns = nome_colunas[2:4])
+    )
+  } else {
+    column_groups <- list(
+      reactable::colGroup("Mineral Coal", columns = nome_colunas[2:4])
+    )
+  }
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    width = "600px",
+    columnGroups = column_groups,
+    columns = list(
+      ano = reactable::colDef(
+        name = "",
+        align = "left"
+      )
+    )
+  )
+}
+
+#' Tabela do Capítulo VI
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_reservas_uranio <- function(con, lang = "pt") {
+  tab_name <- glue::glue("tab_reservas_uranio_{lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_tabela_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    width = "300px"
   )
 }

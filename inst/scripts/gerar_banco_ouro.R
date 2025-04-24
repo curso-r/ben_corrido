@@ -2375,6 +2375,60 @@ salvar_tab_bd(tab, "tab_usinas_gaseificacao")
 
 # CAPÍTULO 6
 
+# tab_recursos_reservas_energeticas_brasileiras_1
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_tabela_6_1.rds")
+salvar_tab_bd(tab, "tab_recursos_reservas_energeticas_brasileiras_1_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_tabela_6_1.rds")
+salvar_tab_bd(tab, "tab_recursos_reservas_energeticas_brasileiras_1_en")
+
+# tab_recursos_reservas_energeticas_brasileiras_2
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_tabela_6_1_a.rds")
+salvar_tab_bd(tab, "tab_recursos_reservas_energeticas_brasileiras_2_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_tabela_6_1_a.rds")
+salvar_tab_bd(tab, "tab_recursos_reservas_energeticas_brasileiras_2_en")
+
+# tab_reservas_provadas_petroleo_gas
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+  dplyr::rename(Ano = grupo)
+salvar_tab_bd(tab, "tab_reservas_provadas_petroleo_gas_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_2.rds") |> 
+  dplyr::rename(Year = grupo)
+salvar_tab_bd(tab, "tab_reservas_provadas_petroleo_gas_en")
+
+# tab_recursos_hidraulicos
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_3.rds") |> 
+  dplyr::rename(Ano = grupo)
+salvar_tab_bd(tab, "tab_recursos_hidraulicos_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_3.rds") |> 
+  dplyr::rename(Year = grupo)
+salvar_tab_bd(tab, "tab_recursos_hidraulicos_en")
+
+# tab_reservas_carvao_mineral_turfa
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds")
+salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_4.rds")
+salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_en")
+
+# tab_reservas_uranio
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_6_5_traduzido.rds") |> 
+  dplyr::rename(Ano = grupo)
+salvar_tab_bd(tab, "tab_reservas_uranio_pt")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_6_5_traduzido.rds") |> 
+  dplyr::rename(Year = grupo)
+salvar_tab_bd(tab, "tab_reservas_uranio_en")
+
 # CAPÍTULO 7
 
 # CAPÍTULO 8
