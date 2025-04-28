@@ -29,7 +29,8 @@ reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...
     )
 }
 
-reactable_painel_simples <- function(tab, tab_name, .tipo_dado, lang, lab1, min_width = 100) {
+reactable_painel_simples <- function(tab, tab_name, lang, lab1, ...,
+                                     min_width = 100, .tipo_dado = NULL, extra = NULL) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
   }
@@ -37,14 +38,21 @@ reactable_painel_simples <- function(tab, tab_name, .tipo_dado, lang, lab1, min_
   locale <- pegar_locale(lang)
 
   menor_ano <- determinar_menor_ano(tab$ano)
-  casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
+
+  if (!is.null(.tipo_dado)) {
+    tab <- tab |>
+      dplyr::filter(tipo_dado == .tipo_dado)
+
+    casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
+  } else {
+    casas_dec <- NULL
+  }
 
   tab_long <- tab |>
     dplyr::filter(
-      tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
-    dplyr::select(grupo, ano, total)
+    dplyr::select(grupo, dplyr::any_of(extra), ano, total)
 
   tab_wide <- tab_long |>
     tidyr::pivot_wider(
@@ -77,7 +85,8 @@ reactable_painel_simples <- function(tab, tab_name, .tipo_dado, lang, lab1, min_
           minWidth = min_width,
           width = 220,
           sticky = "left"
-        )
+        ),
+        ...
       )
     )
 }

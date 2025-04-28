@@ -4,12 +4,17 @@
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-gerar_botoes_download <- function(tab_name, .tipo_dado) {
+gerar_botoes_download <- function(tab_name, .tipo_dado = NULL) {
   tab_name <- stringr::str_remove(tab_name, "^tab_")
+
+  if (!is.null(.tipo_dado)) {
+    tab_name <- glue::glue("{tab_name}_{.tipo_dado}")
+  }
+
   htmltools::div(
     class = "download mt-4 mb-4 text-end",
     htmltools::tags$a(
-      href = glue::glue("dados/matriz_{tab_name}_{.tipo_dado}.xlsx"),
+      href = glue::glue("dados/matriz_{tab_name}.xlsx"),
       htmltools::tags$button(
         class = "btn btn-default",
         bsicons::bs_icon("download"),
@@ -18,7 +23,7 @@ gerar_botoes_download <- function(tab_name, .tipo_dado) {
     ),
     htmltools::tags$a(
       class = "ms-3",
-      href = glue::glue("dados/tabela_{tab_name}_{.tipo_dado}.xlsx"),
+      href = glue::glue("dados/tabela_{tab_name}.xlsx"),
       htmltools::tags$button(
         class = "btn btn-default",
         bsicons::bs_icon("download"),

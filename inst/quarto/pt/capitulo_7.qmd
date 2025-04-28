@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,37 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Energia e Socioeconomia
+
+![](../img/capas/imagem_cap_7.png)
+
+## Oferta Interna de Energia / PIB / População
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+benCorrido::tab_oferta_interna_energia_pib_populacao(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_populacao")
 ```
+
+## Oferta Interna de Energéticos / PIB
+
+## Consumo Final Energético
+
+## Produto Interno Bruto Setorial
+ 
+## Consumo Final de Energia do Setor / PIB do Setor
+
+## Setor Residencial – Energia / População
+
+## Setor de Transportes – Energia / PIB do Setor
+
+## Consumo Específico de Energia em Setores Selecionados
+
+## Preços Médios Correntes de Fontes de Energia
+
+## Preços Médios Correntes de Fontes de Energia
+
+## Relações de Preços entre as Fontes de Energia
+
+## Gastos em Divisas com Importação de Petróleo
+
+

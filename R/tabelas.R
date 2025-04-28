@@ -2110,3 +2110,267 @@ tab_reservas_uranio <- function(con, lang = "pt") {
     width = "300px"
   )
 }
+
+# Capítulo VII -------------------------------------------------------------------
+
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
+  tab_name <- "tab_oferta_interna_energia_pib_populacao"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    min_width = 220,
+    extra = "Unidade",
+    Unidade = reactable::colDef(
+      minWidth = 120
+    )
+  )
+}
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
+#   tab_name <- "tab_oferta_interna_energeticos_pib"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_tabela_simples(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_consumo_final_energetico <- function(con, lang = "pt") {
+#   tab_name <- "tab_consumo_final_energetico"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_3(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo Nível 1",
+#     lab2 = "Grupo Nível 2",
+#     lab3 = "Grupo Nível Menor",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
+#   tab_name <- "tab_produto_interno_bruto_setorial"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_3(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo Nível 1",
+#     lab2 = "Grupo Nível 2",
+#     lab3 = "Grupo Nível Menor",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
+#   tab_name <- "tab_consumo_final_energia_setor_pib_setor"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_3(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo Nível 1",
+#     lab2 = "Grupo Nível 2",
+#     lab3 = "Grupo Nível Menor",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
+#   tab_name <- "tab_setor_residencial_energia_populacao"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
+#   tab_name <- "tab_setor_transportes_energia_pib_setor"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt") {
+#   tab_name <- "tab_consumo_especifico_energia_setores_selecionados"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
+#   tab_name <- "tab_precos_medios_correntes_fontes_energia_1"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
+#   tab_name <- "tab_precos_medios_correntes_fontes_energia_2"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param conConexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
+#   tab_name <- "tab_relacoes_precos_fontes_energia"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }
+
+# #' Tabela do Capítulo VII
+# #'
+# #' @param con Conexão com o banco de dados
+# #' @param lang Idioma
+# #'
+# #' @export
+# tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
+#   tab_name <- "tab_gastos_divisas_importacao_petroleo"
+
+#   tab <- dplyr::tbl(con, tab_name) |>
+#     dplyr::collect()
+
+#   reactable_painel_nivel_1(
+#     tab = tab,
+#     tab_name = tab_name,
+#     lang = lang,
+#     lab1 = "Grupo",
+#     min_width = 220
+#   )
+# }

@@ -14,12 +14,14 @@ book:
     - text: Sobre
       href: index.qmd
     - pt/autoria.qmd
-    - pt/capitulo_1.qmd
-    - pt/capitulo_2.qmd
-    - pt/capitulo_3.qmd
-    - pt/capitulo_4.qmd
-    - pt/capitulo_5.qmd
-    - pt/capitulo_6.qmd
+    # - pt/capitulo_1.qmd
+    # - pt/capitulo_2.qmd
+    # - pt/capitulo_3.qmd
+    # - pt/capitulo_4.qmd
+    # - pt/capitulo_5.qmd
+    # - pt/capitulo_6.qmd
+    - pt/capitulo_7.qmd
+    - pt/capitulo_8.qmd
     # - pt/anexo_3.qmd
     - text: Referências
       href: pt/referencias.qmd

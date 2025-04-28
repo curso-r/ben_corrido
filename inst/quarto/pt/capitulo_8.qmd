@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,38 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
-```
+# Dados Energéticos Estaduais
+
+![](../img/capas/imagem_cap_8.png)
+
+## Produção de Energia - Fósseis  
+
+
+## Produção de Energia – Eletricidade e Álcool  
+
+
+## Geração de Eletricidade por Fonte  
+
+
+## Consumo Residencial de Eletricidade  
+
+
+## Consumo Residencial de Gás Liquefeito de Petróleo  
+
+
+## Capacidade Instalada de Geração de Energia  
+
+
+## Capacidade Instalada de Mini e Micro Geração Distribuída  
+
+
+## Capacidade Instalada em Autoprodutores por Setor Econômico  
+
+
+## Capacidade Instalada em Autoprodutores por Segmento Industrial  
+
+
+## Capacidade Instalada  
+
+
+## Reservas Provadas e Potencial Hidráulico

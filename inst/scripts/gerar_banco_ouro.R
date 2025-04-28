@@ -2494,4 +2494,163 @@ salvar_tab_bd(tab, "tab_reservas_uranio_en")
 
 # CAPÍTULO 7
 
+# tab_oferta_interna_energia_pib_populacao
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_1_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_1_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- tab |> 
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::mutate(
+    total = dplyr::case_when(
+      grupo %in% c(
+        "Oferta Interna de Energia - OIE",
+        "Produto Interno Bruto - PIB",
+        "População Residente - POP",
+        "OIE/PIB",
+        "OIE/POP"
+      ) ~ scales::number(total, accuracy = 0.1),
+      grupo %in% c(
+        "Oferta Int. Energia Elétrica- OIEE",
+        "OIEE/POP"
+      ) ~ scales::number(total, accuracy = 1)
+    )
+  ) |>
+   dplyr::select(-verifica_percentual)
+
+salvar_tab_bd(tab, "tab_oferta_interna_energia_pib_populacao")
+
+# tab_oferta_interna_energeticos_pib
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_2_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en)
+salvar_tab_bd(tab, "tab_oferta_interna_energeticos_pib")
+
+# tab_consumo_final_energetico
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_3_traduzido.rds") |> 
+  dplyr::select(
+    grupo_nivel_1,
+    grupo_nivel_2,
+    grupo_nivel_menor = grupo_nivel_3,
+    ano,
+    total
+  )
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_3_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_3
+  )
+
+tab <- cbind(tab, tab_en)
+salvar_tab_bd(tab, "tab_consumo_final_energetico")
+
+# tab_produto_interno_bruto_setorial
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_4_traduzido.rds") |> 
+  dplyr::select(
+    grupo_nivel_1,
+    grupo_nivel_2,
+    grupo_nivel_menor = grupo_nivel_3,
+    ano,
+    total
+  )
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_4_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_3
+  )
+
+tab <- cbind(tab, tab_en)
+salvar_tab_bd(tab, "tab_produto_interno_bruto_setorial")
+
+# tab_consumo_final_energia_setor_pib_setor
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_5_traduzido.rds") |> 
+  dplyr::select(
+    grupo_nivel_1,
+    grupo_nivel_2,
+    grupo_nivel_menor = grupo_nivel_3,
+    ano,
+    total
+  )
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_5_traduzido.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_menor_en = grupo_nivel_3
+  )
+
+tab <- cbind(tab, tab_en)
+salvar_tab_bd(tab, "tab_consumo_final_energia_setor_pib_setor")
+
+# tab_setor_residencial_energia_populacao
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_6_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_6_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_residencial_energia_populacao")
+
+# tab_setor_transportes_energia_pib_setor
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_7_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_7_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_setor_transportes_energia_pib_setor")
+
+# tab_consumo_especifico_energia_setores_selecionados
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_8_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_8_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_consumo_especifico_energia_setores_selecionados")
+
+# tab_precos_medios_correntes_fontes_energia_1
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_9_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_9_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_precos_medios_correntes_fontes_energia_1")
+
+# tab_precos_medios_correntes_fontes_energia_2
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_10_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_10_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) 
+salvar_tab_bd(tab, "tab_precos_medios_correntes_fontes_energia_2")
+
+# tab_relacoes_precos_fontes_energia
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_11_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_11_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) 
+salvar_tab_bd(tab, "tab_relacoes_precos_fontes_energia")
+
+# tab_gastos_divisas_importacao_petroleo
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_12_traduzido.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_12_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+salvar_tab_bd(tab, "tab_gastos_divisas_importacao_petroleo")
+
 # CAPÍTULO 8

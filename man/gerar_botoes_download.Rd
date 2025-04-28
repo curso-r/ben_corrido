@@ -4,7 +4,7 @@
 \alias{gerar_botoes_download}
 \title{Gerar botões de download}
 \usage{
-gerar_botoes_download(tab_name, .tipo_dado)
+gerar_botoes_download(tab_name, .tipo_dado = NULL)
 }
 \arguments{
 \item{tab_name}{Nome da tabela}
