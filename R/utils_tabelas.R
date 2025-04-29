@@ -29,7 +29,7 @@ reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...
     )
 }
 
-reactable_painel_simples <- function(tab, tab_name, lang, lab1, ...,
+reactable_painel_simples <- function(tab, tab_name, lang, lab1, ..., casas_dec = NULL,
                                      min_width = 100, .tipo_dado = NULL, extra = NULL) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
@@ -43,9 +43,9 @@ reactable_painel_simples <- function(tab, tab_name, lang, lab1, ...,
     tab <- tab |>
       dplyr::filter(tipo_dado == .tipo_dado)
 
-    casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
-  } else {
-    casas_dec <- NULL
+    if (is.null(casas_dec)) {
+      casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
+    }
   }
 
   tab_long <- tab |>
@@ -151,8 +151,8 @@ reactable_painel_nivel_1 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
     )
 }
 
-reactable_painel_nivel_2 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2, lab3,
-                                     min_width = 100) {
+reactable_painel_nivel_2 <- function(tab, tab_name, lang, lab1, lab2, lab3, ...,
+                                     casas_dec = NULL, .tipo_dado = NULL, min_width = 100) {
   if (lang != "pt") {
     tab$grupo_nivel_1 <- tab[[glue::glue("grupo_nivel_1_{lang}")]]
     tab$grupo_nivel_2 <- tab[[glue::glue("grupo_nivel_2_{lang}")]]
@@ -162,11 +162,18 @@ reactable_painel_nivel_2 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
   locale <- pegar_locale(lang)
 
   menor_ano <- determinar_menor_ano(tab$ano)
-  casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
+
+  if (!is.null(.tipo_dado)) {
+    tab <- tab |>
+      dplyr::filter(tipo_dado == .tipo_dado)
+
+    if (is.null(casas_dec)) {
+      casas_dec <- ifelse(.tipo_dado == "Absoluto", 0, 1)
+    }
+  }
 
   tab_long <- tab |>
     dplyr::filter(
-      tipo_dado == .tipo_dado,
       ano > menor_ano
     ) |>
     dplyr::select(grupo_nivel_1, grupo_nivel_2, grupo_nivel_menor, ano, total)

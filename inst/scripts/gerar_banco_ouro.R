@@ -2572,19 +2572,13 @@ salvar_tab_bd(tab, "tab_produto_interno_bruto_setorial")
 
 # tab_consumo_final_energia_setor_pib_setor
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_5_traduzido.rds") |> 
-  dplyr::select(
-    grupo_nivel_1,
-    grupo_nivel_2,
-    grupo_nivel_menor = grupo_nivel_3,
-    ano,
-    total
+tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_7_5.rds") |> 
+  dplyr::rename(
+    grupo = grupo_nivel_menor
   )
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_5_traduzido.rds") |>
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_tabela_7_5.rds") |>
   dplyr::select(
-    grupo_nivel_1_en = grupo_nivel_1,
-    grupo_nivel_2_en = grupo_nivel_2,
-    grupo_nivel_menor_en = grupo_nivel_3
+    grupo_en = grupo_nivel_menor
   )
 
 tab <- cbind(tab, tab_en)

@@ -2138,95 +2138,148 @@ tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
   )
 }
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
-#   tab_name <- "tab_oferta_interna_energeticos_pib"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
+  tab_name <- "tab_oferta_interna_energeticos_pib"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_tabela_simples(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "",
-#     min_width = 220
-#   )
-# }
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    min_width = 220,
+    casas_dec = 3
+  )
+}
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_consumo_final_energetico <- function(con, lang = "pt") {
-#   tab_name <- "tab_consumo_final_energetico"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_consumo_final_energetico <- function(con, lang = "pt") {
+  tab_name <- "tab_consumo_final_energetico"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_painel_nivel_3(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo Nível 1",
-#     lab2 = "Grupo Nível 2",
-#     lab3 = "Grupo Nível Menor",
-#     min_width = 220
-#   )
-# }
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    lab2 = "",
+    lab3 = "",
+    min_width = 220
+  )
+}
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
-#   tab_name <- "tab_produto_interno_bruto_setorial"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
+  tab_name <- "tab_produto_interno_bruto_setorial"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_painel_nivel_3(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo Nível 1",
-#     lab2 = "Grupo Nível 2",
-#     lab3 = "Grupo Nível Menor",
-#     min_width = 220
-#   )
-# }
+  reactable_painel_nivel_2(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    lab2 = "",
+    lab3 = "",
+    min_width = 220
+  )
+}
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
-#   tab_name <- "tab_consumo_final_energia_setor_pib_setor"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
+  tab_name <- "tab_consumo_final_energia_setor_pib_setor"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_painel_nivel_3(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo Nível 1",
-#     lab2 = "Grupo Nível 2",
-#     lab3 = "Grupo Nível Menor",
-#     min_width = 220
-#   )
-# }
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
+
+  tab_padding <- tab |>
+    dplyr::distinct(grupo) |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Consumo Final Energético Com Residencial", "Consumo Final Energético Sem Residencial") ~ "5px",
+        grupo %in% c("Serviços", "Agropecuário", "Indústria", "Setor Energético") ~ "20px",
+        grupo %in% c("Comércio e Outros", "Transportes", "Extrativa Mineral", "Transformação") ~ "40px",
+        TRUE ~ "80px"
+      )
+    )
+
+  tab_wide <- tab |>
+    dplyr::select(-dplyr::matches("grupo_"))
+
+  tab_long <- tab_wide |>
+    tidyr::pivot_longer(
+      cols = -grupo,
+      names_to = "ano",
+      values_to = "total"
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  reactable::reactable(
+    tab_wide,
+    defaultPageSize = 20,
+    striped = TRUE,
+    theme = reactable::reactableTheme(
+      borderColor = "black",
+      style = list(
+        fontSize = "85%"
+      )
+    ),
+    defaultColDef = reactable::colDef(
+      align = "center",
+      format = reactable::colFormat(
+        digits = 1,
+        separators = TRUE,
+        locales = locale
+      )
+    ),
+    columns = list(
+      grupo = reactable::colDef(
+        name = "Identificação",
+        align = "left",
+        minWidth = 100,
+        width = 500,
+        style = function(value, index) {
+          paddingLeft <- tab_padding$paddingLeft[tab_padding$grupo == value]
+          list(paddingLeft = paddingLeft)
+        }
+      )
+    )
+  )
+}
 
 # #' Tabela do Capítulo VII
 # #'

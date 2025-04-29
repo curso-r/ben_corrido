@@ -22,6 +22,11 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_pop
 
 ## Oferta Interna de Energéticos / PIB
 
+```{r}
+benCorrido::tab_oferta_interna_energeticos_pib(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib")
+```
+
 ## Consumo Final Energético
 
 ## Produto Interno Bruto Setorial
