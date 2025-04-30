@@ -1292,10 +1292,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_3_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_renov_nao_renov")
@@ -1309,8 +1309,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_3_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |>
   dplyr::mutate(
     grupo = dplyr::case_when(
       grupo %in% c("Bagaço de Cana", "Lixívia", "Lenha", "Biodiesel", "Outras Renováveis") ~ "Biomassa",
@@ -1324,9 +1324,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_3_traduzido.rds") 
       grupo == "Carvão e Derivados" ~ "Coal and derivatives",
       TRUE ~ grupo_en
     )
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_por_fonte")
@@ -1340,10 +1340,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_4_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov")
@@ -1357,8 +1357,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_4_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |>
   dplyr::mutate(
     grupo = dplyr::case_when(
       grupo %in% c("Lenha", "Biodiesel", "Outras Renováveis", "Solar", "Eólica") ~ "Biomassa, Solar e Eólica",
@@ -1370,9 +1370,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_4_traduzido.rds") 
       grupo == "Derivados de Petróleo" ~ "Oil Products",
       TRUE ~ grupo_en
     )
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_servico_pub_por_fonte")
@@ -1386,10 +1386,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov")
@@ -1403,8 +1403,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_traduzido.rds") 
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |>
   dplyr::mutate(
     grupo = dplyr::case_when(
       grupo %in% c("Lenha", "Bagaço de Cana", "Lixívia", "Biodiesel", "Outras Renováveis") ~ "Biomassa",
@@ -1420,9 +1420,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_traduzido.rds") 
       grupo == "Solar e Eólica" ~ "Solar and Wind",
       TRUE ~ grupo_en
     )
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_total_geracao_centrais_eletr_autoprod_por_fonte")
@@ -1436,10 +1436,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_a_traduzido.rds"
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_2, grupo_en, ano, total) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_autoprod_nao_injetada_renov_nao_renov")
@@ -1453,8 +1453,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_a_traduzido.rds"
   dplyr::filter(
     tipo_dado == "Absoluto",
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |>
   dplyr::mutate(
     grupo = dplyr::case_when(
       grupo %in% c("Lenha", "Bagaço de Cana", "Lixívia", "Biodiesel", "Outras Renováveis") ~ "Biomassa",
@@ -1470,9 +1470,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_a_traduzido.rds"
       grupo == "Solar e Eólica" ~ "Solar and Wind",
       TRUE ~ grupo_en
     )
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_autoprod_nao_injetada_por_fonte")
@@ -1487,8 +1487,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_b_traduzido.rds"
     tipo_dado == "Absoluto",
     ano >= 2015,
     grupo_nivel_1 == "Geração de Eletricidade - GWh"
-  ) |> 
-  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |> 
+  ) |>
+  dplyr::select(grupo = grupo_nivel_menor, grupo_en, ano, total) |>
   dplyr::mutate(
     grupo = dplyr::case_when(
       grupo != "Solar" ~ "Outros",
@@ -1498,9 +1498,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_5_5_b_traduzido.rds"
       grupo != "Solar" ~ "Other",
       .default = grupo_en
     )
-  ) |> 
+  ) |>
   dplyr::group_by(grupo, grupo_en, ano) |>
-  dplyr::summarise(total = sum(total), .groups = "drop") |> 
+  dplyr::summarise(total = sum(total), .groups = "drop") |>
   dplyr::mutate(tipo_dado = "Absoluto")
 
 salvar_tab_bd(tab, "grafico_micro_mini_geracao_dist")
@@ -1509,7 +1509,7 @@ salvar_tab_bd(tab, "grafico_micro_mini_geracao_dist")
 
 # grafico_reservas_provadas_petroleo
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |>
   dplyr::select(
     ano = grupo,
     y = `Petróleo (10³ m³)`
@@ -1519,7 +1519,7 @@ salvar_tab_bd(tab, "grafico_reservas_provadas_petroleo")
 
 # grafico_reservas_provadas_gas
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |>
   dplyr::select(
     ano = grupo,
     y = `Gás Natural (10⁶ m³)`
@@ -1529,30 +1529,30 @@ salvar_tab_bd(tab, "grafico_reservas_provadas_gas")
 
 # grafico_potencial_hidreletrico
 
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_grafico_6_3.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_grafico_6_3.rds") |>
   tidyr::pivot_longer(
     cols = -grupo,
     names_to = "grupo_en",
     values_to = "y"
-  ) |> 
+  ) |>
   dplyr::select(grupo_en)
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_grafico_6_3.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_grafico_6_3.rds") |>
   dplyr::rename(
     ano = grupo
-  ) |> 
+  ) |>
   tidyr::pivot_longer(
     cols = -ano,
     names_to = "grupo",
     values_to = "y"
-  ) |> 
+  ) |>
   dplyr::bind_cols(tab_en)
 
 salvar_tab_bd(tab, "grafico_potencial_hidreletrico")
 
 # grafico_reservas_carvao_mineral
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds") |>
   dplyr::select(
     ano,
     y = TOTAL
@@ -1562,7 +1562,7 @@ salvar_tab_bd(tab, "grafico_reservas_carvao_mineral")
 
 # grafico_reservas_uranio
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_grafico_6_5_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_grafico_6_5_traduzido.rds") |>
   dplyr::select(
     ano = grupo,
     y = `U₃O₈`
@@ -2456,21 +2456,21 @@ salvar_tab_bd(tab, "tab_recursos_reservas_energeticas_brasileiras_2_en")
 
 # tab_reservas_provadas_petroleo_gas
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_2.rds") |>
   dplyr::rename(Ano = grupo)
 salvar_tab_bd(tab, "tab_reservas_provadas_petroleo_gas_pt")
 
-tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_2.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_2.rds") |>
   dplyr::rename(Year = grupo)
 salvar_tab_bd(tab, "tab_reservas_provadas_petroleo_gas_en")
 
 # tab_recursos_hidraulicos
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_3.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_3.rds") |>
   dplyr::rename(Ano = grupo)
 salvar_tab_bd(tab, "tab_recursos_hidraulicos_pt")
 
-tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_3.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_3.rds") |>
   dplyr::rename(Year = grupo)
 salvar_tab_bd(tab, "tab_recursos_hidraulicos_en")
 
@@ -2484,11 +2484,11 @@ salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_en")
 
 # tab_reservas_uranio
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_6_5_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_6_5_traduzido.rds") |>
   dplyr::rename(Ano = grupo)
 salvar_tab_bd(tab, "tab_reservas_uranio_pt")
 
-tab <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_6_5_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_6_5_traduzido.rds") |>
   dplyr::rename(Year = grupo)
 salvar_tab_bd(tab, "tab_reservas_uranio_en")
 
@@ -2500,8 +2500,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_1_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_1_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- tab |> 
-  dplyr::bind_cols(tab_en) |> 
+tab <- tab |>
+  dplyr::bind_cols(tab_en) |>
   dplyr::mutate(
     total = dplyr::case_when(
       grupo %in% c(
@@ -2510,14 +2510,14 @@ tab <- tab |>
         "População Residente - POP",
         "OIE/PIB",
         "OIE/POP"
-      ) ~ scales::number(total, accuracy = 0.1),
+      ) ~ scales::number(total, accuracy = 0.1, decimal.mark = ",", big.mark = "."),
       grupo %in% c(
         "Oferta Int. Energia Elétrica- OIEE",
         "OIEE/POP"
-      ) ~ scales::number(total, accuracy = 1)
+      ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")
     )
   ) |>
-   dplyr::select(-verifica_percentual)
+  dplyr::select(-verifica_percentual)
 
 salvar_tab_bd(tab, "tab_oferta_interna_energia_pib_populacao")
 
@@ -2532,7 +2532,7 @@ salvar_tab_bd(tab, "tab_oferta_interna_energeticos_pib")
 
 # tab_consumo_final_energetico
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_3_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_3_traduzido.rds") |>
   dplyr::select(
     grupo_nivel_1,
     grupo_nivel_2,
@@ -2552,7 +2552,7 @@ salvar_tab_bd(tab, "tab_consumo_final_energetico")
 
 # tab_produto_interno_bruto_setorial
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_4_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_4_traduzido.rds") |>
   dplyr::select(
     grupo_nivel_1,
     grupo_nivel_2,
@@ -2572,7 +2572,7 @@ salvar_tab_bd(tab, "tab_produto_interno_bruto_setorial")
 
 # tab_consumo_final_energia_setor_pib_setor
 
-tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_7_5.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_7_5.rds") |>
   dplyr::rename(
     grupo = grupo_nivel_menor
   )
@@ -2590,7 +2590,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_6_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_6_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_setor_residencial_energia_populacao")
 
 # tab_setor_transportes_energia_pib_setor
@@ -2599,7 +2600,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_7_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_7_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_setor_transportes_energia_pib_setor")
 
 # tab_consumo_especifico_energia_setores_selecionados
@@ -2608,7 +2610,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_8_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_8_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_consumo_especifico_energia_setores_selecionados")
 
 # tab_precos_medios_correntes_fontes_energia_1
@@ -2617,7 +2620,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_9_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_9_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_precos_medios_correntes_fontes_energia_1")
 
 # tab_precos_medios_correntes_fontes_energia_2
@@ -2626,7 +2630,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_10_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_10_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) 
+tab <- cbind(tab, tab_en)
 salvar_tab_bd(tab, "tab_precos_medios_correntes_fontes_energia_2")
 
 # tab_relacoes_precos_fontes_energia
@@ -2635,7 +2639,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_7_11_traduzido.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_11_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
-tab <- cbind(tab, tab_en) 
+tab <- cbind(tab, tab_en)
 salvar_tab_bd(tab, "tab_relacoes_precos_fontes_energia")
 
 # tab_gastos_divisas_importacao_petroleo

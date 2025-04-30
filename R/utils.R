@@ -137,16 +137,16 @@ transformar_svg <- function(p, width = 8, height = 4, html = FALSE) {
 #' Create a dropdown plot
 #'
 #' @export
-create_dropdown_plot <- function(plots, params, label = "", html = FALSE,
-                                 fig_width = 8, fig_height = 4,
-                                 dropdown_width = "300px") {
-  if (length(plots) != length(params)) {
-    stop("The number of plots must match the number of parameters")
+create_dropdown <- function(elementos, params, label = "", html = FALSE,
+                            fig_width = 8, fig_height = 4,
+                            dropdown_width = "300px") {
+  if (length(elementos) != length(params)) {
+    stop("The number of elements must match the number of parameters")
   }
 
   if (!html) {
-    plots <- purrr::map(
-      plots,
+    elementos <- purrr::map(
+      elementos,
       \(x) {
         transformar_svg(
           x,
@@ -165,7 +165,7 @@ create_dropdown_plot <- function(plots, params, label = "", html = FALSE,
   select_html <- htmltools::tags$select(
     id = dropdown_id,
     class = "form-select",
-    onchange = sprintf("updatePlot('%s')", dropdown_id),
+    onchange = sprintf("updateElement('%s')", dropdown_id),
     style = glue::glue("width: {dropdown_width};")
   )
 
@@ -185,9 +185,9 @@ create_dropdown_plot <- function(plots, params, label = "", html = FALSE,
   # Create the JavaScript function to update the plot
   js_code <- sprintf("
     <script>
-      function updatePlot(dropdown_id) {
+      function updateElement(dropdown_id) {
         var selected_param = document.getElementById(dropdown_id).value;
-        var plot_divs = document.getElementsByClassName('plot_container');
+        var plot_divs = document.getElementsByClassName('element_container');
         for (var i = 0; i < plot_divs.length; i++) {
           plot_divs[i].style.display = 'none';
         }
@@ -200,14 +200,14 @@ create_dropdown_plot <- function(plots, params, label = "", html = FALSE,
   ")
 
   # Create the HTML for each plot
-  plot_htmls <- lapply(seq_along(plots), function(i) {
+  plot_htmls <- lapply(seq_along(elementos), function(i) {
     plot_id <- paste0("plot_", params[i])
     display <- ifelse(i == 1, "block", "none")
     plot_div <- htmltools::tags$div(
       id = plot_id,
-      class = "plot_container",
+      class = "element_container",
       style = glue::glue("display: {display}; width: 100%; margin: auto"),
-      plots[[i]]
+      elementos[[i]]
     )
     plot_div
   })

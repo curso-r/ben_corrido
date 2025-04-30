@@ -29,8 +29,8 @@ reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...
     )
 }
 
-reactable_painel_simples <- function(tab, tab_name, lang, lab1, ..., casas_dec = NULL,
-                                     min_width = 100, .tipo_dado = NULL, extra = NULL) {
+reactable_painel_simples <- function(tab, tab_name, lang, lab1, casas_dec = NULL,
+                                     min_width = 100, .tipo_dado = NULL) {
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
   }
@@ -52,7 +52,7 @@ reactable_painel_simples <- function(tab, tab_name, lang, lab1, ..., casas_dec =
     dplyr::filter(
       ano > menor_ano
     ) |>
-    dplyr::select(grupo, dplyr::any_of(extra), ano, total)
+    dplyr::select(grupo, ano, total)
 
   tab_wide <- tab_long |>
     tidyr::pivot_wider(
@@ -70,7 +70,6 @@ reactable_painel_simples <- function(tab, tab_name, lang, lab1, ..., casas_dec =
       resizable = TRUE,
       theme = tema_reactable(),
       defaultColDef = reactable::colDef(
-        aggregate = "sum",
         minWidth = 90,
         format = reactable::colFormat(
           digits = casas_dec,
@@ -83,10 +82,8 @@ reactable_painel_simples <- function(tab, tab_name, lang, lab1, ..., casas_dec =
           name = lab1,
           align = "left",
           minWidth = min_width,
-          width = 220,
           sticky = "left"
-        ),
-        ...
+        )
       )
     )
 }

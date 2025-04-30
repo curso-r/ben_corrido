@@ -2125,17 +2125,56 @@ tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  reactable_painel_simples(
-    tab = tab,
-    tab_name = tab_name,
-    lang = lang,
-    lab1 = "",
-    min_width = 220,
-    extra = "Unidade",
-    Unidade = reactable::colDef(
-      minWidth = 120
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  menor_ano <- determinar_menor_ano(tab$ano)
+
+  tab_long <- tab |>
+    dplyr::filter(
+      ano > menor_ano
+    ) |>
+    dplyr::select(grupo, Unidade, ano, total)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = ano,
+      values_from = total
     )
-  )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      sortable = FALSE,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultColDef = reactable::colDef(
+        minWidth = 90,
+        align = "center",
+        format = reactable::colFormat(
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = list(
+        Unidade = reactable::colDef(
+          width = 130
+        ),
+        grupo = reactable::colDef(
+          name = "",
+          align = "left",
+          minWidth = 220,
+          width = 220,
+          sticky = "left"
+        )
+      )
+    )
 }
 
 #' Tabela do Capítulo VII
@@ -2179,7 +2218,8 @@ tab_consumo_final_energetico <- function(con, lang = "pt") {
     lab1 = "",
     lab2 = "",
     lab3 = "",
-    min_width = 220
+    min_width = 220,
+    casas_dec = 0
   )
 }
 
@@ -2202,7 +2242,8 @@ tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
     lab1 = "",
     lab2 = "",
     lab3 = "",
-    min_width = 220
+    min_width = 220,
+    casas_dec = 0
   )
 }
 
@@ -2281,149 +2322,368 @@ tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
   )
 }
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
-#   tab_name <- "tab_setor_residencial_energia_populacao"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
+  tab_name <- "tab_setor_residencial_energia_populacao"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
-#   tab_name <- "tab_setor_transportes_energia_pib_setor"
+  locale <- pegar_locale(lang)
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  menor_ano <- determinar_menor_ano(tab$ano)
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  tab_long <- tab |>
+    dplyr::filter(
+      ano > menor_ano
+    ) |>
+    dplyr::select(grupo, Unidade, ano, total)
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt") {
-#   tab_name <- "tab_consumo_especifico_energia_setores_selecionados"
+  tab_wide <- tab_long |>
+    dplyr::mutate(
+      total = dplyr::case_when(
+        grupo %in% c(
+          "Consumo Final de Energia (1)",
+          "Consumo Final de Energia Para Cocção (2)",
+          "Consumo de Eletricidade (3)",
+          "População Residente (4)"
+        ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
+        TRUE ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
+      )
+    ) |>
+    tidyr::pivot_wider(
+      names_from = ano,
+      values_from = total
+    )
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      sortable = FALSE,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultColDef = reactable::colDef(
+        minWidth = 90,
+        align = "center",
+        format = reactable::colFormat(
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = list(
+        Unidade = reactable::colDef(
+          width = 110
+        ),
+        grupo = reactable::colDef(
+          name = "",
+          align = "left",
+          minWidth = 260,
+          sticky = "left"
+        )
+      )
+    )
+}
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
-#   tab_name <- "tab_precos_medios_correntes_fontes_energia_1"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
+  tab_name <- "tab_setor_transportes_energia_pib_setor"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
-#   tab_name <- "tab_precos_medios_correntes_fontes_energia_2"
+  locale <- pegar_locale(lang)
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  menor_ano <- determinar_menor_ano(tab$ano)
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  tab_long <- tab |>
+    dplyr::filter(
+      ano > menor_ano
+    ) |>
+    dplyr::select(grupo, Unidade, ano, total)
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param conConexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
-#   tab_name <- "tab_relacoes_precos_fontes_energia"
+  tab_wide <- tab_long |>
+    dplyr::mutate(
+      total = dplyr::case_when(
+        grupo %in% c(
+          "Consumo Final de Energia (1)",
+          "Consumo Exclusive Gasolina, Etanol e Gás Natural (2)"
+        ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
+        grupo %in% c(
+          "PIB Do Setor (3)",
+          "PIB Total (4)"
+        ) ~ scales::number(total, accuracy = 0.1, decimal.mark = ",", big.mark = "."),
+        grupo %in% c(
+          "(1)/(3)",
+          "(2)/(3)"
+        ) ~ scales::number(total, accuracy = 0.01, decimal.mark = ",", big.mark = "."),
+        grupo %in% c(
+          "(1)/(4)"
+        ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
+      )
+    ) |>
+    tidyr::pivot_wider(
+      names_from = ano,
+      values_from = total
+    )
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      sortable = FALSE,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultColDef = reactable::colDef(
+        minWidth = 90,
+        align = "center",
+        format = reactable::colFormat(
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = list(
+        Unidade = reactable::colDef(
+          width = 250,
+          align = "left"
+        ),
+        grupo = reactable::colDef(
+          name = "",
+          align = "left",
+          minWidth = 400,
+          sticky = "left"
+        )
+      )
+    )
+}
 
-# #' Tabela do Capítulo VII
-# #'
-# #' @param con Conexão com o banco de dados
-# #' @param lang Idioma
-# #'
-# #' @export
-# tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
-#   tab_name <- "tab_gastos_divisas_importacao_petroleo"
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt", .setor, .segmento) {
+  tab_name <- "tab_consumo_especifico_energia_setores_selecionados"
 
-#   tab <- dplyr::tbl(con, tab_name) |>
-#     dplyr::collect()
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(
+      consumo_nivel_1 == .setor,
+      consumo_nivel_2 == .segmento
+    ) |> 
+    dplyr::collect()
 
-#   reactable_painel_nivel_1(
-#     tab = tab,
-#     tab_name = tab_name,
-#     lang = lang,
-#     lab1 = "Grupo",
-#     min_width = 220
-#   )
-# }
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  menor_ano <- determinar_menor_ano(tab$ano)
+
+  tab_long <- tab |>
+    dplyr::filter(
+      ano > menor_ano
+    ) |>
+    dplyr::select(grupo, consumo_nivel_1, consumo_nivel_2, Unidade, ano, total)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(
+      total = dplyr::case_when(
+        grupo %in% c(
+          "Relação Clinquer/Cimento",
+          "Consumo Total/Produção",
+          "Consumo de Eletricidade/Produção"
+        ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = "."),
+        TRUE ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")
+      )
+    ) |>
+    tidyr::pivot_wider(
+      names_from = ano,
+      values_from = total
+    )
+
+  tab_name_download <- glue::glue("{tab_name}_{.setor}_{.segmento}")
+
+  gerar_tabela_download(tab_long, tab_name = tab_name_download, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name_download, .tipo_dado = NULL)
+
+  tab_wide |>
+    dplyr::select(-consumo_nivel_1, -consumo_nivel_2) |>
+    reactable::reactable(
+      striped = TRUE,
+      sortable = FALSE,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultColDef = reactable::colDef(
+        minWidth = 90,
+        align = "center",
+        format = reactable::colFormat(
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = list(
+        Unidade = reactable::colDef(
+          width = 110
+        ),
+        grupo = reactable::colDef(
+          name = "",
+          align = "left",
+          minWidth = 260,
+          sticky = "left"
+        )
+      )
+    )
+}
+
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
+  tab_name <- "tab_precos_medios_correntes_fontes_energia_1"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  menor_ano <- determinar_menor_ano(tab$ano)
+
+  tab_long <- tab |>
+    dplyr::filter(
+      ano > menor_ano
+    ) |>
+    dplyr::select(grupo, Unidade, ano, total)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(total = scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")) |>
+    tidyr::pivot_wider(
+      names_from = ano,
+      values_from = total
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      sortable = FALSE,
+      resizable = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 20,
+      defaultColDef = reactable::colDef(
+        minWidth = 90,
+        align = "center",
+        format = reactable::colFormat(
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = list(
+        Unidade = reactable::colDef(
+          width = 110
+        ),
+        grupo = reactable::colDef(
+          name = "",
+          align = "left",
+          minWidth = 260,
+          sticky = "left"
+        )
+      )
+    )
+}
+
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
+  tab_name <- "tab_precos_medios_correntes_fontes_energia_2"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    min_width = 260,
+    casas_dec = 1
+  )
+}
+
+#' Tabela do Capítulo VII
+#'
+#' @param conConexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
+  tab_name <- "tab_relacoes_precos_fontes_energia"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo VII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
+  tab_name <- "tab_gastos_divisas_importacao_petroleo"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_simples(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = "",
+    min_width = 220
+  )
+}

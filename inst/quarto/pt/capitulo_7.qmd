@@ -29,22 +29,121 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib
 
 ## Consumo Final Energético
 
+```{r}
+benCorrido::tab_consumo_final_energetico(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico")
+```
+
 ## Produto Interno Bruto Setorial
+
+```{r}
+benCorrido::tab_produto_interno_bruto_setorial(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_produto_interno_bruto_setorial")
+```
  
 ## Consumo Final de Energia do Setor / PIB do Setor
 
+```{r}
+benCorrido::tab_consumo_final_energia_setor_pib_setor(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energia_setor_pib_setor")
+```
+
 ## Setor Residencial – Energia / População
+
+```{r}
+benCorrido::tab_setor_residencial_energia_populacao(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial_energia_populacao")
+```
+
 
 ## Setor de Transportes – Energia / PIB do Setor
 
+```{r}
+benCorrido::tab_setor_transportes_energia_pib_setor(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_energia_pib_setor")
+```
+
 ## Consumo Específico de Energia em Setores Selecionados
 
-## Preços Médios Correntes de Fontes de Energia
+### Cimento
+
+```{r}
+setor <- "Cimento"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
+
+### Metalurgia
+
+```{r}
+setor <- "Metalurgia"
+segmentos <- c("Ferro-Gusa e Aço", "Ferroligas", "Não-Ferrosos e Outros Metalúrgicos", "Total")
+
+tabelas <- purrr::map(
+  segmentos,
+  \(segmento) {
+    htmltools::div(
+      benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento),
+      benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = segmentos,
+  label = "Segmento:",
+  dropdown_width = "300px",
+  html = TRUE
+)
+```
+
+### Papel e Celulose
+
+```{r}
+setor <- "Papel e Celulose"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
+
+### Setor Energético
+
+```{r}
+setor <- "Setor Energético"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
 
 ## Preços Médios Correntes de Fontes de Energia
+
+```{r}
+benCorrido::tab_precos_medios_correntes_fontes_energia_1(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_precos_medios_correntes_fontes_energia_1")
+```
+
+```{r}
+benCorrido::tab_precos_medios_correntes_fontes_energia_2(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_precos_medios_correntes_fontes_energia_2")
+```
 
 ## Relações de Preços entre as Fontes de Energia
 
+```{r}
+benCorrido::tab_relacoes_precos_fontes_energia(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_relacoes_precos_fontes_energia")
+```
+
 ## Gastos em Divisas com Importação de Petróleo
+
+```{r}
+benCorrido::tab_gastos_divisas_importacao_petroleo(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_gastos_divisas_importacao_petroleo")
+```
 
 

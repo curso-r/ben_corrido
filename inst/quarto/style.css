@@ -37,7 +37,7 @@ li.slick-active {
   border-radius: 8px;
 }
 
-.plot_container > svg {
+.element_container > svg {
   display: block;
   margin: auto;
 }
