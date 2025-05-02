@@ -13,7 +13,12 @@ ano <- params$ano
 
 ![](../img/capas/imagem_cap_8.png)
 
-## Produção de Energia - Fósseis  
+## Produção de Energia - Fósseis 
+
+```{r}
+benCorrido::tab_producao_energia_fosseis(con, lab1 = "Região", lab2 = "UF")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis")
+```
 
 
 ## Produção de Energia – Eletricidade e Álcool  

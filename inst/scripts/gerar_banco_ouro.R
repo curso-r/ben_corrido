@@ -2652,3 +2652,337 @@ tab <- cbind(tab, tab_en) |> dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_gastos_divisas_importacao_petroleo")
 
 # CAPÍTULO 8
+
+# tab_producao_energia_fosseis_1
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_1_a_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, setor_en = setor, unidade_en = unidade)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_1_a_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1,
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(tipo_dado == "Absoluto") |>
+  dplyr::mutate(
+    setor = glue::glue("{setor} ({unidade})"),
+    setor_en = glue::glue("{setor_en} ({unidade_en})")
+  ) |>
+  dplyr::select(
+    setor,
+    setor_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    ano,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_producao_energia_fosseis_1")
+
+# tab_producao_energia_fosseis_2
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_1_b_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, setor_en = setor, unidade_en = unidade)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_1_b_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    setor = glue::glue("{setor} ({unidade})"),
+    setor_en = glue::glue("{setor_en} ({unidade_en})")
+  ) |>
+  dplyr::select(-verifica_percentual, unidade, -unidade_en)
+
+salvar_tab_bd(tab, "tab_producao_energia_fosseis_2")
+
+# tab_producao_energia_eletricidade_alcool_1
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_1_c_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, setor_en = setor, unidade_en = unidade)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_1_c_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1,
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(tipo_dado == "Absoluto") |>
+  dplyr::mutate(
+    setor = glue::glue("{setor} ({unidade})"),
+    setor_en = glue::glue("{setor_en} ({unidade_en})")
+  ) |>
+  dplyr::select(
+    setor,
+    setor_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    ano,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_producao_energia_eletricidade_alcool_1")
+
+# tab_producao_energia_eletricidade_alcool_2
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_1_d_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, setor_en = setor, unidade_en = unidade)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_1_d_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    setor = glue::glue("{setor} ({unidade})"),
+    setor_en = glue::glue("{setor_en} ({unidade_en})")
+  ) |>
+  dplyr::select(-verifica_percentual, unidade, -unidade_en)
+
+salvar_tab_bd(tab, "tab_producao_energia_eletricidade_alcool_2")
+
+# tab_geracao_eletricidade_por_fonte
+tab_en <- readr::read_rds("./data-raw/rds/en/organiza_tratamento_tabela_8_1_e.rds") |>
+  tidyr::pivot_longer(
+    cols = -c(grupo, macro_grupo, ano),
+    names_to = "fonte_en",
+    values_to = "valor"
+  ) |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo, fonte_en)
+
+tab <- readr::read_rds("./data-raw/rds/pt/organiza_tratamento_tabela_8_1_e.rds") |>
+  tidyr::pivot_longer(
+    cols = -c(grupo, macro_grupo, ano),
+    names_to = "fonte",
+    values_to = "valor"
+  ) |>
+  dplyr::bind_cols(tab_en)
+
+salvar_tab_bd(tab, "tab_geracao_eletricidade_por_fonte")
+
+# tab_consumo_residencial_eletricidade
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_2_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_2_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(-verifica_percentual)
+
+salvar_tab_bd(tab, "tab_consumo_residencial_eletricidade")
+
+
+# tab_consumo_residencial_gas_liquefeito_petroleo
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_3_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_3_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(-verifica_percentual)
+
+salvar_tab_bd(tab, "tab_consumo_residencial_gas_liquefeito_petroleo")
+
+# tab_capacidade_instalada_geracao_energia
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_4_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, fonte_en = fontes, classificacao_en = tipo_classificacao)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1,
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(tipo_dado == "Absoluto") |>
+  dplyr::select(
+    fonte = fontes,
+    classificacao = tipo_classificacao,
+    fonte_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_energia")
+
+# tab_capacidade_instalada_mini_micro_geracao_distribuida_1
+
+tab <- readr::read_rds("./data-raw/rds/pt/organiza_ordem_colunas_tabela_8_4_b.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/organiza_ordem_colunas_tabela_8_4_b.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+
+tab <- cbind(tab, tab_en)
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_mini_micro_geracao_distribuida_1")
+
+# tab_capacidade_instalada_mini_micro_geracao_distribuida_2
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_4_c_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_1, fonte_en = fontes, classificacao_en = tipo_classificacao)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_c_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_1,
+    fonte = fontes,
+    classificacao = tipo_classificacao
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::group_by(grupo, grupo_en, fonte, fonte_en, classificacao, classificacao_en) |> 
+  dplyr::summarise(valor = sum(valor)) |>
+  dplyr::select(
+    fonte,
+    classificacao,
+    fonte_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_mini_micro_geracao_distribuida_2")
+
+# tab_capacidade_instalada_autoprodutores_setor_economico
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_5_a_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, fonte_en = fontes)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_5_a_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    setor,
+    fonte = fontes,
+    fonte_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    tipo_dado,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_autoprodutores_setor_economico")
+
+# tab_capacidade_instalada_autoprodutores_segmento_industrial
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_5_b_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, fonte_en = fontes)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_5_b_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    setor,
+    fonte = fontes,
+    fonte_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    tipo_dado,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_autoprodutores_segmento_industrial")
+
+# tab_capacidade_instalada_1
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_6_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_2, macro_grupo_en = uf_nivel_1, setor_en = setor, unidade_en = unidade)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_6_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    macro_grupo = uf_nivel_1
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    setor,
+    setor_en,
+    macro_grupo,
+    macro_grupo_en,
+    grupo,
+    grupo_en,
+    unidade,
+    unidade_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada")
+
+# tab_capacidade_instalada_2
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_6_traduzido.rds") |>
+  dplyr::select(grupo_en = uf_nivel_1, setor_en = setor)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_6_traduzido.rds") |>
+  dplyr::rename(
+    grupo = uf_nivel_1
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(grupo != "Brasil", unidade != "10³ b/d") |> 
+  dplyr::group_by(grupo, grupo_en, setor, setor_en) |> 
+  dplyr::summarise(valor = sum(valor), .groups = "drop") |>
+  dplyr::group_by(setor, setor_en) |> 
+  dplyr::mutate(
+    valor = valor / sum(valor)
+  ) |> 
+  dplyr::ungroup()
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_2")
+
+# tab_reservas_provadas_potencial_hidraulico_1
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |> 
+  dplyr::select(grupo_en = uf_nivel_2, setor_en = setor, info_en = info_secundaria)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |> 
+  dplyr::rename(
+    grupo = uf_nivel_2,
+    info = info_secundaria
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    grupo,
+    grupo_en,
+    setor,
+    setor_en,
+    info,
+    info_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_reservas_provadas_potencial_hidraulico_1")
+
+# tab_reservas_provadas_potencial_hidraulico_2
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |> 
+  dplyr::select(grupo_en = uf_nivel_1, setor_en = setor, info_en = info_secundaria)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |> 
+  dplyr::rename(
+    grupo = uf_nivel_1,
+    info = info_secundaria
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(info %in% c("10⁶m³", "Total "), grupo != "Brasil ") |> 
+  dplyr::group_by(grupo, grupo_en, setor, setor_en) |>
+  dplyr::summarise(valor = sum(valor), .groups = "drop") |>
+  dplyr::group_by(setor, setor_en) |>
+  dplyr::mutate(
+    valor = valor / sum(valor)
+  ) |>
+  dplyr::select(
+    grupo,
+    grupo_en,
+    setor,
+    setor_en,
+    info,
+    info_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_reservas_provadas_potencial_hidraulico_2")

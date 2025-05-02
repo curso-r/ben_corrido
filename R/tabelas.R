@@ -2492,7 +2492,7 @@ tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt"
     dplyr::filter(
       consumo_nivel_1 == .setor,
       consumo_nivel_2 == .segmento
-    ) |> 
+    ) |>
     dplyr::collect()
 
   if (lang != "pt") {
@@ -2686,4 +2686,138 @@ tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
     lab1 = "",
     min_width = 220
   )
+}
+
+# Capítulo VIII ------------------------------------------------------------------
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+tab_producao_energia_fosseis_1 <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_producao_energia_fosseis_1"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$macro_grupo <- tab[[glue::glue("macro_grupo_{lang}")]]
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(macro_grupo, grupo, setor, ano, valor)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(setor_ano = glue::glue("{setor}_{ano}")) |>
+    dplyr::select(-setor, -ano) |>
+    tidyr::pivot_wider(
+      names_from = setor_ano,
+      values_from = valor
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-macro_grupo, -grupo) |>
+    names()
+
+  setores <- unique(tab$setor)
+
+  col_defs <- purrr::map(
+    colunas,
+    \(x) {
+      nome <- stringr::str_remove(x, ".*_")
+      reactable::colDef(
+        name = nome,
+        aggregate = if (stringr::str_detect(x, "%")) {
+          setor <- stringr::str_remove(x, "_.*")
+          anos <- nome |>
+            stringr::str_extract_all("\\d+", simplify = TRUE) |>
+            as.character()
+
+          htmlwidgets::JS(glue::glue(
+            "function(values, rows) {
+              let totalUltimoAno = 0
+              let totalPenultimoAno = 0
+              rows.forEach(function(row) {
+                totalUltimoAno += row['{{setor}}_20{{anos[1]}}']
+                totalPenultimoAno += row['{{setor}}_20{{anos[2]}}']
+              })
+              if(totalPenultimoAno !== 0) {
+                return totalUltimoAno / totalPenultimoAno - 1;
+              }
+              if (totalPenultimoAno ==0 & totalUltimoAno == 0) {
+                return 0;
+              }
+              if (totalPenultimoAno == 0 & totalUltimoAno > 0) {
+              return null;
+              }
+            }",
+            .open = "{{",
+            .close = "}}"
+          ))
+        },
+        format = if (stringr::str_detect(x, "%")) {
+          reactable::colFormat(
+            percent = TRUE,
+            digits = 1
+          )
+        }
+      )
+    }
+  ) |> purrr::set_names(colunas)
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      groupBy = "macro_grupo",
+      striped = TRUE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        aggregate = "sum",
+        format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+      ),
+      columnGroups = list(
+        reactable::colGroup(
+          name = setores[1],
+          columns = colunas[stringr::str_detect(colunas, stringr::fixed(setores[1]))]
+        ),
+        reactable::colGroup(
+          name = setores[2],
+          columns = colunas[stringr::str_detect(colunas, stringr::fixed(setores[2]))]
+        ),
+        reactable::colGroup(
+          name = setores[3],
+          columns = colunas[stringr::str_detect(colunas, stringr::fixed(setores[3]))]
+        )
+      ),
+      columns = c(
+        list(
+          macro_grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            minWidth = 100,
+            width = 160
+          ),
+          grupo = reactable::colDef(
+            name = lab2,
+            align = "left",
+            minWidth = 100,
+            width = 180
+          )
+        ),
+        col_defs
+      )
+    )
 }
