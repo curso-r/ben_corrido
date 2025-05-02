@@ -16,30 +16,141 @@ ano <- params$ano
 ## Produção de Energia - Fósseis 
 
 ```{r}
-benCorrido::tab_producao_energia_fosseis(con, lab1 = "Região", lab2 = "UF")
-benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis")
+benCorrido::tab_producao_energia_fosseis_1(con, lab1 = "Região", lab2 = "UF")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis_1")
 ```
 
+```{r}
+benCorrido::tab_producao_energia_fosseis_2(con, lab1 = "Região")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis_2")
+```
 
 ## Produção de Energia – Eletricidade e Álcool  
 
+```{r}
+benCorrido::tab_producao_energia_eletricidade_alcool_1(con, lab1 = "Região", lab2 = "UF")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_eletricidade_alcool_1")
+```
+
+```{r}
+benCorrido::tab_producao_energia_eletricidade_alcool_2(con, lab1 = "Região")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_eletricidade_alcool_2")
+```
 
 ## Geração de Eletricidade por Fonte  
 
 
+```{r}
+anos <- 2023:2011
+
+botao_tabela <- htmltools::tags$a(
+  href = glue::glue("dados/tabela_geracao_eletricidade_por_fonte.xlsx"),
+  htmltools::tags$button(
+    class = "btn btn-default",
+    bsicons::bs_icon("download"),
+    "Tabela"
+  )
+)
+
+
+tabelas <- purrr::map(
+  anos,
+  \(ano) {
+    htmltools::div(
+      benCorrido::tab_geracao_eletricidade_por_fonte(con, .ano = ano, lab1 = "Região", lab2 = "UF", .coluna_total = "Geração total"),
+      benCorrido::gerar_botoes_download(
+        tab_name = glue::glue("tab_geracao_eletricidade_por_fonte_{ano}"),
+        tabela = FALSE,
+        botao_tabela
+      )
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = anos,
+  label = "Ano:",
+  dropdown_width = "200px",
+  html = TRUE
+)
+```
+
 ## Consumo Residencial de Eletricidade  
 
+::: {.panel-tabset}
 
-## Consumo Residencial de Gás Liquefeito de Petróleo  
+## Valor absoluto
 
+```{r}
+benCorrido::tab_consumo_residencial_eletricidade(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_consumo_residencial_eletricidade(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Percentual")
+```
+
+:::
+
+## Consumo Residencial de Gás Liquefeito de Petróleo
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Percentual")
+```
+
+:::
 
 ## Capacidade Instalada de Geração de Energia  
 
+::: {.panel-tabset}
 
-## Capacidade Instalada de Mini e Micro Geração Distribuída  
+## Valor absoluto
+
+```{r}
+benCorrido::tab_capacidade_instalada_geracao_energia(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+benCorrido::tab_capacidade_instalada_geracao_energia(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+## Capacidade Instalada de Mini e Micro Geração Distribuída 
+
+```{r}
+benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_1(con, lab1 = "Região", lab2 = "UF")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_1")
+```
 
 
 ## Capacidade Instalada em Autoprodutores por Setor Econômico  
+
+```{r}
+benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_2(con, lab1 = "Região")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_2")
+```
 
 
 ## Capacidade Instalada em Autoprodutores por Segmento Industrial  

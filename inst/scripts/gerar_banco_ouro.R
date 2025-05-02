@@ -2787,7 +2787,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_traduzido.rds") 
     macro_grupo = uf_nivel_1,
   ) |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::filter(tipo_dado == "Absoluto") |>
   dplyr::select(
     fonte = fontes,
     classificacao = tipo_classificacao,
@@ -2796,6 +2795,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_traduzido.rds") 
     macro_grupo_en,
     grupo,
     grupo_en,
+    tipo_dado,
     valor
   )
 
@@ -2803,11 +2803,14 @@ salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_energia")
 
 # tab_capacidade_instalada_mini_micro_geracao_distribuida_1
 
-tab <- readr::read_rds("./data-raw/rds/pt/organiza_ordem_colunas_tabela_8_4_b.rds")
-tab_en <- readr::read_rds("./data-raw/rds/en/organiza_ordem_colunas_tabela_8_4_b.rds") |>
-  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo)
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_4_b_traduzido.rds") |>
+  dplyr::select(grupo_en = grupo, macro_grupo_en = macro_grupo, classificacao_en = tipo_classificacao)
 
-tab <- cbind(tab, tab_en)
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_b_traduzido.rds") |>
+  dplyr::rename(
+    classificacao = tipo_classificacao,
+  ) |>
+  dplyr::bind_cols(tab_en)
 
 salvar_tab_bd(tab, "tab_capacidade_instalada_mini_micro_geracao_distribuida_1")
 
@@ -2823,14 +2826,27 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_c_traduzido.rds"
     classificacao = tipo_classificacao
   ) |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::group_by(grupo, grupo_en, fonte, fonte_en, classificacao, classificacao_en) |> 
-  dplyr::summarise(valor = sum(valor)) |>
+  dplyr::mutate(
+    classificacao = forcats::fct(
+      classificacao,
+      levels = c("SP", "APE", "TOTAL")
+    ),
+    fonte = forcats::fct(
+      fonte,
+      levels = c("Hidro", "Termo", "Eólica", "Solar", "Total")
+    ),
+    grupo = forcats::fct(
+      grupo,
+      levels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+    )
+  ) |>
+  dplyr::group_by(grupo, grupo_en, fonte, fonte_en, classificacao, classificacao_en) |>
+  dplyr::summarise(valor = sum(valor), .groups = "drop") |>
   dplyr::select(
     fonte,
     classificacao,
+    classificacao_en,
     fonte_en,
-    macro_grupo,
-    macro_grupo_en,
     grupo,
     grupo_en,
     valor
@@ -2923,23 +2939,23 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_6_traduzido.rds") 
     grupo = uf_nivel_1
   ) |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::filter(grupo != "Brasil", unidade != "10³ b/d") |> 
-  dplyr::group_by(grupo, grupo_en, setor, setor_en) |> 
+  dplyr::filter(grupo != "Brasil", unidade != "10³ b/d") |>
+  dplyr::group_by(grupo, grupo_en, setor, setor_en) |>
   dplyr::summarise(valor = sum(valor), .groups = "drop") |>
-  dplyr::group_by(setor, setor_en) |> 
+  dplyr::group_by(setor, setor_en) |>
   dplyr::mutate(
     valor = valor / sum(valor)
-  ) |> 
+  ) |>
   dplyr::ungroup()
 
 salvar_tab_bd(tab, "tab_capacidade_instalada_2")
 
 # tab_reservas_provadas_potencial_hidraulico_1
 
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |>
   dplyr::select(grupo_en = uf_nivel_2, setor_en = setor, info_en = info_secundaria)
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |>
   dplyr::rename(
     grupo = uf_nivel_2,
     info = info_secundaria
@@ -2959,16 +2975,16 @@ salvar_tab_bd(tab, "tab_reservas_provadas_potencial_hidraulico_1")
 
 # tab_reservas_provadas_potencial_hidraulico_2
 
-tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |>
   dplyr::select(grupo_en = uf_nivel_1, setor_en = setor, info_en = info_secundaria)
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |>
   dplyr::rename(
     grupo = uf_nivel_1,
     info = info_secundaria
   ) |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::filter(info %in% c("10⁶m³", "Total "), grupo != "Brasil ") |> 
+  dplyr::filter(info %in% c("10⁶m³", "Total "), grupo != "Brasil ") |>
   dplyr::group_by(grupo, grupo_en, setor, setor_en) |>
   dplyr::summarise(valor = sum(valor), .groups = "drop") |>
   dplyr::group_by(setor, setor_en) |>

@@ -4,7 +4,13 @@
 \alias{gerar_botoes_download}
 \title{Gerar botões de download}
 \usage{
-gerar_botoes_download(tab_name, .tipo_dado = NULL)
+gerar_botoes_download(
+  tab_name,
+  ...,
+  .tipo_dado = NULL,
+  matriz = TRUE,
+  tabela = TRUE
+)
 }
 \arguments{
 \item{tab_name}{Nome da tabela}
