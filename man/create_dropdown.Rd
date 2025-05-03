@@ -6,6 +6,7 @@
 \usage{
 create_dropdown(
   elementos,
+  id,
   params,
   label = "",
   html = FALSE,

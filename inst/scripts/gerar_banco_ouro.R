@@ -2928,7 +2928,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_6_traduzido.rds") 
     valor
   )
 
-salvar_tab_bd(tab, "tab_capacidade_instalada")
+salvar_tab_bd(tab, "tab_capacidade_instalada_1")
 
 # tab_capacidade_instalada_2
 
@@ -2941,6 +2941,19 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_6_traduzido.rds") 
   ) |>
   dplyr::bind_cols(tab_en) |>
   dplyr::filter(grupo != "Brasil", unidade != "10³ b/d") |>
+  dplyr::mutate(
+    grupo = forcats::fct(
+      grupo,
+      levels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+    ),
+    setor = forcats::fct(
+      setor,
+      levels = c(
+        "Refino de Petróleo",
+        "Plantas de Gás Natural"
+      )
+    )
+  ) |>
   dplyr::group_by(grupo, grupo_en, setor, setor_en) |>
   dplyr::summarise(valor = sum(valor), .groups = "drop") |>
   dplyr::group_by(setor, setor_en) |>
@@ -2977,15 +2990,30 @@ salvar_tab_bd(tab, "tab_reservas_provadas_potencial_hidraulico_1")
 # tab_reservas_provadas_potencial_hidraulico_2
 
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_8_7_traduzido.rds") |>
-  dplyr::select(grupo_en = uf_nivel_1, setor_en = setor, info_en = info_secundaria)
+  dplyr::select(grupo_en = uf_nivel_1, setor_en = setor)
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") |>
   dplyr::rename(
-    grupo = uf_nivel_1,
-    info = info_secundaria
+    grupo = uf_nivel_1
   ) |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::filter(info %in% c("10⁶m³", "Total "), grupo != "Brasil ") |>
+  dplyr::filter(info_secundaria %in% c("10⁶m³", "Total "), grupo != "Brasil ") |>
+  dplyr::mutate(
+    grupo = forcats::fct(
+      grupo,
+      levels = c("Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste")
+    ),
+    setor = ifelse(setor == "Potencial Hidráulico  MW", "Potencial Hidráulico Total", setor),
+    setor_en = ifelse(setor == "Hydraulic Potential - MW", "Hydraulic Potential", setor),
+    setor = forcats::fct(
+      setor,
+      levels = c(
+        "Petróleo",
+        "Gás Natural",
+        "Potencial Hidráulico Total"
+      )
+    )
+  ) |>
   dplyr::group_by(grupo, grupo_en, setor, setor_en) |>
   dplyr::summarise(valor = sum(valor), .groups = "drop") |>
   dplyr::group_by(setor, setor_en) |>
@@ -2997,8 +3025,6 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") 
     grupo_en,
     setor,
     setor_en,
-    info,
-    info_en,
     valor
   )
 

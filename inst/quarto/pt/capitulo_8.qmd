@@ -343,10 +343,29 @@ benCorrido::create_dropdown(
 
 :::
 
-## Capacidade Instalada  
+## Capacidade Instalada
 
+```{r}
+benCorrido::tab_capacidade_instalada_1(con, lab1 = "Região", lab2 = "UF")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_1")
+```
+
+```{r}
+benCorrido::tab_capacidade_instalada_2(con, lab1 = "Região")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_2")
+```
 
 ## Reservas Provadas e Potencial Hidráulico
+
+```{r}
+benCorrido::tab_reservas_provadas_potencial_hidraulico_1(con, lab1 = "")
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_potencial_hidraulico_1")
+```
+
+```{r}
+benCorrido::tab_reservas_provadas_potencial_hidraulico_2(con, lab1 = "Região")
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_potencial_hidraulico_2")
+```
 
 
 ```{r}

@@ -3158,11 +3158,11 @@ tab_geracao_eletricidade_por_fonte <- function(con, lang = "pt", .ano, .coluna_t
     dplyr::filter(
       ano == .ano
     ) |>
-    dplyr::select(-ano) |> 
+    dplyr::select(-ano) |>
     tidyr::pivot_wider(
       names_from = fonte,
       values_from = valor
-    ) |> 
+    ) |>
     dplyr::select(macro_grupo, grupo, dplyr::any_of(.coluna_total), dplyr::everything())
 
   gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
@@ -3203,7 +3203,7 @@ tab_geracao_eletricidade_por_fonte <- function(con, lang = "pt", .ano, .coluna_t
           ),
           total = reactable::colDef(
             name = .coluna_total,
-            align = "left",
+            align = "right",
             sticky = "left"
           )
         )
@@ -3277,7 +3277,7 @@ tab_capacidade_instalada_geracao_energia <- function(con, lang = "pt", .tipo_dad
   tab_name <- "tab_capacidade_instalada_geracao_energia"
 
   tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::filter(tipo_dado == .tipo_dado) |> 
+    dplyr::filter(tipo_dado == .tipo_dado) |>
     dplyr::collect()
 
   locale <- pegar_locale(lang)
@@ -3432,8 +3432,6 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_1 <- function(con, lang 
     )
 }
 
-
-
 #' Tabela do Capítulo VIII
 #'
 #' @param con Conexão com o banco de dados
@@ -3538,7 +3536,7 @@ tab_capacidade_instalada_autoprodutores_setor_economico <- function(con, lang = 
   tab_name <- "tab_capacidade_instalada_autoprodutores_setor_economico"
 
   tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |> 
+    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |>
     dplyr::collect()
 
   locale <- pegar_locale(lang)
@@ -3609,7 +3607,7 @@ tab_capacidade_instalada_autoprodutores_segmento_industrial <- function(con, lan
   tab_name <- "tab_capacidade_instalada_autoprodutores_segmento_industrial"
 
   tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |> 
+    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |>
     dplyr::collect()
 
   locale <- pegar_locale(lang)
@@ -3660,6 +3658,347 @@ tab_capacidade_instalada_autoprodutores_segmento_industrial <- function(con, lan
             name = lab2,
             align = "left",
             width = 180
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_capacidade_instalada_1 <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_capacidade_instalada_1"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$macro_grupo <- tab[[glue::glue("macro_grupo_{lang}")]]
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+    tab$unidade <- tab[[glue::glue("unidade_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(macro_grupo, grupo, setor, unidade, valor)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(setor_unidade = glue::glue("{setor}_{unidade}")) |>
+    dplyr::select(-setor, -unidade) |>
+    tidyr::pivot_wider(
+      names_from = setor_unidade,
+      values_from = valor
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-grupo, -macro_grupo) |>
+    names()
+
+  setores <- unique(as.character(tab$setor))
+
+  col_defs <- purrr::map(
+    colunas,
+    \(x) {
+      nome <- stringr::str_remove(x, ".*_")
+      reactable::colDef(
+        name = nome
+      )
+    }
+  ) |> purrr::set_names(colunas)
+
+  col_groups <- purrr::map(
+    setores,
+    \(x) {
+      reactable::colGroup(
+        name = x,
+        columns = colunas[stringr::str_detect(colunas, stringr::fixed(x))]
+      )
+    }
+  )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      groupBy = "macro_grupo",
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        minWidth = 150,
+        aggregate = "sum",
+        format = reactable::colFormat(digits = 1, separators = TRUE, locales = locale)
+      ),
+      columnGroups = col_groups,
+      columns = c(
+        list(
+          macro_grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160
+          ),
+          grupo = reactable::colDef(
+            name = lab2,
+            align = "left",
+            width = 180
+          )
+        ),
+        col_defs
+      )
+    )
+}
+
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_capacidade_instalada_2 <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_capacidade_instalada_2"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(grupo, setor, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = setor,
+      values_from = valor
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        minWidth = 200,
+        format = reactable::colFormat(
+          digits = 1,
+          percent = TRUE,
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160,
+            format = reactable::colFormat(
+              percent = FALSE
+            )
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_reservas_provadas_potencial_hidraulico_1"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+    tab$info <- tab[[glue::glue("info_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(grupo, setor, info, valor)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(setor_info = glue::glue("{setor}_{info}")) |>
+    dplyr::select(-setor, -info) |>
+    tidyr::pivot_wider(
+      names_from = setor_info,
+      values_from = valor
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-grupo) |>
+    names()
+
+  setores <- unique(as.character(tab$setor))
+
+  col_defs <- purrr::map(
+    colunas,
+    \(x) {
+      nome <- stringr::str_remove(x, ".*_")
+      reactable::colDef(
+        name = nome,
+        format = if (stringr::str_detect(x, "%")) {
+          reactable::colFormat(
+            digits = 2
+          )
+        },
+        width = if (stringr::str_detect(x, "%")) {
+          200
+        }
+      )
+    }
+  ) |> purrr::set_names(colunas)
+
+  col_groups <- purrr::map(
+    setores,
+    \(x) {
+      reactable::colGroup(
+        name = x,
+        columns = colunas[stringr::str_detect(colunas, stringr::fixed(x))]
+      )
+    }
+  )
+
+  tab_padding <- tab |>
+    dplyr::distinct(grupo) |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Brasil ") ~ "5px",
+        grupo %in% c("Norte", "Nordeste", "Centro-Oeste", "Sul", "Sudeste") ~ "20px",
+        TRUE ~ "40px"
+      )
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        minWidth = 140,
+        format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+      ),
+      columnGroups = col_groups,
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 180,
+            style = function(value, index) {
+              paddingLeft <- tab_padding$paddingLeft[tab_padding$grupo == value]
+              list(paddingLeft = paddingLeft)
+            }
+          )
+        ),
+        col_defs
+      )
+    )
+}
+
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_reservas_provadas_potencial_hidraulico_2 <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_reservas_provadas_potencial_hidraulico_2"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(grupo, setor, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = setor,
+      values_from = valor
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        minWidth = 200,
+        format = reactable::colFormat(
+          digits = 1,
+          percent = TRUE,
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160,
+            format = reactable::colFormat(
+              percent = FALSE
+            )
           )
         )
       )
