@@ -137,7 +137,7 @@ transformar_svg <- function(p, width = 8, height = 4, html = FALSE) {
 #' Create a dropdown plot
 #'
 #' @export
-create_dropdown <- function(elementos, params, label = "", html = FALSE,
+create_dropdown <- function(elementos, id, params, label = "", html = FALSE,
                             fig_width = 8, fig_height = 4,
                             dropdown_width = "300px") {
   if (length(elementos) != length(params)) {
@@ -159,13 +159,13 @@ create_dropdown <- function(elementos, params, label = "", html = FALSE,
   }
 
   # Create a unique ID for the dropdown and plot container
-  dropdown_id <- paste0("dropdown_", sample(1:10000, 1))
+  dropdown_id <- paste0("dropdown_", id)
 
   # Create the dropdown HTML
   select_html <- htmltools::tags$select(
     id = dropdown_id,
     class = "form-select",
-    onchange = sprintf("updateElement('%s')", dropdown_id),
+    onchange = sprintf("updateElement('%s')", id),
     style = glue::glue("width: {dropdown_width};")
   )
 
@@ -182,40 +182,22 @@ create_dropdown <- function(elementos, params, label = "", html = FALSE,
     select_html
   )
 
-  # Create the JavaScript function to update the plot
-  js_code <- sprintf("
-    <script>
-      function updateElement(dropdown_id) {
-        var selected_param = document.getElementById(dropdown_id).value;
-        var plot_divs = document.getElementsByClassName('element_container');
-        for (var i = 0; i < plot_divs.length; i++) {
-          plot_divs[i].style.display = 'none';
-        }
-        var plot_div = document.getElementById('plot_' + selected_param);
-        if (plot_div) {
-          plot_div.style.display = 'block';
-        }
-      }
-    </script>
-  ")
-
   # Create the HTML for each plot
-  plot_htmls <- lapply(seq_along(elementos), function(i) {
-    plot_id <- paste0("plot_", params[i])
+  element_html <- lapply(seq_along(elementos), function(i) {
+    element_id <- glue::glue("element_{id}_{params[i]}")
     display <- ifelse(i == 1, "block", "none")
-    plot_div <- htmltools::tags$div(
-      id = plot_id,
-      class = "element_container",
+    element_div <- htmltools::tags$div(
+      id = element_id,
+      class = glue::glue("element_container_{id}"),
       style = glue::glue("display: {display}; width: 100%; margin: auto"),
       elementos[[i]]
     )
-    plot_div
+    element_div
   })
 
   # Combine everything into a single HTML document
   htmltools::tagList(
     dropdown_html,
-    htmltools::HTML(js_code),
-    plot_htmls
+    element_html
   )
 }

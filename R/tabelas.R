@@ -3523,3 +3523,145 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_2 <- function(con, lang 
       )
     )
 }
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .setor Setor econômico
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_capacidade_instalada_autoprodutores_setor_economico <- function(con, lang = "pt", .setor, .tipo_dado, lab1, lab2) {
+  tab_name <- "tab_capacidade_instalada_autoprodutores_setor_economico"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |> 
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$macro_grupo <- tab[[glue::glue("macro_grupo_{lang}")]]
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(macro_grupo, grupo, fonte, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = fonte,
+      values_from = valor
+    )
+
+  tab_name_setor <- glue::glue("{tab_name}_{.setor}")
+
+  gerar_tabela_download(tab_long, tab_name = tab_name_setor, .tipo_dado = .tipo_dado)
+  gerar_matriz_download(tab_wide, tab_name = tab_name_setor, .tipo_dado = .tipo_dado)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      groupBy = "macro_grupo",
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        aggregate = "sum",
+        minWidth = 200,
+        format = reactable::colFormat(digits = 1, separators = TRUE, locales = locale)
+      ),
+      columns = c(
+        list(
+          macro_grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160
+          ),
+          grupo = reactable::colDef(
+            name = lab2,
+            align = "left",
+            width = 180
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Capítulo VIII
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .setor Setor econômico
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_capacidade_instalada_autoprodutores_segmento_industrial <- function(con, lang = "pt", .setor, .tipo_dado, lab1, lab2) {
+  tab_name <- "tab_capacidade_instalada_autoprodutores_segmento_industrial"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(setor == .setor, tipo_dado == .tipo_dado) |> 
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$macro_grupo <- tab[[glue::glue("macro_grupo_{lang}")]]
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(macro_grupo, grupo, fonte, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = fonte,
+      values_from = valor
+    )
+
+  tab_name_setor <- glue::glue("{tab_name}_{.setor}")
+
+  gerar_tabela_download(tab_long, tab_name = tab_name_setor, .tipo_dado = .tipo_dado)
+  gerar_matriz_download(tab_wide, tab_name = tab_name_setor, .tipo_dado = .tipo_dado)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      groupBy = "macro_grupo",
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        aggregate = "sum",
+        minWidth = 200,
+        format = reactable::colFormat(digits = 1, separators = TRUE, locales = locale)
+      ),
+      columns = c(
+        list(
+          macro_grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160
+          ),
+          grupo = reactable::colDef(
+            name = lab2,
+            align = "left",
+            width = 180
+          )
+        )
+      )
+    )
+}

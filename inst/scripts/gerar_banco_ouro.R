@@ -2865,6 +2865,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_5_a_traduzido.rds"
     macro_grupo = uf_nivel_1
   ) |>
   dplyr::bind_cols(tab_en) |>
+  dplyr::filter(macro_grupo != "BRASIL") |>
   dplyr::select(
     setor,
     fonte = fontes,

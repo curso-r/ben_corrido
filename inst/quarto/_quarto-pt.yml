@@ -37,6 +37,8 @@ format:
     smooth-scroll: true
     grid:
       body-width: 1400px
+    include-in-header:
+      - text: <script src="../js/script.js"></script>
 
 lang: pt-BR
 language:

@@ -94,6 +94,7 @@ tabelas <- purrr::map(
 benCorrido::create_dropdown(
   elementos = tabelas,
   params = segmentos,
+  id = "tab_consumo_especifico_energia_setores_selecionados",
   label = "Segmento:",
   dropdown_width = "300px",
   html = TRUE
