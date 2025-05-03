@@ -2100,3 +2100,23 @@ grafico_reservas_uranio <- function(con, lang = "pt") {
     ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
     ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
 }
+
+
+#' Gráfico do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_capacidade_instalada_geracao_eletrica") |>
+    dplyr::collect()
+
+  rotulo_y <- "MW"
+
+  grafico_linha(
+    tab = tab,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}

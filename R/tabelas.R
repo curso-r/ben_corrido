@@ -3832,7 +3832,6 @@ tab_capacidade_instalada_2 <- function(con, lang = "pt", lab1) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
-#' @param lab2 Nome da segunda coluna
 #'
 #' @export
 tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1) {
@@ -3999,6 +3998,139 @@ tab_reservas_provadas_potencial_hidraulico_2 <- function(con, lang = "pt", lab1)
             format = reactable::colFormat(
               percent = FALSE
             )
+          )
+        )
+      )
+    )
+}
+
+# ANEXO 1 ----------------------------------------------------------------------
+
+#' Tabela do ANEXO 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_capacidade_instalada_geracao_eletrica"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$setor <- tab[[glue::glue("setor_{lang}")]]
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(ano, setor, fonte, valor)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(setor_fonte = glue::glue("{setor}_{fonte}")) |>
+    dplyr::select(-setor, -fonte) |>
+    tidyr::pivot_wider(
+      names_from = setor_fonte,
+      values_from = valor
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-ano) |>
+    names()
+
+  setores <- unique(as.character(tab$setor))
+
+  col_defs <- purrr::map(
+    colunas,
+    \(x) {
+      nome <- stringr::str_remove(x, ".*_")
+      reactable::colDef(
+        name = nome
+      )
+    }
+  ) |> purrr::set_names(colunas)
+
+  col_groups <- purrr::map(
+    setores,
+    \(x) {
+      reactable::colGroup(
+        name = x,
+        columns = colunas[stringr::str_detect(colunas, stringr::fixed(x))]
+      )
+    }
+  )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        minWidth = 140,
+        format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+      ),
+      columnGroups = col_groups,
+      columns = c(
+        list(
+          ano = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 100,
+            format = reactable::colFormat(digits = 0, separators = FALSE)
+          )
+        ),
+        col_defs
+      )
+    )
+}
+
+
+#' Tabela do ANEXO 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' 
+#' @export
+tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_capacidade_instalada_itaipu"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
+  
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      fullWidth = FALSE,
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "center",
+            width = 100,
+            format = reactable::colFormat(digits = 0, separators = FALSE)
+          ),
+          valor = reactable::colDef(
+            name = "MW",
+            align = "right",
+            width = 120,
+            format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
           )
         )
       )

@@ -94,6 +94,7 @@ pegar_cor <- function(x) {
     x == "Carvão e Derivados" ~ "#7F7F7F",
     x == "Derivados de Petróleo" ~ "#953735",
     x == "Solar e Eólica" ~ "#ED7D31",
+    x == "Termo" ~ "#953760",
     TRUE ~ NA_character_
   )
 }

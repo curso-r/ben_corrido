@@ -1570,9 +1570,26 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_grafico_6_5_traduzido.rds")
 
 salvar_tab_bd(tab, "grafico_reservas_uranio")
 
-# CAPÍTULO 7
+# ANEXO 1
 
-# CAPÍTULO 8
+# grafico_capacidade_instalada_geracao_eletrica
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_i_1_traduzido.rds") |>
+  dplyr::select(grupo_en = setor)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_i_1_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::filter(fontes != "TOTAL", setor != "Total") |> 
+  dplyr::group_by(ano, grupo = setor, grupo_en) |> 
+  dplyr::summarise(total = sum(valor), .groups = "drop")
+
+salvar_tab_bd(tab, "grafico_capacidade_instalada_geracao_eletrica")
+
+# grafico_capacidade_instalada_refino_petroleo
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_3.rds") |> 
+  dplyr::rename(valor = `m³/dia (day)`)
+
+salvar_tab_bd(tab, "grafico_capacidade_instalada_refino_petroleo")
 
 # Tabelas ---------------------------------------------------------------------
 
@@ -3029,3 +3046,70 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_7_traduzido.rds") 
   )
 
 salvar_tab_bd(tab, "tab_reservas_provadas_potencial_hidraulico_2")
+
+# ANEXO 1
+
+# tab_capacidade_instalada_geracao_eletrica
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_i_1_traduzido.rds") |>
+  dplyr::select(setor_en = setor, fonte_en = fontes)
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_i_1_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    ano,
+    setor,
+    setor_en,
+    fonte = fontes,
+    fonte_en,
+    valor
+  )
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_eletrica")
+
+
+# tab_capacidade_instalada_itaipu
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_1_1.rds") |> 
+  dplyr::rename(valor = `MW`)
+salvar_tab_bd(tab, "tab_capacidade_instalada_itaipu")
+
+
+# tab_capacidade_instalada_geracao_energia_fonte
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_tabela_anexo_i_2.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_3_en = grupo_nivel_3,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_anexo_i_2.rds") |>
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::select(-verifica_percentual)
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_energia_fonte")
+
+# tab_capacidade_instalada_mini_micro_gd
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_tabela_anexo_i_2_b.rds") |>
+  dplyr::select(
+    grupo_nivel_1_en = grupo_nivel_1,
+    grupo_nivel_2_en = grupo_nivel_2,
+    grupo_nivel_3_en = grupo_nivel_3,
+    grupo_nivel_menor_en = grupo_nivel_menor
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_anexo_i_2_b.rds") |>
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::select(-verifica_percentual)
+
+salvar_tab_bd(tab, "tab_capacidade_instalada_mini_micro_gd")
+
+# tab_capacidade_instalada_refino_petroleo
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_3.rds") |> 
+  dplyr::rename(valor = `m³/dia (day)`)
+salvar_tab_bd(tab, "tab_capacidade_instalada_refino_petroleo")
+
+
+# tab_capacidade_instalada_producao_biodiesel
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_4.rds") |> 
+  dplyr::rename(valor = `b/dia (day)`)
+salvar_tab_bd(tab, "tab_capacidade_instalada_producao_biodiesel")
