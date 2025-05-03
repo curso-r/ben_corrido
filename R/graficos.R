@@ -1934,7 +1934,7 @@ grafico_reservas_provadas_gas <- function(con, lang = "pt") {
   tab |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
     ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#ADB8CA") +
-    ggplot2::labs(x = "", y = expression(10^6*m^3)) +
+    ggplot2::labs(x = "", y = expression(10^6 * m^3)) +
     ggplot2::theme_minimal() +
     ggplot2::scale_x_continuous(
       expand = c(0, 0),
@@ -2028,7 +2028,7 @@ grafico_reservas_carvao_mineral <- function(con, lang = "pt") {
   tab |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
     ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#a5a5a5") +
-    ggplot2::labs(x = "", y = expression(10^6*" t")) +
+    ggplot2::labs(x = "", y = expression(10^6 * " t")) +
     ggplot2::theme_minimal() +
     ggplot2::scale_x_continuous(
       expand = c(0, 0),
@@ -2071,7 +2071,7 @@ grafico_reservas_uranio <- function(con, lang = "pt") {
   tab |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = y)) +
     ggplot2::geom_area(color = "#404040", size = 0.25, fill = "#FFCC00") +
-    ggplot2::labs(x = "", y = expression(U[3]*O[8]*"(t)")) +
+    ggplot2::labs(x = "", y = expression(U[3] * O[8] * "(t)")) +
     ggplot2::theme_minimal() +
     ggplot2::scale_x_continuous(
       expand = c(0, 0),
@@ -2081,7 +2081,7 @@ grafico_reservas_uranio <- function(con, lang = "pt") {
       )
     ) +
     ggplot2::scale_y_continuous(
-      breaks = seq(0,350000, by = 50000),
+      breaks = seq(0, 350000, by = 50000),
       labels = scales::number_format(decimal.mark = "."),
       limits = c(0, 350000)
     ) +
@@ -2119,4 +2119,46 @@ grafico_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt") {
     rotulo_y = rotulo_y,
     lang = lang
   )
+}
+
+#' Gráfico do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#'
+#' @export
+grafico_capacidade_instalada_refino_petroleo <- function(con, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_capacidade_instalada_refino_petroleo") |>
+    dplyr::collect()
+
+  rotulo_y <- "m³/dia"
+
+  tab |>
+    ggplot2::ggplot(ggplot2::aes(x = ano, y = valor)) +
+    ggplot2::geom_area(color = "#404040", size = 0.5, fill = "#0f233f") +
+    ggplot2::labs(x = "", fill = "", y = rotulo_y) +
+    ggplot2::theme_minimal() +
+    ggplot2::scale_x_continuous(
+      expand = c(0, 0),
+      breaks = seq(min(tab$ano), max(tab$ano), by = 5)
+    ) +
+    ggplot2::theme(
+      axis.title.y = ggplot2::element_text(
+        angle = 0,
+        hjust = 1,
+        vjust = 1,
+        margin = ggplot2::margin(r = 10),
+        face = "bold"
+      ),
+      text = ggplot2::element_text(size = 10)
+    ) +
+    ggplot2::theme(axis.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 10))) +
+    ggplot2::theme(axis.text.y = ggplot2::element_text(margin = ggplot2::margin(r = 10))) +
+    ggplot2::theme(legend.position = "top") +
+    ggplot2::geom_vline(xintercept = min(tab$ano), color = "black", linetype = "solid", size = 0.5) +
+    ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
+    ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank()) +
+    ggplot2::scale_y_continuous(
+      labels = scales::number_format(decimal.mark = ".")
+    )
 }

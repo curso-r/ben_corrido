@@ -5,7 +5,7 @@
 #'
 #' @export
 gerar_botoes_download <- function(tab_name, ..., .tipo_dado = NULL, matriz = TRUE,
-                                  tabela = TRUE) {
+                                  tabela = TRUE, position = "end") {
   tab_name <- stringr::str_remove(tab_name, "^tab_")
 
   if (!is.null(.tipo_dado)) {
@@ -13,7 +13,7 @@ gerar_botoes_download <- function(tab_name, ..., .tipo_dado = NULL, matriz = TRU
   }
 
   htmltools::div(
-    class = "download mt-4 mb-4 text-end",
+    class = glue::glue("download mt-4 mb-4 text-{position}"),
     if (matriz) {
       htmltools::tags$a(
         href = glue::glue("dados/matriz_{tab_name}.xlsx"),

@@ -4136,3 +4136,141 @@ tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
       )
     )
 }
+
+#' Tabela do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_capacidade_instalada_geracao_energia_fonte"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_3(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = "",
+    lab3 = "",
+    lab4 = "",
+    min_width = 150,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#'
+#' @export
+tab_capacidade_instalada_mini_micro_gd <- function(con, lang = "pt", lab1) {
+  tab_name <- "tab_capacidade_instalada_mini_micro_gd"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_3(
+    tab = tab,
+    tab_name = tab_name,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = "",
+    lab3 = "",
+    lab4 = "",
+    min_width = 150,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#' 
+#' @export
+tab_capacidade_instalada_refino_petroleo <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_capacidade_instalada_refino_petroleo"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
+  
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "center",
+            width = 150,
+            format = reactable::colFormat(digits = 0, separators = FALSE)
+          ),
+          valor = reactable::colDef(
+            name = lab2,
+            align = "right",
+            width = 150,
+            format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Anexo 1
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#' 
+#' @export
+tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_capacidade_instalada_producao_biodiesel"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
+  
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "center",
+            width = 150,
+            format = reactable::colFormat(digits = 0, separators = FALSE)
+          ),
+          valor = reactable::colDef(
+            name = lab2,
+            align = "right",
+            width = 150,
+            format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+          )
+        )
+      )
+    )
+}

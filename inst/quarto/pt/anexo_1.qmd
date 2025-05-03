@@ -30,23 +30,44 @@ benCorrido::grafico_capacidade_instalada_geracao_eletrica(con)
 
 ```{r}
 benCorrido::tab_capacidade_instalada_itaipu(con, lab1 = "Ano")
-benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", matriz = FALSE)
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", matriz = FALSE, position = "start")
 ```
 
 
 ## Capacidade Instalada de Geração Elétrica por Fonte
 
+```{r}
+benCorrido::tab_capacidade_instalada_geracao_energia_fonte(con, lab1 = "Usinas em Operação")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia_fonte")
+```
+
 
 ## Capacidade Instalada de Geração Elétrica Mini e Micro GD
 
+```{r}
+benCorrido::tab_capacidade_instalada_mini_micro_gd(con, lab1 = "Usinas em Operação")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_gd")
+```
 
 ## Capacidade Instalada de Refino de Petróleo
 
+```{r}
+benCorrido::tab_capacidade_instalada_refino_petroleo(con, lab1 = "Ano", lab2 = "m³/dia")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_refino_petroleo", matriz = FALSE, position = "start")
+```
 
-## Capacidade Instalada de Refino de Petróleo
-
+```{r}
+#| label: fig-capacidade_instalada_refino_petroleo
+#| fig-height: 3
+benCorrido::grafico_capacidade_instalada_refino_petroleo(con)
+```
 
 ## Capacidade Instalada de Produção de Biodiesel
+
+```{r}
+benCorrido::tab_capacidade_instalada_producao_biodiesel(con, lab1 = "Ano", lab2 = "b/dia")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_producao_biodiesel", matriz = FALSE, position = "start")
+```
 
 
 

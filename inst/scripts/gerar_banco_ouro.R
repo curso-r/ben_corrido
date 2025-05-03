@@ -1587,7 +1587,7 @@ salvar_tab_bd(tab, "grafico_capacidade_instalada_geracao_eletrica")
 # grafico_capacidade_instalada_refino_petroleo
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_3.rds") |> 
-  dplyr::rename(valor = `m³/dia (day)`)
+  dplyr::rename(valor = `m³/dia (day)`, ano = grupo)
 
 salvar_tab_bd(tab, "grafico_capacidade_instalada_refino_petroleo")
 
