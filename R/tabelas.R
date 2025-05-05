@@ -4101,7 +4101,7 @@ tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
-#' 
+#'
 #' @export
 tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
   tab_name <- "tab_capacidade_instalada_itaipu"
@@ -4112,8 +4112,8 @@ tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
   locale <- pegar_locale(lang)
 
   gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
-  
-  tab |> 
+
+  tab |>
     reactable::reactable(
       striped = TRUE,
       theme = tema_reactable(),
@@ -4195,7 +4195,7 @@ tab_capacidade_instalada_mini_micro_gd <- function(con, lang = "pt", lab1) {
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
 #' @param lab2 Nome da segunda coluna
-#' 
+#'
 #' @export
 tab_capacidade_instalada_refino_petroleo <- function(con, lang = "pt", lab1, lab2) {
   tab_name <- "tab_capacidade_instalada_refino_petroleo"
@@ -4206,8 +4206,8 @@ tab_capacidade_instalada_refino_petroleo <- function(con, lang = "pt", lab1, lab
   locale <- pegar_locale(lang)
 
   gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
-  
-  tab |> 
+
+  tab |>
     reactable::reactable(
       striped = TRUE,
       theme = tema_reactable(),
@@ -4238,7 +4238,7 @@ tab_capacidade_instalada_refino_petroleo <- function(con, lang = "pt", lab1, lab
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
 #' @param lab2 Nome da segunda coluna
-#' 
+#'
 #' @export
 tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, lab2) {
   tab_name <- "tab_capacidade_instalada_producao_biodiesel"
@@ -4249,8 +4249,8 @@ tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, 
   locale <- pegar_locale(lang)
 
   gerar_tabela_download(tab, tab_name = tab_name, .tipo_dado = NULL)
-  
-  tab |> 
+
+  tab |>
     reactable::reactable(
       striped = TRUE,
       theme = tema_reactable(),
@@ -4267,6 +4267,127 @@ tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, 
           valor = reactable::colDef(
             name = lab2,
             align = "right",
+            width = 150,
+            format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+          )
+        )
+      )
+    )
+}
+
+
+#' Tabela do Anexo 2
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_autoproducao_eletrecidade_setor_fonte <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_autoproducao_eletrecidade_setor_fonte"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$setor_nivel_1 <- tab[[glue::glue("setor_nivel_1_{lang}")]]
+    tab$setor_nivel_2 <- tab[[glue::glue("setor_nivel_2_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(setor_nivel_1, setor_nivel_2, fonte, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = fonte,
+      values_from = valor
+    )
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      groupBy = "setor_nivel_1",
+      defaultPageSize = 50,
+      defaultColDef = reactable::colDef(
+        width = 130,
+        aggregate = "sum",
+        format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
+      ),
+      columns = c(
+        list(
+          setor_nivel_1 = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160
+          ),
+          setor_nivel_2 = reactable::colDef(
+            name = lab2,
+            align = "left",
+            width = 160
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Anexo 2
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_autoproducao_eletrecidade_setor_fonte_total <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_autoproducao_eletrecidade_setor_fonte_total"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$setor_nivel_1 <- tab[[glue::glue("setor_nivel_1_{lang}")]]
+    tab$setor_nivel_2 <- tab[[glue::glue("setor_nivel_2_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(setor_nivel_1, setor_nivel_2, total)
+
+  gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_long |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      groupBy = "setor_nivel_1",
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      defaultColDef = reactable::colDef(
+        width = 100,
+        aggregate = "sum"
+      ),
+      columns = c(
+        list(
+          setor_nivel_1 = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 160
+          ),
+          setor_nivel_2 = reactable::colDef(
+            name = lab2,
+            align = "left",
+            width = 160
+          ),
+          total = reactable::colDef(
+            name = "Total",
             width = 150,
             format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale)
           )

@@ -2162,3 +2162,194 @@ grafico_capacidade_instalada_refino_petroleo <- function(con, lang = "pt") {
       labels = scales::number_format(decimal.mark = ".")
     )
 }
+
+
+#' Gráfico do Anexo 3
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_comp_oferta_energia_fonte <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+
+}
+
+#' Gráfico do Anexo 3 - Oferta Interna de Energia por Região
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_oferta_interna_energia_regiao <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_oferta_interna_energia_regiao") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Consumo Final de Energia por Fonte
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_consumo_final_energia_fonte <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_consumo_final_energia_fonte") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Consumo Setorial de Derivados de Petróleo
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_consumo_setorial_derivados_petroleo <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_consumo_setorial_derivados_petroleo") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Consumo Setorial de Eletricidade
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_consumo_setorial_eletricidade <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_consumo_setorial_eletricidade") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Consumo Setorial de Gás Natural
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_consumo_setorial_gas_natural <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_consumo_setorial_gas_natural") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Consumo Setorial de Carvão Mineral
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_consumo_setorial_carvao_vapor <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_consumo_setorial_carvao_vapor") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Produção de Energia Elétrica por Fonte
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_producao_energia_eletrica_fonte <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_producao_energia_eletrica_fonte") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}
+
+#' Gráfico do Anexo 3 - Geração Hidrelétrica por Região
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#'
+#' @export
+grafico_geracao_hidreletrica_regiao <- function(con, .ano, lang = "pt") {
+  tab <- dplyr::tbl(con, "grafico_geracao_hidreletrica_regiao") |>
+    dplyr::collect()
+
+  rotulo_y <- "%"
+
+  grafico_comparacao_anos(
+    tab = tab,
+    .ano = .ano,
+    rotulo_y = rotulo_y,
+    lang = lang
+  )
+}

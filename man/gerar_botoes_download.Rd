@@ -9,7 +9,8 @@ gerar_botoes_download(
   ...,
   .tipo_dado = NULL,
   matriz = TRUE,
-  tabela = TRUE
+  tabela = TRUE,
+  position = "end"
 )
 }
 \arguments{

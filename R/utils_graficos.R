@@ -161,3 +161,42 @@ grafico_sunkey <- function(tab, sufixo) {
       yaxis = list(showgrid = F, zeroline = F)
     )
 }
+
+
+grafico_comparacao_anos <- function(tab, .ano, rotulo_y, lang) {
+  tab_plot <- tab |>
+    dplyr::filter(ano %in% c(.ano, max(ano, na.rm = TRUE)))
+
+  if (lang != "pt") {
+    tab_plot$variavel <- tab_plot[[glue::glue("variavel_{lang}")]]
+  }
+
+  tab_plot |>
+    ggplot2::ggplot(ggplot2::aes(x = variavel, y = valores, fill = ano)) +
+    ggplot2::geom_col(position = "dodge", color = "#404040", size = 0.5, width = 0.75) +
+    ggplot2::geom_text(
+      ggplot2::aes(
+      label = sprintf("%.1f", valores),
+      hjust = -0.4
+      ),
+      size = 4.5, 
+      fontface = "bold", 
+      position = ggplot2::position_dodge(width = 0.8)
+    ) +
+    ggplot2::scale_fill_manual(values = c("#7F7F7F", "#FFD966")) +
+    ggplot2::scale_y_continuous(
+      expand = c(0, 0, 0, 6)
+    ) +
+    ggplot2::coord_flip() +
+    ggplot2::theme_classic() +
+    ggplot2::theme(
+      legend.position = "top",
+      legend.title = ggplot2::element_blank(),
+      legend.text = ggplot2::element_text(size = 14),
+      axis.title.y = ggplot2::element_blank(),
+      axis.title.x = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_text(size = 12, angle = 0),
+      axis.text.y = ggplot2::element_text(size = 12),
+      plot.margin = ggplot2::margin(1, 1, 1, 1)
+    )
+}

@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,20 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Anexo II – Autoprodução de Eletricidade {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Autoprodução de eletricidade por setor e fonte 
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+benCorrido::tab_autoproducao_eletrecidade_setor_fonte(con, lab1 = "Setor", lab2 = "")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte")
+```
+
+## Autoprodução de eletricidade por setor e fonte (total)
+
+```{r}
+benCorrido::tab_autoproducao_eletrecidade_setor_fonte_total(con, lab1 = "Setor", lab2 = "")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte_total", matriz = FALSE)
 ```

@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo 1 – Capacidade Instalada – Brasil {-}
+# Anexo I – Capacidade Instalada – Brasil {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 

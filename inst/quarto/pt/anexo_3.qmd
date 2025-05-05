@@ -11,43 +11,203 @@ ano <- params$ano
 
 # Anexo III — Dados Mundiais de Energia {-}
 
+![](../img/capas/imagem_cap_anexo.png)
+
 Fonte: Agência Internacional de Energia (IEA)
+
+```{r}
+tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
+  dplyr::collect()
+
+anos <- unique(tab$ano)
+anos_comparacao <- sort(anos[anos != max(anos, na.rm = TRUE)])
+```
 
 ## Oferta de Energia por Fonte
 
 ```{r}
-tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
-  dplyr::collect() |>
-  dplyr::mutate(ano = as.character(ano))
-
-anos <- unique(tab$ano)
-anos_comparacao <- sort(anos[anos != max(anos, na.rm = TRUE)])
-
 plots <- purrr::map(
   anos_comparacao,
   \(.ano) {
-    tab_filtrada <- tab |> dplyr::filter(ano %in% c(.ano, max(ano, na.rm = TRUE)))
-    ggplot2::ggplot(tab_filtrada) +
-      ggplot2::geom_col(
-        ggplot2::aes(x = variavel, y = valores, fill = ano),
-        position = "dodge"
-      ) +
-      ggplot2::theme_minimal()
+    benCorrido::grafico_comp_oferta_energia_fonte(con, .ano)
   }
 )
 
-benCorrido::create_dropdown_plot(
-  plots = plots,
+benCorrido::create_dropdown(
+  elementos = plots,
+  id = "grafico_comp_oferta_energia_fonte",
   params = anos_comparacao,
   label = "Ano de comparação",
   fig_width = 11,
-  fig_height = 3,
+  fig_height = 5,
   dropdown_width = "200px"
 )
-
 ```
+
+## Oferta de Energia por Região
 
 ```{r}
-htmltools::tags$script(src = "../js/fix_slider.js")
+plots_regiao <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_oferta_interna_energia_regiao(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_regiao,
+  id = "grafico_oferta_interna_energia_regiao",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
 ```
 
+## Consumo Final de Energia por Fonte
+
+```{r}
+plots_consumo_fonte <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_final_energia_fonte(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_consumo_fonte,
+  id = "grafico_consumo_final_energia_fonte",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Consumo Setorial de Derivados de Petróleo
+
+```{r}
+plots_derivados_petroleo <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_derivados_petroleo(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_derivados_petroleo,
+  id = "grafico_consumo_setorial_derivados_petroleo",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Consumo Setorial de Eletricidade
+
+```{r}
+plots_eletricidade <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_eletricidade(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_eletricidade,
+  id = "grafico_consumo_setorial_eletricidade",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Consumo Setorial de Gás Natural
+
+```{r}
+plots_gas_natural <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_gas_natural(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_gas_natural,
+  id = "grafico_consumo_setorial_gas_natural",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Consumo Setorial de Carvão Mineral
+
+```{r}
+plots_carvao <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_carvao_vapor(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_carvao,
+  id = "grafico_consumo_setorial_carvao_vapor",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Produção de Energia Elétrica por Fonte
+
+```{r}
+plots_producao_fonte <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_producao_energia_eletrica_fonte(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_producao_fonte,
+  id = "grafico_producao_energia_eletrica_fonte",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Geração Hidrelétrica por Região
+
+```{r}
+plots_hidreletrica <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_geracao_hidreletrica_regiao(con, .ano)
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_hidreletrica,
+  id = "grafico_geracao_hidreletrica_regiao",
+  params = anos_comparacao,
+  label = "Ano de comparação",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
