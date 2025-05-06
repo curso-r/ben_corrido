@@ -95,6 +95,9 @@ pegar_cor <- function(x) {
     x == "Derivados de Petróleo" ~ "#953735",
     x == "Solar e Eólica" ~ "#ED7D31",
     x == "Termo" ~ "#953760",
+    x == "Energia Útil" ~ "#CF4E48",
+    x == "Potencial de Economia de Energia" ~ "#ED7D31",
+    x == "Energia não Recuperável" ~ "#FFA07A",
     TRUE ~ NA_character_
   )
 }

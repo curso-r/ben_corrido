@@ -1568,15 +1568,15 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_i_1_traduzi
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_i_1_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
-  dplyr::filter(fontes != "TOTAL", setor != "Total") |> 
-  dplyr::group_by(ano, grupo = setor, grupo_en) |> 
+  dplyr::filter(fontes != "TOTAL", setor != "Total") |>
+  dplyr::group_by(ano, grupo = setor, grupo_en) |>
   dplyr::summarise(total = sum(valor), .groups = "drop")
 
 salvar_tab_bd(tab, "grafico_capacidade_instalada_geracao_eletrica")
 
 # grafico_capacidade_instalada_refino_petroleo
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_3.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_3.rds") |>
   dplyr::rename(valor = `m³/dia (day)`, ano = grupo)
 
 salvar_tab_bd(tab, "grafico_capacidade_instalada_refino_petroleo")
@@ -1589,8 +1589,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_1.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_1.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_comp_oferta_energia_fonte")
@@ -1600,8 +1600,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_2.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_2.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_oferta_interna_energia_regiao")
@@ -1611,8 +1611,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_3.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_3.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_consumo_final_energia_fonte")
@@ -1622,8 +1622,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_4.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_4.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_consumo_setorial_derivados_petroleo")
@@ -1633,8 +1633,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_5.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_5.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_consumo_setorial_eletricidade")
@@ -1644,8 +1644,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_6.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_6.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_consumo_setorial_gas_natural")
@@ -1655,8 +1655,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_7.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_7.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_consumo_setorial_carvao_vapor")
@@ -1666,8 +1666,8 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_8.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_8.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_producao_energia_eletrica_fonte")
@@ -1677,11 +1677,49 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_grafico_anexo_iii_9.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_grafico_anexo_iii_9.rds") |>
   dplyr::select(variavel_en = variavel)
 
-tab <- cbind(tab, tab_en) |> 
-  dplyr::select(-ano_max, -ano_penultimo) |> 
+tab <- cbind(tab, tab_en) |>
+  dplyr::select(-ano_max, -ano_penultimo) |>
   dplyr::mutate(ano = as.character(ano))
 
 salvar_tab_bd(tab, "grafico_geracao_hidreletrica_regiao")
+
+# ANEXO IV
+
+# grafico_variacao_energia_final_util_potencial
+con <- DBI::dbConnect(
+  RSQLite::SQLite(),
+  "./data-raw/codigo_original/banco_balanco_energetico/Balanco_Energetico_testando_v07.sqlite"
+)
+
+tab <- dplyr::tbl(con, "AnexoIV") |>
+  dplyr::collect() |>
+  dplyr::filter(tabela == "Tab Graf") |>
+  dplyr::select(variavel = segmento_nivel_1, ano, valor) |>
+  dplyr::filter(!stringr::str_detect(variavel, "Energia Final")) |>
+  dplyr::mutate(
+    ano = as.numeric(ano),
+    variavel = stringr::str_trim(variavel),
+    variavel_en = dplyr::case_when(
+      variavel == "Energia Útil" ~ "Usable Energy",
+      variavel == "Potencial de Economia de Energia" ~ "Energy Saving Potential",
+      variavel == "Energia não Recuperável" ~ "Non-Recoverable Energy",
+      TRUE ~ NA_character_
+    ),
+    variavel = forcats::fct(
+      variavel,
+      levels = c(
+        "Potencial de Economia de Energia",
+        "Energia não Recuperável",
+        "Energia Útil"
+      )
+    )
+  ) |> 
+  dplyr::arrange(variavel) |> 
+  dplyr::mutate(variavel_en = forcats::fct(variavel_en))
+
+salvar_tab_bd(tab, "grafico_variacao_energia_final_util_potencial")
+
+DBI::dbDisconnect(con)
 
 # Tabelas ---------------------------------------------------------------------
 
@@ -3160,7 +3198,7 @@ salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_eletrica")
 
 
 # tab_capacidade_instalada_itaipu
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_1_1.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_1_1.rds") |>
   dplyr::rename(valor = `MW`)
 salvar_tab_bd(tab, "tab_capacidade_instalada_itaipu")
 
@@ -3175,7 +3213,7 @@ tab_en <- readr::read_rds("./data-raw/rds/en/dados_tabela_anexo_i_2.rds") |>
   )
 
 tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_anexo_i_2.rds") |>
-  dplyr::bind_cols(tab_en) |> 
+  dplyr::bind_cols(tab_en) |>
   dplyr::select(-verifica_percentual)
 
 salvar_tab_bd(tab, "tab_capacidade_instalada_geracao_energia_fonte")
@@ -3190,25 +3228,25 @@ tab_en <- readr::read_rds("./data-raw/rds/en/dados_tabela_anexo_i_2_b.rds") |>
   )
 
 tab <- readr::read_rds("./data-raw/rds/pt/dados_tabela_anexo_i_2_b.rds") |>
-  dplyr::bind_cols(tab_en) |> 
+  dplyr::bind_cols(tab_en) |>
   dplyr::select(-verifica_percentual)
 
 salvar_tab_bd(tab, "tab_capacidade_instalada_mini_micro_gd")
 
 # tab_capacidade_instalada_refino_petroleo
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_3.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_resumo_tabela_anexo_i_3.rds") |>
   dplyr::rename(valor = `m³/dia (day)`)
 salvar_tab_bd(tab, "tab_capacidade_instalada_refino_petroleo")
 
 
 # tab_capacidade_instalada_producao_biodiesel
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_4.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_anexo_i_4.rds") |>
   dplyr::rename(valor = `b/dia (day)`)
 salvar_tab_bd(tab, "tab_capacidade_instalada_producao_biodiesel")
 
 # ANEXO 2
 
-# tab_autoproducao_eletrecidade_setor_fonte 
+# tab_autoproducao_eletrecidade_setor_fonte
 tab <- readr::read_rds("./data-raw/rds/pt/dados_para_tabela_download_anexo_ii_1.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_ii_1.rds") |>
   dplyr::select(
@@ -3224,7 +3262,7 @@ tab <- tab |>
 
 salvar_tab_bd(tab, "tab_autoproducao_eletrecidade_setor_fonte")
 
-# tab_autoproducao_eletrecidade_setor_fonte_total 
+# tab_autoproducao_eletrecidade_setor_fonte_total
 tab <- readr::read_rds("./data-raw/rds/pt/dados_para_tabela_download_anexo_ii_1.rds")
 tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_ii_1.rds") |>
   dplyr::select(
@@ -3236,11 +3274,11 @@ tab <- tab |>
   dplyr::bind_cols(tab_en) |>
   dplyr::select(
     -ano
-  ) |> 
+  ) |>
   dplyr::mutate(
     setor_nivel_1 = forcats::fct(setor_nivel_1),
     setor_nivel_2 = forcats::fct(setor_nivel_2)
-  ) |> 
+  ) |>
   dplyr::group_by(setor_nivel_1, setor_nivel_1_en, setor_nivel_2, setor_nivel_2_en) |>
   dplyr::summarise(
     total = sum(valor),
@@ -3248,3 +3286,36 @@ tab <- tab |>
   )
 
 salvar_tab_bd(tab, "tab_autoproducao_eletrecidade_setor_fonte_total")
+
+# ANEXO IV
+
+# tab_evolucao_rendimentos_energeticos_setores
+tab <- readr::read_rds("./data-raw/rds/pt/organiza_tratamento_tabela_anexo_iv_1.rds")
+tab_en <- readr::read_rds("./data-raw/rds/en/organiza_tratamento_tabela_anexo_iv_1.rds") |>
+  dplyr::select(grupo_en = grupo)
+
+tab <- cbind(tab, tab_en)
+
+salvar_tab_bd(tab, "tab_evolucao_rendimentos_energeticos_setores")
+
+# tab_evolucao_rendimentos_energeticos_setores_efeitos
+tab_en <- readr::read_rds("./data-raw/rds/en/dataframe_completo_anexo_iv_2.rds") |>
+  dplyr::select(grupo_en = grupo, info_en = cabecalho_nivel_1)
+
+tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_2.rds") |> 
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |> 
+  dplyr::filter(!(grupo == "Global" & is.na(total)))
+
+salvar_tab_bd(tab, "tab_evolucao_rendimentos_energeticos_setores_efeitos")
+
+# tab_variacao_rendimentos_energeticos_participacao
+tab_en <- readr::read_rds("./data-raw/rds/en/dataframe_completo_anexo_iv_3.rds") |>
+  dplyr::select(grupo_en = grupo, info_en = cabecalho_nivel_1)
+
+tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_3.rds") |> 
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |> 
+  dplyr::filter(!(grupo == "Global" & is.na(total)))
+
+salvar_tab_bd(tab, "tab_variacao_rendimentos_energeticos_participacao")

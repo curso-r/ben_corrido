@@ -45,3 +45,7 @@ li.slick-active {
 .download a {
   text-decoration: none;
 }
+
+.reactable {
+  margin-bottom: 16px;
+}

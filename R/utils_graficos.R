@@ -11,7 +11,9 @@ grafico_linha <- function(tab, rotulo_y, lang) {
     tab_plot$grupo <- tab_plot[[glue::glue("grupo_{lang}")]]
   }
 
-  cores <- setNames(tab_plot$cor, tab_plot$grupo) |> unique()
+  cores <- tab |> 
+    dplyr::distinct(variavel, cor) |> 
+    tibble::deframe()
 
   tab_plot |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = total, color = grupo)) +
@@ -59,7 +61,9 @@ grafico_area <- function(tab, rotulo_y, lang) {
     tab_plot$grupo <- tab_plot[[glue::glue("grupo_{lang}")]]
   }
 
-  cores <- setNames(tab_plot$cor, tab_plot$grupo) |> unique()
+  cores <- tab |> 
+    dplyr::distinct(variavel, cor) |> 
+    tibble::deframe()
 
   tab_plot |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = total, fill = grupo)) +
