@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabelas.R
 \name{tab_variacao_rendimentos_energeticos_participacao}
 \alias{tab_variacao_rendimentos_energeticos_participacao}
-\title{Tabela do Capítulo VIII}
+\title{Tabela do Anexo 4}
 \usage{
 tab_variacao_rendimentos_energeticos_participacao(con, lang = "pt", lab1)
 }
@@ -14,5 +14,5 @@ tab_variacao_rendimentos_energeticos_participacao(con, lang = "pt", lab1)
 \item{lab1}{Nome da primeira coluna}
 }
 \description{
-Tabela do Capítulo VIII
+Tabela do Anexo 4
 }

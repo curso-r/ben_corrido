@@ -3319,3 +3319,68 @@ tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_3.rds") |>
   dplyr::filter(!(grupo == "Global" & is.na(total)))
 
 salvar_tab_bd(tab, "tab_variacao_rendimentos_energeticos_participacao")
+
+# ANEXO V
+
+# tab_conceituacao_energia_primaria
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_1.rds")
+salvar_tab_bd(tab, "tab_conceituacao_energia_primaria")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_1.rds")
+salvar_tab_bd(tab, "tab_conceituacao_energia_primaria_en")
+
+# tab_conceituacao_energia_secundaria
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_2.rds")
+salvar_tab_bd(tab, "tab_conceituacao_energia_secundaria")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_2.rds")
+salvar_tab_bd(tab, "tab_conceituacao_energia_secundaria_en")
+
+# tab_conceituacao_total_geral
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_3.rds")
+salvar_tab_bd(tab, "tab_conceituacao_total_geral")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_3.rds")
+salvar_tab_bd(tab, "tab_conceituacao_total_geral_en")
+
+# tab_conceituacao_oferta
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_4.rds")
+salvar_tab_bd(tab, "tab_conceituacao_oferta")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_4.rds")
+salvar_tab_bd(tab, "tab_conceituacao_oferta_en")
+
+# tab_conceituacao_transformacao
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_5.rds")
+salvar_tab_bd(tab, "tab_conceituacao_transformacao")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_5.rds")
+salvar_tab_bd(tab, "tab_conceituacao_transformacao_en")
+
+# tab_conceituacao_perdas
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_6.rds")
+salvar_tab_bd(tab, "tab_conceituacao_perdas")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_6.rds")
+salvar_tab_bd(tab, "tab_conceituacao_perdas_en")
+
+# tab_conceituacao_consumo_final
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_7.rds")
+salvar_tab_bd(tab, "tab_conceituacao_consumo_final")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_7.rds")
+salvar_tab_bd(tab, "tab_conceituacao_consumo_final_en")
+
+# tab_conceituacao_ajustes_estatisticos
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_final_anexo_V_2_8.rds")
+salvar_tab_bd(tab, "tab_conceituacao_ajustes_estatisticos")
+
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_8.rds")
+salvar_tab_bd(tab, "tab_conceituacao_ajustes_estatisticos_en")

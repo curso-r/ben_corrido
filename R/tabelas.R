@@ -4466,7 +4466,7 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
     )
 }
 
-#' Tabela do Capítulo VIII
+#' Tabela do Anexo 4
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
@@ -4566,7 +4566,7 @@ tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt
     )
 }
 
-#' Tabela do Capítulo VIII
+#' Tabela do Anexo 4
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
@@ -4662,6 +4662,262 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
           )
         ),
         col_defs
+      )
+    )
+}
+
+#' Tabela do Anexo 5
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_energia_primaria <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_energia_primaria{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Energia Secundária
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_energia_secundaria <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_energia_secundaria{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Total Geral
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_total_geral <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_total_geral{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Oferta
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_oferta <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_oferta{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Transformação
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_transformacao <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_transformacao{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Perdas
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_perdas <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_perdas{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Consumo Final
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_consumo_final <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_consumo_final{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
+      )
+    )
+}
+
+#' Tabela do Anexo 5 - Ajustes Estatísticos
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
+  
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+  
+  tab_name <- glue::glue("tab_conceituacao_ajustes_estatisticos{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |> 
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center"
       )
     )
 }
