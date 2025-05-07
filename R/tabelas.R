@@ -5379,6 +5379,192 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
 }
 
 
+#' Tabela do Anexo 9
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
+  tab_name <- "tab_balanco_energitico_consolidado"
 
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(ano == .ano) |>
+    dplyr::collect()
 
+  locale <- pegar_locale(lang)
 
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$tipo <- tab[[glue::glue("tipo_{lang}")]]
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  tab_long <- tab |>
+    dplyr::select(grupo, tipo, fonte, valor)
+
+  tab_wide <- tab_long |>
+    dplyr::mutate(tipo_fonte = glue::glue("{tipo}_{fonte}")) |>
+    dplyr::select(-tipo, -fonte) |>
+    tidyr::pivot_wider(
+      names_from = tipo_fonte,
+      values_from = valor
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-grupo) |>
+    names()
+
+  tipos <- unique(tab$tipo)
+
+  col_defs <- purrr::map(
+    colunas,
+    \(x) {
+      nome <- stringr::str_remove(x, ".*_")
+      reactable::colDef(
+        name = nome
+      )
+    }
+  ) |> purrr::set_names(colunas)
+
+  col_groups <- purrr::map(
+    tipos,
+    \(x) {
+      reactable::colGroup(
+        name = x,
+        columns = colunas[stringr::str_detect(colunas, stringr::fixed(x))]
+      )
+    }
+  )
+
+  tab_padding <- tab |>
+    dplyr::distinct(grupo) |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes") ~ "5px",
+        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
+        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro-Gusa e Aço", "Ferro-Ligas", "Mineração e Pelotização", "Não-Ferrosos e Outros da Metalurgia", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outros") ~ "65px",
+        TRUE ~ "25px"
+      )
+    )
+
+  tab_name_download <- glue::glue("{tab_name}_{.ano}")
+  gerar_tabela_download(tab_long, tab_name = tab_name_download, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name_download, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        format = reactable::colFormat(digits = 0, separators = TRUE, locales = locale),
+        minWidth = 150
+      ),
+      columnGroups = col_groups,
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            sticky = "left",
+            width = 300,
+            style = function(value, index) {
+              paddingLeft <- tab_padding$paddingLeft[tab_padding$grupo == value]
+              list(paddingLeft = paddingLeft)
+            }
+          )
+        ),
+        col_defs
+      )
+    )
+}
+
+#' Tabela do Anexo 10
+#'
+#' @param con Conexão com o banco de dados
+#' @param .ano Ano
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", lab1) {
+
+  tab_name <- glue::glue("tab_balanco_energitico_unidades_comerciais")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::filter(ano == .ano) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  tab_long <- tab |>
+    dplyr::select(grupo, fonte, valor)
+
+  tab_wide <- tab_long |>
+    tidyr::pivot_wider(
+      names_from = fonte,
+      values_from = valor
+    )
+
+  tab_padding <- tab |>
+    dplyr::distinct(grupo) |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes Estatísticos") ~ "5px",
+        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
+        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro Gusa e Aço", "Ferro Ligas", "Mineração e Pelotização", "Não Ferrosos e Outros Metalúrgicos", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outras Indústrias") ~ "65px",
+        TRUE ~ "25px"
+      )
+    )
+
+  tab_name_download <- glue::glue("{tab_name}_{.ano}")
+  gerar_tabela_download(tab_long, tab_name = tab_name_download, .tipo_dado = NULL)
+  gerar_matriz_download(tab_wide, tab_name = tab_name_download, .tipo_dado = NULL)
+  
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center",
+        minWidth = 150,
+        format = reactable::colFormat(
+          digits = 0,
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 300,
+            sticky = "left",
+            style = function(value, index) {
+              paddingLeft <- tab_padding$paddingLeft[tab_padding$grupo == value]
+              list(paddingLeft = paddingLeft)
+            }
+          )
+        )
+      )
+    )
+}

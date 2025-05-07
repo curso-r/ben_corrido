@@ -29,7 +29,9 @@ book:
     # - pt/anexo_5.qmd
     # - pt/anexo_6.qmd
     # - pt/anexo_7.qmd
-    - pt/anexo_8.qmd
+    # - pt/anexo_8.qmd
+    # - pt/anexo_9.qmd
+    - pt/anexo_10.qmd
     - text: Referências
       href: pt/referencias.qmd
 
