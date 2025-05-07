@@ -404,7 +404,7 @@ reactable_painel_nivel_4 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
     )
 }
 
-reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL, download_matriz = FALSE) {
+reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL) {
   locale <- pegar_locale(lang)
 
   if (lang != "pt") {
@@ -422,10 +422,6 @@ reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL, d
   colunas <- tab_wide |>
     dplyr::select(-unidade_origem) |>
     names()
-
-  if (download_matriz) {
-    gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
-  }
 
   tab_wide |>
     reactable::reactable(

@@ -65,10 +65,12 @@ benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_solidos(con, lab1 
 
 ```{r}
 benCorrido::tab_densidades_poderes_calorificos(con, lab1 = "De", lab2 = "Para")
+benCorrido::gerar_botoes_download(tab_name = "tab_densidades_poderes_calorificos", tabela = FALSE)
 ```
 
 ## Fatores de Conversão para tep médio
 
 ```{r}
 benCorrido::tab_fatores_conversao_tep_medio(con, lab1 = "", lab2 = "Unidade")
+benCorrido::gerar_botoes_download(tab_name = "tab_fatores_conversao_tep_medio", tabela = FALSE)
 ```

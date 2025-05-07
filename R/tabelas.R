@@ -5347,7 +5347,6 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
-      fullWidth = FALSE,
       theme = reactable::reactableTheme(
         borderColor = "black",
         style = list(
@@ -5356,7 +5355,6 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
       ),
       defaultColDef = reactable::colDef(
         align = "center",
-        width = 200,
         format = reactable::colFormat(
           digits = 3,
           separators = TRUE,

@@ -3515,46 +3515,20 @@ salvar_tab_bd(tab, "tab_fatores_conversao_massa")
 
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_4_traduzido.rds") |>
   dplyr::mutate(
-    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
-  )
-
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_4_traduzido.rds") |>
-  dplyr::mutate(
-    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
-  )
-
-tab_depara_en <- tab_en |>
-  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
-
-tab_en <- tab_en |>
-  dplyr::left_join(
-    tab_depara_en,
-    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
-  ) |>
-  dplyr::mutate(
-    unidade_origem_en = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
-    unidade_destino_en = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+    unidade_origem_en = glue::glue("{unidade_fisica_de_origem} {unidade_de_medida_de_origem}"),
+    unidade_destino_en = unidade_de_medida_de_destino
   ) |>
   dplyr::select(
     unidade_origem_en,
     unidade_destino_en
   )
 
-tab_depara <- tab |>
-  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
-
-options(scipen = 999)
-
-tab <- tab |>
-  dplyr::left_join(
-    tab_depara,
-    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
-  ) |>
-  dplyr::mutate(
-    unidade_origem = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
-    unidade_destino = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
-  ) |>
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_4_traduzido.rds") |>
   dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    unidade_origem = glue::glue("{unidade_fisica_de_origem} {unidade_de_medida_de_origem}"),
+    unidade_destino = unidade_de_medida_de_destino
+  ) |>
   dplyr::select(
     unidade_origem,
     unidade_destino,
@@ -3573,11 +3547,21 @@ salvar_tab_bd(tab, "tab_fatores_conversao_volume")
 
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_5_traduzido.rds") |>
   dplyr::mutate(
+    unidade_de_medida_de_destino = dplyr::case_when(
+      unidade_de_medida_de_destino == "tep (toe)" ~ "toe",
+      unidade_de_medida_de_destino == "bep (boe)" ~ "boe",
+      TRUE ~ unidade_de_medida_de_destino
+    ),
     unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
   )
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_5_traduzido.rds") |>
   dplyr::mutate(
+    unidade_de_medida_de_destino = dplyr::case_when(
+      unidade_de_medida_de_destino == "tep (toe)" ~ "tep",
+      unidade_de_medida_de_destino == "bep (boe)" ~ "bep",
+      TRUE ~ unidade_de_medida_de_destino
+    ),
     unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
   )
 
@@ -3600,8 +3584,6 @@ tab_en <- tab_en |>
 
 tab_depara <- tab |>
   dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
-
-options(scipen = 999)
 
 tab <- tab |>
   dplyr::left_join(
@@ -3685,8 +3667,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_7_traduzi
     fator_conversao = total
   ) |>
   dplyr::mutate(
-    fator_conversao = as.character(fator_conversao),
-    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+    fator_conversao = dplyr::case_when(
+      unidade_destino %in% c("bep", "giga-caloria", "giga-joule", "megawatt-hora (860 kcal/kWh)") ~ scales::number(fator_conversao, accuracy = 0.01, big.mark = ".", decimal.mark = ","),
+      unidade_destino %in% c("tec (7000 kcal/kg)", "tep (10⁴  kcal/kg)", "10⁶ BTU") ~ scales::number(fator_conversao, accuracy = 0.001, big.mark = ".", decimal.mark = ",")
+    )
   )
 
 salvar_tab_bd(tab, "tab_coeficientes_equivalencia_medios_combustiveis_liquidos")
@@ -3717,8 +3701,10 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_8_traduzi
     fator_conversao = total
   ) |>
   dplyr::mutate(
-    fator_conversao = as.character(fator_conversao),
-    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+    fator_conversao = dplyr::case_when(
+      unidade_destino %in% c("bep", "giga-caloria", "giga-joule", "megawatt-hora (860 kcal/kWh)") ~ scales::number(fator_conversao, accuracy = 0.01, big.mark = ".", decimal.mark = ","),
+      unidade_destino %in% c("tec (7000 kcal/kg)", "tep (10⁴  kcal/kg)", "10⁶ BTU") ~ scales::number(fator_conversao, accuracy = 0.001, big.mark = ".", decimal.mark = ",")
+    )
   )
 
 salvar_tab_bd(tab, "tab_coeficientes_equivalencia_medios_combustiveis_solidos")
@@ -3751,8 +3737,11 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_9_traduzi
     fator_conversao = total
   ) |>
   dplyr::mutate(
-    fator_conversao = as.character(fator_conversao),
-    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+    fator_conversao = dplyr::case_when(
+      unidade_destino %in% c("PODER CALORÍFICO INFERIOR (kcal/kg)", "PODER CALORÍFICO SUPERIOR (kcal/kg)") ~ scales::number(fator_conversao, accuracy = 1, big.mark = ".", decimal.mark = ","),
+      unidade_destino %in% c("DENSIDADE (kg/m³)") ~ scales::number(fator_conversao, accuracy = 0.01, big.mark = ".", decimal.mark = ",")
+    ),
+    fator_conversao = stringr::str_remove(fator_conversao, ",00$"),
   )
 
 salvar_tab_bd(tab, "tab_densidades_poderes_calorificos")
@@ -3768,7 +3757,7 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_anexo_viii_10.rds") |>
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_anexo_viii_10.rds") |>
   dplyr::rename(
     unidade = Unidade
-  ) |> 
+  ) |>
   dplyr::bind_cols(tab_en)
 
 
