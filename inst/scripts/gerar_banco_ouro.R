@@ -3384,3 +3384,33 @@ salvar_tab_bd(tab, "tab_conceituacao_ajustes_estatisticos")
 
 tab <- readr::read_rds("./data-raw/rds/en/tratamento_final_anexo_V_2_8.rds")
 salvar_tab_bd(tab, "tab_conceituacao_ajustes_estatisticos_en")
+
+# ANEXO VI
+
+# tab_fatores_capacidade_diferentes_fontes
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_1_traduzida.rds") |> 
+  dplyr::select(fonte = Fonte, fc = FC)
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_vi_1_traduzida.rds") |>
+  dplyr::select(fonte_en = Source)
+
+tab <- cbind(tab, tab_en)
+
+salvar_tab_bd(tab, "tab_fatores_capacidade_diferentes_fontes")
+
+# tab_fatores_capacidade_fonte_hidraulica
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_2_traduzida.rds") |> 
+  dplyr::select(fonte = Fonte, classe = Classe, fc = FC)
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_vi_2_traduzida.rds") |>
+  dplyr::select(fonte_en = Source, classe_en = Class)
+
+tab <- cbind(tab, tab_en)
+
+salvar_tab_bd(tab, "tab_fatores_capacidade_fonte_hidraulica")
+
+# tab_fator_capacidade_municipios
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_6_1.rds") |> 
+  dplyr::select(uf = UF, municipio = Cidade, fc_75 = FC_75, fc_80 = FC_80)
+
+salvar_tab_bd(tab, "tab_fator_capacidade_municipios")

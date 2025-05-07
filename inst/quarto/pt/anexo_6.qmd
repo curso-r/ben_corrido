@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,255 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Anexo VI — Tratamento das informações {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Aspectos Gerais
+
+O processo de aperfeiçoamento contínuo a que é submetido o Balanço Energético Nacional, no sentido de melhor representar a realidade energética brasileira, desde os aspectos da precisão da informação até o seu detalhamento em diferentes níveis de desagregação, faz com que se apresentem, às vezes, algumas diferenças entre os dados de uma edição e outra, e, por esse motivo, sempre a última edição é a que apresenta a posição mais rigorosa.
+
+Assim, neste anexo, são apresentadas as fontes de dados e os aspectos peculiares de algumas fontes de energia quanto à forma de obtenção de seus dados, bem como os esclarecimentos, julgados necessários, para dirimir dúvidas quanto a alterações em relação aos balanços energéticos anteriores.
+
+
+## Classificação Setorial
+
+A classificação de consumo setorial do Balanço Energético Nacional segue o Código de Atividades da Receita Federal (Portarias no 907, de 28 de agosto de 1989, e no 962, de 29 de dezembro de 1987 - DOU de 31/12/87 - Seção I). Mas recentemente o processo de coleta e tratamento dos dados vem se ajustando à atual Classificação Nacional de Atividades Econômicas - CNAE.
+
+
+## Fontes de Dados
+
+Neste item são apresentadas as entidades que atuam, de forma direta ou indireta, como fontes de dados para a elaboração do BEN:
+
+### Petróleo, Gás Natural e Xisto
+
+* Agência Nacional de Petróleo - ANP
+
+* Petróleo Brasileiro S.A. - Petrobras
+
+* Companhias Distribuidoras de Derivados
+
+* Entidades de Classe e Grandes Indústrias
+
+
+### Carvão Mineral
+
+* Sindicato Nacional da Indústria de Extração do Carvão
+
+* Grandes Indústrias
+
+
+### Energia Hidrelétrica e Eletricidade
+
+* Agência Nacional de Energia Elétrica – ANEEL
+
+* Centrais Elétricas Brasileiras S.A. – Eletrobras
+
+* Concessionárias de Energia Elétrica
+
+* Operador Nacional do Sistema – ONS
+
+* SIMPLES - EPE
+
+* Câmara de Comercialização de Energia Elétrica - CCEE
+
+* Grandes Indústrias
+
+
+### Lenha e Carvão Vegetal
+
+* Fundação Instituto Brasileiro de Geografia e Estatística - IBGE
+
+* Grandes Indústrias
+
+* Mineradoras
+
+* Projeto Matriz Energética Brasileira – MEB - MME / IPEA
+
+
+### Cana-de-Açúcar, Álcool e Bagaço de Cana
+
+* Ministério da Agricultura, Pecuária e Abastecimento - MAPA
+
+* Entidades de Classe
+
+* Indústrias do Setor
+
+* Agência Nacional do Petróleo, Gás Natural e Biocombustíveis - ANP
+
+
+### Energia Nuclear
+
+* Indústrias Nucleares do Brasil – INB
+
+
+### Outras Instituições
+
+* Associação Brasileira de Celulose e Papel - BRACELPA
+
+* Sindicato Nacional da Indústria de Cimento – SNIC
+
+* Associação Brasileira dos Produtores de Ferro-ligas – ABRAFE
+
+* Instituto Aço Brasil – IBS
+
+* Associação Brasileira de Fundição – ABIFA
+
+* Sindicato Nacional da Indústria e Extração de Estanho – SNIEE
+
+* Associação Brasileira de Alumínio – ABAL
+
+* Sindicato da Indústria de Ferro no Estado de Minas Gerais – SINDIFER
+
+* Fundação IBGE, para dados gerais sobre o país.
+
+
+## Peculiaridades no Tratamento das Informações
+
+### Petróleo, Gás Natural e Derivados
+
+Para os dados de produção, importação, exportação, estoques e transformação são utilizadas informações fornecidas pela Petrobras, ANP e Receita Federal. Para os dados de consumo setorial, são utilizadas as fontes Petrobras, ANP, Entidades de Classe e Grandes Indústrias.
+
+Na Petrobras são geradas as informações relativas às entregas e vendas feitas diretamente pelas refinarias. Na ANP são geradas as informações relativas às vendas das distribuidoras aos consumidores, as quais são disciplinadas pela Portaria CNP-DIPLAN no 221, de 25/06/81 e são desagregadas pelas atividades ditadas pela Receita Federal. Nas Entidades de Classe e Grandes Indústrias são obtidas informações de consumo real.
+
+Da conciliação dos dados dessas fontes e da análise de consistência das informações elaboram-se os fluxos energéticos do petróleo, gás natural e seus derivados.
+
+
+### Carvão Vapor e Carvão Metalúrgico
+
+As condições das jazidas (pequenas espessuras de camadas) e os métodos de lavra do carvão mineral conduzem à extração de um “carvão bruto” (ROM) com elevadas parcelas de material inerte (argilitos e outros). Assim, considera-se o carvão mineral como fonte de energia primária no Balanço Energético Nacional, após o seu beneficiamento, nas formas de carvão vapor e carvão metalúrgico.
+
+
+### Energia Nuclear
+
+No Balanço Energético Nacional o tratamento da energia nuclear está de acordo com o seguinte fluxo: o urânio natural na forma de U3O8 (energia primária) entra no ciclo do combustível nuclear (centro de transformação) e é transformado em urânio contido no UO2 dos elementos combustíveis (energia secundária), com as respectivas perdas de transformação.
+
+Devido ao grande número de atividades envolvidas na transformação do urânio natural na forma de U3O8 em urânio enriquecido contido em pastilhas de UO2, componentes dos elementos combustíveis, o tempo médio de processamento dessa transformação é de 21 meses (sem levar em consideração o tempo de reciclagem de parte do urânio e do plutônio dos combustíveis já irradiados).
+
+Devido a esse fato, todo urânio que estiver em processamento no ciclo do combustível é registrado como estoque de U3O8. A cada ano é estornado do estoque de U3O8 a parcela correspondente à produção do urânio contido no UO2 dos elementos combustíveis, acrescida de cerca de 1,5% de perdas de transformação.
+
+
+### Energia Hidrelétrica e Eletricidade
+
+Considera-se como geração hidráulica o valor correspondente à produção bruta de energia, medido nas centrais. Não é considerada a parcela correspondente à energia vertida.
+
+
+### Lenha e Carvão Vegetal
+
+A produção de lenha e carvão vegetal é determinada a partir dos dados de consumo, não levando em conta a variação de estoques. Os dados de consumo setorial de lenha, à exceção das Indústrias de Papel e Celulose, Cimento e Pelotização e de Não-ferrosos, das quais são obtidas informações de consumo real, são calculados por interpolações e extrapolações dos dados do projeto Matriz Energética de 1970, dos censos do IBGE e mediante correlações com o consumo setorial dos outros energéticos, como é o caso do GLP no setor residencial.
+
+Para o carvão vegetal, o consumo setorial industrial é obtido diretamente dos consumidores e o consumo dos outros setores é estimado da mesma forma que a lenha. A produção de carvão vegetal é calculada segundo seu consumo, levando-se em conta um percentual de perdas na distribuição e armazenagem.
+
+
+### Produtos da Cana-de-Açúcar
+
+São obtidos a partir da cana esmagada para produção de açúcar e álcool. São considerados como produtos primários o caldo da cana, melaço, bagaço, pontas, folhas e olhaduras, e como produtos secundários o álcool anidro e hidratado. De cada tonelada de cana esmagada para produção de álcool são obtidos cerca de 730 kg de caldo de cana (não se considera a água utilizada na lavagem da cana). Quanto ao bagaço, é considerado apenas o de uso energético. A Nota Técnica COBEN 03/88, mencionada no item 5 deste anexo, fornece mais informações sobre o assunto.
+
+
+### Coque de Carvão Mineral
+
+Os dados de produção e consumo são obtidos diretamente nas Indústrias (CSN, Usiminas, Açominas, CST, Cosipa e outras). Os dados de comércio externo são obtidos na Secretaria de Comércio Exterior.
+
+
+## Notas Técnicas
+
+Com o objetivo de melhor divulgar os critérios adotados na apropriação dos dados dos balanços energéticos foram elaboradas Notas Técnicas, que podem ser obtidas no endereço: https://www.gov.br/mme/pt-br/assuntos/secretarias/spe/publicacoes/balanco-energetico-nacional/1-sobre-o-ben
+
+* NT COBEN 01/1988 – Critérios de apropriação dos dados da Matriz do Balanço Energético Nacional.
+
+* NT COBEN 02/1988 – Critérios de apropriação dos dados de vendas do DNC nos setores do Balanço Energético Nacional.
+
+* NT COBEN 03/1988 – Tratamento da canade- açúcar no BEN.
+
+* NT COBEN 04/1988 – Novo fator de conversão para a lenha.
+
+* NT COBEN 05/1988 – Balanço Energético Nacional - BEN 1988: Alterações em relação ao Balanço anterior.
+
+* NT COBEN 06/1988 – Análise da distribuição do consumo de óleo diesel no BEN.
+
+* NT COBEN 07/1988 – Avaliação do consumo residencial de lenha e carvão vegetal no BEN.
+
+* NT 08/1993 – Tratamento da Cogeração nos Balanços Energéticos.
+
+* NT 09 – Fatores de Conversão para tep da Hidráulica e Eletricidade.
+
+
+## Eletricidade no Balanço Energético Nacional – BEN
+
+Nas edições do Balanço Energético Nacional anteriores a 2001, o critério adotado para o cálculo em tep dos montantes de Eletricidade e Geração Hidrelétrica considerava os parâmetros da base térmica, onde 1kWh = 3132 kcal correspondente ao óleo combustível queimado numa térmica com rendimento de 27,5%. Assim, o fator de conversão de 0,29 tep/MWh (3132/10800kcal/ kg do petróleo) elevava a energia hidráulica a parâmetros comparáveis com países eminentemente de geração térmica.
+
+Na edição de 2002 do BEN, os critérios utilizados para o cálculo dos montantes em tep da Eletricidade e Geração Hidráulica foram alterados para a base teórica, onde 1 kWh = 860 kcal. Entretanto, permaneceram o petróleo de referência de 10800 kcal/kg e a utilização dos poderes caloríficos superiores para as fontes de energia.
+
+Nas edições a partir de 2003, estes critérios de conversões para eletricidade e geração hidráulica permaneceram na base teórica (1 kWh = 860 kcal), contudo, o petróleo de referência passou a ser 10000kcal/kg e passaram a ser adotados os poderes caloríficos inferiores para as demais fontes de energia. Estes novos critérios são aderentes com os critérios internacionais, especialmente com os da Agência Internacional de Energia, Conselho Mundial de Energia, Organização Latinoamericana de Energia e o Departamento de Energia dos Estados Unidos.
+
+
+### Nota Metodológica - Estimação da Micro e Minigeração Distribuída
+
+Esta Nota registra a metodologia utilizada para estimação da geração total de eletricidade oriunda dos micro e mini geradores de energia elétrica, para o ano base de 2020.
+
+A estimativa é realizada através da quantificação da contribuição energética de cada sistema de geração existente presente na base de dados da ANEEL . A equação a seguir é utilizada na estimativa:
+
+ $$ E_{f,m,s} = \sum_{i=1}^{n} P_{i,f,m,s} \times{FC_{f,m,s}} \times{Z_{b}} \times{24} \times{(1-k)^{Z_{T}}} $$
+
+ Onde:
+
+* Ef,m,s é a energia gerada no ano base, para a fonte f, município m e setor s.
+
+* i é o índice de cada sistema de geração em operação no ano base, sendo incrementado do primeiro até o total n;
+
+* Pi,f,m,s é a potência instalada do sistema i, da fonte f, no município m, no setor s;
+
+* FCf,m,s é o fator de capacidade para a fontef, no município m e setor s;
+
+* Zb é o número de dias de operação da potência Pi no ano base;
+
+* k é o fator de degradação diário da tecnologia. Para a fonte fotovoltaica, foi calculado como (1+0,005)(1/365) -1. Para as demais fontes, k é igual a zero;
+
+* Zt é o número total de dias em operação da Pi desde a sua instalação até o final do ano base.
+
+Percebe-se que para as usinas novas, que entram em operação ao longo do ano base de contabilização do Balanço Energético Nacional, a estimação da geração considera o funcionamento proporcional ao número de dias em que a unidade esteve conectada durante o ano base. Para as usinas registradas nos anos anteriores é considerada a operação durante o ano inteiro.
+
+Para estimar o fator de capacidade dos sistemas fotovoltaicos é utilizada a seguinte fórmula (adaptada de Zilles, 2012):
+
+$$ FC_{m,s} = \frac{PR_{s} \times{GTI_{m}}}{24 \times{I_{STC}}} $$
+
+Onde:
+
+a) PR é o Performance Ratio. É um fator que incorpora perdas por temperatura, sujeira, conversão CC/CA, eficiência do inversor, etc. Assumido valor igual a 0,80 para sistemas remotos instalados em Alta Tensão e 0,75 para os demais sistemas (baseados em Pinho e Galdino, 2014). Isso se justifica pelo fato de sistemas em solo possuírem melhor orientação dos módulos e limpeza mais frequente, o que garante menores perdas de produção.
+
+b) $GTI_m$ é a irradiação diária global média no plano inclinado para o município m. Obtidas a partir do Atlas Brasileiro de Energia Solar – 2ª Edição (Pereira et al., 2017).
+
+c) $I_{STC}$ é a irradiância nas condições padrões de teste = 1 $[kW/m^2]$.
+
+O fator de degradação diário da tecnologia fotovoltaica é baseado na degradação anual igual a 0,5% ao ano. Esse valor anual é a mediana dos estudos analisados por Jordan e Kurtz (2012).
+
+Os fatores de capacidade utilizados para as demais fontes são apresentados a seguir. Os valores foram obtidos a partir da geração verificadas em usinas de maior porte, cuja geração é medida pela CCEE.
+
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+# Fatores de capacidade para diferentes fontes
+benCorrido::tab_fatores_capacidade_diferentes_fontes(con, lab1 = "Fonte", lab2 = "FC")
+```
+
+
+```{r}
+# Fatores de capacidade para a fonte hidráulica
+benCorrido::tab_fatores_capacidade_fonte_hidraulica(con, lab1 = "Classe", lab2 = "Fonte", lab3 = "FC")
+```
+
+Por fim, cabe ressaltar que os dados os dados municipais são agregados de acordo com a necessidade do BEN.
+
+Referências:
+
+* JORDAN, D. C. e KURTZ, S. R. Photovoltaic Degradation Rates — An Analytical Review. NREL/JA-5200-51664. 2012
+
+* PEREIRA, E. B. et al. Atlas brasileiro de energia solar. 2ª ed. São José dos Campos: INPE, 2017
+
+* PINHO, J. T.; GALDINO, M. A. Manual de Engenharia para Sistemas Fotovoltaicos. [s.l: s.n.]. 2014.
+
+* ZILLES, R. et al. Sistemas Fotovoltaicos Conectados à Rede Elétrica. Oficina de Textos, São Paulo, 2012.
+
+```{r}
+# Fator de Capacidade
+benCorrido::tab_fator_capacidade_municipios(con, lab1 = "UF", lab2 = "Cidade", lab3 = "FC")
 ```

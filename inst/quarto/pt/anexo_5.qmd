@@ -9,10 +9,6 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
-```
-
 # Anexo V — Estrutura Geral do Balanço Energético Nacional {-}
 
 ![](../img/capas/imagem_cap_anexo.png)

@@ -4921,3 +4921,152 @@ tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
       )
     )
 }
+
+
+
+#' Tabela do Anexo 6
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_capacidade_diferentes_fontes <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_fatores_capacidade_diferentes_fontes"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  tab |>
+    dplyr::select(fonte, fc) |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 20,
+      fullWidth = FALSE,
+      columns = c(
+        list(
+          fonte = reactable::colDef(
+            name = lab1,
+            align = "center",
+            width = 250
+          ),
+          fc = reactable::colDef(
+            name = lab2,
+            align = "center",
+            width = 150,
+            format = reactable::colFormat(digits = 2, separators = TRUE, locales = locale)
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Anexo 6
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#' @param lab3 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_capacidade_fonte_hidraulica <- function(con, lang = "pt", lab1, lab2, lab3) {
+  tab_name <- "tab_fatores_capacidade_fonte_hidraulica"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+    tab$classe <- tab[[glue::glue("classe_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  tab |>
+    dplyr::select(classe, fonte, fc) |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 20,
+      fullWidth = FALSE,
+      columns = c(
+        list(
+          classe = reactable::colDef(
+            name = lab1,
+            align = "center",
+            width = 180
+          ),
+          fonte = reactable::colDef(
+            name = lab2,
+            align = "center",
+            width = 180
+          ),
+          fc = reactable::colDef(
+            name = lab3,
+            align = "center",
+            width = 120,
+            format = reactable::colFormat(digits = 2, separators = TRUE, locales = locale)
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Anexo 6
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#' @param lab3 Nome da segunda coluna
+#'
+#' @export
+tab_fator_capacidade_municipios <- function(con, lang = "pt", lab1, lab2, lab3) {
+  tab_name <- "tab_fator_capacidade_municipios"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  locale <- pegar_locale(lang)
+
+  tab |>
+    dplyr::arrange(uf, municipio) |>
+    reactable::reactable(
+      striped = TRUE,
+      theme = tema_reactable(),
+      defaultPageSize = 10,
+      columns = c(
+        list(
+          uf = reactable::colDef(
+            name = lab1,
+            align = "center",
+            filterable = TRUE
+          ),
+          municipio = reactable::colDef(
+            name = lab2,
+            align = "center",
+            filterable = TRUE
+          ),
+          fc_75 = reactable::colDef(
+            name = paste0(lab3, "_75"),
+            align = "center",
+            format = reactable::colFormat(digits = 2, separators = TRUE, locales = locale, percent = TRUE)
+          ),
+          fc_80 = reactable::colDef(
+            name = paste0(lab3, "_80"),
+            align = "center",
+            format = reactable::colFormat(digits = 2, separators = TRUE, locales = locale, percent = TRUE)
+          )
+        )
+      )
+    )
+}

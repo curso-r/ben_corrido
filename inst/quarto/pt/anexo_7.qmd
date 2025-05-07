@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,86 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
-```
+# Anexo VI — Tratamento das informações {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Unidade Básica Adotada
+
+Para expressar os fluxos que conformam balanços de energia deve-se adotar uma única unidade de medida na agregação das suas diversas variáveis.
+
+A unidade básica adotada na composição do Balanço Energético Nacional - BEN é a “tonelada equivalente de petróleo - tep”, uma vez que a mesma:
+
+* está relacionada diretamente com um energético importante;
+
+* expressa um valor físico;
+
+Atenção: O BEN, a partir da edição de 2003, passou a adotar os critérios internacionais mais usuais para a conversão das unidades comerciais de energia em uma unidade comum de referência. Assim, (i) o petróleo de referência passou a ser o de 10000 kcal/kg, (ii) todos os fatores de conversões passam a ser determinados com base nos poderes caloríficos inferiores das fontes de energia, e (iii) para a energia hidráulica e eletricidade passam a ser considerados os coeficientes de equivalência teórica, onde 1kWh = 860 kcal (1º Princípio da Termodinâmica).
+
+
+## Tratamento das Unidades por Produto
+
+### Petróleo e Derivados, Gás Natural, Álcool e Xisto
+
+A Petrobras, por meio dos setores de controle de qualidade das suas refinarias de petróleo e do Centro de Pesquisas Leopoldo Américo Miguez de Mello - CENPES, mantém atualizadas as características físico-químicas de todos os seus produtos, estabelecendo, ao final de cada ano, coeficientes médios para cada um. Dessa forma, são apresentados no balanço as massas específicas e poderes caloríficos inferiores observados em cada ano.
+
+
+### Carvão Vapor
+
+O carvão vapor nacional é produzido nas mais diversas formas quanto às suas características físicoquímicas, apresentando teores de cinzas de 20% até 54% e múltiplas variações de teores de enxofre, voláteis, carbono fixo e outros. A análise dos carvões é feita em algumas usinas de beneficiamento equipadas com laboratórios próprios, na Fundação de Ciência e Tecnologia - CIENTEC e no Centro de Tecnologia Mineral - CETEM.
+
+Sua equivalência para tep é determinada a partir dos poderes caloríficos médios dos diversos tipos de carvões processados.
+
+
+### Carvão Metalúrgico
+
+a) Importado: adotado o poder calorífico fornecido pela Companhia Siderúrgica Nacional – CSN, que se situa dentro da faixa dos diversos carvões metalúrgicos importados.
+
+b) Nacional: adotado o poder calorífico fornecido pela CSN.
+
+
+### Urânio – U308
+
+Adotado o coeficiente de equivalência informado pelas Indústrias Nucleares do Brasil.
+
+
+### Energia Hidrelétrica e Eletricidade
+
+O coeficiente de equivalência utilizado foi de 0,086 tep/MWh, decorrente de uma equivalência calórica de 860 kcal/kWh. Este coeficiente foi determinado pela equivalência da energia potencial da água (energia mecânica) em calor.
+
+
+### Lenha
+
+A unidade primária da lenha é o metro cúbico estereo (m³ st). Para a lenha de uso residencial (vulgarmente identificada como “catada”), foi adotada densidade de 300 kg/m³ st, valor médio identificado em pesquisa realizada pela Fundação Centro Tecnológico de Minas Gerais - CETEC em localidades do Estado de Minas Gerais.
+
+Para a lenha comercial, foi utilizada a densidade de 390 kg/m³ st, segundo dados fornecidos pela BRACELPA. A Nota Técnica COBEN 04/88, mencionada no item 5 do Anexo D, contém mais detalhes sobre o assunto.
+
+
+### Produtos da Cana-de-açúcar
+
+O conteúdo calórico da cana-de-açúcar, considerando os seus componentes (sacarose, fibras, água e outros), é de, aproximadamente, 1060 kcal/kg. Retirando desta quantidade a energia contida nas fibras (bagaço), o poder calorífico para o caldo de cana alcança cerca de 620 kcal/kg. Quanto ao melaço, com cerca de 55% de açúcares redutores em peso e capaz de produzir em torno de 350 litros de álcool/t, chega-se a um valor próximo de 1.930 kcal/kg. Para o bagaço de cana foi utilizado o poder calorífico calculado experimentalmente pelo antigo Instituto do Açúcar e do Álcool - IAA.
+
+
+### Outras Fontes Primárias
+
+Incluem-se neste item resíduos vegetais e industriais utilizados para geração de calor e vapor. A equivalência para tep foi estabelecida a partir de poderes caloríficos médios estimados. Para a lixívia, foi empregado o poder calorífico adotado pela BRACELPA.
+
+
+### Gás Canalizado e de Coqueria
+
+Foram adotados os poderes caloríficos utilizados pela Companhia Estadual de Gás do Rio de Janeiro - CEG e pela Companhia Estadual de Gás de São Paulo - COMGAS.
+
+
+### Coque de Carvão Mineral
+
+Foi utilizado o poder calorífico obtido teoricamente com o emprego da Equação de Dulong, a partir da análise química de uma amostragem média de coque.
+
+
+### Urânio contido no UO2
+
+Foi empregado o coeficiente de equivalência adotado pelas Indústrias Nucleares do Brasil.
+
+
+### Carvão Vegetal
+
+O poder calorífico empregado foi de pesquisas efetuadas nas Companhias Siderúrgicas Belgo Mineira e Acesita.
