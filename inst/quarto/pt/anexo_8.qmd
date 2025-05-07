@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,66 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Anexo VIII — Fatores de Conversão {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Relações entre Unidades
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+benCorrido::tab_relacoes_entre_unidades(con)
+```
+
+## Coeficientes de Equivalência Calórica
+
+```{r}
+benCorrido::tab_coeficientes_equivalencia_calorica(con, lab1 = "De", lab2 = "Para")
+```
+
+## Fatores de Conversão para Massa
+
+```{r}
+benCorrido::tab_fatores_conversao_massa(con, lab1 = "De", lab2 = "Para")
+```
+
+## Fatores de Conversão para Volume
+
+```{r}
+benCorrido::tab_fatores_conversao_volume(con, lab1 = "De", lab2 = "Para")
+```
+
+## Fatores de Conversão para Energia
+
+```{r}
+benCorrido::tab_fatores_conversao_energia(con, lab1 = "De", lab2 = "Para")
+```
+
+## Coeficientes de Equivalência Médios para os Combustíveis Gasosos
+
+```{r}
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_gasosos(con, lab1 = "De (10³ m³)", lab2 = "Para")
+```
+
+## Coeficientes de Equivalência Médios para os Combustíveis Líquidos
+
+```{r}
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_liquidos(con, lab1 = "De (m³)", lab2 = "Para")
+```
+
+## Coeficientes de Equivalência Médios para os Combustíveis Sólidos
+
+```{r}
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_solidos(con, lab1 = "De (ton)", lab2 = "Para")
+```
+
+## Densidades e Poderes Caloríficos
+
+```{r}
+benCorrido::tab_densidades_poderes_calorificos(con, lab1 = "De", lab2 = "Para")
+```
+
+## Fatores de Conversão para tep médio
+
+```{r}
+benCorrido::tab_fatores_conversao_tep_medio(con, lab1 = "", lab2 = "Unidade")
 ```

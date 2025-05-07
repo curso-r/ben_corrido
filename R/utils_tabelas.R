@@ -403,3 +403,59 @@ reactable_painel_nivel_4 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
       )
     )
 }
+
+reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL, download_matriz = FALSE) {
+  locale <- pegar_locale(lang)
+
+  if (lang != "pt") {
+    tab$unidade_origem <- tab[[glue::glue("unidade_origem_{lang}")]]
+    tab$unidade_destino <- tab[[glue::glue("unidade_destino_{lang}")]]
+  }
+
+  tab_wide <- tab |>
+    dplyr::select(unidade_origem, unidade_destino, fator_conversao) |>
+    tidyr::pivot_wider(
+      names_from = unidade_destino,
+      values_from = fator_conversao
+    )
+
+  colunas <- tab_wide |>
+    dplyr::select(-unidade_origem) |>
+    names()
+
+  if (download_matriz) {
+    gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+  }
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        format = reactable::colFormat(digits = casas_dec, separators = TRUE, locales = locale),
+        width = 200,
+        align = "center"
+      ),
+      columnGroups = list(
+        reactable::colGroup(
+          name = lab2,
+          columns = colunas
+        )
+      ),
+      columns = c(
+        list(
+          unidade_origem = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 200
+          )
+        )
+      )
+    )
+}

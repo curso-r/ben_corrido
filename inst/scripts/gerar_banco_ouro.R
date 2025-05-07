@@ -1713,8 +1713,8 @@ tab <- dplyr::tbl(con, "AnexoIV") |>
         "Energia Útil"
       )
     )
-  ) |> 
-  dplyr::arrange(variavel) |> 
+  ) |>
+  dplyr::arrange(variavel) |>
   dplyr::mutate(variavel_en = forcats::fct(variavel_en))
 
 salvar_tab_bd(tab, "grafico_variacao_energia_final_util_potencial")
@@ -3302,9 +3302,9 @@ salvar_tab_bd(tab, "tab_evolucao_rendimentos_energeticos_setores")
 tab_en <- readr::read_rds("./data-raw/rds/en/dataframe_completo_anexo_iv_2.rds") |>
   dplyr::select(grupo_en = grupo, info_en = cabecalho_nivel_1)
 
-tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_2.rds") |> 
-  dplyr::bind_cols(tab_en) |> 
-  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |> 
+tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_2.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |>
   dplyr::filter(!(grupo == "Global" & is.na(total)))
 
 salvar_tab_bd(tab, "tab_evolucao_rendimentos_energeticos_setores_efeitos")
@@ -3313,9 +3313,9 @@ salvar_tab_bd(tab, "tab_evolucao_rendimentos_energeticos_setores_efeitos")
 tab_en <- readr::read_rds("./data-raw/rds/en/dataframe_completo_anexo_iv_3.rds") |>
   dplyr::select(grupo_en = grupo, info_en = cabecalho_nivel_1)
 
-tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_3.rds") |> 
-  dplyr::bind_cols(tab_en) |> 
-  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |> 
+tab <- readr::read_rds("./data-raw/rds/pt/dataframe_completo_anexo_iv_3.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(grupo, grupo_en, ano, info = cabecalho_nivel_1, info_en, total) |>
   dplyr::filter(!(grupo == "Global" & is.na(total)))
 
 salvar_tab_bd(tab, "tab_variacao_rendimentos_energeticos_participacao")
@@ -3388,7 +3388,7 @@ salvar_tab_bd(tab, "tab_conceituacao_ajustes_estatisticos_en")
 # ANEXO VI
 
 # tab_fatores_capacidade_diferentes_fontes
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_1_traduzida.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_1_traduzida.rds") |>
   dplyr::select(fonte = Fonte, fc = FC)
 
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_vi_1_traduzida.rds") |>
@@ -3399,7 +3399,7 @@ tab <- cbind(tab, tab_en)
 salvar_tab_bd(tab, "tab_fatores_capacidade_diferentes_fontes")
 
 # tab_fatores_capacidade_fonte_hidraulica
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_2_traduzida.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_2_traduzida.rds") |>
   dplyr::select(fonte = Fonte, classe = Classe, fc = FC)
 
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_vi_2_traduzida.rds") |>
@@ -3410,7 +3410,366 @@ tab <- cbind(tab, tab_en)
 salvar_tab_bd(tab, "tab_fatores_capacidade_fonte_hidraulica")
 
 # tab_fator_capacidade_municipios
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_6_1.rds") |> 
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_vi_6_1.rds") |>
   dplyr::select(uf = UF, municipio = Cidade, fc_75 = FC_75, fc_80 = FC_80)
 
 salvar_tab_bd(tab, "tab_fator_capacidade_municipios")
+
+# ANEXO VIII
+
+# tab_relacoes_entre_unidades
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_1_traduzido.rds")
+salvar_tab_bd(tab, "tab_relacoes_entre_unidades")
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_1_traduzido.rds")
+salvar_tab_bd(tab, "tab_relacoes_entre_unidades_en")
+
+# tab_coeficientes_equivalencia_calorica
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_2_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_origem_en = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino_en = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_2_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  tidyr::drop_na() |>
+  dplyr::mutate(
+    unidade_origem = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = fator_de_conversao
+  ) |>
+  dplyr::mutate(fator_conversao = as.numeric(fator_conversao))
+
+salvar_tab_bd(tab, "tab_coeficientes_equivalencia_calorica")
+
+# tab_fatores_conversao_massa
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_3_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_3_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab_depara_en <- tab_en |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+tab_en <- tab_en |>
+  dplyr::left_join(
+    tab_depara_en,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem_en = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino_en = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab_depara <- tab |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+options(scipen = 999)
+
+tab <- tab |>
+  dplyr::left_join(
+    tab_depara,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_fatores_conversao_massa")
+
+# tab_fatores_conversao_volume
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_4_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_4_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab_depara_en <- tab_en |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+tab_en <- tab_en |>
+  dplyr::left_join(
+    tab_depara_en,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem_en = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino_en = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab_depara <- tab |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+options(scipen = 999)
+
+tab <- tab |>
+  dplyr::left_join(
+    tab_depara,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_fatores_conversao_volume")
+
+# tab_fatores_conversao_energia
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_5_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_5_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("({unidade_de_medida_de_destino})")
+  )
+
+tab_depara_en <- tab_en |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+tab_en <- tab_en |>
+  dplyr::left_join(
+    tab_depara_en,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem_en = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino_en = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab_depara <- tab |>
+  dplyr::distinct(unidade_fisica_de_destino = unidade_fisica_de_origem, unidade_de_medida_de_origem)
+
+options(scipen = 999)
+
+tab <- tab |>
+  dplyr::left_join(
+    tab_depara,
+    by = c("unidade_de_medida_de_destino" = "unidade_de_medida_de_origem")
+  ) |>
+  dplyr::mutate(
+    unidade_origem = paste(unidade_fisica_de_origem, unidade_de_medida_de_origem),
+    unidade_destino = paste(unidade_fisica_de_destino, unidade_de_medida_de_destino)
+  ) |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_fatores_conversao_energia")
+
+# tab_coeficientes_equivalencia_medios_combustiveis_gasosos
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_6_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_origem_en = unidade_fisica_de_origem,
+    unidade_destino_en = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_6_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    unidade_origem = unidade_fisica_de_origem,
+    unidade_destino = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_coeficientes_equivalencia_medios_combustiveis_gasosos")
+
+# tab_coeficientes_equivalencia_medios_combustiveis_liquidos
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_7_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_origem_en = unidade_fisica_de_origem,
+    unidade_destino_en = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_7_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    unidade_origem = unidade_fisica_de_origem,
+    unidade_destino = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_coeficientes_equivalencia_medios_combustiveis_liquidos")
+
+# tab_coeficientes_equivalencia_medios_combustiveis_solidos
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_8_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_origem_en = unidade_fisica_de_origem,
+    unidade_destino_en = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_8_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    unidade_origem = unidade_fisica_de_origem,
+    unidade_destino = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_coeficientes_equivalencia_medios_combustiveis_solidos")
+
+# tab_densidades_poderes_calorificos
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_anexo_viii_9_traduzido.rds") |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("{unidade_de_medida_de_destino} ({unidade_fisica_de_destino})"),
+    unidade_origem_en = unidade_fisica_de_origem,
+    unidade_destino_en = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem_en,
+    unidade_destino_en
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_anexo_viii_9_traduzido.rds") |>
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    unidade_de_medida_de_destino = glue::glue("{unidade_de_medida_de_destino} ({unidade_fisica_de_destino})"),
+    unidade_origem = unidade_fisica_de_origem,
+    unidade_destino = unidade_de_medida_de_destino
+  ) |>
+  dplyr::select(
+    unidade_origem,
+    unidade_destino,
+    unidade_origem_en,
+    unidade_destino_en,
+    fator_conversao = total
+  ) |>
+  dplyr::mutate(
+    fator_conversao = as.character(fator_conversao),
+    fator_conversao = stringr::str_replace(fator_conversao, ",", "."),
+  )
+
+salvar_tab_bd(tab, "tab_densidades_poderes_calorificos")
+
+# tab_fatores_conversao_tep_medio
+
+tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_anexo_viii_10.rds") |>
+  dplyr::select(
+    grupo_en = grupo,
+    unidade_en = Unit
+  )
+
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_anexo_viii_10.rds") |>
+  dplyr::rename(
+    unidade = Unidade
+  ) |> 
+  dplyr::bind_cols(tab_en)
+
+
+salvar_tab_bd(tab, "tab_fatores_conversao_tep_medio")

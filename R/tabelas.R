@@ -4415,7 +4415,7 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
   }
 
-  tab_wide <- tab |> 
+  tab_wide <- tab |>
     dplyr::select(-dplyr::matches("grupo_"))
 
   tab_long <- tab_wide |>
@@ -4674,15 +4674,14 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
 #'
 #' @export
 tab_conceituacao_energia_primaria <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_energia_primaria{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4706,15 +4705,14 @@ tab_conceituacao_energia_primaria <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_energia_secundaria <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_energia_secundaria{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4738,15 +4736,14 @@ tab_conceituacao_energia_secundaria <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_total_geral <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_total_geral{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4770,15 +4767,14 @@ tab_conceituacao_total_geral <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_oferta <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_oferta{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4802,15 +4798,14 @@ tab_conceituacao_oferta <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_transformacao <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_transformacao{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4834,15 +4829,14 @@ tab_conceituacao_transformacao <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_perdas <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_perdas{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4866,15 +4860,14 @@ tab_conceituacao_perdas <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_consumo_final <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_consumo_final{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -4898,15 +4891,14 @@ tab_conceituacao_consumo_final <- function(con, lang = "pt") {
 #'
 #' @export
 tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
-  
   tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
-  
+
   tab_name <- glue::glue("tab_conceituacao_ajustes_estatisticos{tab_lang}")
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  tab |> 
+  tab |>
     reactable::reactable(
       striped = TRUE,
       defaultPageSize = 50,
@@ -5070,3 +5062,325 @@ tab_fator_capacidade_municipios <- function(con, lang = "pt", lab1, lab2, lab3) 
       )
     )
 }
+
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#'
+#' @export
+tab_relacoes_entre_unidades <- function(con, lang = "pt") {
+  tab_lang <- ifelse(lang == "pt", "", paste0("_", lang))
+
+  tab_name <- glue::glue("tab_relacoes_entre_unidades{tab_lang}")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  tab |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center",
+        width = 200
+      )
+    )
+}
+
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_coeficientes_equivalencia_calorica <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_coeficientes_equivalencia_calorica"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 2
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_conversao_massa <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_fatores_conversao_massa"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_conversao_volume <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_fatores_conversao_volume"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_conversao_energia <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_fatores_conversao_energia"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_coeficientes_equivalencia_medios_combustiveis_gasosos <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_coeficientes_equivalencia_medios_combustiveis_gasosos"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_coeficientes_equivalencia_medios_combustiveis_liquidos <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_coeficientes_equivalencia_medios_combustiveis_liquidos"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_coeficientes_equivalencia_medios_combustiveis_solidos <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_coeficientes_equivalencia_medios_combustiveis_solidos"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_fator_conversao(
+    tab,
+    lang,
+    lab1,
+    lab2,
+    casas_dec = 0
+  )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_densidades_poderes_calorificos <- function(con, lang = "pt", lab1, lab2) {
+  tab_name <- "tab_densidades_poderes_calorificos"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$unidade_origem <- tab[[glue::glue("unidade_origem_{lang}")]]
+    tab$unidade_destino <- tab[[glue::glue("unidade_destino_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  tab_wide <- tab |>
+    dplyr::select(unidade_origem, unidade_destino, fator_conversao) |> 
+    tidyr::pivot_wider(
+      names_from = unidade_destino,
+      values_from = fator_conversao
+    )
+
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center",
+        width = 250
+      ),
+      columns = c(
+        list(
+          unidade_origem = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 250
+          )
+        )
+      )
+    )
+}
+
+#' Tabela do Anexo 8
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param lab1 Nome da primeira coluna
+#' @param lab2 Nome da segunda coluna
+#'
+#' @export
+tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
+
+  tab_name <- glue::glue("tab_fatores_conversao_tep_medio")
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab$unidade <- tab[[glue::glue("unidade_{lang}")]]
+  }
+
+  locale <- pegar_locale(lang)
+
+  tab_wide <- tab |>
+    dplyr::select(-dplyr::matches("grupo_"), -dplyr::matches("unidade_"))
+
+  gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
+
+  tab_wide |>
+    reactable::reactable(
+      striped = TRUE,
+      defaultPageSize = 50,
+      fullWidth = FALSE,
+      theme = reactable::reactableTheme(
+        borderColor = "black",
+        style = list(
+          fontSize = "85%"
+        )
+      ),
+      defaultColDef = reactable::colDef(
+        align = "center",
+        width = 200,
+        format = reactable::colFormat(
+          digits = 3,
+          separators = TRUE,
+          locales = locale
+        )
+      ),
+      columns = c(
+        list(
+          grupo = reactable::colDef(
+            name = lab1,
+            align = "left",
+            width = 200
+          ),
+          unidade = reactable::colDef(
+            name = lab2,
+            align = "center",
+            width = 80
+          )
+        )
+      )
+    )
+}
+
+
+
+
+
