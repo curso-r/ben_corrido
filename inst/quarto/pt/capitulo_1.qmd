@@ -53,13 +53,14 @@ A @fig-oferta-interna-el-fonte apresenta a estrutura da oferta interna de eletri
 
 ```{r}
 #| label: fig-geracao-energia-fontes-nr
-#| fig-cap: 'Geração de Energia Elétrica: fontes não-renováveis. A categoria "Outras" inclui: outras não renováveis, outras secundárias e gás de coqueira.'
+#| fig-cap: 'Geração de Energia Elétrica: fontes não-renováveis. A categoria "Outros" inclui: outras não renováveis, outras secundárias e gás de coqueira.'
+#| fig-height: 2.5
 benCorrido::grafico_geracao_energia_fontes_nr(con)
 ```
 
 ```{r}
 #| label: fig-oferta-interna-el-fonte
-#| fig-cap: 'Oferta interna de energia elétrica por fonte. A categoria "outras renováveis" inclui lenha, biodiesel e outras renováveis. a categoria "outras não renováveis" inclui óleo combustível, gás de coqueria, outras secundárias e outras não renováveis.'
+#| fig-cap: 'Oferta interna de energia elétrica por fonte. A categoria "outras renováveis" inclui: lenha, biodiesel e outras renováveis. A categoria "outras não renováveis" inclui: óleo combustível, gás de coqueria, outras secundárias e outras não renováveis.'
 #| fig-height: 3
 
 benCorrido::grafico_oferta_interna_el_fonte(con)
@@ -152,8 +153,6 @@ O carvão metalúrgico destinado à produção de coque, acompanhando o moviment
 
 São apresentados nesta seção as tabelas e gráficos com os dados consolidados da evolução da produção, consumo, dependência externa de energia, composição setorial do consumo de energéticos e resumo da oferta interna de energia – período 2014/2023.
 
-
-
 ### Produção de Energia Primária
 
 ::: {.panel-tabset}
@@ -161,11 +160,17 @@ São apresentados nesta seção as tabelas e gráficos com os dados consolidados
 ## Valor absoluto
 
 ```{r}
+#| tbl-cap: 'Produção de Energia Primária. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-producao-energia-primaria-absoluto
+
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| fig-cap: 'Produção de Energia Primária. Valores absolutos. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| label: fig-producao-energia-primaria-absoluto
+
 linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -175,11 +180,17 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor percentual
 
 ```{r}
+#| tbl-cap: 'Produção de Energia Primária. Valores percentuais. Unidade: (%).'
+#| label: tbl-producao-energia-primaria-percentual
+
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Percentual")
 ```
 
 ```{r}
+#| fig-cap: 'Produção de Energia Primária. Valores percentuais. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| label: fig-producao-energia-primaria-percentual
+
 linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -189,7 +200,6 @@ benCorrido::criar_carrossel(area, linha)
 :::
 
 
-
 ### Oferta Interna de Energia
 
 ::: {.panel-tabset}
@@ -197,11 +207,17 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor absoluto
 
 ```{r}
+#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-oferta-interna-energia-absoluto
+
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-oferta-interna-energia-absoluto
+#| fig-cap: 'Oferta Interna de Energia. Valores absolutos. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -211,11 +227,17 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor percentual
 
 ```{r}
+#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais. Unidade: (%).'
+#| label: tbl-oferta-interna-energia-percentual
+
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Percentual")
 ```
 
 ```{r}
+#| label: fig-oferta-interna-energia-percentual
+#| fig-cap: 'Oferta Interna de Energia. Valores percentuais. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -232,11 +254,16 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor absoluto
 
 ```{r}
+#| tbl-cap: 'Consumo Final por Fonte. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-consumo-final-fonte-absoluto
+
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-consumo-final-fonte-absoluto
+#| fig-cap: 'Consumo Final por Fonte. Valores absolutos. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
 linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -246,12 +273,17 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor percentual
 
 ```{r}
+#| tbl-cap: 'Consumo Final por Fonte. Valores percentuais. Unidade: (%).'
+#| label: tbl-consumo-final-fonte-percentual
+
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Percentual")
 ```
 
 
 ```{r}
+#| label: fig-consumo-final-fonte-percentual
+#| fig-cap: 'Consumo Final por Fonte. Valores percentuais. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
 linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -269,34 +301,45 @@ benCorrido::criar_carrossel(area, linha)
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-consumo-final-setor-absoluto
+#| tbl-cap: 'Consumo Final por Setor. Valores absolutos. Unidade: 10³ tep.'
+
 benCorrido::tab_consumo_final_setor(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-consumo-final-setor-absoluto
+#| fig-cap: 'Consumo Final por Setor. Valores absolutos. Outros: Comercial, Público, Consumo Não-Identificado.'
+
 linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 ## Valor percentual
 
 ```{r}
+#| label: tbl-consumo-final-setor-percentual
+#| tbl-cap: 'Consumo Final por Setor. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_consumo_final_setor(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Percentual")
 ```
 
 
 ```{r}
+#| label: fig-consumo-final-setor-percentual
+#| fig-cap: 'Consumo Final por Setor. Valores percentuais. Outros: Comercial, Público, Consumo Não-Identificado.'
+
 linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
-# benCorrido::criar_carrossel(area, linha)
+benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
-
 
 
 ### Consumo Final Energético por Fonte
@@ -306,6 +349,9 @@ area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", 
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-consumo-final-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto")
 ```
@@ -313,6 +359,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte
 ## Valor percentual
 
 ```{r}
+#| label: tbl-consumo-final-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual")
 ```
@@ -328,6 +377,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto")
 ```
@@ -335,12 +387,14 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_f
 ## Valor percentual
 
 ```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual")
 ```
 
 :::
-
 
 
 ### Dependência Externa de Energia
@@ -350,6 +404,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_f
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-dependencia-externa-energia-absoluto
+#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos.'
+
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")
 ```
@@ -357,6 +414,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", 
 ## Valor percentual
 
 ```{r}
+#| label: tbl-dependencia-externa-energia-percentual
+#| tbl-cap: 'Dependência Externa de Energia. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual")
 ```
@@ -385,6 +445,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_de
 ```
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-derivados-petroleo-absoluto
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -400,6 +463,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_de
 
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-derivados-petroleo-percentual
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -422,6 +488,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_el
 ```
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-eletricidade-absoluto
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -437,6 +506,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_el
 
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-eletricidade-percentual
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -459,6 +531,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_ca
 ```
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-carvao-vapor-absoluto
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -474,6 +549,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_ca
 
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-carvao-vapor-percentual
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -496,6 +574,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_fi
 ```
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-biomassa-absoluto
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
@@ -511,6 +592,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_fi
 
 
 ```{r}
+#| label: fig-composicao-setorial-consumo-biomassa-percentual
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa.'
+
 linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
 area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
@@ -533,8 +617,11 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .ti
 ```
 
 ```{r}
-linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+#| label: fig-oferta-interna-energia-2-absoluto
+#| fig-cap: 'Oferta Interna de Energia.'
+
+linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -548,8 +635,11 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .ti
 
 
 ```{r}
-linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+#| label: fig-oferta-interna-energia-2-percentual
+#| fig-cap: 'Oferta Interna de Energia.'
+
+linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
 
 # benCorrido::criar_carrossel(area, linha)
 ```

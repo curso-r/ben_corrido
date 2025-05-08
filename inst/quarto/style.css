@@ -10,8 +10,12 @@
    content: ":";
  }
 
- img {
-  margin-bottom: 1rem;
+ .quarto-figure {
+  margin-bottom: 40px;
+ }
+
+ figcaption {
+  text-align: center;
  }
 
 .cell-output-display:not(.no-overflow-x), .knitsql-table:not(.no-overflow-x) {

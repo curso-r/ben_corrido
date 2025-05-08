@@ -1,0 +1,81 @@
+### Consumo Final Energético por Fonte
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| label: tbl-consumo-final-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores absolutos.'
+
+benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| label: tbl-consumo-final-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores percentuais.'
+
+benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+
+### Consumo Final Não Energético por Fonte
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores absolutos.'
+
+benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores percentuais.'
+
+benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+
+### Dependência Externa de Energia
+
+::: {.panel-tabset}
+
+## Valor absoluto
+
+```{r}
+#| label: tbl-dependencia-externa-energia-absoluto
+#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos.'
+
+benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")
+```
+
+## Valor percentual
+
+```{r}
+#| label: tbl-dependencia-externa-energia-percentual
+#| tbl-cap: 'Dependência Externa de Energia. Valores percentuais.'
+
+benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual")
+```
+
+:::

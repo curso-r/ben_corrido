@@ -11,8 +11,8 @@ grafico_linha <- function(tab, rotulo_y, lang) {
     tab_plot$grupo <- tab_plot[[glue::glue("grupo_{lang}")]]
   }
 
-  cores <- tab |> 
-    dplyr::distinct(variavel, cor) |> 
+  cores <- tab_plot |> 
+    dplyr::distinct(grupo, cor) |> 
     tibble::deframe()
 
   tab_plot |>
@@ -61,8 +61,8 @@ grafico_area <- function(tab, rotulo_y, lang) {
     tab_plot$grupo <- tab_plot[[glue::glue("grupo_{lang}")]]
   }
 
-  cores <- tab |> 
-    dplyr::distinct(variavel, cor) |> 
+  cores <- tab_plot |> 
+    dplyr::distinct(grupo, cor) |> 
     tibble::deframe()
 
   tab_plot |>

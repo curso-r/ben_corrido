@@ -15,12 +15,13 @@ grafico_geracao_energia_fontes_nr <- function(con, lang = "pt") {
     tab$variavel <- tab[[glue::glue("variavel_{lang}")]]
   }
 
-  cores <- setNames(tab$cor, tab$variavel)
+  cores <- tab |>
+    dplyr::distinct(variavel, cor) |>
+    tibble::deframe()
 
   tab |>
     ggplot2::ggplot(ggplot2::aes(x = ano, y = valores, fill = variavel)) +
     ggplot2::geom_area(color = "#404040", size = 0.25) +
-    ggplot2::geom_col(width = 0.5) +
     ggplot2::scale_fill_manual(values = cores) +
     ggplot2::theme_minimal() +
     ggplot2::scale_x_continuous(
@@ -601,8 +602,8 @@ grafico_composicao_setorial_consumo_biomassa <- function(con, lang = "pt", .tipo
 #' @param .tipo_grafico Tipo de gráfico
 #'
 #' @export
-grafico_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
-  tab <- dplyr::tbl(con, "grafico_oferta_interna_energia") |>
+grafico_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+  tab <- dplyr::tbl(con, "grafico_oferta_interna_energia_2") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -2362,13 +2363,13 @@ grafico_geracao_hidreletrica_regiao <- function(con, .ano, lang = "pt") {
 #' @export
 grafico_variacao_energia_final_util_potencial <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_variacao_energia_final_util_potencial") |>
-    dplyr::collect() |> 
+    dplyr::collect() |>
     dplyr::mutate(cor = pegar_cor(variavel))
 
   rotulo_y <- ifelse(lang == "pt", expression(10^6 * "tep"), expression(10^6 * "toe"))
 
-  cores <- tab |> 
-    dplyr::distinct(variavel, cor) |> 
+  cores <- tab |>
+    dplyr::distinct(variavel, cor) |>
     tibble::deframe()
 
   tab |>

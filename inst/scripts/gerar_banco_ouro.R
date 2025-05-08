@@ -254,7 +254,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_12_traduzido.rds")
 
 salvar_tab_bd(tab, "grafico_composicao_setorial_consumo_biomassa")
 
-# grafico_oferta_interna_energia
+# grafico_oferta_interna_energia_2
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_13_traduzido.rds") |>
   dplyr::select(grupo_en = grupo)
 
@@ -267,7 +267,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_13_traduzido.rds")
   ) |>
   dplyr::bind_cols(tab_en)
 
-salvar_tab_bd(tab, "grafico_oferta_interna_energia")
+salvar_tab_bd(tab, "grafico_oferta_interna_energia_2")
 
 # grafico_sankey_fluxo_energetico
 
