@@ -17,6 +17,8 @@ ano <- params$ano
 ##  Total de Fontes Primárias
 
 ```{r}
+#| label: tbl-total-fontes-primarias
+#| tbl-cap: 'Total de Fontes Primárias. Unidade: 10³ tep. Variação de Estoques, Perdas e Ajustes: inclui energia não aproveitada e reinjeção.'
 benCorrido::tab_total_fontes_primarias(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo_dado = "Absoluto")
 ```
@@ -28,6 +30,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-fontes-primarias-absoluto
+#| fig-cap: 'Estrutura do Consumo de Fontes Primárias. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -37,6 +41,8 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absolu
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-fontes-primarias-percentual
+#| fig-cap: 'Estrutura do Consumo de Fontes Primárias. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -49,6 +55,7 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percen
 
 ```{r}
 #| label: fig-fontes-primarias
+#| fig-cap: 'Fontes Primárias.'
 #| fig-height: 2.8
 #| fig-width: 7
 #| out-width: 90%
@@ -58,12 +65,17 @@ benCorrido::grafico_fontes_primarias(con, .tipo_dado = "Absoluto")
 ## Petróleo
 
 ```{r}
+#| label: tbl-petroleo
+#| tbl-cap: 'Petróleo. Unidade: 10³ tep. Produção: Não inclui Líquidos de Gás Natural. Importação/Transformação: Inclui condensados de Nafta e LGN importado. Variação de Estoques, Perdas e Ajustes: . A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
 benCorrido::tab_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_petroleo", .tipo_dado = "Absoluto")
+
+# FIXME: parece ter um texto faltando após "Ajustes:"
 ```
 
 ```{r}
 #| label: fig-petroleo
+#| fig-cap: 'Petróleo.'
 #| fig-height: 2.8
 #| fig-width: 7
 #| out-width: 90%
@@ -73,6 +85,8 @@ benCorrido::grafico_petroleo(con, .tipo_dado = "Absoluto")
 ## Gás Natural
 
 ```{r}
+#| label: tbl-gas-natural
+#| tbl-cap: 'Gás Natural. Unidade: 10³ tep.'
 benCorrido::tab_gas_natural(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_natural", .tipo_dado = "Absoluto")
 ```
@@ -84,6 +98,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_natural", .tipo_dado = "Ab
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-gas-natural-absoluto
+#| fig-cap: 'Estrutura do Consumo de Gás Natural. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -93,6 +109,8 @@ benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-gas-natural-percentual
+#| fig-cap: 'Estrutura do Consumo de Gás Natural. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -104,6 +122,8 @@ benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Percentual"
 ## Carvão Vapor
 
 ```{r}
+#| label: tbl-carvao-vapor
+#| tbl-cap: 'Carvão Vapor. Unidade: 10³ tep. Transformação: Geração de energia elétrica. Industrial: Houve mudança de critério metodológico. O carvão metalúrgico para uso industrial passa a ser contabilizado como carvão vapor com poder calorífico igual a 6.000 kcal/kg.'
 benCorrido::tab_carvao_vapor(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vapor", .tipo_dado = "Absoluto")
 ```
@@ -113,6 +133,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vapor", .tipo_dado = "A
 ## Valor absoluto
 
 ```{r}
+#| label: fig-carvao-vapor-absoluto
+#| fig-cap: 'Carvão Vapor. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -122,6 +144,8 @@ benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-carvao-vapor-percentual
+#| fig-cap: 'Carvão Vapor. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -133,6 +157,8 @@ benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Percentual")
 ## Carvão Metalúrgico
 
 ```{r}
+#| label: tbl-carvao-metalurgico
+#| tbl-cap: 'Carvão Metalúrgico. Unidade: 10³ tep. Transformação: processado em coquerias. Consumo Final na Indústria: houve mudança de critério metodológico. O carvão metalúrgico para uso industrial passa a ser contabilizado como carvão vapor com poder calorífico igual a 6.000 kcal/kg.'
 benCorrido::tab_carvao_metalurgico(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_carvao_metalurgico", .tipo_dado = "Absoluto")
 ```
@@ -140,6 +166,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_carvao_metalurgico", .tipo_dad
 ## Energia Hidráulica
 
 ```{r}
+#| label: tbl-energia-hidraulica
+#| tbl-cap: 'Energia Hidráulica. Unidade: GWh.'
 benCorrido::tab_energia_hidraulica(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_energia_hidraulica", .tipo_dado = "Absoluto")
 ```
@@ -151,6 +179,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_hidraulica", .tipo_dad
 ## Valor absoluto
 
 ```{r}
+#| label: fig-transformacao-energia-hidraulica-absoluto
+#| fig-cap: 'Transformação da Energia Hidráulica. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -160,6 +190,8 @@ benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Absoluto
 ## Valor percentual
 
 ```{r}
+#| label: fig-transformacao-energia-hidraulica-percentual
+#| fig-cap: 'Transformação da Energia Hidráulica. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -171,6 +203,8 @@ benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Percentu
 ## Energia Eólica
 
 ```{r}
+#| label: tbl-energia-eolica
+#| tbl-cap: 'Energia Eólica. Unidade: GWh. Geração Total: Para estimar dados não informados, foi considerado o fator de capacidade médio do parque eólico nacional de 32,0%.'
 benCorrido::tab_energia_eolica(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_energia_eolica", .tipo_dado = "Absoluto")
 ```
@@ -178,6 +212,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_eolica", .tipo_dado = 
 ## Energia Solar Fotovoltaica
 
 ```{r}
+#| label: tbl-energia-solar-fotovoltaica
+#| tbl-cap: 'Energia Solar Fotovoltaica. Unidade: GWh.'
 benCorrido::tab_energia_solar_fotovoltaica(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_fotovoltaica", .tipo_dado = "Absoluto")
 ```
@@ -185,6 +221,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_fotovoltaica", .
 ## Energia Solar Térmica
 
 ```{r}
+#| label: tbl-energia-solar-termica
+#| tbl-cap: 'Energia Solar Térmica. Unidade: GWh-eq.'
 benCorrido::tab_energia_solar_termica(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_termica", .tipo_dado = "Absoluto")
 ```
@@ -192,6 +230,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_termica", .tipo_
 ## Consumo Final da Energia Solar Térmica por Setor
 
 ```{r}
+#| label: fig-consumo-energia-solar-termica-setor
+#| fig-cap: 'Consumo Final da Energia Solar Térmica por Setor. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -201,11 +241,15 @@ benCorrido::grafico_consumo_energia_solar_termica_setor(con, .tipo_dado = "Absol
 ## Urânio (U₃O₈)
 
 ```{r}
+#| label: tbl-uranio
+#| tbl-cap: 'Urânio (U₃O₈). Unidade: t. Transformação: Produção de urânio contido no UO2 dos elementos combustíveis.'
 benCorrido::tab_uranio(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-uranio
+#| fig-cap: 'Urânio (U₃O₈). Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -215,6 +259,9 @@ benCorrido::grafico_uranio(con, .tipo_dado = "Absoluto")
 ## Lenha
 
 ```{r}
+#| label: tbl-lenha
+#| tbl-cap: 'Lenha. Unidade: 10³ t. Transformação: Produção de carvão vegetal e geração elétrica.'
+
 benCorrido::tab_lenha(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_lenha", .tipo_dado = "Absoluto")
 ```
@@ -226,6 +273,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_lenha", .tipo_dado = "Absoluto
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-lenha-absoluto
+#| fig-cap: 'Estrutura do Consumo de Lenha. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -235,6 +284,8 @@ benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-lenha-percentual
+#| fig-cap: 'Estrutura do Consumo de Lenha. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -246,6 +297,9 @@ benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Percentual")
 ## Caldo de Cana
 
 ```{r}
+#| label: tbl-caldo-cana
+#| tbl-cap: 'Caldo de Cana. Unidade: 10³ t. Transformação: Processado nas destilarias para produção de álcool etílico'
+
 benCorrido::tab_caldo_cana(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_caldo_cana", .tipo_dado = "Absoluto")
 ```
@@ -253,6 +307,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_caldo_cana", .tipo_dado = "Abs
 ## Melaço
 
 ```{r}
+#| label: tbl-melaco
+#| tbl-cap: 'Melaço. Unidade: 10³ t. Transformação: Processado nas destilarias para produção de álcool etílico.'
+
 benCorrido::tab_melaco(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_melaco", .tipo_dado = "Absoluto")
 ```
@@ -260,6 +317,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_melaco", .tipo_dado = "Absolut
 ## Bagaço de Cana
 
 ```{r}
+#| label: tbl-bagaco-cana
+#| tbl-cap: 'Bagaço de Cana. Unidade: 10³ t. Transformação: Geração de energia elétrica.'
+
 benCorrido::tab_bagaco_cana(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Absoluto")
 ```
@@ -271,6 +331,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Ab
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-bagaco-cana-absoluto
+#| fig-cap: 'Estrutura do Consumo de Bagaço-de-Cana. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -280,6 +342,8 @@ benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-bagaco-cana-percentual
+#| fig-cap: 'Estrutura do Consumo de Bagaço-de-Cana. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -291,6 +355,9 @@ benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Percentual"
 ## Lixívia
 
 ```{r}
+#| label: tbl-lixivia
+#| tbl-cap: 'Lixívia. Unidade: 10³ t. Transformação: Geração de energia elétrica.'
+
 benCorrido::tab_lixivia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_lixivia", .tipo_dado = "Absoluto")
 ```
@@ -302,6 +369,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_lixivia", .tipo_dado = "Absolu
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-lixivia-absoluto
+#| fig-cap: 'Estrutura do Consumo de Lixívia. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -311,6 +380,8 @@ benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-lixivia-percentual
+#| fig-cap: 'Estrutura do Consumo de Lixívia. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -322,6 +393,9 @@ benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Percentual")
 ## Outras Fontes Primárias
 
 ```{r}
+#| label: tbl-outras-fontes-primarias
+#| tbl-cap: 'Outras Fontes Primárias. Unidade: 10³ tep. Transformação: Geração de energia elétrica e produção de álcool etílico. Inclui “Outras Renováveis” e “Outras Não Renováveis”.'
+
 benCorrido::tab_outras_fontes_primarias(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_outras_fontes_primarias", .tipo_dado = "Absoluto")
 ```
@@ -333,6 +407,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_outras_fontes_primarias", .tip
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-outras-fontes-primarias-absoluto
+#| fig-cap: 'Estrutura do Consumo de Outras Fontes Primárias. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -342,6 +418,8 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = 
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-outras-fontes-primarias-percentual
+#| fig-cap: 'Estrutura do Consumo de Outras Fontes Primárias. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -353,6 +431,9 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = 
 ## Total de Fontes Secundárias
 
 ```{r}
+#| label: tbl-total-fontes-secundarias
+#| tbl-cap: 'Total de Fontes Secundárias. Unidade: 10³ tep.'
+
 benCorrido::tab_total_fontes_secundarias(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_secundarias", .tipo_dado = "Absoluto")
 ```
@@ -364,6 +445,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_secundarias", .ti
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-fontes-secundarias-absoluto
+#| fig-cap: 'Estrutura do Consumo de Fontes Secundárias. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -373,6 +456,8 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado 
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-fontes-secundarias-percentual
+#| fig-cap: 'Estrutura do Consumo de Fontes Secundárias. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -384,6 +469,8 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado 
 ## Fontes Secundárias
 
 ```{r}
+#| label: fig-fontes-secundarias
+#| fig-cap: 'Fontes Secundárias. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -393,6 +480,9 @@ benCorrido::grafico_fontes_secundarias(con, .tipo_dado = "Absoluto")
 ## Derivados de Petróleo e de Gás Natural
 
 ```{r}
+#| label: tbl-derivados-petroleo-gas-natural
+#| tbl-cap: 'Derivados de Petróleo e de Gás Natural. Unidade: 10³ tep. Variação de Estoques, Perdas e Ajustes: Inclui energia não aproveitada. A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
+
 benCorrido::tab_derivados_petroleo_e_gas_natural(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natural", .tipo_dado = "Absoluto")
 ```
@@ -404,6 +494,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natur
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-derivados-petroleo-gas-natural-absoluto
+#| fig-cap: 'Estrutura de Consumo de Derivados de Petróleo e de Gás Natural. Valores absolutos. Outros: Transformação, Setor Energético, Residencial, Comercial, Público, Agropecuário, Consumo Não-Identificado'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -413,6 +505,8 @@ benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_d
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-derivados-petroleo-gas-natural-percentual
+#| fig-cap: 'Estrutura de Consumo de Derivados de Petróleo e de Gás Natural. Valores percentuais. Outros: Transformação, Setor Energético, Residencial, Comercial, Público, Agropecuário, Consumo Não-Identificado'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -424,11 +518,16 @@ benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_d
 ## Óleo Diesel Total
 
 ```{r}
+#| label: tbl-oleo-diesel-total
+#| tbl-cap: 'Óleo Diesel Total. Unidade: 10³ m³. Óleo Diesel Total: Inclui biodiesel. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados). Transformação: Geração de eletricidade.'
+
 benCorrido::tab_oleo_diesel_total(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_oleo_diesel_total", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-oleo-diesel-total
+#| fig-cap: 'Óleo Diesel Total. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -438,11 +537,16 @@ benCorrido::grafico_oleo_diesel_total(con, .tipo_dado = "Absoluto")
 ## Diesel de Petróleo
 
 ```{r}
+#| label: tbl-diesel-petroleo
+#| tbl-cap: 'Diesel de Petróleo. Unidade: 10³ m³. Diesel de Petróleo: Não inclui Biodiesel. Variação de Estoques, Perdas e Ajustes: Não inclui Biodiesel.'
+
 benCorrido::tab_diesel_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_diesel_petroleo", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-diesel-petroleo
+#| fig-cap: 'Diesel de Petróleo. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -452,6 +556,9 @@ benCorrido::grafico_diesel_petroleo(con, .tipo_dado = "Absoluto")
 ## Biodiesel
 
 ```{r}
+#| label: tbl-biodiesel
+#| tbl-cap: 'Biodiesel. Unidade: 10³ m³. Transformação: Geração de eletricidade. Consumo Final: A partir de 2008 a mistura de biodiesel puro (B100) ao óleo diesel passou a ser obrigatória. Entre janeiro e junho de 2008 a mistura foi de 2%, entre julho de 2008 e junho de 2009 foi de 3% e entre julho e dezembro de 2009 foi de 4%. Consumo Final Energético: Admitiu-se a hipótese de que antes de 2008 todo o consumo de biodiesel foi no setor transportes. Transportes: O óleo diesel para transporte hidroviário não contém biodiesel.'
+
 benCorrido::tab_biodiesel(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_biodiesel", .tipo_dado = "Absoluto")
 ```
@@ -459,11 +566,16 @@ benCorrido::gerar_botoes_download(tab_name = "tab_biodiesel", .tipo_dado = "Abso
 ## Óleo Combustível
 
 ```{r}
+#| label: tbl-oleo-combustivel
+#| tbl-cap: 'Óleo Combustível. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados). Transformação: Geração de eletricidade.'
+
 benCorrido::tab_oleo_combustivel(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_oleo_combustivel", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-oleo-combustivel
+#| fig-cap: 'Óleo Combustível.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -473,11 +585,16 @@ benCorrido::grafico_oleo_combustivel(con, .tipo_dado = "Absoluto")
 ## Gasolina
 
 ```{r}
+#| label: tbl-gasolina
+#| tbl-cap: 'Gasolina. Unidade: 10³ m³. Gasolina: Inclui gasolina de aviação. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
+
 benCorrido::tab_gasolina(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gasolina", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-gasolina
+#| fig-cap: 'Gasolina.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -487,11 +604,16 @@ benCorrido::grafico_gasolina(con, .tipo_dado = "Absoluto")
 ## Gás Liquefeito de Petróleo – GLP
 
 ```{r}
+#| label: tbl-gas-liquefeito-petroleo
+#| tbl-cap: 'Gás Liquefeito de Petróleo – GLP. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
+
 benCorrido::tab_gas_liquefeito_de_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_liquefeito_de_petroleo", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-gas-liquefeito-petroleo
+#| fig-cap: 'Gás Liquefeito de Petróleo – GLP. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -501,6 +623,9 @@ benCorrido::grafico_glp(con, .tipo_dado = "Absoluto")
 ## Nafta
 
 ```{r}
+#| label: tbl-nafta
+#| tbl-cap: 'Nafta. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados). Transformação: Produção de gás de cidade, efluentes petroquímicos e outros energéticos de petróleo.'
+
 benCorrido::tab_nafta(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_nafta", .tipo_dado = "Absoluto")
 ```
@@ -512,6 +637,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_nafta", .tipo_dado = "Absoluto
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-nafta-absoluto
+#| fig-cap: 'Estrutura do Consumo de Nafta. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -521,6 +648,8 @@ benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-nafta-percentual
+#| fig-cap: 'Estrutura do Consumo de Nafta. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -532,6 +661,8 @@ benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Percentual")
 ## Fluxo da Nafta
 
 ```{r}
+#| label: fig-fluxo-nafta
+#| fig-cap: 'Fluxo da Nafta.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -541,11 +672,16 @@ benCorrido::grafico_nafta(con, .tipo_dado = "Absoluto")
 ## Coque de Carvão Mineral
 
 ```{r}
+#| label: tbl-coque-carvao-mineral
+#| tbl-cap: 'Coque de Carvão Mineral. Unidade: 10³ ton.'
+
 benCorrido::tab_coque_carvao_mineral(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_coque_carvao_mineral", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-coque-carvao-mineral
+#| fig-cap: 'Coque de Carvão Mineral.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -555,11 +691,16 @@ benCorrido::grafico_coque_carvao_mineral(con, .tipo_dado = "Absoluto")
 ## Querosene
 
 ```{r}
+#| label: tbl-querosene
+#| tbl-cap: 'Querosene. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
+
 benCorrido::tab_querosene(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_querosene", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-querosene
+#| fig-cap: 'Querosene.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -569,6 +710,9 @@ benCorrido::grafico_querosene(con, .tipo_dado = "Absoluto")
 ## Gás de Cidade
 
 ```{r}
+#| label: tbl-gas-cidade
+#| tbl-cap: 'Gás de Cidade. Unidade: 10⁶ m³.'
+
 benCorrido::tab_gas_cidade(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_cidade", .tipo_dado = "Absoluto")
 ```
@@ -576,10 +720,12 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_cidade", .tipo_dado = "Abs
 ## Gás de Coqueira
 
 ```{r}
+#| label: tbl-gas-coqueira
+#| tbl-cap: 'Gás de Coqueira. Unidade: 10⁶ m³. Transformação: Geração de energia elétrica.'
+
 benCorrido::tab_gas_coqueira(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_gas_coqueira", .tipo_dado = "Absoluto")
 ```
-
 ## Estrutura do Consumo de Gás de Coqueria
 
 ::: {.panel-tabset}
@@ -587,6 +733,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_coqueira", .tipo_dado = "A
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-gas-coqueria-absoluto
+#| fig-cap: 'Estrutura do Consumo de Gás de Coqueria. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -596,6 +744,8 @@ benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto")
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-gas-coqueria-percentual
+#| fig-cap: 'Estrutura do Consumo de Gás de Coqueria. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -607,6 +757,9 @@ benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Percentual
 ## Eletricidade
 
 ```{r}
+#| label: tbl-eletricidade
+#| tbl-cap: 'Eletricidade. Unidade: GWh.'
+
 benCorrido::tab_eletricidade(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_eletricidade", .tipo_dado = "Absoluto")
 ```
@@ -618,6 +771,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_eletricidade", .tipo_dado = "A
 ## Valor absoluto
 
 ```{r}
+#| label: fig-consumo-final-eletricidade-setor-absoluto
+#| fig-cap: 'Consumo Final de Eletricidade por Setor. Valores absolutos. Outros: Setor Energético, Agropecuário, Transportes.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -627,6 +782,8 @@ benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto
 ## Valor percentual
 
 ```{r}
+#| label: fig-consumo-final-eletricidade-setor-percentual
+#| fig-cap: 'Consumo Final de Eletricidade por Setor. Valores percentuais. Outros: Setor Energético, Agropecuário, Transportes.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -638,6 +795,9 @@ benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Percentu
 ## Carvão Vegetal
 
 ```{r}
+#| label: tbl-carvao-vegetal
+#| tbl-cap: 'Carvão Vegetal. Unidade: 10³ t.'
+
 benCorrido::tab_carvao_vegetal(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vegetal", .tipo_dado = "Absoluto")
 ```
@@ -645,6 +805,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vegetal", .tipo_dado = 
 ## Álcool Etílico Total
 
 ```{r}
+#| label: tbl-alcool-etilico-total
+#| tbl-cap: 'Álcool Etílico Total. Unidade: 10³ m³. Álcool Etílico Total: Inclui metanol. Agropecuário: Utilizado como combustível em pequenas aeronaves agrícolas, para a atividade de fertilização.'
+
 benCorrido::tab_alcool_etilico_total(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_alcool_etilico_total", .tipo_dado = "Absoluto")
 ```
@@ -656,6 +819,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_alcool_etilico_total", .tipo_d
 ## Valor absoluto
 
 ```{r}
+#| label: fig-estrutura-consumo-alcool-etilico-absoluto
+#| fig-cap: 'Estrutura de Consumo do Álcool Etílico. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -665,6 +830,8 @@ benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto
 ## Valor percentual
 
 ```{r}
+#| label: fig-estrutura-consumo-alcool-etilico-percentual
+#| fig-cap: 'Estrutura de Consumo do Álcool Etílico. Valores percentuais.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
@@ -676,6 +843,9 @@ benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Percentu
 ## Álcool Anidro
 
 ```{r}
+#| label: tbl-alcool-anidro
+#| tbl-cap: 'Álcool Anidro. Unidade: 10³ m³.'
+
 benCorrido::tab_alcool_anidro(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_alcool_anidro", .tipo_dado = "Absoluto")
 ```
@@ -683,6 +853,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_alcool_anidro", .tipo_dado = "
 ## Álcool Hidratado
 
 ```{r}
+#| label: tbl-alcool-hidratado
+#| tbl-cap: 'Álcool Hidratado. Unidade: 10³ m³. Agropecuário: Utilizado como combustível em pequenas aeronaves agrícolas, para a atividade de fertilização.'
+
 benCorrido::tab_alcool_hidratado(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_alcool_hidratado", .tipo_dado = "Absoluto")
 ```
@@ -690,6 +863,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_alcool_hidratado", .tipo_dado 
 ## Outras Secundárias de Petróleo
 
 ```{r}
+#| label: tbl-outras-secundarias-petroleo
+#| tbl-cap: 'Outras Secundárias de Petróleo. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
+
 benCorrido::tab_outras_secundarias_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_outras_secundarias_petroleo", .tipo_dado = "Absoluto")
 ```
@@ -697,6 +873,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_outras_secundarias_petroleo", 
 ## Alcatrão
 
 ```{r}
+#| label: tbl-alcatrao
+#| tbl-cap: 'Alcatrão. Unidade: 10³ t. Transformação: Geração de eletricidade.'
+
 benCorrido::tab_alcatrao(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_alcatrao", .tipo_dado = "Absoluto")
 ```
@@ -704,6 +883,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_alcatrao", .tipo_dado = "Absol
 ## Produtos Não Energéticos de Petróleo
 
 ```{r}
+#| label: tbl-produtos-nao-energeticos-petroleo
+#| tbl-cap: 'Produtos Não Energéticos de Petróleo. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados). Transformação: Produção de efluentes petroquímicos.'
+
 benCorrido::tab_produtos_nao_energeticos_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_produtos_nao_energeticos_petroleo", .tipo_dado = "Absoluto")
 ```

@@ -1,237 +1,163 @@
-### Composição Setorial do Consumo de Derivados de Petróleo
+## Estrutura do Consumo de Gás de Coqueria
 
 ::: {.panel-tabset}
 
 ## Valor absoluto
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-derivados-petroleo-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos.'
-
-benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Absoluto")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-derivados-petroleo-absoluto
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-estrutura-consumo-gas-coqueria-absoluto
+#| fig-cap: 'Estrutura do Consumo de Gás de Coqueria. Valores absolutos.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-derivados-petroleo-percentual
-#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais.'
-
-benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Percentual")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-derivados-petroleo-percentual
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-estrutura-consumo-gas-coqueria-percentual
+#| fig-cap: 'Estrutura do Consumo de Gás de Coqueria. Valores percentuais.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Percentual")
 ```
 
 :::
 
+## Eletricidade
 
+```{r}
+#| label: tbl-eletricidade
+#| tbl-cap: 'Eletricidade. Unidade: GWh.'
 
-### Composição Setorial do Consumo de Eletricidade
+benCorrido::tab_eletricidade(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_eletricidade", .tipo_dado = "Absoluto")
+```
+
+## Consumo Final de Eletricidade por Setor
 
 ::: {.panel-tabset}
 
 ## Valor absoluto
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-eletricidade-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos.'
-
-benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Absoluto")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-eletricidade-absoluto
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-consumo-final-eletricidade-setor-absoluto
+#| fig-cap: 'Consumo Final de Eletricidade por Setor. Valores absolutos. Outros: Setor Energético, Agropecuário, Transportes.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-eletricidade-percentual
-#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais.'
-
-benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Percentual")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-eletricidade-percentual
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-consumo-final-eletricidade-setor-percentual
+#| fig-cap: 'Consumo Final de Eletricidade por Setor. Valores percentuais. Outros: Setor Energético, Agropecuário, Transportes.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Percentual")
 ```
 
 :::
 
+## Carvão Vegetal
 
+```{r}
+#| label: tbl-carvao-vegetal
+#| tbl-cap: 'Carvão Vegetal. Unidade: 10³ t.'
 
-### Composição Setorial de Consumo de Carvão Vapor
+benCorrido::tab_carvao_vegetal(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vegetal", .tipo_dado = "Absoluto")
+```
+
+## Álcool Etílico Total
+
+```{r}
+#| label: tbl-alcool-etilico-total
+#| tbl-cap: 'Álcool Etílico Total. Unidade: 10³ m³. Álcool Etílico Total: Inclui metanol. Agropecuário: Utilizado como combustível em pequenas aeronaves agrícolas, para a atividade de fertilização.'
+
+benCorrido::tab_alcool_etilico_total(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_etilico_total", .tipo_dado = "Absoluto")
+```
+
+## Estrutura de Consumo do Álcool Etílico
 
 ::: {.panel-tabset}
 
 ## Valor absoluto
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-carvao-vapor-absoluto
-#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos.'
-
-benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Absoluto")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-carvao-vapor-absoluto
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-estrutura-consumo-alcool-etilico-absoluto
+#| fig-cap: 'Estrutura de Consumo do Álcool Etílico. Valores absolutos.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto")
 ```
 
 ## Valor percentual
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-carvao-vapor-percentual
-#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais.'
-
-benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Percentual")
-```
-
-```{r}
-#| label: fig-composicao-setorial-consumo-carvao-vapor-percentual
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais.'
-
-linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+#| label: fig-estrutura-consumo-alcool-etilico-percentual
+#| fig-cap: 'Estrutura de Consumo do Álcool Etílico. Valores percentuais.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 90%
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Percentual")
 ```
 
 :::
 
-
-
-### Composição Setorial do Consumo Final de Biomassa
-
-::: {.panel-tabset}
-
-## Valor absoluto
+## Álcool Anidro
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-final-biomassa-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos.'
+#| label: tbl-alcool-anidro
+#| tbl-cap: 'Álcool Anidro. Unidade: 10³ m³.'
 
-benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Absoluto")
+benCorrido::tab_alcool_anidro(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_anidro", .tipo_dado = "Absoluto")
 ```
+
+## Álcool Hidratado
 
 ```{r}
-#| label: fig-composicao-setorial-consumo-final-biomassa-absoluto
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos.'
+#| label: tbl-alcool-hidratado
+#| tbl-cap: 'Álcool Hidratado. Unidade: 10³ m³. Agropecuário: Utilizado como combustível em pequenas aeronaves agrícolas, para a atividade de fertilização.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+benCorrido::tab_alcool_hidratado(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcool_hidratado", .tipo_dado = "Absoluto")
 ```
 
-## Valor percentual
+## Outras Secundárias de Petróleo
 
 ```{r}
-#| label: tbl-composicao-setorial-consumo-final-biomassa-percentual
-#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais.'
+#| label: tbl-outras-secundarias-petroleo
+#| tbl-cap: 'Outras Secundárias de Petróleo. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados).'
 
-benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Percentual")
+benCorrido::tab_outras_secundarias_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_outras_secundarias_petroleo", .tipo_dado = "Absoluto")
 ```
+
+## Alcatrão
 
 ```{r}
-#| label: fig-composicao-setorial-consumo-final-biomassa-percentual
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais.'
+#| label: tbl-alcatrao
+#| tbl-cap: 'Alcatrão. Unidade: 10³ t. Transformação: Geração de eletricidade.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
+benCorrido::tab_alcatrao(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_alcatrao", .tipo_dado = "Absoluto")
 ```
 
-:::
-
-
-
-### Oferta Interna de Energia
-
-::: {.panel-tabset}
-
-## Valor absoluto
+## Produtos Não Energéticos de Petróleo
 
 ```{r}
-#| label: tbl-oferta-interna-energia-2-absoluto
-#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos.'
+#| label: tbl-produtos-nao-energeticos-petroleo
+#| tbl-cap: 'Produtos Não Energéticos de Petróleo. Unidade: 10³ m³. Variação de Estoques, Perdas e Ajustes: A partir de 2009 os estoques de petróleo e seus derivados são dados informados (anteriormente eram estimados). Transformação: Produção de efluentes petroquímicos.'
 
-benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Absoluto")
+benCorrido::tab_produtos_nao_energeticos_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_produtos_nao_energeticos_petroleo", .tipo_dado = "Absoluto")
 ```
-
-```{r}
-#| label: fig-oferta-interna-energia-2-absoluto
-#| fig-cap: 'Oferta Interna de Energia. Valores absolutos.'
-
-linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
-```
-
-## Valor percentual
-
-```{r}
-#| label: tbl-oferta-interna-energia-2-percentual
-#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais.'
-
-benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Percentual")
-```
-
-```{r}
-#| label: fig-oferta-interna-energia-2-percentual
-#| fig-cap: 'Oferta Interna de Energia. Valores percentuais.'
-
-linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
-
-benCorrido::criar_carrossel(area, linha)
-```
-
-:::
