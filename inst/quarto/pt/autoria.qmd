@@ -3,7 +3,7 @@
 # Autoria {.unnumbered}
 :::
 
-![](img/governo_federal.png){fig-align="center" width=40%}
+![](../img/governo_federal.png){fig-align="center" width=40%}
 
 :::{.centro}
 GOVERNO FEDERAL \

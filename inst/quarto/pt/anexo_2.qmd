@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo II – Autoprodução de Eletricidade {-}
+# Anexo II: Autoprodução de Eletricidade {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 

@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo V — Estrutura Geral do Balanço Energético Nacional {-}
+# Anexo V: Estrutura Geral do Balanço Energético Nacional {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 

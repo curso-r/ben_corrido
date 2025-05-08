@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo IV — Balanço de Energia Útil
+# Anexo IV: Balanço de Energia Útil {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 

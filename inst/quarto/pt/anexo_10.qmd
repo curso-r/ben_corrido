@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo X — Balanço Energético 1970 a 2023 (Unidades Comerciais) {-}
+# Anexo X: Balanço Energético 1970 a 2023 (Unidades Comerciais) {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 

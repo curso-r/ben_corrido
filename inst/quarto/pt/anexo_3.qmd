@@ -9,7 +9,7 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-# Anexo III — Dados Mundiais de Energia {-}
+# Anexo III: Dados Mundiais de Energia {-}
 
 ![](../img/capas/imagem_cap_anexo.png)
 
