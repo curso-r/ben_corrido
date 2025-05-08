@@ -637,9 +637,12 @@ grafico_sankey_fluxo_energetico <- function(con, lang = "pt") {
 
   sufixo <- "10⁶ tep"
 
-  grafico_sunkey(
-    tab,
-    sufixo = sufixo
+  htmltools::div(
+    class = "center",
+    grafico_sunkey(
+      tab,
+      sufixo = sufixo
+    )
   )
 }
 
@@ -656,9 +659,12 @@ grafico_sankey_fluxo_eletrico <- function(con, lang = "pt") {
 
   sufixo <- "TWh"
 
-  grafico_sunkey(
-    tab,
-    sufixo = sufixo
+  htmltools::div(
+    class = "center",
+    grafico_sunkey(
+      tab,
+      sufixo = sufixo
+    )
   )
 }
 

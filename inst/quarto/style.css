@@ -22,6 +22,12 @@
   overflow-x: visible;
 }
 
+.center {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
 /* Slicker */
 
 .slick-dots {
