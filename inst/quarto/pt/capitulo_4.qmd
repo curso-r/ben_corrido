@@ -16,11 +16,16 @@ ano <- params$ano
 ## Dependência Externa de Energia
 
 ```{r}
+#| label: tbl-dependencia-externa-energia-2
+#| tbl-cap: 'Dependência Externa de Energia.  Unidade: 10³ tep. Perdas: Perdas na transformação, distribuição e armazenagem, inclusive energia não-aproveitada, reinjeção e ajustes.'
+
 benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-dependencia-externa-energia-2
+#| fig-cap: 'Dependência Externa de Energia.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
@@ -30,11 +35,16 @@ benCorrido::grafico_dependencia_externa_energia_2(con)
 ## Dependência Externa de Petróleo
 
 ```{r}
+#| label: tbl-dependencia-externa-petroleo
+#| tbl-cap: 'Dependência Externa de Petróleo. Valores absolutos. Unidade: 10³ tep. Perdas: Perdas na distribuição, armazenagem, transformação, inclusive energia não-aproveitada. Outras Saídas de UPGN: Inclui líquidos de gás natural, gasolina, nafta, óleo diesel, etc., provenientes de Plantas de Gás.'
+
 benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-dependencia-externa-petroleo
+#| fig-cap: 'Dependência Externa de Petróleo. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
@@ -44,11 +54,16 @@ benCorrido::grafico_dependencia_externa_petroleo(con)
 ## Importações de Energia
 
 ```{r}
+#| label: tbl-importacoes-energia
+#| tbl-cap: 'Importações de Energia. Valores absolutos. Unidade: 10³ tep. Álcool Etílico: Inclui metanol.'
+
 benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-importacoes-energia
+#| fig-cap: 'Importações de Energia. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
@@ -58,11 +73,16 @@ benCorrido::grafico_importacoes_energia(con)
 ## Exportações de Energia
 
 ```{r}
+#| label: tbl-exportacoes-energia
+#| tbl-cap: 'Exportações de Energia. Valores absolutos. Unidade: 10³ tep.'
+
 benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-exportacoes-energia
+#| fig-cap: 'Exportações de Energia. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
@@ -72,11 +92,16 @@ benCorrido::grafico_exportacoes_energia(con)
 ## Exportações e/ou Importações Líquidas
 
 ```{r}
+#| label: tbl-exportacoes-importacoes-liquidas
+#| tbl-cap: 'Exportações e/ou Importações Líquidas. Valores absolutos. Unidade: 10³ tep. Quantidades sem sinal correspondem a importações líquidas. Quantidades negativas correspondem a exportações líquidas.'
+
 benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquidas", .tipo_dado = "Absoluto")
 ```
 
 ```{r}
+#| label: fig-exportacoes-importacoes-liquidas
+#| fig-cap: 'Exportações e/ou Importações Líquidas. Valores absolutos.'
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
