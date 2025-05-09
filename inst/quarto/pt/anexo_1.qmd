@@ -16,19 +16,27 @@ ano <- params$ano
 ## Capacidade Instalada de Geração Elétrica
 
 ```{r}
+#| label: tbl-capacidade-instalada-geracao-eletrica
+#| tbl-cap: 'Capacidade Instalada de Geração Elétrica. Unidade: MW. SP - Serviço Público /PIE - Produção Independente de Energia/APE - Autoprodução de energia. Hidro: Inclui metade da Usina de Itaipu. SP e/ou PIE: Não inclui a potência referente à participação acionária de consumidores tradicionalmente APE. APE: Plantas PIE, tradicionalmente APE, estão classificadas em APE. Solar: Solar Fotovoltaicas'
+
 benCorrido::tab_capacidade_instalada_geracao_eletrica(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_eletrica")
 ```
 
 ```{r}
-#| label: fig-capacidade_instalada_geracao_eletrica
+#| label: fig-capacidade-instalada-geracao-eletrica
+#| fig-cap: 'Capacidade Instalada de Geração Elétrica.'
 #| fig-height: 3
+
 benCorrido::grafico_capacidade_instalada_geracao_eletrica(con)
 ```
 
 ## Capacidade Instalada de Itaipu
 
 ```{r}
+#| label: tbl-capacidade-instalada-itaipu
+#| tbl-cap: 'Capacidade Instalada de Itaipu. Unidade: MW. '
+
 benCorrido::tab_capacidade_instalada_itaipu(con, lab1 = "Ano")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", matriz = FALSE, position = "start")
 ```
@@ -37,6 +45,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", 
 ## Capacidade Instalada de Geração Elétrica por Fonte
 
 ```{r}
+#| label: tbl-capacidade-instalada-geracao-energia-fonte
+#| tbl-cap: 'Capacidade Instalada de Geração Elétrica por Fonte. Unidade: MW. Outras: Inclui Alcatrão. Efluente Gasoso: Inclui calor de processo.'
+
 benCorrido::tab_capacidade_instalada_geracao_energia_fonte(con, lab1 = "Usinas em Operação")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia_fonte")
 ```
@@ -45,6 +56,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_e
 ## Capacidade Instalada de Geração Elétrica Mini e Micro GD
 
 ```{r}
+#| label: tbl-capacidade-instalada-mini-micro-gd
+#| tbl-cap: 'Capacidade Instalada de Geração Elétrica Mini e Micro GD. Unidade: MW.'
+
 benCorrido::tab_capacidade_instalada_mini_micro_gd(con, lab1 = "Usinas em Operação")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_gd")
 ```
@@ -52,24 +66,30 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micr
 ## Capacidade Instalada de Refino de Petróleo
 
 ```{r}
+#| label: tbl-capacidade-instalada-refino-petroleo
+#| tbl-cap: 'Capacidade Instalada de Refino de Petróleo. 2014: 1º trem da refinaria RNEST entrou em operação em 6 dezembro de 2014, conforme Autorização ANP (de operação) nº 506/2014.'
+
 benCorrido::tab_capacidade_instalada_refino_petroleo(con, lab1 = "Ano", lab2 = "m³/dia")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_refino_petroleo", matriz = FALSE, position = "start")
 ```
 
 ```{r}
-#| label: fig-capacidade_instalada_refino_petroleo
+#| label: fig-capacidade-instalada-refino-petroleo
+#| fig-cap: 'Capacidade Instalada de Refino de Petróleo.'
 #| fig-height: 3
+
 benCorrido::grafico_capacidade_instalada_refino_petroleo(con)
 ```
 
 ## Capacidade Instalada de Produção de Biodiesel
 
 ```{r}
+#| label: tbl-capacidade-instalada-producao-biodiesel
+#| tbl-cap: 'Capacidade Instalada de Produção de Biodiesel. Fonte: Agência Nacional do Petróleo, Gás e Biocombustíveis (ANP).'
+
 benCorrido::tab_capacidade_instalada_producao_biodiesel(con, lab1 = "Ano", lab2 = "b/dia")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_producao_biodiesel", matriz = FALSE, position = "start")
 ```
-
-
 
 
 ```{r}
