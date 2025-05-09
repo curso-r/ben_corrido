@@ -235,13 +235,15 @@ Os fatores de capacidade utilizados para as demais fontes são apresentados a se
 
 
 ```{r}
-# Fatores de capacidade para diferentes fontes
+#| label: tbl-fatores-capacidade
+#| tbl-cap: 'Fatores de capacidade para diferentes fontes.'
 benCorrido::tab_fatores_capacidade_diferentes_fontes(con, lab1 = "Fonte", lab2 = "FC")
 ```
 
 
 ```{r}
-# Fatores de capacidade para a fonte hidráulica
+#| label: tbl-fatores-capacidade-fonte-hidraulica
+#| tbl-cap: 'Fatores de capacidade para a fonte hidráulica.'
 benCorrido::tab_fatores_capacidade_fonte_hidraulica(con, lab1 = "Classe", lab2 = "Fonte", lab3 = "FC")
 ```
 
@@ -258,6 +260,7 @@ Referências:
 * ZILLES, R. et al. Sistemas Fotovoltaicos Conectados à Rede Elétrica. Oficina de Textos, São Paulo, 2012.
 
 ```{r}
-# Fator de Capacidade
+#| label: tbl-fatores-capacidade-municipios
+#| tbl-cap: 'Fator de Capacidade para os municípios brasileiros.'
 benCorrido::tab_fator_capacidade_municipios(con, lab1 = "UF", lab2 = "Cidade", lab3 = "FC")
 ```

@@ -16,54 +16,76 @@ ano <- params$ano
 ## Relações entre Unidades
 
 ```{r}
+#| label: tbl-relacoes-entre-unidades
+#| tbl-cap: 'Relações entre Unidades.'
+
 benCorrido::tab_relacoes_entre_unidades(con)
 ```
 
 ## Coeficientes de Equivalência Calórica
 
 ```{r}
+#| label: tbl-coeficientes-equivalencia-calorica
+#| tbl-cap: 'Coeficientes de Equivalência Calórica.'
+
 benCorrido::tab_coeficientes_equivalencia_calorica(con, lab1 = "De", lab2 = "Para")
 ```
 
 ## Fatores de Conversão para Massa
 
 ```{r}
+#| label: tbl-fatores-conversao-massa
+#| tbl-cap: 'Fatores de Conversão para Massa.'
+
 benCorrido::tab_fatores_conversao_massa(con, lab1 = "De", lab2 = "Para")
 ```
 
 ## Fatores de Conversão para Volume
 
 ```{r}
+#| label: tbl-fatores-conversao-volume
+#| tbl-cap: 'Fatores de Conversão para Volume.'
+
 benCorrido::tab_fatores_conversao_volume(con, lab1 = "De", lab2 = "Para")
 ```
 
 ## Fatores de Conversão para Energia
 
 ```{r}
+#| label: tbl-fatores-conversao-energia
+#| tbl-cap: 'Fatores de Conversão para Energia.'
 benCorrido::tab_fatores_conversao_energia(con, lab1 = "De", lab2 = "Para")
 ```
 
 ## Coeficientes de Equivalência Médios para os Combustíveis Gasosos
 
 ```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-gasosos
+#| tbl-cap: 'Coeficientes de Equivalência Médios para os Combustíveis Gasosos.'
 benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_gasosos(con, lab1 = "De (10³ m³)", lab2 = "Para")
 ```
 
 ## Coeficientes de Equivalência Médios para os Combustíveis Líquidos
 
 ```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-liquidos
+#| tbl-cap: 'Coeficientes de Equivalência Médios para os Combustíveis Líquidos.'
 benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_liquidos(con, lab1 = "De (m³)", lab2 = "Para")
 ```
 
 ## Coeficientes de Equivalência Médios para os Combustíveis Sólidos
 
 ```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-solidos
+#| tbl-cap: 'Coeficientes de Equivalência Médios para os Combustíveis Sólidos.'
 benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_solidos(con, lab1 = "De (ton)", lab2 = "Para")
 ```
 
 ## Densidades e Poderes Caloríficos
 
 ```{r}
+#| label: tbl-densidades-poderes-calorificos
+#| tbl-cap: 'Densidades e Poderes Caloríficos. Densidade/Bagaço de Cana: Bagaço com 50% de umidade. Eletricidade/Energia Hidráulica: kcal/kWh. Gás Canalizado - Rio de Janeiro/Gás Canalizado - São Paulo/Gás de Coqueria/Gás Natural Seco/Gás Natural Úmido: kcal/m³. Gás Natural Seco/Gás Natural Úmido: À temperatura de 20°C, para derivados de petróleo e de gás natural.'
 benCorrido::tab_densidades_poderes_calorificos(con, lab1 = "De", lab2 = "Para")
 benCorrido::gerar_botoes_download(tab_name = "tab_densidades_poderes_calorificos", tabela = FALSE)
 ```
@@ -71,6 +93,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_densidades_poderes_calorificos
 ## Fatores de Conversão para tep médio
 
 ```{r}
+#| label: tbl-fatores-conversao-tep-medio
+#| tbl-cap: 'Fatores de Conversão para tep médio.'
 benCorrido::tab_fatores_conversao_tep_medio(con, lab1 = "", lab2 = "Unidade")
 benCorrido::gerar_botoes_download(tab_name = "tab_fatores_conversao_tep_medio", tabela = FALSE)
 ```

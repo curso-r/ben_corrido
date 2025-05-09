@@ -14,6 +14,8 @@ ano <- params$ano
 ![](../img/capas/imagem_cap_anexo.png)
 
 ```{r}
+#| label: tbl-balanco-energetico-consolidado
+#| tbl-cap: 'Balanços Energéticos Consolidados – 1970 a 2023. Unidade: 10³ tep.'
 anos <- 2023:1970
 
 tabelas <- purrr::map(
