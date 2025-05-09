@@ -56,6 +56,13 @@ li.slick-active {
   text-decoration: none;
 }
 
+/* reactable */
+
 .reactable {
   margin-bottom: 16px;
+  width: 100% !important;
+}
+
+.ReactTable {
+  margin: auto;
 }

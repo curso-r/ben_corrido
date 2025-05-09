@@ -89,73 +89,105 @@ Biomassa, destinada ao aproveitamento energético, é uma fonte primária de ene
 ## Recursos e Reservas Energéticas Brasileiras
 
 ```{r recursos-reservas-energeticas-brasileiras-1}
+#| label: tbl-recursos-reservas-energeticas-brasileiras-1
+#| tbl-cap: 'Recursos e Reservas Energéticas Brasileiras - Parte 1. Recursos e Reservas Energéticas Brasileiras: Não inclui demais recursos energéticos renováveis. Carvão Mineral: Considera recuperação de 70% e poder calorífico de 3.900 kcal/kg. Hidráulica: Valor anual para fator de capacidade de 55%. Energia Nuclear: Considera perdas de mineração e beneficiamento e não considera reciclagem de plutônio e urânio residual. Equivalência Energética - 10³ tep: Calculado sobre as reservas medidas / indicadas / inventariadas.'
+
 benCorrido::tab_recursos_reservas_energeticas_brasileiras_1(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_reservas_energeticas_brasileiras_1_pt", tabela = FALSE)
 ```
 
 ```{r recursos-reservas-energeticas-brasileiras-2}
+#| label: tbl-recursos-reservas-energeticas-brasileiras-2
+#| tbl-cap: 'Recursos e Reservas Energéticas Brasileiras - Parte 2. Recursos e Reservas Energéticas Brasileiras: Não inclui demais recursos energéticos renováveis. Equivalência Energética - 10³ tep: Calculado sobre as reservas provadas. Gás Natural: Conforme Resolução ANP nº 47/2014 .'
+
 benCorrido::tab_recursos_reservas_energeticas_brasileiras_2(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_reservas_energeticas_brasileiras_2_pt", tabela = FALSE)
 ```
 
 ## Reservas Provadas de Petróleo e Gás Natural
 
 ```{r reservas-provadas-petroleo-gas}
+#| label: tbl-reservas-provadas-petroleo-gas
+#| tbl-cap: 'Reservas Provadas de Petróleo e Gás Natural. Fonte: Agência Nacional de Petróleo. Reservas Provadas de Petróleo e Gás Natural: Inclui reservas de campos em desenvolvimento. De 1990 a 1998 passaram a ser adotados os critérios da Society of Petroleum Engineers (SPE) e do World Petroleum Congress (WPC), o que eleva um pouco as reservas medidas em relação aos critérios utilizados nos anos anteriores. De 1999 a 2014, os valores foram calculados com base na Portaria ANP nº 009, de 21/01/2000. A partir de 2015, os valores foram calculados conforme Resolução ANP nº 47/2014.'
+
 benCorrido::tab_reservas_provadas_petroleo_gas(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_petroleo_gas_pt", tabela = FALSE)
 ```
 
 ## Reservas Provadas de Petróleo
 
 ```{r reservas-provadas-petroleo}
-#| fig-height: 3
 #| label: fig-reservas-provadas-petroleo
+#| fig-cap: 'Reservas Provadas de Petróleo.'
+#| fig-height: 3
+
 benCorrido::grafico_reservas_provadas_petroleo(con)
 ```
 
 ## Reservas Provadas de Gás Natural
 
 ```{r reservas-provadas-gas}
-#| fig-height: 3
 #| label: fig-reservas-provadas-gas
+#| fig-cap: 'Reservas Provadas de Gás Natural.'
+#| fig-height: 3
+
 benCorrido::grafico_reservas_provadas_gas(con)
 ```
 
 ## Recursos Hidráulicos
 
 ```{r recursos-hidraulicos}
+#| label: tbl-recursos-hidraulicos
+#| tbl-cap: 'Recursos Hidráulicos. Unidade: MW. Recursos Hidráulicos: Energia firme.'
+
 benCorrido::tab_recursos_hidraulicos(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_hidraulicos_pt", tabela = FALSE)
 ```
 
 ## Potencial Hidrelétrico
 
 ```{r potencial-hidreletrico}
-#| fig-height: 3
 #| label: fig-potencial-hidreletrico
+#| fig-cap: 'Potencial Hidrelétrico.'
+#| fig-height: 3
+
 benCorrido::grafico_potencial_hidreletrico(con)
 ```
 
 ## Reservas de Carvão Mineral e Turfa
 
 ```{r reservas-carvao-mineral-turfa}
+#| label: tbl-reservas-carvao-mineral-turfa
+#| tbl-cap: 'Reservas de Carvão Mineral e Turfa. Unidade: 10⁶ t. Reservas de Carvão Mineral e Turfa: Inclui reservas medidas, indicadas e inferidas.'
+
 benCorrido::tab_reservas_carvao_mineral_turfa(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_carvao_mineral_turfa_pt", tabela = FALSE)
 ```
 
 ## Reservas de Carvão Mineral
 
 ```{r reservas-carvao-mineral}
-#| fig-height: 3
 #| label: fig-reservas-carvao-mineral
+#| fig-cap: 'Reservas de Carvão Mineral.'
+#| fig-height: 3
+
 benCorrido::grafico_reservas_carvao_mineral(con)
 ```
 
 ## Reservas de Urânio
 
 ```{r reservas-uranio-tabela}
+#| label: tbl-reservas-uranio
+#| tbl-cap: 'Reservas de Urânio. Unidade: t. Reservas de Urânio: Inclui reservas medidas, indicadas e inferidas.'
+
 benCorrido::tab_reservas_uranio(con)
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_uranio_pt", tabela = FALSE)
 ```
 
-\
-
 ```{r reservas-uranio-grafico}
-#| fig-height: 3
 #| label: fig-reservas-uranio
+#| fig-cap: 'Reservas de Urânio.'
+#| fig-height: 3
+
 benCorrido::grafico_reservas_uranio(con)
 ```

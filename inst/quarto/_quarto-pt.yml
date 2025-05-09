@@ -20,8 +20,8 @@ book:
         # - pt/capitulo_2.qmd
         # - pt/capitulo_3.qmd
         # - pt/capitulo_4.qmd
-        - pt/capitulo_5.qmd
-        # - pt/capitulo_6.qmd
+        # - pt/capitulo_5.qmd
+        - pt/capitulo_6.qmd
         # - pt/capitulo_7.qmd
         # - pt/capitulo_8.qmd
     # - part: Anexos
