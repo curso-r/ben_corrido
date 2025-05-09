@@ -38,7 +38,7 @@ benCorrido::grafico_capacidade_instalada_geracao_eletrica(con)
 #| tbl-cap: 'Capacidade Instalada de Itaipu. Unidade: MW. '
 
 benCorrido::tab_capacidade_instalada_itaipu(con, lab1 = "Ano")
-benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", matriz = FALSE, position = "start")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_itaipu", matriz = FALSE)
 ```
 
 
@@ -70,7 +70,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micr
 #| tbl-cap: 'Capacidade Instalada de Refino de Petróleo. 2014: 1º trem da refinaria RNEST entrou em operação em 6 dezembro de 2014, conforme Autorização ANP (de operação) nº 506/2014.'
 
 benCorrido::tab_capacidade_instalada_refino_petroleo(con, lab1 = "Ano", lab2 = "m³/dia")
-benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_refino_petroleo", matriz = FALSE, position = "start")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_refino_petroleo", matriz = FALSE)
 ```
 
 ```{r}
@@ -88,7 +88,7 @@ benCorrido::grafico_capacidade_instalada_refino_petroleo(con)
 #| tbl-cap: 'Capacidade Instalada de Produção de Biodiesel. Fonte: Agência Nacional do Petróleo, Gás e Biocombustíveis (ANP).'
 
 benCorrido::tab_capacidade_instalada_producao_biodiesel(con, lab1 = "Ano", lab2 = "b/dia")
-benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_producao_biodiesel", matriz = FALSE, position = "start")
+benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_producao_biodiesel", matriz = FALSE)
 ```
 
 

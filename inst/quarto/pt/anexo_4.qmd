@@ -21,7 +21,7 @@ A Energia Final é composta pela soma de duas parcelas: a Energia Útil e a Ener
 
 A figura mostra que a Energia Final e a Energia Útil têm aumentado ao longo dessas duas décadas. Por outro lado, o Potencial de Economia de Energia diminui, à medida que os rendimentos dos processos se aproximam de seus paradigmas.
 
-A relação Energia Final / Energia Útil tem a dimensão de rendimento energético. O BEU permite avaliar o rendimento energético global da sociedade brasileira e os rendimentos específicos dos setores de atividade, das diferentes formas de energia e dos Usos Finais. A @tab-evolucao-rendimentos-energeticos-setores apresenta as evoluções dos rendimentos energéticos globais, dos principais setores de atividades, dos principais energéticos e dos principais Usos Finais.
+A relação Energia Final / Energia Útil tem a dimensão de rendimento energético. O BEU permite avaliar o rendimento energético global da sociedade brasileira e os rendimentos específicos dos setores de atividade, das diferentes formas de energia e dos Usos Finais. A @tbl-evolucao-rendimentos-energeticos-setores apresenta as evoluções dos rendimentos energéticos globais, dos principais setores de atividades, dos principais energéticos e dos principais Usos Finais.
 
 
 ```{r}
@@ -33,15 +33,15 @@ benCorrido::grafico_variacao_energia_final_util_potencial(con)
 
 A tabela seguinte mostra que os rendimentos energéticos aumentaram ao longo dessas décadas. Esse aumento se deveu em parte à evolução tecnológica dos equipamentos e, em parte, à mudança da matriz energética do País que migrou dos energéticos de uso menos eficiente para os de uso mais eficiente
 
-O BEU permite avaliar separadamente os efeitos da evolução da tecnologia e da sociedade no consumo energético nacional. Para avaliar apenas os efeitos da Sociedade foram considerados os dados de entrada (dados de Energia Final - que caracterizam o contexto da sociedade) referentes aos anos de 1984, 1994 e 2004, porém com os rendimentos (que caracterizam o contexto da tecnologia) referentes ao ano de 2004. Para avaliar apenas os efeitos da tecnologia foram considerados os dados de entrada referentes a 2004, porém com os rendimentos de 1984, 1994 e 2004. Os resultados obtidos em termos de rendimentos médios estão apresentados na @tab-evolucao-rendimentos-energeticos-setores.
+O BEU permite avaliar separadamente os efeitos da evolução da tecnologia e da sociedade no consumo energético nacional. Para avaliar apenas os efeitos da Sociedade foram considerados os dados de entrada (dados de Energia Final - que caracterizam o contexto da sociedade) referentes aos anos de 1984, 1994 e 2004, porém com os rendimentos (que caracterizam o contexto da tecnologia) referentes ao ano de 2004. Para avaliar apenas os efeitos da tecnologia foram considerados os dados de entrada referentes a 2004, porém com os rendimentos de 1984, 1994 e 2004. Os resultados obtidos em termos de rendimentos médios estão apresentados na @tbl-evolucao-rendimentos-energeticos-setores.
 
 ```{r}
-#| label: tab-evolucao-rendimentos-energeticos-setores
-#| tab-cap: 'Evolução dos Rendimentos, Energéticos, Setores e Usos Finais Brasil'
+#| label: tbl-evolucao-rendimentos-energeticos-setores
+#| tbl-cap: 'Evolução dos Rendimentos, Energéticos, Setores e Usos Finais Brasil. Unidade: %.'
 benCorrido::tab_evolucao_rendimentos_energeticos_setores(con, lab1 = "")
 ```
 
-A @tab-evolucao-rendimentos-energeticos-setores-efeitos permite verificar por simples inspeção que o efeito da tecnologia é, em geral, maior do que o efeito da sociedade. Para apurar quantitativamente a participação desses efeitos na variação do rendimento é necessário ainda, fazer um processamento. A seguir se explica esse processamento através do exemplo da variação do rendimento Global no período de 1994 a 2004:
+A @tbl-evolucao-rendimentos-energeticos-setores-efeitos permite verificar por simples inspeção que o efeito da tecnologia é, em geral, maior do que o efeito da sociedade. Para apurar quantitativamente a participação desses efeitos na variação do rendimento é necessário ainda, fazer um processamento. A seguir se explica esse processamento através do exemplo da variação do rendimento Global no período de 1994 a 2004:
 
 - Variação Total do Rendimento = 57,5 (Tab IV.2) - 53,9 (Tab IV.1) = 3,6
 
@@ -52,16 +52,16 @@ A @tab-evolucao-rendimentos-energeticos-setores-efeitos permite verificar por si
 - Verificação: 3,2 + 0,6 = 3,8 ~ Variação Total do Rendimento
 
 ```{r}
-#| label: tab-evolucao-rendimentos-energeticos-setores-efeitos
-#| tab-cap: 'Evolução dos Rendimentos, Energéticos, Setores e Usos Finais Brasil'
+#| label: tbl-evolucao-rendimentos-energeticos-setores-efeitos
+#| tbl-cap: 'Evolução dos Rendimentos, Energéticos, Setores e Usos Finais Brasil. Unidade: %.'
 benCorrido::tab_evolucao_rendimentos_energeticos_setores_efeitos(con, lab1 = "")
 ```
 
-Na @tab-variacao-rendimentos-energeticos-participacao são apresentadas as variações referentes a todos os segmentos considerados neste estudo.
+Na @tbl-variacao-rendimentos-energeticos-participacao são apresentadas as variações referentes a todos os segmentos considerados neste estudo.
 
 ```{r}
-#| label: tab-variacao-rendimentos-energeticos-participacao
-#| tab-cap: 'Variação dos Rendimentos Energéticos, Participação dos Efeitos da Tecnologia e da Sociedade – Brasil'
+#| label: tbl-variacao-rendimentos-energeticos-participacao
+#| tbl-cap: 'Variação dos Rendimentos Energéticos, Participação dos Efeitos da Tecnologia e da Sociedade – Brasil. Unidade: %.'
 benCorrido::tab_variacao_rendimentos_energeticos_participacao(con, lab1 = "")
 ```
 

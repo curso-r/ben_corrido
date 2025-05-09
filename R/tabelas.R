@@ -4443,7 +4443,7 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
       theme = tema_reactable(),
       defaultPageSize = 50,
       defaultColDef = reactable::colDef(
-        width = 130,
+        align = "center",
         format = reactable::colFormat(
           digits = 1,
           separators = TRUE,
@@ -4455,7 +4455,7 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
           grupo = reactable::colDef(
             name = lab1,
             align = "left",
-            width = 160,
+            width = 250,
             style = function(value, index) {
               paddingLeft <- tab_padding$paddingLeft[tab_padding$grupo == value]
               list(paddingLeft = paddingLeft)

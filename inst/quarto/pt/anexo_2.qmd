@@ -16,6 +16,8 @@ ano <- params$ano
 ## Autoprodução de eletricidade por setor e fonte 
 
 ```{r}
+#| label: tbl-autoproducao-eletricidade-setor-fonte
+#| tbl-cap: 'Autoprodução de eletricidade por setor e fonte. Unidade: GWh.'
 benCorrido::tab_autoproducao_eletrecidade_setor_fonte(con, lab1 = "Setor", lab2 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte")
 ```
@@ -23,6 +25,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_seto
 ## Autoprodução de eletricidade por setor e fonte (total)
 
 ```{r}
+#| label: tbl-autoproducao-eletricidade-setor-fonte-total
+#| tbl-cap: 'Autoprodução de eletricidade por setor e fonte (total). Unidade: GWh.'
 benCorrido::tab_autoproducao_eletrecidade_setor_fonte_total(con, lab1 = "Setor", lab2 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte_total", matriz = FALSE)
 ```

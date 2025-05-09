@@ -26,6 +26,8 @@ anos_comparacao <- sort(anos[anos != max(anos, na.rm = TRUE)])
 ## Oferta de Energia por Fonte
 
 ```{r}
+#| label: fig-grafico-comp-oferta-energia-fonte
+#| fig-cap: 'Oferta de Energia por Fonte. Unidade: %.'
 plots <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -47,6 +49,8 @@ benCorrido::create_dropdown(
 ## Oferta de Energia por Região
 
 ```{r}
+#| label: fig-grafico-oferta-energia-regiao
+#| fig-cap: 'Oferta de Energia por Região. Unidade: %.'
 plots_regiao <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -68,6 +72,8 @@ benCorrido::create_dropdown(
 ## Consumo Final de Energia por Fonte
 
 ```{r}
+#| label: fig-grafico-consumo-final-energia-fonte
+#| fig-cap: 'Consumo Final de Energia por Fonte. Unidade: %.'
 plots_consumo_fonte <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -89,6 +95,8 @@ benCorrido::create_dropdown(
 ## Consumo Setorial de Derivados de Petróleo
 
 ```{r}
+#| label: fig-grafico-consumo-setorial-derivados-petroleo
+#| fig-cap: 'Consumo Setorial de Derivados de Petróleo. Unidade: %.'
 plots_derivados_petroleo <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -110,6 +118,8 @@ benCorrido::create_dropdown(
 ## Consumo Setorial de Eletricidade
 
 ```{r}
+#| label: fig-grafico-consumo-setorial-eletricidade
+#| fig-cap: 'Consumo Setorial de Eletricidade. Unidade: %.'
 plots_eletricidade <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -131,6 +141,8 @@ benCorrido::create_dropdown(
 ## Consumo Setorial de Gás Natural
 
 ```{r}
+#| label: fig-grafico-consumo-setorial-gas-natural
+#| fig-cap: 'Consumo Setorial de Gás Natural. Unidade: %.'
 plots_gas_natural <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -152,6 +164,8 @@ benCorrido::create_dropdown(
 ## Consumo Setorial de Carvão Mineral
 
 ```{r}
+#| label: fig-grafico-consumo-setorial-carvao-vapor
+#| fig-cap: 'Consumo Setorial de Carvão Mineral. Unidade: %.'
 plots_carvao <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -173,6 +187,8 @@ benCorrido::create_dropdown(
 ## Produção de Energia Elétrica por Fonte
 
 ```{r}
+#| label: fig-grafico-producao-energia-eletrica-fonte
+#| fig-cap: 'Produção de Energia Elétrica por Fonte. Unidade: %.'
 plots_producao_fonte <- purrr::map(
   anos_comparacao,
   \(.ano) {
@@ -194,6 +210,8 @@ benCorrido::create_dropdown(
 ## Geração Hidrelétrica por Região
 
 ```{r}
+#| label: fig-grafico-geracao-hidreletrica-regiao
+#| fig-cap: 'Geração Hidrelétrica por Região. Unidade: %.'
 plots_hidreletrica <- purrr::map(
   anos_comparacao,
   \(.ano) {
