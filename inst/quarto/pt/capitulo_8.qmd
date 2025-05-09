@@ -16,11 +16,17 @@ ano <- params$ano
 ## Produção de Energia - Fósseis 
 
 ```{r}
+#| label: tbl-producao-energia-fosseis-1
+#| tbl-cap: 'Produção de Energia - Produção de Gás Natural (10⁶ m³): O Paraná inclui gás de xisto.'
+
 benCorrido::tab_producao_energia_fosseis_1(con, lab1 = "Região", lab2 = "UF")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis_1")
 ```
 
 ```{r}
+#| label: tbl-producao-energia-fosseis-2
+#| tbl-cap: 'Produção de Energia - Unidade: %.'
+
 benCorrido::tab_producao_energia_fosseis_2(con, lab1 = "Região")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis_2")
 ```
@@ -28,19 +34,27 @@ benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_fosseis_2")
 ## Produção de Energia – Eletricidade e Álcool  
 
 ```{r}
+#| label: tbl-producao-energia-eletricidade-alcool-1
+#| tbl-cap: 'Produção de Energia – Eletricidade e Álcool. Geração Elétrica (GWh): Inclui geração de autoprodutores.'
+
 benCorrido::tab_producao_energia_eletricidade_alcool_1(con, lab1 = "Região", lab2 = "UF")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_eletricidade_alcool_1")
 ```
 
 ```{r}
+#| label: tbl-producao-energia-eletricidade-alcool-2
+#| tbl-cap: 'Produção de Energia – Eletricidade e Álcool. Unidade: %.'
+
 benCorrido::tab_producao_energia_eletricidade_alcool_2(con, lab1 = "Região")
 benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_eletricidade_alcool_2")
 ```
 
 ## Geração de Eletricidade por Fonte  
 
-
 ```{r}
+#| label: tbl-geracao-eletricidade-por-fonte
+#| tbl-cap: 'Geração de Eletricidade por Fonte por ano. Unidade: GWh.'
+
 anos <- 2023:2011
 
 botao_tabela <- htmltools::tags$a(
@@ -84,6 +98,9 @@ benCorrido::create_dropdown(
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-consumo-residencial-eletricidade-absoluto
+#| tbl-cap: 'Consumo Residencial de Eletricidade. Valores absolutos. Unidade: GWh.'
+
 benCorrido::tab_consumo_residencial_eletricidade(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Absoluto")
 ```
@@ -91,6 +108,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricida
 ## Valor percentual
 
 ```{r}
+#| label: tbl-consumo-residencial-eletricidade-percentual
+#| tbl-cap: 'Consumo Residencial de Eletricidade. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_consumo_residencial_eletricidade(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Percentual")
 ```
@@ -104,6 +124,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricida
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-consumo-residencial-gas-liquefeito-petroleo-absoluto
+#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores absolutos. Unidade: 10³ m³.'
+
 benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Absoluto")
 ```
@@ -111,6 +134,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquef
 ## Valor percentual
 
 ```{r}
+#| label: tbl-consumo-residencial-gas-liquefeito-petroleo-percentual
+#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores percentuais. Unidade: (%).'
+
 benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Percentual")
 ```
@@ -124,6 +150,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquef
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-geracao-energia-absoluto
+#| tbl-cap: 'Capacidade Instalada de Geração de Energia. Valores absolutos. Unidade: MW. SP - Serviço Pùblico (inclui Produtores Independentes). APE - Autoprodutor (inclui usinas hidrelétricas em consórcio com concessionárias de Serviço Público, como Igarapava, Canoas I e II, Funil, Porto Estrela, Machadinho e outras). Distribuição equitativa para usinas de fronteira. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_geracao_energia(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Absoluto")
 ```
@@ -131,6 +160,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_e
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-geracao-energia-percentual
+#| tbl-cap: 'Capacidade Instalada de Geração de Energia. Valores percentuais. Unidade: (%). SP - Serviço Pùblico (inclui Produtores Independentes). APE - Autoprodutor (inclui usinas hidrelétricas em consórcio com concessionárias de Serviço Público, como Igarapava, Canoas I e II, Funil, Porto Estrela, Machadinho e outras). Distribuição equitativa para usinas de fronteira. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_geracao_energia(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Percentual")
 ```
@@ -141,11 +173,17 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_geracao_e
 ## Capacidade Instalada de Mini e Micro Geração Distribuída 
 
 ```{r}
+#| label: tbl-capacidade-instalada-mini-micro-geracao-distribuida-1
+#| tbl-cap: 'Capacidade Instalada de Mini e Micro Geração Distribuída - Parte 1. Unidade: MW.'
+
 benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_1(con, lab1 = "Região", lab2 = "UF")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_1")
 ```
 
 ```{r}
+#| label: tbl-capacidade-instalada-mini-micro-geracao-distribuida-2
+#| tbl-cap: 'Capacidade Instalada de Mini e Micro Geração Distribuída - Parte 2. Unidade: %.'
+
 benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_2(con, lab1 = "Região")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_2")
 ```
@@ -159,6 +197,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_mini_micr
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-agropecuario-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Agropecuário. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Agropecuário"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -167,6 +208,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-agropecuario-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Agropecuário. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -180,6 +224,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-comercial-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Comercial. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Comercial"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -188,6 +235,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-comercial-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Comercial. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -201,6 +251,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-publico-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Público. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Público"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -209,6 +262,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-publico-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Público. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -222,6 +278,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-residencial-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Residencial. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Residencial"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -230,6 +289,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-residencial-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Residencial. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -243,6 +305,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-setor-energetico-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Energético. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Setor Energético"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -251,6 +316,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-setor-energetico-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Energético. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -264,6 +332,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-transporte-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Transporte. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setor <- "Transporte"
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
@@ -272,6 +343,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-transporte-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Setor Transporte. Valores percentuais. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual", .setor = setor)
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
 ```
@@ -286,6 +360,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_capacidade_instalad
 ## Valor absoluto
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-segmento-industrial-absoluto
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Segmento Industrial por Setor. Valores absolutos. Unidade: MW. Não inclui Micro e Mini Geração Distribuída.'
+
 setores <- c(
   "Açúcar e Álcool", "Alimentos e Bebidas", "Alumínio", "Cerâmica",
   "Cimento", "Ferro-Gusa e Aço", "Ferro-Ligas", "Mineração",
@@ -315,6 +392,9 @@ benCorrido::create_dropdown(
 ## Valor percentual
 
 ```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-segmento-industrial-percentual
+#| tbl-cap: 'Capacidade Instalada em Autoprodutores - Segmento Industrial por Setor. Valores percentuais. Unidade: (%). Não inclui Micro e Mini Geração Distribuída.'
+
 setores <- c(
   "Açúcar e Álcool", "Alimentos e Bebidas", "Alumínio", "Cerâmica",
   "Cimento", "Ferro-Gusa e Aço", "Ferro-Ligas", "Mineração",
@@ -346,11 +426,17 @@ benCorrido::create_dropdown(
 ## Capacidade Instalada
 
 ```{r}
+#| label: tbl-capacidade-instalada-1
+#| tbl-cap: 'Capacidade Instalada. Fonte: ANP. Refino de Petróleo: Capacidade nominal. Paraná: Inclui óleo de xisto. Pernambuco: 1º trem da refinaria RNEST entrou em operação em 6 dezembro de 2014, conforme Autorização ANP (de operação) nº 506/2014. Não inclui Micro e Mini Geração Distribuída'
+
 benCorrido::tab_capacidade_instalada_1(con, lab1 = "Região", lab2 = "UF")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_1")
 ```
 
 ```{r}
+#| label: tbl-capacidade-instalada-2
+#| tbl-cap: 'Capacidade Instalada. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_capacidade_instalada_2(con, lab1 = "Região")
 benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_2")
 ```
@@ -358,11 +444,17 @@ benCorrido::gerar_botoes_download(tab_name = "tab_capacidade_instalada_2")
 ## Reservas Provadas e Potencial Hidráulico
 
 ```{r}
+#| label: tbl-reservas-provadas-potencial-hidraulico-1
+#| tbl-cap: 'Reservas Provadas e Potencial Hidráulico. Potencial Hidráulico MW: Fontes: SIPOT - Sistema do Potencial Hidrelétrico Brasileiro (Eletrobras); Aneel. % do total: Potenciais calculados considerando distribuição equitativa nos aproveitamentos de fronteira. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_reservas_provadas_potencial_hidraulico_1(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_potencial_hidraulico_1")
 ```
 
 ```{r}
+#| label: tbl-reservas-provadas-potencial-hidraulico-2
+#| tbl-cap: 'Reservas Provadas e Potencial Hidráulico. Unidade: %. Não inclui Micro e Mini Geração Distribuída.'
+
 benCorrido::tab_reservas_provadas_potencial_hidraulico_2(con, lab1 = "Região")
 benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_potencial_hidraulico_2")
 ```
