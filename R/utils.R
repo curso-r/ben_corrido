@@ -181,7 +181,7 @@ create_dropdown <- function(elementos, id, params, label = "", html = FALSE,
   }
 
   dropdown_html <- htmltools::div(
-    class = "form-group mb-3",
+    class = "dropdown-label form-group mb-3",
     htmltools::tags$label(label, `for` = dropdown_id),
     select_html
   )

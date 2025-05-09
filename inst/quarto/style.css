@@ -47,6 +47,12 @@ li.slick-active {
   border-radius: 8px;
 }
 
+/* dropdown */
+
+.dropdown-label {
+  text-align: left !important;
+}
+
 .element_container > svg {
   display: block;
   margin: auto;
@@ -55,6 +61,7 @@ li.slick-active {
 .download a {
   text-decoration: none;
 }
+
 
 /* reactable */
 

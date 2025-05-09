@@ -16,6 +16,9 @@ ano <- params$ano
 ## Oferta Interna de Energia / PIB / População
 
 ```{r}
+#| label: tbl-oferta-interna-energia-pib-populacao
+#| tbl-cap: 'Oferta Interna de Energia / PIB / População. Valores em reais constantes de 2010 convertidos para dólares em paridade do poder de compra (ppc) de 2010. População Residente-POP: Estimativa elaborada pela EPE baseada na "Projeção da População do Brasil por sexo e idade: 2000-2060" - agosto de 2013 (IBGE).'
+
 benCorrido::tab_oferta_interna_energia_pib_populacao(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_populacao")
 ```
@@ -23,6 +26,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_pop
 ## Oferta Interna de Energéticos / PIB
 
 ```{r}
+#| label: tbl-oferta-interna-energeticos-pib
+#| tbl-cap: 'Oferta Interna de Energéticos / PIB. Unidade: tep /10³ US$ ppc (2010).'
+
 benCorrido::tab_oferta_interna_energeticos_pib(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib")
 ```
@@ -30,6 +36,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib
 ## Consumo Final Energético
 
 ```{r}
+#| label: tbl-consumo-final-energetico
+#| tbl-cap: 'Consumo Final Energético. Unidade: 10³ tep. Comercial e Outros: Corresponde aos setores público e comercial. Extrativa Mineral: Mineração e pelotização. Exclui exploração de petróleo, gás natural e mineração de carvão mineral. Não Metálicos: Corresponde aos setores cimento e cerâmica. Metalurgia: Corresponde aos setores ferro-gusa e aço, ferro-ligas e não-ferrosos.'
+
 benCorrido::tab_consumo_final_energetico(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico")
 ```
@@ -37,6 +46,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico")
 ## Produto Interno Bruto Setorial
 
 ```{r}
+#| label: tbl-produto-interno-bruto-setorial
+#| tbl-cap: 'Produto Interno Bruto Setorial. Unidade: 10⁶ US$ ppc (2010). Comercial e Público: Corresponde a comércio, comunicações, instituições financeiras, administrações públicas, aluguéis, outros serviços e SIUP, menos geração elétrica. Extrativa Mineral: Exclusive extração de petróleo, gás natural e de carvão mineral. Química: Exclusive refino de petróleo, destilação de álcool e produção de coque. Têxtil: Exclusive vestuário, calçados e artefatos de tecido. Outros: Corresponde a mecânica, material elétrico e comunicação, material de transporte, madeira, mobiliário, borracha, farmacêutica, perfumaria, sabões e velas, produção de matérias plásticas, fumo, construção e diversos.  Setor Energético: Corresponde a extração de petróleo, gás natural e carvão mineral; refino de petróleo; destilação de álcool, geração de eletricidade e produção de coque. Dummy financeiro distribuido proporcionalmente aos grupos de setores econômicos. Dólar constante de 2010.'
+#| 
 benCorrido::tab_produto_interno_bruto_setorial(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_produto_interno_bruto_setorial")
 ```
@@ -44,6 +56,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_produto_interno_bruto_setorial
 ## Consumo Final de Energia do Setor / PIB do Setor
 
 ```{r}
+#| label: tbl-consumo-final-energia-setor-pib-setor
+#| tbl-cap: 'Consumo Final de Energia do Setor / PIB do Setor. Unidade: tep/10⁶ US$ ppc (2010). Consumo Final Energético com Residencial/ Consumo Final Energético sem Residencial: Calculado sobre o PIB total. tep/10⁶ US$ ppc (2010):Dólar constante ppc de 2010.'
+
 benCorrido::tab_consumo_final_energia_setor_pib_setor(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energia_setor_pib_setor")
 ```
@@ -51,14 +66,19 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energia_setor_pi
 ## Setor Residencial – Energia / População
 
 ```{r}
+#| label: tbl-setor-residencial-energia-populacao
+#| tbl-cap: 'Setor Residencial – Energia / População. Consumo Final de Energia para Cocção: Consumo Final Energético para Cocção considera GLP, gás canalizado, lenha e carvão vegetal, inclusive o Gás Natural.'
+
 benCorrido::tab_setor_residencial_energia_populacao(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial_energia_populacao")
 ```
 
-
 ## Setor de Transportes – Energia / PIB do Setor
 
 ```{r}
+#| label: tbl-setor-transportes-energia-pib-setor
+#| tbl-cap: 'Setor de Transportes – Energia / PIB do Setor.'
+
 benCorrido::tab_setor_transportes_energia_pib_setor(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_energia_pib_setor")
 ```
@@ -68,6 +88,9 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_energia_pib_
 ### Cimento
 
 ```{r}
+#| label: tbl-consumo-especifico-energia-cimento
+#| tbl-cap: 'Consumo Específico de Energia no Setor Cimento.'
+
 setor <- "Cimento"
 segmento <- "Total"
 
@@ -78,6 +101,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_
 ### Metalurgia
 
 ```{r}
+#| label: tbl-consumo-especifico-energia-metalurgia
+#| tbl-cap: 'Consumo Específico de Energia no Setor Metalurgia por Segmento. Segmento total: soma de ferro-gusa e aço, ferroligas e não ferrosos e outros metalúrgicos. Ferro-Gusa e Aço - Produção: produção de aço bruto.'
+
 setor <- "Metalurgia"
 segmentos <- c("Ferro-Gusa e Aço", "Ferroligas", "Não-Ferrosos e Outros Metalúrgicos", "Total")
 
@@ -104,6 +130,9 @@ benCorrido::create_dropdown(
 ### Papel e Celulose
 
 ```{r}
+#| label: tbl-consumo-especifico-energia-papel-celulose
+#| tbl-cap: 'Consumo Específico de Energia no Setor Papel e Celulose.'
+
 setor <- "Papel e Celulose"
 segmento <- "Total"
 
@@ -114,6 +143,9 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_
 ### Setor Energético
 
 ```{r}
+#| label: tbl-consumo-especifico-energia-setor-energetico
+#| tbl-cap: 'Consumo Específico de Energia no Setor Energético.'
+
 setor <- "Setor Energético"
 segmento <- "Total"
 
@@ -124,11 +156,17 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_
 ## Preços Médios Correntes de Fontes de Energia
 
 ```{r}
+#| label: tbl-precos-medios-correntes-fontes-energia-1
+#| tbl-cap: 'Preços Médios Correntes de Fontes de Energia. Preços Médios Correntes de Fontes de Energia: Moeda nacional corrente convertida a dólar corrente pela taxa média anual do câmbio. Preços ao consumidor com impostos. Óleo Diesel/Gasolina/Etanol Hidratado/GLP: Cotações do Rio de janeiro, até 2004. Média Brasil a partir de 2005. Gás Natural Combustível: Até 1994, preço de venda da Petrobrás a consumidores industriais. A partir de 1995, cotações de indústrias de vários estados. Eletricidade Industrial/Eletricidade Residencial: Preços médios nacionais. Carvão Vapor/Carvão Vegetal/Lenha Nativa/Lenha Reflorestamento: Cotações de indústrias de vários Estados. Óleo Combustível: Preço médio no Rio de Janeiro'
+
 benCorrido::tab_precos_medios_correntes_fontes_energia_1(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_precos_medios_correntes_fontes_energia_1")
 ```
 
 ```{r}
+#| label: tbl-precos-medios-correntes-fontes-energia-2
+#| tbl-cap: 'Preços Médios Correntes de Fontes de Energia. Unidade: US\\$/bep. Petróleo Importado (Preços de 2010): Dólar corrente convertido a dólar constante de 2010 pelo IPC (CPI-U) dos Estados Unidos. US\\$/bep: Como forma de manter a série histórica, é adotado bep baseado no poder calorífico superior da fonte.'
+
 benCorrido::tab_precos_medios_correntes_fontes_energia_2(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_precos_medios_correntes_fontes_energia_2")
 ```
@@ -136,6 +174,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_precos_medios_correntes_fontes
 ## Relações de Preços entre as Fontes de Energia
 
 ```{r}
+#| label: tbl-relacoes-precos-fontes-energia
+#| tbl-cap: 'Relações de Preços entre as Fontes de Energia. Petróleo Importado*: Petróleo a preços correntes, da @tbl-precos-medios-correntes-fontes-energia-2.'
 benCorrido::tab_relacoes_precos_fontes_energia(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_relacoes_precos_fontes_energia")
 ```
@@ -143,6 +183,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_relacoes_precos_fontes_energia
 ## Gastos em Divisas com Importação de Petróleo
 
 ```{r}
+#| label: tbl-gastos-divisas-importacao-petroleo
+#| tbl-cap: 'Gastos em Divisas com Importação de Petróleo. Unidade: 10⁶ US$ (FOB). Fonte:Petrobrás e SECEX (até 2004), ANP e MDIC (a partir de 2005).'
 benCorrido::tab_gastos_divisas_importacao_petroleo(con)
 benCorrido::gerar_botoes_download(tab_name = "tab_gastos_divisas_importacao_petroleo")
 ```
