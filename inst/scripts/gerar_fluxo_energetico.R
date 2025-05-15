@@ -166,8 +166,8 @@ grafico_sankey_fluxo_energetico <- dplyr::bind_rows(
     nome_base = dplyr::if_else(base_destino, destino, origem),
     rotulo_percentual = stringr:::str_glue("{percentual_no_formato} de {nome_base}")
   ) |>
-  dplyr::filter(ano == max(ano)) |> 
-  dplyr::bind_cols(tab_en) |> 
+  dplyr::filter(ano == max(ano)) |>
+  dplyr::bind_cols(tab_en) |>
   dplyr::mutate(
     nome_base_en = dplyr::if_else(base_destino, destino_en, origem_en),
     rotulo_percentual_en = stringr:::str_glue("{percentual_no_formato} of {nome_base_en}"),
@@ -295,6 +295,39 @@ tab_perdas <- tab_fluxo_eletrico |>
   dplyr::select(-fluxo_2)
 
 # Jutando tabelas
+tab_en <- tibble::tibble(
+  origem_en = c(
+    "Biomass",
+    "Steam Coal",
+    "Oil Products",
+    "Wind",
+    "Natural Gas",
+    "Hydraulic",
+    "Others",
+    "Solar",
+    "Uranium contained in UO2",
+    "Electricity Net Imports",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply",
+    "Domestic Electricity Supply"
+  ),
+  destino_en = c(
+    "Domestic Electricity Supply", "Domestic Electricity Supply",
+    "Domestic Electricity Supply", "Domestic Electricity Supply",
+    "Domestic Electricity Supply", "Domestic Electricity Supply",
+    "Domestic Electricity Supply", "Domestic Electricity Supply",
+    "Domestic Electricity Supply", "Domestic Electricity Supply",
+    "Agriculture and Livestock", "Commercial", "Industrial",
+    "Public", "Residential", "Energy Sector", "Transportation",
+    "Distribution and Transmission Losses"
+  )
+)
+
 grafico_sankey_fluxo_eletrico <- dplyr::bind_rows(
   tab_oferta_interna_energia_eletrica,
   tab_importacao_oferta,
@@ -324,4 +357,10 @@ grafico_sankey_fluxo_eletrico <- dplyr::bind_rows(
     nome_base = dplyr::if_else(base_destino, destino, origem),
     rotulo_percentual = stringr:::str_glue("{percentual_no_formato} de {nome_base}")
   ) |>
-  dplyr::filter(ano == max(ano))
+  dplyr::filter(ano == max(ano)) |> 
+  dplyr::bind_cols(tab_en) |>
+  dplyr::mutate(
+    nome_base_en = dplyr::if_else(base_destino, destino_en, origem_en),
+    rotulo_percentual_en = stringr:::str_glue("{percentual_no_formato} of {nome_base_en}"),
+  )
+

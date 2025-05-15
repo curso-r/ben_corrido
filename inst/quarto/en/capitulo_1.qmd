@@ -672,7 +672,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 ### Energy Flux - National Energy Balance 2024 - base year 2023
 
 ```{r}
-#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023. Unit: 10⁶ toe.'
+#| fig-cap: 'Energy Flux - National Energy Balance 2024 - base year 2023. Unit: 10⁶ toe.'
 #| label: fig-fluxo-energetico
 benCorrido::grafico_sankey_fluxo_energetico(con, lang = "en")
 ```
@@ -681,7 +681,7 @@ benCorrido::grafico_sankey_fluxo_energetico(con, lang = "en")
 ### Electricity Flux - National Energy Balance 2024 - base year 2023
 
 ```{r}
-#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023. Unit: TWh.'
+#| fig-cap: 'Electricity Flux - National Energy Balance 2024 - base year 2023. Unit: TWh.'
 #| label: fig-fluxo-energia-eletrica
 benCorrido::grafico_sankey_fluxo_eletrico(con, lang = "en")
 ```

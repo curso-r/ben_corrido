@@ -635,6 +635,12 @@ grafico_sankey_fluxo_energetico <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_sankey_fluxo_energetico") |>
     dplyr::collect()
 
+  if (lang != "pt") {
+    tab$origem <- tab[[glue::glue("origem_{lang}")]]
+    tab$destino <- tab[[glue::glue("destino_{lang}")]]
+    tab$rotulo_percentual <- tab[[glue::glue("rotulo_percentual_{lang}")]]
+  }
+
   sufixo <- "10⁶ tep"
 
   htmltools::div(
@@ -657,6 +663,12 @@ grafico_sankey_fluxo_eletrico <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_sankey_fluxo_eletrico") |>
     dplyr::collect()
 
+  if (lang != "pt") {
+    tab$origem <- tab[[glue::glue("origem_{lang}")]]
+    tab$destino <- tab[[glue::glue("destino_{lang}")]]
+    tab$rotulo_percentual <- tab[[glue::glue("rotulo_percentual_{lang}")]]
+  }
+  
   sufixo <- "TWh"
 
   htmltools::div(
