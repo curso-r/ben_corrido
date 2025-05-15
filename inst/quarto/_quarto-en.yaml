@@ -24,7 +24,7 @@ book:
         # - en/capitulo_6.qmd
         # - en/capitulo_7.qmd
         # - en/capitulo_8.qmd
-    - part: Anexos
+    - part: Appendixes
       # chapters:
         # - en/anexo_1.qmd
         # - en/anexo_2.qmd

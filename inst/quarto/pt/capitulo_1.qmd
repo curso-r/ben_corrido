@@ -405,7 +405,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_f
 
 ```{r}
 #| label: tbl-dependencia-externa-energia-absoluto
-#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos.'
+#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos. Valores negativos correspondem a exportação líquida. Dependência Externa de Energia: Diferença entre a demanda interna de energia (inclusive perdas de transformação, distribuição e armazenagem) e a produção interna.'
 
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")

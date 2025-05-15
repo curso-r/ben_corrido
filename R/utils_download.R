@@ -4,13 +4,21 @@
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-gerar_botoes_download <- function(tab_name, ..., .tipo_dado = NULL, matriz = TRUE,
-                                  tabela = TRUE, position = "end") {
+gerar_botoes_download <- function(tab_name, ..., lang = "pt", .tipo_dado = NULL, 
+                                  matriz = TRUE, tabela = TRUE, position = "end") {
   tab_name <- stringr::str_remove(tab_name, "^tab_")
 
   if (!is.null(.tipo_dado)) {
     tab_name <- glue::glue("{tab_name}_{.tipo_dado}")
   }
+
+  if (lang == "pt") {
+    btn_matriz <- "Matriz"
+    btn_tabela <- "Tabela"
+  } else if (lang == "en") {
+    btn_matriz <- "Matrix"
+    btn_tabela <- "Table"
+  } 
 
   htmltools::div(
     class = glue::glue("download mt-4 mb-4 text-{position}"),
@@ -20,7 +28,7 @@ gerar_botoes_download <- function(tab_name, ..., .tipo_dado = NULL, matriz = TRU
         htmltools::tags$button(
           class = "btn btn-default",
           bsicons::bs_icon("download"),
-          "Matriz"
+          btn_matriz
         )
       )
     },
@@ -31,7 +39,7 @@ gerar_botoes_download <- function(tab_name, ..., .tipo_dado = NULL, matriz = TRU
         htmltools::tags$button(
           class = "btn btn-default",
           bsicons::bs_icon("download"),
-          "Tabela"
+          btn_tabela
         )
       )
     },

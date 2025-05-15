@@ -103,6 +103,39 @@ tab_ajustes_oferta_interna_energia <- tab_fluxo_energetico |>
   )
 
 # Juntando tabelas
+tab_en <- tibble::tibble(
+  origem_en = c(
+    "Coal and Coke",
+    "Sugar Cane Products",
+    "Natural Gas",
+    "Hydraulic",
+    "Firewood and Charcoal",
+    "Others",
+    "Petroleum and Oil Products",
+    "Uranium - U3O8",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply",
+    "Gross Domestic Supply"
+  ),
+  destino_en = c(
+    "Gross Domestic Supply", "Gross Domestic Supply", "Gross Domestic Supply",
+    "Gross Domestic Supply", "Gross Domestic Supply", "Gross Domestic Supply",
+    "Gross Domestic Supply", "Gross Domestic Supply", "Final Non-Energy Consumption",
+    "Agriculture And Livestock", "Commercial", "Unidentified Consumption", "Industrial",
+    "Public", "Residential", "Energy Sector", "Transportation",
+    "Transformation Losses", "Other Losses", "Statistical Adjustments"
+  )
+)
+
 grafico_sankey_fluxo_energetico <- dplyr::bind_rows(
   tab_oferta_interna,
   tab_consumo_final_nao_energetico,
@@ -133,7 +166,12 @@ grafico_sankey_fluxo_energetico <- dplyr::bind_rows(
     nome_base = dplyr::if_else(base_destino, destino, origem),
     rotulo_percentual = stringr:::str_glue("{percentual_no_formato} de {nome_base}")
   ) |>
-  dplyr::filter(ano == max(ano))
+  dplyr::filter(ano == max(ano)) |> 
+  dplyr::bind_cols(tab_en) |> 
+  dplyr::mutate(
+    nome_base_en = dplyr::if_else(base_destino, destino_en, origem_en),
+    rotulo_percentual_en = stringr:::str_glue("{percentual_no_formato} of {nome_base_en}"),
+  )
 
 
 # Fluxo elétrico

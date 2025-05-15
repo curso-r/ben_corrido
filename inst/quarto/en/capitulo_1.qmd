@@ -159,15 +159,15 @@ Tables and graphs with consolidated data of the evolution of the production are 
 ## Absolute
 
 ```{r}
-#| tbl-cap: 'Primary Energy Production. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Primary Energy Production. Absolute values. Unit: 10³ toe.'
 #| label: tbl-producao-energia-primaria-absoluto
 
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
-#| fig-cap: 'Primary Energy Production. Valores absolutos. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| fig-cap: 'Primary Energy Production. Absolute values. Others: Steam Coal, Metallurgical Coal, Uranium (U₃O₈), Other Non-Renewable, Wind, Solar, Other Renewable.'
 #| label: fig-producao-energia-primaria-absoluto
 
 linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
@@ -179,15 +179,15 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 ## Percentage
 
 ```{r}
-#| tbl-cap: 'Primary Energy Production. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Primary Energy Production. Percentage values. Unit: (%).'
 #| label: tbl-producao-energia-primaria-percentual
 
 benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
-#| fig-cap: 'Primary Energy Production. Valores percentuais. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| fig-cap: 'Primary Energy Production. Percentage values. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
 #| label: fig-producao-energia-primaria-percentual
 
 linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
@@ -199,23 +199,23 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 :::
 
 
-### Oferta Interna de Energia
+### Total Energy Supply
 
 ::: {.panel-tabset}
 
 ## Absolute
 
 ```{r}
-#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Total Energy Supply. Absolute values. Unit: 10³ toe. Hydraulic: Includes electricity imports originated from hidraulic sources. 1 kWh = 860 kcal (physical equivalent - First Principle of Thermodynamics). Look Appendix VI.'
 #| label: tbl-oferta-interna-energia-absoluto
 
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-oferta-interna-energia-absoluto
-#| fig-cap: 'Oferta Interna de Energia. Valores absolutos. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+#| fig-cap: 'Total Energy Supply. Absolute values. Hydraulic:Includes electricity imports originated from hidraulic sources. 1 kWh = 860 kcal (physical equivalent - First Principle of Thermodynamics). Look Appendix VI. Others: Natural Gas, Uranium (U₃O₈), Other Non-Renewable, Wind, Solar, Others.'
 
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
@@ -226,16 +226,16 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 ## Percentage
 
 ```{r}
-#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Total Energy Supply. Percentage values. Unit: (%). Hydraulic: Includes electricity imports originated from hidraulic sources. 1 kWh = 860 kcal (physical equivalent - First Principle of Thermodynamics). Look Appendix VI.'
 #| label: tbl-oferta-interna-energia-percentual
 
 benCorrido::tab_oferta_interna_energia(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-oferta-interna-energia-percentual
-#| fig-cap: 'Oferta Interna de Energia. Valores percentuais. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+#| fig-cap: 'Total Energy Supply. Percentage values. Hydraulic: Includes electricity imports originated from hidraulic sources. 1 kWh = 860 kcal (physical equivalent - First Principle of Thermodynamics). Look Appendix VI. Others: Natural Gas, Uranium (U₃O₈), Other Non-Renewable, Wind, Solar, Others.'
 
 linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
@@ -246,23 +246,23 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 :::
 
 
-### Consumo Final por Fonte
+### Final Energy Consumption by Source
 
 ::: {.panel-tabset}
 
 ## Absolute
 
 ```{r}
-#| tbl-cap: 'Consumo Final por Fonte. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Final Energy Consumption by Source. Absolute values. Unit: 10³ toe.'
 #| label: tbl-consumo-final-fonte-absoluto
 
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-consumo-final-fonte-absoluto
-#| fig-cap: 'Consumo Final por Fonte. Valores absolutos. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
+#| fig-cap: 'Final Energy Consumption by Source. Absolute values. Others: Coal, Other Primary Sources, Biodiesel, Coke Oven Gas, Coal Coke, Charcoal, Ethyl Alcohol , Tar.'
 linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
 
@@ -272,17 +272,17 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 ## Percentage
 
 ```{r}
-#| tbl-cap: 'Consumo Final por Fonte. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Final Energy Consumption by Source. Percentage values. Unit: (%).'
 #| label: tbl-consumo-final-fonte-percentual
 
 benCorrido::tab_consumo_final_fonte(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Percentual", lang = "en")
 ```
 
 
 ```{r}
 #| label: fig-consumo-final-fonte-percentual
-#| fig-cap: 'Consumo Final por Fonte. Valores percentuais. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
+#| fig-cap: 'Final Energy Consumption by Source. Percentage values. Others: Coal, Other Primary Sources, Biodiesel, Coke Oven Gas, Coal Coke, Charcoal, Ethyl Alcohol , Tar.'
 linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
@@ -293,7 +293,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 
 
-### Consumo Final por Setor
+### Final Energy Consumption by Sector
 
 ::: {.panel-tabset}
 
@@ -301,15 +301,15 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-consumo-final-setor-absoluto
-#| tbl-cap: 'Consumo Final por Setor. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Final Energy Consumption by Sector. Absolute values. Unit: 10³ toe.'
 
 benCorrido::tab_consumo_final_setor(con, .tipo_dado = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-consumo-final-setor-absoluto
-#| fig-cap: 'Consumo Final por Setor. Valores absolutos. Outros: Comercial, Público, Consumo Não-Identificado.'
+#| fig-cap: 'Final Energy Consumption by Sector. Absolute values. Others: Commercial, Public, Unidentified Consumption.'
 
 linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
@@ -321,16 +321,16 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-consumo-final-setor-percentual
-#| tbl-cap: 'Consumo Final por Setor. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Final Energy Consumption by Sector. Percentage values. Unit: (%).'
 
 benCorrido::tab_consumo_final_setor(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Percentual", lang = "en")
 ```
 
 
 ```{r}
 #| label: fig-consumo-final-setor-percentual
-#| fig-cap: 'Consumo Final por Setor. Valores percentuais. Outros: Comercial, Público, Consumo Não-Identificado.'
+#| fig-cap: 'Final Energy Consumption by Sector. Percentage values. Others: Commercial, Public, Unidentified Consumption.'
 
 linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
 area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
@@ -341,7 +341,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 :::
 
 
-### Consumo Final Energético por Fonte
+### Final Energy Consumption by Source for Energy Use
 
 ::: {.panel-tabset}
 
@@ -349,27 +349,27 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-consumo-final-energetico-fonte-absoluto
-#| tbl-cap: 'Consumo Final Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Final Energy Consumption by Source for Energy Use. Absolute values. Unit: 10³ toe.'
 
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ## Percentage
 
 ```{r}
 #| label: tbl-consumo-final-energetico-fonte-percentual
-#| tbl-cap: 'Consumo Final Energético por Fonte. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Final Energy Consumption by Source for Energy Use. Percentage values. Unit: (%).'
 
 benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual", lang = "en")
 ```
 
 :::
 
 
 
-### Consumo Final Não Energético por Fonte
+### Final Non-Energy Consumption by Source
 
 ::: {.panel-tabset}
 
@@ -377,26 +377,26 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte
 
 ```{r}
 #| label: tbl-consumo-final-nao-energetico-fonte-absoluto
-#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Final Non-Energy Consumption by Source. Absolute values. Unit: 10³ toe.'
 
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ## Percentage
 
 ```{r}
 #| label: tbl-consumo-final-nao-energetico-fonte-percentual
-#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Final Non-Energy Consumption by Source. Percentage values. Unit: (%).'
 
 benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual", lang = "en")
 ```
 
 :::
 
 
-### Dependência Externa de Energia
+### External Dependence on Energy
 
 ::: {.panel-tabset}
 
@@ -404,20 +404,20 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_f
 
 ```{r}
 #| label: tbl-dependencia-externa-energia-absoluto
-#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos.'
+#| tbl-cap: 'External Dependence on Energy. Absolute values. Negatives values corresponds to net exports. External Dependence on Energy: Difference between Domestic Energy Demand (including losses in transformation, distribution and storage) and Domestic Production.'
 
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ## Percentage
 
 ```{r}
 #| label: tbl-dependencia-externa-energia-percentual
-#| tbl-cap: 'Dependência Externa de Energia. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'External Dependence on Energy. Percentage values. Unit: (%). Negatives values corresponds to net exports. External Dependence on Energy: Difference between Domestic Energy Demand (including losses in transformation, distribution and storage) and Domestic Production.'
 
 benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual", lang = "en")
-benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual", lang = "en")
 ```
 
 :::
@@ -425,13 +425,13 @@ benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", 
 ```{r}
 #| fig-height: 4
 #| fig-width: 8
-#| fig-cap: 'Dependência externa de energia.'
+#| fig-cap: 'External Dependence on Energy.'
 #| label: fig-dependencia-externa-energia
 benCorrido::grafico_dependencia_externa_energia(con, lang = "en")
 ```
 
 
-### Composição Setorial do Consumo de Derivados de Petróleo
+### Oil Products Consumption by Sector
 
 ::: {.panel-tabset}
 
@@ -439,18 +439,18 @@ benCorrido::grafico_dependencia_externa_energia(con, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-derivados-petroleo-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos. Unidade: 10³ tep. Composição Setorial do Consumo de Derivados de Petróleo: Inclui líquidos de gás natural.'
+#| tbl-cap: 'Oil Products Consumption by Sector. Absolute values. Unit: 10³ toe. Oil Products Consumption by Sector:  Includes natural gas liquids.'
 
-benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Absoluto")
+benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Absoluto",  lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-derivados-petroleo-absoluto
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos. Outros: Centrais Elet. Serv. Públic, Centrais Elet. Autoprodutoras, Comercial, Público, Consumo Não-Identificado.'
+#| fig-cap: 'Oil Products Consumption by Sector. Absolute values. Others: Public Service Power Plants, Self-Producers Power Plants, Commercial, Public, Unidentified Consumption.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha",  lang = "en")
+area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "area",  lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -459,18 +459,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-derivados-petroleo-percentual
-#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Oil Products Consumption by Sector. Percentage values. Unit: (%). Oil Products Consumption by Sector: Includes natural gas liquids.'
 
-benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Percentual")
+benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-derivados-petroleo-percentual
-#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais. Outros: Centrais Elet. Serv. Públic, Centrais Elet. Autoprodutoras, Comercial, Público, Consumo Não-Identificado.'
+#| fig-cap: 'Oil Products Consumption by Sector. Percentage values. Others: Public Service Power Plants, Self-Producers Power Plants, Commercial, Public, Unidentified Consumption.'
 
 linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -479,7 +479,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 
 
-### Composição Setorial do Consumo de Eletricidade
+### Electricity Consumption by Sector
 
 ::: {.panel-tabset}
 
@@ -487,18 +487,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-eletricidade-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Electricity Consumption by Sector. Absolute values. Unit: 10³ toe.'
 
-benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Absoluto")
+benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Absoluto",  lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-eletricidade-absoluto
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos.'
+#| fig-cap: 'Electricity Consumption by Sector. Absolute values.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha",  lang = "en")
+area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area",  lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -507,18 +507,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-eletricidade-percentual
-#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Electricity Consumption by Sector. Percentage values. Unit: (%).'
 
-benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Percentual")
+benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-eletricidade-percentual
-#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais.'
+#| fig-cap: 'Electricity Consumption by Sector. Percentage values.'
 
 linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -527,7 +527,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 
 
-### Composição Setorial de Consumo de Carvão Vapor
+### Steam Coal Consumption by Sector
 
 ::: {.panel-tabset}
 
@@ -535,18 +535,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-carvao-vapor-absoluto
-#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos. Unidade: 10³ tep.'
+#| tbl-cap: 'Steam Coal Consumption by Sector. Absolute values. Unit: 10³ toe.'
 
-benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Absoluto")
+benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Absoluto",  lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-carvao-vapor-absoluto
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos.'
+#| fig-cap: 'Steam Coal Consumption by Sector. Absolute values.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha",  lang = "en")
+area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area",  lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -555,18 +555,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-carvao-vapor-percentual
-#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Steam Coal Consumption by Sector. Percentage values. Unit: (%).'
 
-benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Percentual")
+benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-carvao-vapor-percentual
-#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais.'
+#| fig-cap: 'Steam Coal Consumption by Sector. Percentage values.'
 
 linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -574,8 +574,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 :::
 
 
-
-### Composição Setorial do Consumo Final de Biomassa
+### Biomass Consumption by Sector
 
 ::: {.panel-tabset}
 
@@ -583,18 +582,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-final-biomassa-absoluto
-#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos. Unidade: 10³ tep. Inclui bagaço de cana, lenha, outras fontes primárias renováveis, carvão vegetal e álcool.'
+#| tbl-cap: 'Biomass Consumption by Sector. Absolute values. Unit: 10³ toe. Including sugar cane bagasse, firewood, charcoal, alcohol and other renewable primary sources.'
 
-benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Absoluto")
+benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Absoluto",  lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-final-biomassa-absoluto
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos.'
+#| fig-cap: 'Biomass Consumption by Sector. Absolute values.'
 
-linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha",  lang = "en")
+area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area",  lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -603,18 +602,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-composicao-setorial-consumo-final-biomassa-percentual
-#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais. Unidade: (%). Inclui bagaço de cana, lenha, outras fontes primárias renováveis, carvão vegetal e álcool.'
+#| tbl-cap: 'Biomass Consumption by Sector. Percentage values. Unit: (%). Including sugar cane bagasse, firewood, charcoal, alcohol and other renewable primary sources.'
 
-benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Percentual")
+benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-composicao-setorial-consumo-final-biomassa-percentual
-#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais.'
+#| fig-cap: 'Biomass Consumption by Sector. Percentage values.'
 
 linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -623,7 +622,7 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 
 
-### Oferta Interna de Energia
+### Total Energy Supply
 
 ::: {.panel-tabset}
 
@@ -631,18 +630,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-oferta-interna-energia-2-absoluto
-#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos. Unidade: 10³ tep. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+#| tbl-cap: 'Total Energy Supply. Absolute values. Unit: 10³ toe. Others: Including others renewable energy and uranium.'
 
-benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Absoluto")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Absoluto")
+benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Absoluto",  lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Absoluto", lang = "en")
 ```
 
 ```{r}
 #| label: fig-oferta-interna-energia-2-absoluto
-#| fig-cap: 'Oferta Interna de Energia. Valores absolutos. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+#| fig-cap: 'Total Energy Supply. Absolute values. Others: Including others renewable energy and uranium.'
 
-linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha",  lang = "en")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "area",  lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -651,18 +650,18 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 
 ```{r}
 #| label: tbl-oferta-interna-energia-2-percentual
-#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais. Unidade: (%). Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+#| tbl-cap: 'Total Energy Supply. Percentage values. Unit: (%). Others: Including others renewable energy and uranium.'
 
-benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Percentual")
-benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Percentual")
+benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Percentual", lang = "en")
 ```
 
 ```{r}
 #| label: fig-oferta-interna-energia-2-percentual
-#| fig-cap: 'Oferta Interna de Energia. Valores percentuais. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+#| fig-cap: 'Total Energy Supply. Percentage values. Others: Including others renewable energy and uranium.'
 
 linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
 
 benCorrido::criar_carrossel(area, linha, lang = "en")
 ```
@@ -670,21 +669,21 @@ benCorrido::criar_carrossel(area, linha, lang = "en")
 :::
 
 
-### Fluxo Energético - BEN 2024/ano base 2023
+### Energy Flux - National Energy Balance 2024 - base year 2023
 
 ```{r}
-#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023. Unidade: 10⁶ tep.'
+#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023. Unit: 10⁶ toe.'
 #| label: fig-fluxo-energetico
-benCorrido::grafico_sankey_fluxo_energetico(con)
+benCorrido::grafico_sankey_fluxo_energetico(con, lang = "en")
 ```
 
 
-### Fluxo de Energia Elétrica - BEN 2024/ano base 2023
+### Electricity Flux - National Energy Balance 2024 - base year 2023
 
 ```{r}
-#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023. Unidade: TWh.'
+#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023. Unit: TWh.'
 #| label: fig-fluxo-energia-eletrica
-benCorrido::grafico_sankey_fluxo_eletrico(con)
+benCorrido::grafico_sankey_fluxo_eletrico(con, lang = "en")
 ```
 
 

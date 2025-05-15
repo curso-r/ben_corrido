@@ -3767,7 +3767,7 @@ salvar_tab_bd(tab, "tab_fatores_conversao_tep_medio")
 # ANEXO IX
 
 # tab_balanco_energitico_consolidado
-tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_ix.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_ix.rds") |>
   dplyr::select(
     grupo_en = conta_nivel_4,
     tipo_en = tipo_de_energia,
@@ -3785,7 +3785,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/dados_para_tabela_download_anexo_ix.rd
     fonte = fontes_de_energia,
     fonte_en,
     valor = valores
-  ) |> 
+  ) |>
   dplyr::mutate(valor = as.numeric(valor))
 
 salvar_tab_bd(tab, "tab_balanco_energitico_consolidado")
@@ -3794,7 +3794,7 @@ salvar_tab_bd(tab, "tab_balanco_energitico_consolidado")
 
 # tab_balanco_energitico_unidades_comerciais
 
-tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_x.rds") |> 
+tab_en <- readr::read_rds("./data-raw/rds/en/dados_para_tabela_download_anexo_x.rds") |>
   dplyr::select(
     grupo_en = conta_nivel_4,
     fonte_en = fonte_de_energia_com_unidade
