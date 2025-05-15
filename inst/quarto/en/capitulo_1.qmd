@@ -11,6 +11,8 @@ ano <- params$ano
 
 # Energy Analysis and Aggregated Data
 
+![](../img/capas/imagem_cap_1.png)
+
 ## Energy Highlights by Source – year 2023
 
 This chapter presents briefly a short analysis on the energy highlights for 2023 and comparisons with the previous year, for the main energy sources: oil, natural gas, electricity, coal, wind, biodiesel and sugarcane products
@@ -51,6 +53,641 @@ Net imports of 15.1 TWh, added to internal generation, allowed a domestic electr
 
 ```{r, fig.width=5, fig.height=2, out.width = "100%"}
 #| label: fig-geracao-energia-fontes-nr
-#| fig-cap: 'Electricity generation: non-renewable sources. The category "Others" includes: other non-renewables, other secondary, and coke oven gas.'
+#| fig-cap: 'Electricity generation: non-renewable sources. Others: Other Non-Renewable, Other secondaries, Coke Oven Gas.'
 benCorrido::grafico_geracao_energia_fontes_nr(con, lang = "en")
+```
+
+```{r}
+#| label: fig-oferta-interna-el-fonte
+#| fig-cap: 'Total Electricity Supply by Source. Other Renewable: Includes Firewood, Biodiesel and Other Renewables. Other Non-Renewable: Includes Fuel Oil, Coke Oven Gas, Other Secondaries and Other Non-Renewables.'
+#| fig-height: 3
+
+benCorrido::grafico_oferta_interna_el_fonte(con, lang = "en")
+```
+
+Brazil has an electric mix of predominantly renewable origin, with emphasis on the hydroelectric source. Considering that almost all imports come from Itaipu power plant, the hydroelectric source reaches a share of 58.9%. Renewable sources account for 89% of the Brazilian domestic electricity supply. This is the result of the sum of the amounts referring to domestic production plus imports, which are essentially renewable.
+
+On the final consumption side, there was an increase of 5.2%, reaching 616.3 TWh in 2023. Industrial and Residential sectors accounted for 36.4% and 27.5% respectively.
+
+@fig-variacao-consumo-setorial-el and @fig-crescimento-consumo-eletricidade-industria show the changes in 2023 sectoral electricity consumption compared to the previous year.
+
+```{r}
+#| label: fig-variacao-consumo-setorial-el
+#| fig-cap: 'Percentual change of electricity consumption per sector.'
+
+benCorrido::grafico_variacao_consumo_setorial_el(con, lang = "en")
+```
+
+
+```{r}
+#| label: fig-crescimento-consumo-eletricidade-industria
+#| fig-cap: 'Growth of electricity consumption in the industrial sector.'
+
+benCorrido::grafico_crescimento_consumo_eletricidade_industria(con, lang = "en")
+```
+
+The industrial, residential and commercial sectors accounted for 80.8% of the consumed electricity in the country in 2023.
+
+In 2023, Brazil’s total installed capacity for electricity generation (public service and self-service power plants) reached 199,325 MW, an increase of 10,198 MW, not including mini and micro distributed generation.
+
+```{r}
+#| label: fig-participacao-setorial-consumo-eletricidade
+#| fig-cap: 'Electricity consumption share by sector.'
+#| fig-height: 3
+
+benCorrido::grafico_participacao_setorial_consumo_el(con, lang = "en")
+```
+
+In the expansion of installed capacity, wind power plants contributed with 4,920 MW, about 48% of the total added.
+
+This edition of BEN publishes technical note for estimating thermal solar Annex VI.
+
+```{r}
+#| label: fig-participacao-fontes-capacidade-instalada
+#| fig-cap: 'Participation of energy sources in the installed capacity.'
+#| fig-height: 3
+
+benCorrido::grafico_participacao_fontes_capacidade_instalada(con, lang = "en")
+```
+
+### Wind Energy
+
+The production of electricity from wind power reached 95.8 TWh in 2023. This represents a 17.4% increase over the previous year, when it reached 81.6 TWh.
+
+In 2023, the installed capacity for wind power generation in the country increased by 20,7%. According to the Power Generation Database (SIGA), from National Agency of Electric Energy (ANEEL), the national wind farm reached 28,664 MW by the end of 2023.
+
+### Micro and mini energy generation
+
+The micro and mini distributed generation of electricity was stimulated by regulatory actions, such as the one that establishes the possibility of compensation of surplus energy produced by smaller systems (Net Metering). In 2023, the micro and distributed minigeneration reached 30,950 GWh with an installed capacity of 26,627 MW, specially the solar photovoltaic power plant, with 29,813 GWh and 26,366 MW of generation and installed power capacity respectively. Details of the generation and installed capacity of micro and distributed minigeneration are presented in tables 5.5.b and 8.4.b, respectively.
+
+### Petroleum and Oil Products
+
+The domestic production of oil increased by 12.6 % in 2023 reaching an average of 3.4 million barrels per day, of which 98 % are offshore. The State of Rio de Janeiro was responsible for the largest share: 85.6% of the annual amount. On the other hand, onshore production continues to be led by the State of Rio Grande do Norte, with 41.0% of the total onshore.
+
+On the consumption side, increases of 1.8% for fossil diesel oil and 6.9% for automotive gasoline were recorded. The transport sector accounted for 71% of the total energy consumption of fossil diesel oil.
+
+### Natural Gas
+
+The average daily production for the year was 149.8 million m³/day, and the volume of imported natural gas was an average of 17.7 million m³/day. Thus, the natural gas share in the national energy matrix reached the level of 9.6%.
+
+Natural gas demand decreased by 6.1% over the previous year, mainly due to the reduction of natural gas electricity generation, which decreased by 11.4% compared to the previous year.
+
+@fig-consumo-gas-natural shows the destination of natural gas for the years 2022 and 2023. In 2023, 28.6% of the gas consumed in the country was used to generate electricity. In 2022, this percentage was 30.3%.
+
+```{r}
+#| label: fig-consumo-gas-natural
+#| fig-cap: 'Natural gas consumption'
+#| fig-height: 4
+
+benCorrido::grafico_consumo_gas_natural(con, lang = "en")
+```
+
+### Steam Coal and Metallurgical Coal
+
+In electricity generation, the coal used is steam coal, predominantly of national origin, whose producing states are Paraná, Santa Catarina and Rio Grande do Sul. Steam coal demand for this end-use increased by 14.7% over the previous year.
+
+Metallurgical coal destined for the production of coke, following the movement of the steel industry, decreased 4.9%.
+
+## Added Data
+
+Tables and graphs with consolidated data of the evolution of the production are presented in this item, consumption, external dependence of energy, sectorial composition of the consumption of energy and summary of domestic energy supply - period 2014 to 2023.
+
+### Primary Energy Production
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| tbl-cap: 'Primary Energy Production. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-producao-energia-primaria-absoluto
+
+benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| fig-cap: 'Primary Energy Production. Valores absolutos. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| label: fig-producao-energia-primaria-absoluto
+
+linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| tbl-cap: 'Primary Energy Production. Valores percentuais. Unidade: (%).'
+#| label: tbl-producao-energia-primaria-percentual
+
+benCorrido::tab_producao_energia_primaria(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_producao_energia_primaria", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| fig-cap: 'Primary Energy Production. Valores percentuais. A categoria "Outros" inclui: Carvão Vapor, Carvão Metalúrgico, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras Renováveis.'
+#| label: fig-producao-energia-primaria-percentual
+
+linha <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_producao_energia_primaria(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+### Oferta Interna de Energia
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-oferta-interna-energia-absoluto
+
+benCorrido::tab_oferta_interna_energia(con, .tipo = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-absoluto
+#| fig-cap: 'Oferta Interna de Energia. Valores absolutos. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+
+linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais. Unidade: (%).'
+#| label: tbl-oferta-interna-energia-percentual
+
+benCorrido::tab_oferta_interna_energia(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-percentual
+#| fig-cap: 'Oferta Interna de Energia. Valores percentuais. "Hidráulica" inclui: importação de eletricidade oriunda de fonte hidráulica. "Outros" inclui: Gás Natural, Urânio (U₃O₈), Outras Não Renováveis, Eólica, Solar, Outras. 1 kWh = 860 kcal (equivalente térmico teórico - primeiro princípio da termodinâmica). Ver Anexo VI - Tratamento das informações.'
+
+linha <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_oferta_interna_energia(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+### Consumo Final por Fonte
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| tbl-cap: 'Consumo Final por Fonte. Valores absolutos. Unidade: 10³ tep.'
+#| label: tbl-consumo-final-fonte-absoluto
+
+benCorrido::tab_consumo_final_fonte(con, .tipo = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-consumo-final-fonte-absoluto
+#| fig-cap: 'Consumo Final por Fonte. Valores absolutos. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
+linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| tbl-cap: 'Consumo Final por Fonte. Valores percentuais. Unidade: (%).'
+#| label: tbl-consumo-final-fonte-percentual
+
+benCorrido::tab_consumo_final_fonte(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_fonte", .tipo_dado = "Percentual")
+```
+
+
+```{r}
+#| label: fig-consumo-final-fonte-percentual
+#| fig-cap: 'Consumo Final por Fonte. Valores percentuais. Outros: Carvão Mineral, Outras Fontes Primárias, Biodiesel, Gás de Coqueria, Coque de Carvão Mineral, Carvão Vegetal , Álcool Etílico, Alcatrão.'
+linha <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_consumo_final_fonte(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+
+### Consumo Final por Setor
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-consumo-final-setor-absoluto
+#| tbl-cap: 'Consumo Final por Setor. Valores absolutos. Unidade: 10³ tep.'
+
+benCorrido::tab_consumo_final_setor(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-consumo-final-setor-absoluto
+#| fig-cap: 'Consumo Final por Setor. Valores absolutos. Outros: Comercial, Público, Consumo Não-Identificado.'
+
+linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-consumo-final-setor-percentual
+#| tbl-cap: 'Consumo Final por Setor. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_consumo_final_setor(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_setor", .tipo_dado = "Percentual")
+```
+
+
+```{r}
+#| label: fig-consumo-final-setor-percentual
+#| fig-cap: 'Consumo Final por Setor. Valores percentuais. Outros: Comercial, Público, Consumo Não-Identificado.'
+
+linha <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha", lang = "en")
+area <- benCorrido::grafico_consumo_final_setor(con, .tipo_dado = "Percentual", .tipo_grafico = "area", lang = "en")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+### Consumo Final Energético por Fonte
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-consumo-final-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+
+benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-consumo-final-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Energético por Fonte. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_consumo_final_energetico_fonte(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico_fonte", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+
+### Consumo Final Não Energético por Fonte
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-absoluto
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores absolutos. Unidade: 10³ tep.'
+
+benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-consumo-final-nao-energetico-fonte-percentual
+#| tbl-cap: 'Consumo Final Não Energético por Fonte. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_consumo_final_nao_energetico_fonte(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_nao_energetico_fonte", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+### Dependência Externa de Energia
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-dependencia-externa-energia-absoluto
+#| tbl-cap: 'Dependência Externa de Energia. Valores absolutos.'
+
+benCorrido::tab_dependencia_externa_energia(con, .tipo = "Absoluto", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-dependencia-externa-energia-percentual
+#| tbl-cap: 'Dependência Externa de Energia. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_dependencia_externa_energia(con, .tipo = "Percentual", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia", .tipo_dado = "Percentual")
+```
+
+:::
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: 'Dependência externa de energia.'
+#| label: fig-dependencia-externa-energia
+benCorrido::grafico_dependencia_externa_energia(con, lang = "en")
+```
+
+
+### Composição Setorial do Consumo de Derivados de Petróleo
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-derivados-petroleo-absoluto
+#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos. Unidade: 10³ tep. Composição Setorial do Consumo de Derivados de Petróleo: Inclui líquidos de gás natural.'
+
+benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-derivados-petroleo-absoluto
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores absolutos. Outros: Centrais Elet. Serv. Públic, Centrais Elet. Autoprodutoras, Comercial, Público, Consumo Não-Identificado.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-derivados-petroleo-percentual
+#| tbl-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_composicao_setorial_consumo_derivados_petroleo(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_derivados_petroleo", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-derivados-petroleo-percentual
+#| fig-cap: 'Composição Setorial do Consumo de Derivados de Petróleo. Valores percentuais. Outros: Centrais Elet. Serv. Públic, Centrais Elet. Autoprodutoras, Comercial, Público, Consumo Não-Identificado.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_derivados_petroleo(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+
+### Composição Setorial do Consumo de Eletricidade
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-eletricidade-absoluto
+#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos. Unidade: 10³ tep.'
+
+benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-eletricidade-absoluto
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores absolutos.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-eletricidade-percentual
+#| tbl-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_composicao_setorial_consumo_eletricidade(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_eletricidade", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-eletricidade-percentual
+#| fig-cap: 'Composição Setorial do Consumo de Eletricidade. Valores percentuais.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_eletricidade(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+
+### Composição Setorial de Consumo de Carvão Vapor
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-carvao-vapor-absoluto
+#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos. Unidade: 10³ tep.'
+
+benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-carvao-vapor-absoluto
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores absolutos.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-carvao-vapor-percentual
+#| tbl-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais. Unidade: (%).'
+
+benCorrido::tab_composicao_setorial_consumo_carvao_vapor(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_carvao_vapor", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-carvao-vapor-percentual
+#| fig-cap: 'Composição Setorial de Consumo de Carvão Vapor. Valores percentuais.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_carvao_vapor(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+
+### Composição Setorial do Consumo Final de Biomassa
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-final-biomassa-absoluto
+#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos. Unidade: 10³ tep. Inclui bagaço de cana, lenha, outras fontes primárias renováveis, carvão vegetal e álcool.'
+
+benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-final-biomassa-absoluto
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores absolutos.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-composicao-setorial-consumo-final-biomassa-percentual
+#| tbl-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais. Unidade: (%). Inclui bagaço de cana, lenha, outras fontes primárias renováveis, carvão vegetal e álcool.'
+
+benCorrido::tab_composicao_setorial_consumo_final_biomassa(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_composicao_setorial_consumo_final_biomassa", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-composicao-setorial-consumo-final-biomassa-percentual
+#| fig-cap: 'Composição Setorial do Consumo Final de Biomassa. Valores percentuais.'
+
+linha <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_composicao_setorial_consumo_biomassa(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+
+### Oferta Interna de Energia
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-oferta-interna-energia-2-absoluto
+#| tbl-cap: 'Oferta Interna de Energia. Valores absolutos. Unidade: 10³ tep. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+
+benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Absoluto")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Absoluto")
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-2-absoluto
+#| fig-cap: 'Oferta Interna de Energia. Valores absolutos. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+
+linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-oferta-interna-energia-2-percentual
+#| tbl-cap: 'Oferta Interna de Energia. Valores percentuais. Unidade: (%). Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+
+benCorrido::tab_oferta_interna_energia_2(con, .tipo = "Percentual")
+benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_2", .tipo_dado = "Percentual")
+```
+
+```{r}
+#| label: fig-oferta-interna-energia-2-percentual
+#| fig-cap: 'Oferta Interna de Energia. Valores percentuais. Outras: Inclui Outras Fontes Primárias Renováveis e Urânio.'
+
+linha <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
+area <- benCorrido::grafico_oferta_interna_energia_2(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+### Fluxo Energético - BEN 2024/ano base 2023
+
+```{r}
+#| fig-cap: 'Fluxo Energético - BEN 2024/ano base 2023. Unidade: 10⁶ tep.'
+#| label: fig-fluxo-energetico
+benCorrido::grafico_sankey_fluxo_energetico(con)
+```
+
+
+### Fluxo de Energia Elétrica - BEN 2024/ano base 2023
+
+```{r}
+#| fig-cap: 'Fluxo de Energia Elétrica - BEN 2024/ano base 2023. Unidade: TWh.'
+#| label: fig-fluxo-energia-eletrica
+benCorrido::grafico_sankey_fluxo_eletrico(con)
+```
+
+
+```{r fix_slider_1}
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```

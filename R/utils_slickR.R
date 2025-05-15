@@ -15,8 +15,14 @@
 #' }
 #'
 #' @export
-criar_carrossel <- function(..., labels = c("Área empilhada", "Linha")) {
+criar_carrossel <- function(..., lang = "pt", labels = NULL) {
   lista <- purrr::map(list(...), transformar_svg)
+
+  if (lang == "pt") {
+    labels <- c("Área empilhada", "Linha")
+  } else if (lang == "en") {
+    labels <- c("Stacked area", "Line")
+  } 
 
   dot_labels <- htmlwidgets::JS(
     glue::glue(
