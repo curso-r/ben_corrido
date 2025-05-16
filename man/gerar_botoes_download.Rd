@@ -7,6 +7,7 @@
 gerar_botoes_download(
   tab_name,
   ...,
+  lang = "pt",
   .tipo_dado = NULL,
   matriz = TRUE,
   tabela = TRUE,

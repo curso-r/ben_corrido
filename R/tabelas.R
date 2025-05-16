@@ -5,9 +5,11 @@
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado) {
+tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_producao_energia_primaria"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -18,8 +20,8 @@ tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Renovabilidade",
-    lab2 = "Fonte",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 100
   )
 }
@@ -29,9 +31,11 @@ tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado) {
+tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_oferta_interna_energia"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -42,8 +46,8 @@ tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Renovabilidade",
-    lab2 = "Fonte",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -53,9 +57,12 @@ tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado) {
+tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_consumo_final_fonte"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -66,9 +73,9 @@ tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
-    lab2 = "Derivados",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -78,9 +85,12 @@ tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado) {
+tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_consumo_final_setor"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -91,9 +101,9 @@ tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "Setor",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -103,9 +113,11 @@ tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado) {
+tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_consumo_final_energetico_fonte"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -116,8 +128,8 @@ tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "Derivados",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -127,9 +139,11 @@ tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado) {
+tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_consumo_final_nao_energetico_fonte"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -140,8 +154,8 @@ tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado)
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "Derivados",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -151,9 +165,10 @@ tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado)
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
-tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado) {
+tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_dependencia_externa_energia"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -164,7 +179,7 @@ tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -174,9 +189,11 @@ tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_composicao_setorial_consumo_derivados_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -187,8 +204,8 @@ tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt",
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -198,9 +215,11 @@ tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt",
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo_dado) {
+tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_composicao_setorial_consumo_eletricidade"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -211,8 +230,8 @@ tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Setores",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -222,9 +241,11 @@ tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
+tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_composicao_setorial_consumo_carvao_vapor"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -235,8 +256,8 @@ tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Setores",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -246,9 +267,11 @@ tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo_dado) {
+tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_composicao_setorial_consumo_final_biomassa"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -259,8 +282,8 @@ tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .ti
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Setores",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -270,9 +293,10 @@ tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .ti
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
-tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado) {
+tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_oferta_interna_energia_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -283,7 +307,7 @@ tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }

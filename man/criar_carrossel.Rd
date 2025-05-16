@@ -4,7 +4,7 @@
 \alias{criar_carrossel}
 \title{Gerar carrossel com gráficos}
 \usage{
-criar_carrossel(..., labels = c("Área empilhada", "Linha"))
+criar_carrossel(..., lang = "pt", labels = NULL)
 }
 \arguments{
 \item{...}{Gráficos a serem incluídos no carrossel.}
