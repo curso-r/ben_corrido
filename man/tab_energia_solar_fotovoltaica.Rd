@@ -4,7 +4,7 @@
 \alias{tab_energia_solar_fotovoltaica}
 \title{Tabela do Capítulo II}
 \usage{
-tab_energia_solar_fotovoltaica(con, lang = "pt", .tipo_dado)
+tab_energia_solar_fotovoltaica(con, lang = "pt", .tipo_dado, lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +12,8 @@ tab_energia_solar_fotovoltaica(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo II

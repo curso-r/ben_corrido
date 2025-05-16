@@ -4,9 +4,23 @@
 \alias{tab_carvao_metalurgico}
 \title{Tabela do Capítulo II}
 \usage{
-tab_carvao_metalurgico(con, lang = "pt", .tipo_dado)
+tab_carvao_metalurgico(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = "",
+  lab3 = ""
+)
 
-tab_carvao_metalurgico(con, lang = "pt", .tipo_dado)
+tab_carvao_metalurgico(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = "",
+  lab3 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -14,6 +28,12 @@ tab_carvao_metalurgico(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
 }
 \description{
 Tabela do Capítulo II

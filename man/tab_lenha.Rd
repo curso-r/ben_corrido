@@ -4,7 +4,16 @@
 \alias{tab_lenha}
 \title{Tabela do Capítulo II}
 \usage{
-tab_lenha(con, lang = "pt", .tipo_dado)
+tab_lenha(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = "",
+  lab3 = "",
+  lab4 = "",
+  lab5 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +21,16 @@ tab_lenha(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
+
+\item{lab4}{Label 4}
+
+\item{lab5}{Label 5}
 }
 \description{
 Tabela do Capítulo II

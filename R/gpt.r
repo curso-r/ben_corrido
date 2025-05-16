@@ -1,58 +1,164 @@
-# Capítulo I -------------------------------------------------------------------
-
-#' Tabela do Capítulo I
+#' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param lab1 Label 1
 #' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_producao_energia_primaria"
+tab_alcool_etilico_total <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
+  tab_name <- "tab_alcool_etilico_total"
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
 
-  reactable_painel_nivel_1(
+  reactable_painel_nivel_4(
     tab = tab,
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
     lab1 = lab1,
     lab2 = lab2,
-    min_width = 100
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_oferta_interna_energia"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
 
-#' Tabela do Capítulo I
+#' Tabela do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
+#'
+#' @export
+tab_alcool_anidro <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
+  tab_name <- "tab_alcool_anidro"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_4(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
+#'
+#' @export
+tab_alcool_hidratado <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
+  tab_name <- "tab_alcool_hidratado"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_4(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
+#'
+#' @export
+tab_outras_secundarias_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
+  tab_name <- "tab_outras_secundarias_petroleo"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_4(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo II
+#'
+#' @param con Conexão com o banco de dados
+#' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
+#'
+#' @export
+tab_alcatrao <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
+  tab_name <- "tab_alcatrao"
+
+  tab <- dplyr::tbl(con, tab_name) |>
+    dplyr::collect()
+
+  reactable_painel_nivel_4(
+    tab = tab,
+    tab_name = tab_name,
+    .tipo_dado = .tipo_dado,
+    lang = lang,
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
+    min_width = 220
+  )
+}
+
+#' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
@@ -62,8 +168,8 @@ tab_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", 
 #' @param lab3 Label 3
 #'
 #' @export
-tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
-  tab_name <- "tab_consumo_final_fonte"
+tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
+  tab_name <- "tab_produtos_nao_energeticos_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
     dplyr::collect()
@@ -76,238 +182,6 @@ tab_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab
     lab1 = lab1,
     lab2 = lab2,
     lab3 = lab3,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#' @param lab3 Label 3
-#'
-#' @export
-tab_consumo_final_setor <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
-  tab_name <- "tab_consumo_final_setor"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_2(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    lab3 = lab3,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_consumo_final_energetico_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_consumo_final_energetico_fonte"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_consumo_final_nao_energetico_fonte <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_consumo_final_nao_energetico_fonte"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#'
-#' @export
-tab_dependencia_externa_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
-  tab_name <- "tab_dependencia_externa_energia"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_simples(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_composicao_setorial_consumo_derivados_petroleo"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 250
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_composicao_setorial_consumo_eletricidade"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_composicao_setorial_consumo_carvao_vapor"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#' @param lab2 Label 2
-#'
-#' @export
-tab_composicao_setorial_consumo_final_biomassa <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
-  tab_name <- "tab_composicao_setorial_consumo_final_biomassa"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_nivel_1(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
-    lab2 = lab2,
-    min_width = 220
-  )
-}
-
-#' Tabela do Capítulo I
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param lab1 Label 1
-#'
-#' @export
-tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
-  tab_name <- "tab_oferta_interna_energia_2"
-
-  tab <- dplyr::tbl(con, tab_name) |>
-    dplyr::collect()
-
-  reactable_painel_simples(
-    tab = tab,
-    tab_name = tab_name,
-    .tipo_dado = .tipo_dado,
-    lang = lang,
-    lab1 = lab1,
     min_width = 220
   )
 }

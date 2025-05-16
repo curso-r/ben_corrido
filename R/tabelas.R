@@ -313,15 +313,19 @@ tab_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, lab1 = ""
 }
 
 # Capítulo II -------------------------------------------------------------------
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_total_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
+tab_total_fontes_primarias <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_total_fontes_primarias"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -332,11 +336,11 @@ tab_total_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -346,9 +350,11 @@ tab_total_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -359,8 +365,8 @@ tab_petroleo <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -371,9 +377,14 @@ tab_petroleo <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_gas_natural <- function(con, lang = "pt", .tipo_dado) {
+tab_gas_natural <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_gas_natural"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -384,11 +395,11 @@ tab_gas_natural <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -398,9 +409,14 @@ tab_gas_natural <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
+tab_carvao_vapor <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_carvao_vapor"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -411,11 +427,11 @@ tab_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -425,9 +441,12 @@ tab_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
+tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_carvao_metalurgico"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -438,9 +457,9 @@ tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -450,9 +469,12 @@ tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
+tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_carvao_metalurgico"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -463,9 +485,9 @@ tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -475,9 +497,12 @@ tab_carvao_metalurgico <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_energia_hidraulica <- function(con, lang = "pt", .tipo_dado) {
+tab_energia_hidraulica <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_energia_hidraulica"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -488,9 +513,9 @@ tab_energia_hidraulica <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -500,9 +525,10 @@ tab_energia_hidraulica <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
-tab_energia_eolica <- function(con, lang = "pt", .tipo_dado) {
+tab_energia_eolica <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_energia_eolica"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -513,7 +539,7 @@ tab_energia_eolica <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -523,9 +549,10 @@ tab_energia_eolica <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
-tab_energia_solar_fotovoltaica <- function(con, lang = "pt", .tipo_dado) {
+tab_energia_solar_fotovoltaica <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_energia_solar_fotovoltaica"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -536,19 +563,21 @@ tab_energia_solar_fotovoltaica <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
+    lab1 = lab1,
     min_width = 220
   )
 }
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_energia_solar_termica <- function(con, lang = "pt", .tipo_dado) {
+tab_energia_solar_termica <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_energia_solar_termica"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -559,9 +588,9 @@ tab_energia_solar_termica <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
@@ -571,9 +600,11 @@ tab_energia_solar_termica <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_uranio <- function(con, lang = "pt", .tipo_dado) {
+tab_uranio <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_uranio"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -584,21 +615,22 @@ tab_uranio <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
-
 
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_uranio <- function(con, lang = "pt", .tipo_dado) {
+tab_uranio <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_uranio"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -609,8 +641,8 @@ tab_uranio <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -620,9 +652,14 @@ tab_uranio <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_lenha <- function(con, lang = "pt", .tipo_dado) {
+tab_lenha <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_lenha"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -633,11 +670,11 @@ tab_lenha <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -647,9 +684,11 @@ tab_lenha <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_caldo_cana <- function(con, lang = "pt", .tipo_dado) {
+tab_caldo_cana <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_caldo_cana"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -660,8 +699,8 @@ tab_caldo_cana <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -671,9 +710,11 @@ tab_caldo_cana <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
-tab_melaco <- function(con, lang = "pt", .tipo_dado) {
+tab_melaco <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_melaco"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -684,8 +725,8 @@ tab_melaco <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 220
   )
 }
@@ -695,9 +736,14 @@ tab_melaco <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_bagaco_cana <- function(con, lang = "pt", .tipo_dado) {
+tab_bagaco_cana <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_bagaco_cana"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -708,11 +754,11 @@ tab_bagaco_cana <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -722,9 +768,14 @@ tab_bagaco_cana <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_lixivia <- function(con, lang = "pt", .tipo_dado) {
+tab_lixivia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_lixivia"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -735,23 +786,27 @@ tab_lixivia <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
+tab_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_outras_fontes_primarias"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -762,11 +817,11 @@ tab_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -776,9 +831,14 @@ tab_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_total_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
+tab_total_fontes_secundarias <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_total_fontes_secundarias"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -789,11 +849,11 @@ tab_total_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -803,9 +863,14 @@ tab_total_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_derivados_petroleo_e_gas_natural <- function(con, lang = "pt", .tipo_dado) {
+tab_derivados_petroleo_e_gas_natural <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_derivados_petroleo_e_gas_natural"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -816,11 +881,11 @@ tab_derivados_petroleo_e_gas_natural <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -830,9 +895,14 @@ tab_derivados_petroleo_e_gas_natural <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado) {
+tab_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_oleo_diesel_total"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -843,11 +913,11 @@ tab_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -857,9 +927,14 @@ tab_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_diesel_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_diesel_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_diesel_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -870,11 +945,11 @@ tab_diesel_petroleo <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -884,9 +959,14 @@ tab_diesel_petroleo <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_biodiesel <- function(con, lang = "pt", .tipo_dado) {
+tab_biodiesel <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_biodiesel"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -897,11 +977,11 @@ tab_biodiesel <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -911,9 +991,14 @@ tab_biodiesel <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_oleo_combustivel <- function(con, lang = "pt", .tipo_dado) {
+tab_oleo_combustivel <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_oleo_combustivel"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -924,11 +1009,11 @@ tab_oleo_combustivel <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -938,9 +1023,14 @@ tab_oleo_combustivel <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_gasolina <- function(con, lang = "pt", .tipo_dado) {
+tab_gasolina <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_gasolina"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -951,23 +1041,27 @@ tab_gasolina <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_gas_liquefeito_de_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_gas_liquefeito_de_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_gas_liquefeito_de_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -978,11 +1072,11 @@ tab_gas_liquefeito_de_petroleo <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -992,9 +1086,14 @@ tab_gas_liquefeito_de_petroleo <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_nafta <- function(con, lang = "pt", .tipo_dado) {
+tab_nafta <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_nafta"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1005,11 +1104,11 @@ tab_nafta <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1019,9 +1118,14 @@ tab_nafta <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado) {
+tab_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_coque_carvao_mineral"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1032,11 +1136,11 @@ tab_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1046,9 +1150,14 @@ tab_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_querosene <- function(con, lang = "pt", .tipo_dado) {
+tab_querosene <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_querosene"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1059,11 +1168,11 @@ tab_querosene <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1073,9 +1182,14 @@ tab_querosene <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_gas_cidade <- function(con, lang = "pt", .tipo_dado) {
+tab_gas_cidade <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_gas_cidade"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1086,11 +1200,11 @@ tab_gas_cidade <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1100,9 +1214,14 @@ tab_gas_cidade <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_gas_coqueira <- function(con, lang = "pt", .tipo_dado) {
+tab_gas_coqueira <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_gas_coqueira"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1113,11 +1232,11 @@ tab_gas_coqueira <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1127,9 +1246,14 @@ tab_gas_coqueira <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_eletricidade <- function(con, lang = "pt", .tipo_dado) {
+tab_eletricidade <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_eletricidade"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1140,11 +1264,11 @@ tab_eletricidade <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1154,9 +1278,14 @@ tab_eletricidade <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_carvao_vegetal <- function(con, lang = "pt", .tipo_dado) {
+tab_carvao_vegetal <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_carvao_vegetal"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1167,23 +1296,27 @@ tab_carvao_vegetal <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_alcool_etilico_total <- function(con, lang = "pt", .tipo_dado) {
+tab_alcool_etilico_total <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_alcool_etilico_total"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1194,11 +1327,11 @@ tab_alcool_etilico_total <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1208,9 +1341,14 @@ tab_alcool_etilico_total <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_alcool_anidro <- function(con, lang = "pt", .tipo_dado) {
+tab_alcool_anidro <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_alcool_anidro"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1221,11 +1359,11 @@ tab_alcool_anidro <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1235,9 +1373,14 @@ tab_alcool_anidro <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_alcool_hidratado <- function(con, lang = "pt", .tipo_dado) {
+tab_alcool_hidratado <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_alcool_hidratado"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1248,11 +1391,11 @@ tab_alcool_hidratado <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1262,9 +1405,14 @@ tab_alcool_hidratado <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_outras_secundarias_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_outras_secundarias_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_outras_secundarias_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1275,11 +1423,11 @@ tab_outras_secundarias_petroleo <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1289,9 +1437,14 @@ tab_outras_secundarias_petroleo <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
+#' @param lab4 Label 4
+#' @param lab5 Label 5
 #'
 #' @export
-tab_alcatrao <- function(con, lang = "pt", .tipo_dado) {
+tab_alcatrao <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "", lab4 = "", lab5 = "") {
   tab_name <- "tab_alcatrao"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1302,11 +1455,11 @@ tab_alcatrao <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
-    lab4 = "",
-    lab5 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
+    lab4 = lab4,
+    lab5 = lab5,
     min_width = 220
   )
 }
@@ -1316,9 +1469,12 @@ tab_alcatrao <- function(con, lang = "pt", .tipo_dado) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado) {
+tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_produtos_nao_energeticos_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1329,12 +1485,14 @@ tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado) 
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fluxo",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220
   )
 }
+
+# Capítulo III ------------------------------------------------------------------ 
 
 #' Tabela do Capítulo III
 #'
