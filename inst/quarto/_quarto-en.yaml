@@ -16,8 +16,8 @@ book:
     - en/autoria.qmd
     - part: Capítulos
       chapters:
-        - en/capitulo_1.qmd
-        # - en/capitulo_2.qmd
+        # - en/capitulo_1.qmd
+        - en/capitulo_2.qmd
         # - en/capitulo_3.qmd
         # - en/capitulo_4.qmd
         # - en/capitulo_5.qmd

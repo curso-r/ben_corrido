@@ -1,3 +1,5 @@
+# Capítulo I ---------------------------------------------------------------------
+
 #' Gráfico do Capítulo I
 #'
 #' @param con Conexão com o banco de dados
@@ -679,6 +681,8 @@ grafico_sankey_fluxo_eletrico <- function(con, lang = "pt") {
     )
   )
 }
+
+# Capítulo II --------------------------------------------------------------------
 
 #' Gráfico do Capítulo II
 #'
