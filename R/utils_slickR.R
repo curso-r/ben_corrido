@@ -22,7 +22,7 @@ criar_carrossel <- function(..., lang = "pt", labels = NULL) {
     labels <- c("Área empilhada", "Linha")
   } else if (lang == "en") {
     labels <- c("Stacked area", "Line")
-  } 
+  }
 
   dot_labels <- htmlwidgets::JS(
     glue::glue(

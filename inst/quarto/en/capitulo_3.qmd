@@ -1,13 +1,1034 @@
+---
 params:
   ano: ""
   duckdb_path: ""
 ---
 
-```{r}
+```{r setup}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+# Energy Consumption by Sector
+
+![](../img/capas/imagem_cap_3.png)
+
+## Energy Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_energetico_absoluto}
+#| label: tbl-setor-energetico-absoluto
+#| tbl-cap: 'Energy Sector. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_energetico_absoluto_graficos}
+#| label: fig-setor-energetico-absoluto
+#| fig-cap: 'Energy Sector. Absolute values. Others: Diesel Oil, Biodiesel, Liquefied Petroleum Gas, Naphtha, Kerosene, Coke Oven Gas, Gasworks Gas, Coal coke/ tar/ steam coal, Other Oil Secondaries.'
+
+linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_energetico_percentual}
+#| label: tbl-setor-energetico-percentual
+#| tbl-cap: 'Energy Sector. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_energetico_percentual_graficos}
+#| label: fig-setor-energetico-percentual
+#| fig-cap: 'Energy Sector. Percentage values. Others: Diesel Oil, Biodiesel, Liquefied Petroleum Gas, Naphtha, Kerosene, Coke Oven Gas, Gasworks Gas, Coal coke/ tar/ steam coal, Other Oil Secondaries.'
+
+linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+## Commercial Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_comercial_absoluto}
+#| label: tbl-setor-comercial-absoluto
+#| tbl-cap: 'Commercial Sector. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_comercial_absoluto_graficos}
+#| label: fig-setor-comercial-absoluto
+#| fig-cap: 'Commercial Sector. Absolute values. Others: Natural Gas, Firewood, Biodiesel, Fuel Oil, Gasworks Gas, Charcoal, Other Oil Products.'
+
+linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_comercial_percentual}
+#| label: tbl-setor-comercial-percentual
+#| tbl-cap: 'Commercial Sector. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_comercial_percentual_graficos}
+#| label: fig-setor-comercial-percentual
+#| fig-cap: 'Commercial Sector. Percentage values. Others: Natural Gas, Firewood, Biodiesel, Fuel Oil, Gasworks Gas, Charcoal, Other Oil Products.'
+
+linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+## Public Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_publico_absoluto}
+#| label: tbl-setor-publico-absoluto
+#| tbl-cap: 'Public Sector. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_publico(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_publico_absoluto_graficos}
+#| label: fig-setor-publico-absoluto
+#| fig-cap: 'Public Sector. Absolute values. Others: Natural Gas, Firewood, Biodiesel, Fuel Oil, Kerosene, Gasworks Gas, Charcoal, Other Oil Products.'
+
+linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_publico_percentual}
+#| label: tbl-setor-publico-percentual
+#| tbl-cap: 'Public Sector. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_publico(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_publico_percentual_graficos}
+#| label: fig-setor-publico-percentual
+#| fig-cap: 'Public Sector. Percentage values. Others: Natural Gas, Firewood, Biodiesel, Fuel Oil, Kerosene, Gasworks Gas, Charcoal, Other Oil Products.'
+
+linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+## Residential Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_residencial_absoluto}
+#| label: tbl-setor-residencial-absoluto
+#| tbl-cap: 'Residential Sector. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_residencial_absoluto_graficos}
+#| label: fig-setor-residencial-absoluto
+#| fig-cap: 'Residential Sector. Absolute values. Others: Natural Gas, Kerosene, Gasworks Gas, Charcoal, Solar Thermal.'
+
+linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_residencial_percentual}
+#| label: tbl-setor-residencial-percentual
+#| tbl-cap: 'Residential Sector. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_residencial_percentual_graficos}
+#| label: fig-setor-residencial-percentual
+#| fig-cap: 'Residential Sector. Percentage values. Others: Natural Gas, Kerosene, Gasworks Gas, Charcoal, Solar Thermal.'
+
+linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+## Agriculture and Livestock Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_agropecuario_absoluto}
+#| label: tbl-setor-agropecuario-absoluto
+#| tbl-cap: 'Agriculture and Livestock Sector. Absolute values. Unit: 10³ toe. Hydrated Ethanol: Used as fuel in agricultural airplanes, for fertilization.'
+
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_agropecuario_absoluto_graficos}
+#| label: fig-setor-agropecuario-absoluto
+#| fig-cap: 'Agriculture and Livestock Sector. Absolute values. Others: Biodiesel, Fuel Oil, Liquefied Petroleum Gas, Kerosene, Charcoal, Hydrated Ethanol.'
+
+linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_agropecuario_percentual}
+#| label: tbl-setor-agropecuario-percentual
+#| tbl-cap: 'Agriculture and Livestock Sector. Percentage values. Unit: (%). Hydrated Ethanol: Used as fuel in agricultural airplanes, for fertilization.'
+
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_agropecuario_percentual_graficos}
+#| label: fig-setor-agropecuario-percentual
+#| fig-cap: 'Agriculture and Livestock Sector. Percentage values. Others: Biodiesel, Fuel Oil, Liquefied Petroleum Gas, Kerosene, Charcoal, Hydrated Ethanol.'
+
+linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+## Transportation Sector
+
+### Total
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_transportes_geral_absoluto}
+#| label: tbl-setor-transportes-geral-absoluto
+#| tbl-cap: 'Transportation Sector - Total. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_transportes_geral_absoluto_graficos}
+#| label: fig-setor-transportes-geral-absoluto
+#| fig-cap: 'Transportation Sector - Total. Absolute values. Others: Steam Coal, Firewood, Fuel Oil, Aviation Gasoline, Electricity, Other Oil Secondaries.'
+
+linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_transportes_geral_percentual}
+#| label: tbl-setor-transportes-geral-percentual
+#| tbl-cap: 'Transportation Sector - Total. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_transportes_geral_percentual_graficos}
+#| label: fig-setor-transportes-geral-percentual
+#| fig-cap: 'Transportation Sector - Total. Percentage values. Others: Steam Coal, Firewood, Fuel Oil, Aviation Gasoline, Electricity, Other Oil Secondaries.'
+
+linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Airways
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_transportes_aereo_absoluto}
+#| label: tbl-setor-transportes-aereo-absoluto
+#| tbl-cap: 'Transportation Sector - Airways. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Aéreo")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_transportes_aereo_absoluto_graficos}
+#| label: fig-setor-transportes-aereo-absoluto
+#| fig-cap: 'Transportation Sector - Airways. Absolute values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Aéreo")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Aéreo")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_transportes_aereo_percentual}
+#| label: tbl-setor-transportes-aereo-percentual
+#| tbl-cap: 'Transportation Sector - Airways. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Aéreo")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_transportes_aereo_percentual_graficos}
+#| label: fig-setor-transportes-aereo-percentual
+#| fig-cap: 'Transportation Sector - Airways. Percentage values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Aéreo")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Aéreo")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+
+### Railroads
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_transportes_ferroviario_absoluto}
+#| label: tbl-setor-transportes-ferroviario-absoluto
+#| tbl-cap: 'Transportation Sector - Railroads. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Ferroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_transportes_ferroviario_absoluto_graficos}
+#| label: fig-setor-transportes-ferroviario-absoluto
+#| fig-cap: 'Transportation Sector - Railroads. Absolute values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Ferroviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Ferroviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_transportes_ferroviario_percentual}
+#| label: tbl-setor-transportes-ferroviario-percentual
+#| tbl-cap: 'Transportation Sector - Railroads. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Ferroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_transportes_ferroviario_percentual_graficos}
+#| label: fig-setor-transportes-ferroviario-percentual
+#| fig-cap: 'Transportation Sector - Railroads. Percentage values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Ferroviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Ferroviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Waterways
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_transportes_hidroviario_absoluto}
+#| label: tbl-setor-transportes-hidroviario-absoluto
+#| tbl-cap: 'Transportation Sector - Waterways. Absolute values. Unit: 10³ toe. Diesel Oil: Does not contain biodiesel.'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Hidroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_transportes_hidroviario_absoluto_graficos}
+#| label: fig-setor-transportes-hidroviario-absoluto
+#| fig-cap: 'Transportation Sector - Waterways. Absolute values. Diesel Oil: Does not contain biodiesel.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Hidroviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Hidroviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_transportes_hidroviario_percentual}
+#| label: tbl-setor-transportes-hidroviario-percentual
+#| tbl-cap: 'Transportation Sector - Waterways. Percentage values. Unit: (%). Óleo Diesel: Não contém biodiesel.'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Hidroviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_transportes_hidroviario_percentual_graficos}
+#| label: fig-setor-transportes-hidroviario-percentual
+#| fig-cap: 'Transportation Sector - Waterways. Percentage values. Óleo Diesel: Não contém biodiesel.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Hidroviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Hidroviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Highways
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_transportes_rodoviario_absoluto}
+#| label: tbl-setor-transportes-rodoviario-absoluto
+#| tbl-cap: 'Transportation Sector - Highways. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Rodoviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_transportes_rodoviario_absoluto_graficos}
+#| label: fig-setor-transportes-rodoviario-absoluto
+#| fig-cap: 'Transportation Sector - Highways. Absolute values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Rodoviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Rodoviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_transportes_rodoviario_percentual}
+#| label: tbl-setor-transportes-rodoviario-percentual
+#| tbl-cap: 'Transportation Sector - Highways. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Rodoviário")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_transportes_rodoviario_percentual_graficos}
+#| label: fig-setor-transportes-rodoviario-percentual
+#| fig-cap: 'Transportation Sector - Highways. Percentage values.'
+
+linha <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Rodoviário")
+area <- benCorrido::grafico_setor_transportes_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Rodoviário")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+## Industrial Sector
+
+### Geral
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_geral_absoluto}
+#| label: tbl-setor-industrial-geral-absoluto
+#| tbl-cap: 'Industrial Sector - Total. Absolute values. Unit: 10³ toe. OTHER PRIMARY SOURCES disagreggated into OTHER RENEWABLES and OTHER NON-RENEWABLES.'
+
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_geral_absoluto_graficos}
+#| label: fig-setor-industrial-geral-absoluto
+#| fig-cap: 'Industrial Sector - Total. Absolute values. Others: Coal, Solar Thermal, Other Renewables, Other Non-Renewable, Diesel Oil, Biodiesel, Liquefied Petroleum Gas, Naphtha, Kerosene, Coke Oven Gas, Gasworks Gas, Charcoal, Other Oil Secondaries, Tar.'
+
+linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe")
+area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_geral_percentual}
+#| label: tbl-setor-industrial-geral-percentual
+#| tbl-cap: 'Industrial Sector - Total. Percentage values. Unit: (%). OTHER PRIMARY SOURCES disagreggated into OTHER RENEWABLES and OTHER NON-RENEWABLES.'
+
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Percentual", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_geral_percentual_graficos}
+#| label: fig-setor-industrial-geral-percentual
+#| fig-cap: 'Industrial Sector - Total. Percentage values.Others: Coal, Solar Thermal, Other Renewables, Other Non-Renewable, Diesel Oil, Biodiesel, Liquefied Petroleum Gas, Naphtha, Kerosene, Coke Oven Gas, Gasworks Gas, Charcoal, Other Oil Secondaries, Tar.'
+
+linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Foods and Beverages
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_alimentos_bebidas_absoluto}
+#| label: tbl-setor-industrial-alimentos-bebidas-absoluto
+#| tbl-cap: 'Industrial Sector - Foods and Beverages. Absolute values. Unit: 10³ toe. Other Energy Sources: Includes LPG, petroleum coke and other renewable sources.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Alimentos e Bebidas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_alimentos_bebidas_absoluto_graficos}
+#| label: fig-setor-industrial-alimentos-bebidas-absoluto
+#| fig-cap: 'Industrial Sector - Foods and Beverages. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Alimentos e Bebidas")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Alimentos e Bebidas")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_alimentos_bebidas_percentual}
+#| label: tbl-setor-industrial-alimentos-bebidas-percentual
+#| tbl-cap: 'Industrial Sector - Foods and Beverages. Percentage values. Unit: (%). Other Energy Sources: Includes LPG, petroleum coke and other renewable sources.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Alimentos e Bebidas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_alimentos_bebidas_percentual_graficos}
+#| label: fig-setor-industrial-alimentos-bebidas-percentual
+#| fig-cap: 'Industrial Sector - Foods and Beverages. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Alimentos e Bebidas")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Alimentos e Bebidas")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Ceramics
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_ceramica_absoluto}
+#| label: tbl-setor-industrial-ceramica-absoluto
+#| tbl-cap: 'Industrial Sector - Ceramics. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Cerâmica")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_ceramica_absoluto_graficos}
+#| label: fig-setor-industrial-ceramica-absoluto
+#| fig-cap: 'Industrial Sector - Ceramics. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Cerâmica")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Cerâmica")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_ceramica_percentual}
+#| label: tbl-setor-industrial-ceramica-percentual
+#| tbl-cap: 'Industrial Sector - Ceramics. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Cerâmica")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_ceramica_percentual_graficos}
+#| label: fig-setor-industrial-ceramica-percentual
+#| fig-cap: 'Industrial Sector - Ceramics. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Cerâmica")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Cerâmica")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Cement
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_cimento_absoluto}
+#| label: tbl-setor-industrial-cimento-absoluto
+#| tbl-cap: 'Industrial Sector - Cement. Absolute values. Unit: 10³ toe. Alternative Fuels: Tires, Industrial Wastes (blend), Other Wastes, Municipal Solid Wastes, Oils, Impregnated Sawdust, Solvents, Agricultural Wastes, Non-Impregnated Sawdust, Other Biomass.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Cimento")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_cimento_absoluto_graficos}
+#| label: fig-setor-industrial-cimento-absoluto
+#| fig-cap: 'Industrial Sector - Cement. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Cimento")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Cimento")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_cimento_percentual}
+#| label: tbl-setor-industrial-cimento-percentual
+#| tbl-cap: 'Industrial Sector - Cement. Percentage values. Unit: (%). Alternative Fuels: Tires, Industrial Wastes (blend), Other Wastes, Municipal Solid Wastes, Oils, Impregnated Sawdust, Solvents, Agricultural Wastes, Non-Impregnated Sawdust, Other Biomass.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Cimento")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_cimento_percentual_graficos}
+#| label: fig-setor-industrial-cimento-percentual
+#| fig-cap: 'Industrial Sector - Cement. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Cimento")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Cimento")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Pig-iron and Steel
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_ferro_gusa_aco_absoluto}
+#| label: tbl-setor-industrial-ferro-gusa-aco-absoluto
+#| tbl-cap: 'Industrial Sector - Pig-iron and Steel. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Ferro-gusa e Aço")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_ferro_gusa_aco_absoluto_graficos}
+#| label: fig-setor-industrial-ferro-gusa-aco-absoluto
+#| fig-cap: 'Industrial Sector - Pig-iron and Steel. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Ferro-gusa e Aço")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Ferro-gusa e Aço")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_ferro_gusa_aco_percentual}
+#| label: tbl-setor-industrial-ferro-gusa-aco-percentual
+#| tbl-cap: 'Industrial Sector - Pig-iron and Steel. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Ferro-gusa e Aço")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_ferro_gusa_aco_percentual_graficos}
+#| label: fig-setor-industrial-ferro-gusa-aco-percentual
+#| fig-cap: 'Industrial Sector - Pig-iron and Steel. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Ferro-gusa e Aço")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Ferro-gusa e Aço")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Iron-Alloys
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_ferroligas_absoluto}
+#| label: tbl-setor-industrial-ferroligas-absoluto
+#| tbl-cap: 'Industrial Sector - Iron-Alloys. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Ferroligas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_ferroligas_absoluto_graficos}
+#| label: fig-setor-industrial-ferroligas-absoluto
+#| fig-cap: 'Industrial Sector - Iron-Alloys. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Ferroligas")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Ferroligas")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_ferroligas_percentual}
+#| label: tbl-setor-industrial-ferroligas-percentual
+#| tbl-cap: 'Industrial Sector - Iron-Alloys. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Ferroligas")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_ferroligas_percentual_graficos}
+#| label: fig-setor-industrial-ferroligas-percentual
+#| fig-cap: 'Industrial Sector - Iron-Alloys. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Ferroligas")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Ferroligas")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Mining/Pelletization
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_mineracao_pelotizacao_absoluto}
+#| label: tbl-setor-industrial-mineracao-pelotizacao-absoluto
+#| tbl-cap: 'Industrial Sector - Mining/Pelletization. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Mineração e Pelotização")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_mineracao_pelotizacao_absoluto_graficos}
+#| label: fig-setor-industrial-mineracao-pelotizacao-absoluto
+#| fig-cap: 'Industrial Sector - Mining/Pelletization. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Mineração e Pelotização")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Mineração e Pelotização")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_mineracao_pelotizacao_percentual}
+#| label: tbl-setor-industrial-mineracao-pelotizacao-percentual
+#| tbl-cap: 'Industrial Sector - Mining/Pelletization. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Mineração e Pelotização")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_mineracao_pelotizacao_percentual_graficos}
+#| label: fig-setor-industrial-mineracao-pelotizacao-percentual
+#| fig-cap: 'Industrial Sector - Mining/Pelletization. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Mineração e Pelotização")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Mineração e Pelotização")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Non-Ferrous and Others Metallurgical
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_nao_ferrosos_outros_absoluto}
+#| label: tbl-setor-industrial-nao-ferrosos-outros-absoluto
+#| tbl-cap: 'Industrial Sector - Non-Ferrous and Others Metallurgical. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Não Ferrosos e Outros da Metalurgia")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_nao_ferrosos_outros_absoluto_graficos}
+#| label: fig-setor-industrial-nao-ferrosos-outros-absoluto
+#| fig-cap: 'Industrial Sector - Non-Ferrous and Others Metallurgical. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Não Ferrosos e Outros da Metalurgia")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Não Ferrosos e Outros da Metalurgia")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_nao_ferrosos_outros_percentual}
+#| label: tbl-setor-industrial-nao-ferrosos-outros-percentual
+#| tbl-cap: 'Industrial Sector - Non-Ferrous and Others Metallurgical. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Não Ferrosos e Outros da Metalurgia")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_nao_ferrosos_outros_percentual_graficos}
+#| label: fig-setor-industrial-nao-ferrosos-outros-percentual
+#| fig-cap: 'Industrial Sector - Non-Ferrous and Others Metallurgical. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Não Ferrosos e Outros da Metalurgia")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Não Ferrosos e Outros da Metalurgia")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Others
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_outras_industrias_absoluto}
+#| label: tbl-setor-industrial-outras-industrias-absoluto
+#| tbl-cap: 'Industrial Sector - Others. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Outras Indústrias")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_outras_industrias_absoluto_graficos}
+#| label: fig-setor-industrial-outras-industrias-absoluto
+#| fig-cap: 'Industrial Sector - Others. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Outras Indústrias")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Outras Indústrias")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_outras_industrias_percentual}
+#| label: tbl-setor-industrial-outras-industrias-percentual
+#| tbl-cap: 'Industrial Sector - Others. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Outras Indústrias")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_outras_industrias_percentual_graficos}
+#| label: fig-setor-industrial-outras-industrias-percentual
+#| fig-cap: 'Industrial Sector - Others. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Outras Indústrias")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Outras Indústrias")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Paper and Pulp
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_papel_celulose_absoluto}
+#| label: tbl-setor-industrial-papel-celulose-absoluto
+#| tbl-cap: 'Industrial Sector - Paper and Pulp. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Papel e Celulose")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_papel_celulose_absoluto_graficos}
+#| label: fig-setor-industrial-papel-celulose-absoluto
+#| fig-cap: 'Industrial Sector - Paper and Pulp. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Papel e Celulose")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Papel e Celulose")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_papel_celulose_percentual}
+#| label: tbl-setor-industrial-papel-celulose-percentual
+#| tbl-cap: 'Industrial Sector - Paper and Pulp. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Papel e Celulose")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_papel_celulose_percentual_graficos}
+#| label: fig-setor-industrial-papel-celulose-percentual
+#| fig-cap: 'Industrial Sector - Paper and Pulp. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Papel e Celulose")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Papel e Celulose")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Chemical
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_quimica_absoluto}
+#| label: tbl-setor-industrial-quimica-absoluto
+#| tbl-cap: 'Industrial Sector - Chemical. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Química")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_quimica_absoluto_graficos}
+#| label: fig-setor-industrial-quimica-absoluto
+#| fig-cap: 'Industrial Sector - Chemical. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Química")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Química")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_quimica_percentual}
+#| label: tbl-setor-industrial-quimica-percentual
+#| tbl-cap: 'Industrial Sector - Chemical. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Química")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_quimica_percentual_graficos}
+#| label: fig-setor-industrial-quimica-percentual
+#| fig-cap: 'Industrial Sector - Chemical. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Química")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Química")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+### Textiles
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r setor_industrial_textil_absoluto}
+#| label: tbl-setor-industrial-textil-absoluto
+#| tbl-cap: 'Industrial Sector - Textiles. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .segmento = "Têxtil")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r setor_industrial_textil_absoluto_graficos}
+#| label: fig-setor-industrial-textil-absoluto
+#| fig-cap: 'Industrial Sector - Textiles. Absolute values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "10³ toe", .segmento = "Têxtil")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "10³ toe", .segmento = "Têxtil")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Percentage
+
+```{r setor_industrial_textil_percentual}
+#| label: tbl-setor-industrial-textil-percentual
+#| tbl-cap: 'Industrial Sector - Textiles. Percentage values. Unit: (%).'
+
+benCorrido::tab_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .segmento = "Têxtil")
+benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_segmento", .tipo_dado = "Percentual", lang = "en")
+```
+
+```{r setor_industrial_textil_percentual_graficos}
+#| label: fig-setor-industrial-textil-percentual
+#| fig-cap: 'Industrial Sector - Textiles. Percentage values.'
+
+linha <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "linha", laby = "%", .segmento = "Têxtil")
+area <- benCorrido::grafico_setor_industrial_segmento(con, .tipo_dado = "Percentual", lang = "en", .tipo_grafico = "area", laby = "%", .segmento = "Têxtil")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+:::
+
+```{r script_fix_slider}
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```
