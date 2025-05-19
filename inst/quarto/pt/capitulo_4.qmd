@@ -19,7 +19,7 @@ ano <- params$ano
 #| label: tbl-dependencia-externa-energia-2
 #| tbl-cap: 'Dependência Externa de Energia.  Unidade: 10³ tep. Perdas: Perdas na transformação, distribuição e armazenagem, inclusive energia não-aproveitada, reinjeção e ajustes.'
 
-benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto")
+benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2", .tipo_dado = "Absoluto")
 ```
 
@@ -29,7 +29,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2"
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
-benCorrido::grafico_dependencia_externa_energia_2(con)
+benCorrido::grafico_dependencia_externa_energia_2(con, laby = "10³ tep")
 ```
 
 ## Dependência Externa de Petróleo
@@ -38,7 +38,7 @@ benCorrido::grafico_dependencia_externa_energia_2(con)
 #| label: tbl-dependencia-externa-petroleo
 #| tbl-cap: 'Dependência Externa de Petróleo. Valores absolutos. Unidade: 10³ tep. Perdas: Perdas na distribuição, armazenagem, transformação, inclusive energia não-aproveitada. Outras Saídas de UPGN: Inclui líquidos de gás natural, gasolina, nafta, óleo diesel, etc., provenientes de Plantas de Gás.'
 
-benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo", .tipo_dado = "Absoluto")
 ```
 
@@ -48,7 +48,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo",
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
-benCorrido::grafico_dependencia_externa_petroleo(con)
+benCorrido::grafico_dependencia_externa_petroleo(con, laby = "10³ tep")
 ```
 
 ## Importações de Energia
@@ -57,7 +57,7 @@ benCorrido::grafico_dependencia_externa_petroleo(con)
 #| label: tbl-importacoes-energia
 #| tbl-cap: 'Importações de Energia. Valores absolutos. Unidade: 10³ tep. Álcool Etílico: Inclui metanol.'
 
-benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto")
+benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_dado = "Absoluto")
 ```
 
@@ -67,7 +67,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_da
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
-benCorrido::grafico_importacoes_energia(con)
+benCorrido::grafico_importacoes_energia(con, laby = "10³ tep")
 ```
 
 ## Exportações de Energia
@@ -76,7 +76,7 @@ benCorrido::grafico_importacoes_energia(con)
 #| label: tbl-exportacoes-energia
 #| tbl-cap: 'Exportações de Energia. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto")
+benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_dado = "Absoluto")
 ```
 
@@ -86,7 +86,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_da
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
-benCorrido::grafico_exportacoes_energia(con)
+benCorrido::grafico_exportacoes_energia(con, laby = "10³ tep")
 ```
 
 ## Exportações e/ou Importações Líquidas
@@ -95,7 +95,7 @@ benCorrido::grafico_exportacoes_energia(con)
 #| label: tbl-exportacoes-importacoes-liquidas
 #| tbl-cap: 'Exportações e/ou Importações Líquidas. Valores absolutos. Unidade: 10³ tep. Quantidades sem sinal correspondem a importações líquidas. Quantidades negativas correspondem a exportações líquidas.'
 
-benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto")
+benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquidas", .tipo_dado = "Absoluto")
 ```
 
@@ -105,7 +105,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquid
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 100%
-benCorrido::grafico_exportacoes_importacoes_liquidas(con)
+benCorrido::grafico_exportacoes_importacoes_liquidas(con, laby = "10³ tep")
 ```
 
 ```{r}

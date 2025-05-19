@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,105 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Energy Exports and Imports
+
+![](../img/capas/imagem_cap_4.png)
+
+## External Dependence on Energy
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-dependencia-externa-energia-2
+#| tbl-cap: 'External Dependence on Energy.  Unit: 10³ toe. Losses: Losses in transformation, distribution and storage, including non-utilized and reinjected energy.'
+
+benCorrido::tab_dependencia_externa_energia_2(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_energia_2", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r}
+#| label: fig-dependencia-externa-energia-2
+#| fig-cap: 'External Dependence on Energy.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_dependencia_externa_energia_2(con, lang = "en", laby = "10³ tep")
+```
+
+## External Dependence on Oil
+
+```{r}
+#| label: tbl-dependencia-externa-petroleo
+#| tbl-cap: 'External Dependence on Oil. Absolute values. Unit: 10³ toe. Losses: Losses in transformation, distribution and storage, including non-utilized and reinjected energy. Other outputs from NGPP: Includes Natural Gas Liquids, Gasoline, naphta, diesel oil, etc. from Natural Gas Plants (NGPP).'
+
+benCorrido::tab_dependencia_externa_petroleo(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_dependencia_externa_petroleo", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r}
+#| label: fig-dependencia-externa-petroleo
+#| fig-cap: 'External Dependence on Oil. Absolute values.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_dependencia_externa_petroleo(con, lang = "en", laby = "10³ tep")
+```
+
+## Energy Imports
+
+```{r}
+#| label: tbl-importacoes-energia
+#| tbl-cap: 'Energy Imports. Absolute values. Unit: 10³ toe. Ethyl Alcohol: Methanol included.'
+
+benCorrido::tab_importacoes_energia(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_importacoes_energia", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r}
+#| label: fig-importacoes-energia
+#| fig-cap: 'Energy Imports. Absolute values.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_importacoes_energia(con, lang = "en", laby = "10³ tep")
+```
+
+## Energy Exports
+
+```{r}
+#| label: tbl-exportacoes-energia
+#| tbl-cap: 'Energy Exports. Absolute values. Unit: 10³ toe.'
+
+benCorrido::tab_exportacoes_energia(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_energia", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r}
+#| label: fig-exportacoes-energia
+#| fig-cap: 'Energy Exports. Absolute values.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_exportacoes_energia(con, lang = "en", laby = "10³ tep")
+```
+
+## Net Exports and/or Imports
+
+```{r}
+#| label: tbl-exportacoes-importacoes-liquidas
+#| tbl-cap: 'Net Exports and/or Imports. Absolute values. Unit: 10³ toe. Quantities without signs correspond to net imports. Negative quantities correspond to net exports.'
+
+benCorrido::tab_exportacoes_importacoes_liquidas(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_exportacoes_importacoes_liquidas", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r}
+#| label: fig-exportacoes-importacoes-liquidas
+#| fig-cap: 'Net Exports and/or Imports. Absolute values.'
+#| fig-width: 7
+#| fig-height: 2.8
+#| out-width: 100%
+benCorrido::grafico_exportacoes_importacoes_liquidas(con, lang = "en", laby = "10³ tep")
+```
+
+```{r}
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```

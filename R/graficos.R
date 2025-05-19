@@ -1511,21 +1511,21 @@ grafico_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .tip
   }
 }
 
+# Capítulo IV -------------------------------------------------------------------
+
 #' Gráfico do Capítulo IV
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #'
 #' @export
-grafico_dependencia_externa_energia_2 <- function(con, lang = "pt") {
+grafico_dependencia_externa_energia_2 <- function(con, lang = "pt", laby = "") {
   tab <- dplyr::tbl(con, "grafico_dependencia_externa_energia_2") |>
     dplyr::collect()
 
-  rotulo_y <- "10³ tep"
-
   grafico_linha(
     tab = tab,
-    rotulo_y = rotulo_y,
+    rotulo_y = laby,
     lang = lang
   ) +
     ggplot2::guides(color = ggplot2::guide_legend(nrow = 2))
@@ -1537,15 +1537,13 @@ grafico_dependencia_externa_energia_2 <- function(con, lang = "pt") {
 #' @param lang Idioma
 #'
 #' @export
-grafico_dependencia_externa_petroleo <- function(con, lang = "pt") {
+grafico_dependencia_externa_petroleo <- function(con, lang = "pt", laby = "") {
   tab <- dplyr::tbl(con, "grafico_dependencia_externa_petroleo") |>
     dplyr::collect()
 
-  rotulo_y <- "10³ tep"
-
   grafico_linha(
     tab = tab,
-    rotulo_y = rotulo_y,
+    rotulo_y = laby,
     lang = lang
   ) +
     ggplot2::guides(color = ggplot2::guide_legend(nrow = 2))
@@ -1557,15 +1555,13 @@ grafico_dependencia_externa_petroleo <- function(con, lang = "pt") {
 #' @param lang Idioma
 #'
 #' @export
-grafico_importacoes_energia <- function(con, lang = "pt") {
+grafico_importacoes_energia <- function(con, lang = "pt", laby = "") {
   tab <- dplyr::tbl(con, "grafico_importacoes_energia") |>
     dplyr::collect()
 
-  rotulo_y <- "10³ tep"
-
   grafico_linha(
     tab = tab,
-    rotulo_y = rotulo_y,
+    rotulo_y = laby,
     lang = lang
   )
 }
@@ -1576,15 +1572,13 @@ grafico_importacoes_energia <- function(con, lang = "pt") {
 #' @param lang Idioma
 #'
 #' @export
-grafico_exportacoes_energia <- function(con, lang = "pt") {
+grafico_exportacoes_energia <- function(con, lang = "pt", laby = "") {
   tab <- dplyr::tbl(con, "grafico_exportacoes_energia") |>
     dplyr::collect()
 
-  rotulo_y <- "10³ tep"
-
   grafico_linha(
     tab = tab,
-    rotulo_y = rotulo_y,
+    rotulo_y = laby,
     lang = lang
   )
 }
@@ -1595,18 +1589,18 @@ grafico_exportacoes_energia <- function(con, lang = "pt") {
 #' @param lang Idioma
 #'
 #' @export
-grafico_exportacoes_importacoes_liquidas <- function(con, lang = "pt") {
+grafico_exportacoes_importacoes_liquidas <- function(con, lang = "pt", laby = "") {
   tab <- dplyr::tbl(con, "grafico_exportacoes_importacoes_liquidas") |>
     dplyr::collect()
 
-  rotulo_y <- "10³ tep"
-
   grafico_linha(
     tab = tab,
-    rotulo_y = rotulo_y,
+    rotulo_y = laby,
     lang = lang
   )
 }
+
+# Capítulo V -------------------------------------------------------------------
 
 #' Gráfico do Capítulo V
 #'
