@@ -22,7 +22,7 @@ ano <- params$ano
 #| label: tbl-setor-energetico-absoluto
 #| tbl-cap: 'Setor Energético. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_setor_energetico(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Absoluto")
 ```
 
@@ -30,8 +30,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado 
 #| label: fig-setor-energetico-absoluto
 #| fig-cap: 'Setor Energético. Valores absolutos. Outros: Óleo Diesel, Biodiesel, Gás Liquefeito de Petróleo, Nafta, Querosene , Gás de Coqueria , Gás Canalizado, Coque de C. Mineral / Alcatrão/ Carvão Vapor, Outras Secundárias de Petróleo.'
 
-linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -42,7 +42,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-energetico-percentual
 #| tbl-cap: 'Setor Energético. Valores percentuais. Unidade: (%).'
 
-benCorrido::tab_setor_energetico(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_energetico(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado = "Percentual")
 ```
 
@@ -50,8 +50,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_energetico", .tipo_dado 
 #| label: fig-setor-energetico-percentual
 #| fig-cap: 'Setor Energético. Valores percentuais. Outros: Óleo Diesel, Biodiesel, Gás Liquefeito de Petróleo, Nafta, Querosene , Gás de Coqueria , Gás Canalizado, Coque de C. Mineral / Alcatrão/ Carvão Vapor, Outras Secundárias de Petróleo.'
 
-linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_energetico(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -68,7 +68,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-comercial-absoluto
 #| tbl-cap: 'Setor Comercial. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_setor_comercial(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Absoluto")
 ```
 
@@ -76,8 +76,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado =
 #| label: fig-setor-comercial-absoluto
 #| fig-cap: 'Setor Comercial. Valores absolutos. Outros: Gás Natural, Lenha, Biodiesel, Óleo Combustível,Gás Canalizado, Carvão Vegetal , Outros Derivados de Petróleo.'
 
-linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -88,7 +88,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-comercial-percentual
 #| tbl-cap: 'Setor Comercial. Valores percentuais. Unidade: (%).'
 
-benCorrido::tab_setor_comercial(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_comercial(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado = "Percentual")
 ```
 
@@ -96,8 +96,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_comercial", .tipo_dado =
 #| label: fig-setor-comercial-percentual
 #| fig-cap: 'Setor Comercial. Valores percentuais. Outros: Gás Natural, Lenha, Biodiesel, Óleo Combustível,Gás Canalizado, Carvão Vegetal , Outros Derivados de Petróleo.'
 
-linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_comercial(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -114,7 +114,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-publico-absoluto
 #| tbl-cap: 'Setor Público. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_setor_publico(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_publico(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Absoluto")
 ```
 
@@ -122,8 +122,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "
 #| label: fig-setor-publico-absoluto
 #| fig-cap: 'Setor Público. Valores absolutos. Outros: Gás Natural, Lenha, Biodiesel, Óleo Combustível, Querosene , Gás Canalizado, Carvão Vegetal, Outros Derivados de Petróleo.'
 
-linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -134,7 +134,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-publico-percentual
 #| tbl-cap: 'Setor Público. Valores percentuais. Unidade: (%).'
 
-benCorrido::tab_setor_publico(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_publico(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "Percentual")
 ```
 
@@ -142,8 +142,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_publico", .tipo_dado = "
 #| label: fig-setor-publico-percentual
 #| fig-cap: 'Setor Público. Valores percentuais. Outros: Gás Natural, Lenha, Biodiesel, Óleo Combustível, Querosene , Gás Canalizado, Carvão Vegetal, Outros Derivados de Petróleo.'
 
-linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_publico(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -160,7 +160,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-residencial-absoluto
 #| tbl-cap: 'Setor Residencial. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_setor_residencial(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Absoluto")
 ```
 
@@ -168,8 +168,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado
 #| label: fig-setor-residencial-absoluto
 #| fig-cap: 'Setor Residencial. Valores absolutos. Outros: Gás Natural , Querosene , Gás Canalizado, Carvão Vegetal, Solar Térmica.'
 
-linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -180,7 +180,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-residencial-percentual
 #| tbl-cap: 'Setor Residencial. Valores percentuais. Unidade: (%).'
 
-benCorrido::tab_setor_residencial(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_residencial(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado = "Percentual")
 ```
 
@@ -188,8 +188,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial", .tipo_dado
 #| label: fig-setor-residencial-percentual
 #| fig-cap: 'Setor Residencial. Valores percentuais. Outros: Gás Natural , Querosene , Gás Canalizado, Carvão Vegetal, Solar Térmica.'
 
-linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_residencial(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -206,7 +206,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-agropecuario-absoluto
 #| tbl-cap: 'Setor Agropecuário. Valores absolutos. Unidade: 10³ tep. Álcool Hidratado: Utilizado como combustível em aviões agrícolas, para fertilização.'
 
-benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Absoluto")
 ```
 
@@ -214,8 +214,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dad
 #| label: fig-setor-agropecuario-absoluto
 #| fig-cap: 'Setor Agropecuário. Valores absolutos. Outros: Biodiesel , Óleo Combustível, Gás Liquefeito de Petróleo, Querosene ,Carvão Vegetal, Álcool Hidratado.'
 
-linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -226,7 +226,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-agropecuario-percentual
 #| tbl-cap: 'Setor Agropecuário. Valores percentuais. Unidade: (%). Álcool Hidratado: Utilizado como combustível em aviões agrícolas, para fertilização.'
 
-benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_agropecuario(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dado = "Percentual")
 ```
 
@@ -234,8 +234,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_agropecuario", .tipo_dad
 #| label: fig-setor-agropecuario-percentual
 #| fig-cap: 'Setor Agropecuário. Valores percentuais. Outros: Biodiesel , Óleo Combustível, Gás Liquefeito de Petróleo, Querosene ,Carvão Vegetal, Álcool Hidratado.'
 
-linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_agropecuario(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -254,7 +254,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-transportes-geral-absoluto
 #| tbl-cap: 'Setor de Transportes - Geral. Valores absolutos. Unidade: 10³ tep.'
 
-benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Absoluto")
 ```
 
@@ -262,8 +262,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tip
 #| label: fig-setor-transportes-geral-absoluto
 #| fig-cap: 'Setor de Transportes - Geral. Valores absolutos. Outros: Carvão Vapor, Lenha, Óleo Combustível , Gasolina de Aviação, Eletricidade, Outras Secundárias de Petróleo.'
 
-linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -274,7 +274,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-transportes-geral-percentual
 #| tbl-cap: 'Setor de Transportes - Geral. Valores percentuais. Unidade: (%).'
 
-benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_transportes_geral(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tipo_dado = "Percentual")
 ```
 
@@ -282,8 +282,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_geral", .tip
 #| label: fig-setor-transportes-geral-percentual
 #| fig-cap: 'Setor de Transportes - Geral. Valores percentuais. Outros: Carvão Vapor, Lenha, Óleo Combustível , Gasolina de Aviação, Eletricidade, Outras Secundárias de Petróleo.'
 
-linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_transportes_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -474,7 +474,7 @@ benCorrido::criar_carrossel(area, linha)
 ```
 
 :::
-## Setor Industrial 
+## Setor Industrial
 
 ### Geral
 
@@ -486,7 +486,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-industrial-geral-absoluto
 #| tbl-cap: 'Setor Industrial Geral. Valores absolutos. Unidade: 10³ tep. OUTRAS FONTES PRIMÁRIAS desagregada em OUTRAS RENOVÁVEIS e OUTRAS NÃO RENOVÁVEIS.'
 
-benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Absoluto")
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Absoluto")
 ```
 
@@ -494,8 +494,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo
 #| label: fig-setor-industrial-geral-absoluto
 #| fig-cap: 'Setor Industrial Geral. Valores absolutos. Outros: Carvão Mineral, Solar Térmica, Outras Renováveis, Outras Não Renováveis, Óleo Diesel , Biodiesel, Gás Liquefeito de Petróleo, Nafta, Querosene, Gás de Coqueria , Gás Canalizado, Carvão Vegetal , Outras Secundárias de Petróleo, Outras Secundárias - Alcatrão.'
 
-linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "10³ tep")
+area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "10³ tep")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -506,7 +506,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-setor-industrial-geral-percentual
 #| tbl-cap: 'Setor Industrial Geral. Valores percentuais. Unidade: (%). OUTRAS FONTES PRIMÁRIAS desagregada em OUTRAS RENOVÁVEIS e OUTRAS NÃO RENOVÁVEIS.'
 
-benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Percentual")
+benCorrido::tab_setor_industrial_geral(con, .tipo_dado = "Percentual", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo_dado = "Percentual")
 ```
 
@@ -514,8 +514,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_industrial_geral", .tipo
 #| label: fig-setor-industrial-geral-percentual
 #| fig-cap: 'Setor Industrial Geral. Valores percentuais. Outros: Carvão Mineral, Solar Térmica, Outras Renováveis, Outras Não Renováveis, Óleo Diesel , Biodiesel, Gás Liquefeito de Petróleo, Nafta, Querosene, Gás de Coqueria , Gás Canalizado, Carvão Vegetal , Outras Secundárias de Petróleo, Outras Secundárias - Alcatrão.'
 
-linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "linha")
-area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "area")
+linha <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "%")
+area <- benCorrido::grafico_setor_industrial_geral(con, .tipo_dado = "Percentual", .tipo_grafico = "area", laby = "%")
 
 benCorrido::criar_carrossel(area, linha)
 ```

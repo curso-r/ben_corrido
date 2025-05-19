@@ -1492,7 +1492,7 @@ tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado, 
   )
 }
 
-# Capítulo III ------------------------------------------------------------------ 
+# Capítulo III ------------------------------------------------------------------
 
 #' Tabela do Capítulo III
 #'
@@ -1501,7 +1501,7 @@ tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado, 
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_energetico <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_energetico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_energetico"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1512,7 +1512,7 @@ tab_setor_energetico <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1524,7 +1524,7 @@ tab_setor_energetico <- function(con, lang = "pt", .tipo_dado) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_comercial <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_comercial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_comercial"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1535,7 +1535,7 @@ tab_setor_comercial <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1547,7 +1547,7 @@ tab_setor_comercial <- function(con, lang = "pt", .tipo_dado) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_publico <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_publico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_publico"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1558,7 +1558,7 @@ tab_setor_publico <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1570,7 +1570,7 @@ tab_setor_publico <- function(con, lang = "pt", .tipo_dado) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_residencial <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_residencial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_residencial"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1581,7 +1581,7 @@ tab_setor_residencial <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1593,7 +1593,7 @@ tab_setor_residencial <- function(con, lang = "pt", .tipo_dado) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_agropecuario"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1604,7 +1604,7 @@ tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1617,7 +1617,7 @@ tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   tab_name <- "tab_setor_transportes_geral"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1628,8 +1628,8 @@ tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 100
   )
 }
@@ -1643,7 +1643,7 @@ tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado) {
 #' @param .segmento Segmento do setor de transportes
 #'
 #' @export
-tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmento) {
+tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmento, lab1 = "") {
   tab_name <- "tab_setor_transportes_segmento"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1655,7 +1655,7 @@ tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmen
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1667,7 +1667,7 @@ tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmen
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado) {
+tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   tab_name <- "tab_setor_industrial_geral"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1678,7 +1678,7 @@ tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado) {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -1691,7 +1691,7 @@ tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado) {
 #' @param .segmento Segmento do setor de transportes
 #'
 #' @export
-tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segmento) {
+tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segmento, lab1 = "") {
   tab_name <- "tab_setor_industrial_segmento"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -1703,10 +1703,12 @@ tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segment
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fontes",
+    lab1 = lab1,
     min_width = 220
   )
 }
+
+# Capítulo IV -------------------------------------------------------------------
 
 #' Tabela do Capítulo IV
 #'
@@ -5463,7 +5465,7 @@ tab_densidades_poderes_calorificos <- function(con, lang = "pt", lab1, lab2) {
   locale <- pegar_locale(lang)
 
   tab_wide <- tab |>
-    dplyr::select(unidade_origem, unidade_destino, fator_conversao) |> 
+    dplyr::select(unidade_origem, unidade_destino, fator_conversao) |>
     tidyr::pivot_wider(
       names_from = unidade_destino,
       values_from = fator_conversao
@@ -5714,7 +5716,7 @@ tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", l
   tab_name_download <- glue::glue("{tab_name}_{.ano}")
   gerar_tabela_download(tab_long, tab_name = tab_name_download, .tipo_dado = NULL)
   gerar_matriz_download(tab_wide, tab_name = tab_name_download, .tipo_dado = NULL)
-  
+
   tab_wide |>
     reactable::reactable(
       striped = TRUE,
