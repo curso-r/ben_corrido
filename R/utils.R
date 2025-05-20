@@ -172,11 +172,16 @@ create_dropdown <- function(elementos, id, params, label = "", html = FALSE,
     onchange = sprintf("updateElement('%s')", id),
     style = glue::glue("width: {dropdown_width};")
   )
+  
+  labels <- names(params)
+  if (is.null(labels)) {
+    labels <- params
+  }
 
-  for (param in params) {
+  for (i in seq_along(params)) {
     select_html <- htmltools::tagAppendChild(
       select_html,
-      htmltools::tags$option(value = param, param)
+      htmltools::tags$option(value = params[i], labels[i])
     )
   }
 

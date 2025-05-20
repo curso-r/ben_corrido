@@ -2982,8 +2982,9 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_8_4_traduzido.rds") 
   dplyr::bind_cols(tab_en) |>
   dplyr::select(
     fonte = fontes,
-    classificacao = tipo_classificacao,
     fonte_en,
+    classificacao = tipo_classificacao,
+    classificacao_en,
     macro_grupo,
     macro_grupo_en,
     grupo,

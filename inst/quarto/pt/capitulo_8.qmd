@@ -125,7 +125,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_eletricida
 
 ```{r}
 #| label: tbl-consumo-residencial-gas-liquefeito-petroleo-absoluto
-#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores absolutos. Unidade: 10³ m³.'
+#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores absolutos. Unidade: 10³ m³. Pequenas diferenças entre os dados desta tabela e outras do documento são justificadas em razão de critérios diferentes de depuração.'
 
 benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Absoluto")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Absoluto")
@@ -135,7 +135,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquef
 
 ```{r}
 #| label: tbl-consumo-residencial-gas-liquefeito-petroleo-percentual
-#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores percentuais. Unidade: (%).'
+#| tbl-cap: 'Consumo Residencial de Gás Liquefeito de Petróleo. Valores percentuais. Unidade: (%). Pequenas diferenças entre os dados desta tabela e outras do documento são justificadas em razão de critérios diferentes de depuração.'
 
 benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lab1 = "Região", lab2 = "UF", .tipo_dado = "Percentual")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Percentual")

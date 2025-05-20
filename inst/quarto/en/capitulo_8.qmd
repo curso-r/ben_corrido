@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,478 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Federal States Data
+
+![](../img/capas/imagem_cap_8.png)
+
+## Energy Production - Fossils
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-producao-energia-fosseis-1
+#| tbl-cap: 'Energy Production - Fossils - Natural Gas Production (10⁶ m³): Paraná state includes shale gas.'
+
+benCorrido::tab_producao_energia_fosseis_1(con, lang = "en", lab1 = "Region", lab2 = "State")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_producao_energia_fosseis_1")
+```
+
+```{r}
+#| label: tbl-producao-energia-fosseis-2
+#| tbl-cap: 'Energy Production - Fossils - Unit: %.'
+
+benCorrido::tab_producao_energia_fosseis_2(con, lang = "en", lab1 = "Region")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_producao_energia_fosseis_2")
+```
+
+## Energy Production – Electricity Generation and Alcohol Production
+
+```{r}
+#| label: tbl-producao-energia-eletricidade-alcool-1
+#| tbl-cap: 'Energy Production – Electricity Generation and Alcohol Production. Electricity Generation (GWh): Including generation from self producers.'
+
+benCorrido::tab_producao_energia_eletricidade_alcool_1(con, lang = "en", lab1 = "Region", lab2 = "State")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_producao_energia_eletricidade_alcool_1")
+```
+
+```{r}
+#| label: tbl-producao-energia-eletricidade-alcool-2
+#| tbl-cap: 'Energy Production – Electricity Generation and Alcohol Production. Unit: %.'
+
+benCorrido::tab_producao_energia_eletricidade_alcool_2(con, lang = "en", lab1 = "Region")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_producao_energia_eletricidade_alcool_2")
+```
+
+## Eletric Generation by Source
+
+```{r}
+#| label: tbl-geracao-eletricidade-por-fonte
+#| tbl-cap: 'Eletric Generation by source and year. Unit: GWh.'
+
+anos <- 2023:2011
+
+botao_tabela <- htmltools::tags$a(
+  href = glue::glue("dados/tabela_geracao_eletricidade_por_fonte.xlsx"),
+  htmltools::tags$button(
+    class = "btn btn-default",
+    bsicons::bs_icon("download"),
+    "Tabela"
+  )
+)
+
+
+tabelas <- purrr::map(
+  anos,
+  \(ano) {
+    htmltools::div(
+      benCorrido::tab_geracao_eletricidade_por_fonte(con, lang = "en", .ano = ano, lab1 = "Region", lab2 = "State", .coluna_total = "Total generation"),
+      benCorrido::gerar_botoes_download(
+        lang = "en",
+        tab_name = glue::glue("tab_geracao_eletricidade_por_fonte_{ano}"),
+        tabela = FALSE,
+        botao_tabela
+      )
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = anos,
+  id = "tab_geracao_eletricidade_por_fonte",
+  label = "Year:",
+  dropdown_width = "200px",
+  html = TRUE
+)
+```
+
+## Electricity Residential Consumption
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-consumo-residencial-eletricidade-absoluto
+#| tbl-cap: 'Electricity Residential Consumption. Absolute values. Unit: GWh.'
+
+benCorrido::tab_consumo_residencial_eletricidade(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-consumo-residencial-eletricidade-percentual
+#| tbl-cap: 'Electricity Residential Consumption. Percentage values. Unit: (%).'
+
+benCorrido::tab_consumo_residencial_eletricidade(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_residencial_eletricidade", .tipo_dado = "Percentual")
+```
+
+:::
+
+## LPG Residential Consumption
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-consumo-residencial-gas-liquefeito-petroleo-absoluto
+#| tbl-cap: 'LPG Residential Consumption. Absolute values. Unit: 10³ m³. Small differences between the data from this table and the ones in other tables in this publication could occur due to different criteria of depuration.'
+
+benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-consumo-residencial-gas-liquefeito-petroleo-percentual
+#| tbl-cap: 'LPG Residential Consumption. Percentage values. Unit: (%). Small differences between the data from this table and the ones in other tables in this publication could occur due to different criteria of depuration.'
+
+benCorrido::tab_consumo_residencial_gas_liquefeito_petroleo(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_residencial_gas_liquefeito_petroleo", .tipo_dado = "Percentual")
+```
+
+:::
+
+## Installed Capacity of Electricity Generation
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-geracao-energia-absoluto
+#| tbl-cap: 'Installed Capacity of Electricity Generation. Absolute values. Unit: MW. SP - Public Service (it includes Independent Producers). APE – Self Producer (including the partnership between hydroeletric plants with Public Service concessionaries, as: Igarapava, Canoas I and II, Funil, Porto Estrela, Machadinho and others). Equitable distribution for border plant. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_geracao_energia(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-geracao-energia-percentual
+#| tbl-cap: 'Installed Capacity of Electricity Generation. Percentage values. Unit: (%). SP - Public Service (it includes Independent Producers). APE – Self Producer (including the partnership between hydroeletric plants with Public Service concessionaries, as: Igarapava, Canoas I and II, Funil, Porto Estrela, Machadinho and others). Equitable distribution for border plant. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_geracao_energia(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_geracao_energia", .tipo_dado = "Percentual")
+```
+
+:::
+
+
+## Installed Capacity of Distributed Generation
+
+```{r}
+#| label: tbl-capacidade-instalada-mini-micro-geracao-distribuida-1
+#| tbl-cap: 'Installed Capacity of Distributed Generation - Part 1. Unit: MW.'
+
+benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_1(con, lang = "en", lab1 = "Region", lab2 = "State")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_1")
+```
+
+```{r}
+#| label: tbl-capacidade-instalada-mini-micro-geracao-distribuida-2
+#| tbl-cap: 'Installed Capacity of Distributed Generation - Part 2. Unit: %.'
+
+benCorrido::tab_capacidade_instalada_mini_micro_geracao_distribuida_2(con, lang = "en", lab1 = "Region")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_mini_micro_geracao_distribuida_2")
+```
+
+## Installed Capacity for Electricity Generation of Self-Producers by Economic Sector
+
+### Agriculture and Livestock
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-agropecuario-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Agriculture and Livestock. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Agropecuário"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-agropecuario-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Agriculture and Livestock. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+### Commercial
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-comercial-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Commercial. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Comercial"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-comercial-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Commercial. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+### Public
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-publico-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Public. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Público"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-publico-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Public. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+### Residential
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-residencial-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Residential. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Residencial"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-residencial-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Residential. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+### Energy Sector
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-setor-energetico-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Energy Sector. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Setor Energético"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-setor-energetico-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Energy Sector. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+### Transportation
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-transporte-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Transportation. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setor <- "Transporte"
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Absoluto")
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-transporte-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers - Transportation. Percentage values. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_autoprodutores_setor_economico(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor)
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_setor_economico_{setor}"), .tipo_dado = "Percentual")
+```
+
+:::
+
+
+## Installed Capacity for Electricity Generation of Self-Producers by Industrial Segment
+
+::: {.panel-tabset}
+
+## Absolute
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-segmento-industrial-absoluto
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers by Industrial Segment. Absolute values. Unit: MW. Does not include Distributed Generation.'
+
+setores <- c(
+  "Aluminum" = "Alumínio",
+  "Cement" = "Cimento",
+  "Ceramics" = "Cerâmica",
+  "Chemical" = "Química",
+  "Foods and Beverages" = "Alimentos e Bebidas",
+  "Iron-Alloys" = "Ferro-Ligas",
+  "Mining" = "Mineração",
+  "Non-Ferrous" = "Não-Ferrosos",
+  "Others" = "Outros",
+  "Paper and Pulp" = "Papel e Celulose",
+  "Pig-Iron and Steel" = "Ferro-Gusa e Aço",
+  "Sugar and Alcohol" = "Açúcar e Álcool",
+  "Textiles" = "Têxtil"
+)
+
+tabelas <- purrr:::map(
+  setores,
+  \(setor) {
+    htmltools::div(
+      benCorrido::tab_capacidade_instalada_autoprodutores_segmento_industrial(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Absoluto", .setor = setor),
+      benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_segmento_industrial_{setor}"), .tipo_dado = "Absoluto")
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = setores,
+  id = "tab_capacidade_instalada_autoprodutores_segmento_industrial_absoluto",
+  label = "Industrial Segment:",
+  dropdown_width = "300px",
+  html = TRUE
+)
+```
+
+## Percentage
+
+```{r}
+#| label: tbl-capacidade-instalada-autoprodutores-segmento-industrial-percentual
+#| tbl-cap: 'Installed Capacity for Electricity Generation of Self-Producers by Industrial Segment. Percentage values. Unit: (%). Does not include Distributed Generation.'
+
+setores <- c(
+  "Aluminum" = "Alumínio",
+  "Cement" = "Cimento",
+  "Ceramics" = "Cerâmica",
+  "Chemical" = "Química",
+  "Foods and Beverages" = "Alimentos e Bebidas",
+  "Iron-Alloys" = "Ferro-Ligas",
+  "Mining" = "Mineração",
+  "Non-Ferrous" = "Não-Ferrosos",
+  "Others" = "Outros",
+  "Paper and Pulp" = "Papel e Celulose",
+  "Pig-Iron and Steel" = "Ferro-Gusa e Aço",
+  "Sugar and Alcohol" = "Açúcar e Álcool",
+  "Textiles" = "Têxtil"
+)
+
+tabelas <- purrr:::map(
+  setores,
+  \(setor) {
+    htmltools::div(
+      benCorrido::tab_capacidade_instalada_autoprodutores_segmento_industrial(con, lang = "en", lab1 = "Region", lab2 = "State", .tipo_dado = "Percentual", .setor = setor),
+      benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_capacidade_instalada_autoprodutores_segmento_industrial_{setor}"), .tipo_dado = "Percentual")
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = setores,
+  id = "tab_capacidade_instalada_autoprodutores_segmento_industrial_percentual",
+  label = "Industrial Segment:",
+  dropdown_width = "300px",
+  html = TRUE
+)
+```
+
+:::
+
+## Installed Capacity
+
+```{r}
+#| label: tbl-capacidade-instalada-1
+#| tbl-cap: 'Installed Capacity. Source: ANP. Oil Refinery: Nominal Capacity. Paraná: It includes shale oil. Pernambuco: The refinery RNEST started operation on 6 december of 2014, Autorized by ANP (operation) nº 506/2014. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_1(con, lang = "en", lab1 = "Region", lab2 = "State")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_1")
+```
+
+```{r}
+#| label: tbl-capacidade-instalada-2
+#| tbl-cap: 'Installed Capacity. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_capacidade_instalada_2(con, lang = "en", lab1 = "Region")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_capacidade_instalada_2")
+```
+
+## Proved Reserves and Hydraulic Potential
+
+```{r}
+#| label: tbl-reservas-provadas-potencial-hidraulico-1
+#| tbl-cap: 'Proved Reserves and Hydraulic Potential. Unit: Indicated in each variable. Hydraulic Potential MW: Sources: SIPOT - Brazilian Hydroelectric Potential System; Aneel. % from total: Percentages are calculated considering the equal distribution between neighbor plants. Does not include Distributed Generation.'
+
+benCorrido::tab_reservas_provadas_potencial_hidraulico_1(con, lang = "en", lab1 = "")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_reservas_provadas_potencial_hidraulico_1")
+```
+
+```{r}
+#| label: tbl-reservas-provadas-potencial-hidraulico-2
+#| tbl-cap: 'Proved Reserves and Hydraulic Potential. Unit: %. Does not include Distributed Generation.'
+
+benCorrido::tab_reservas_provadas_potencial_hidraulico_2(con, lang = "en", lab1 = "Region")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_reservas_provadas_potencial_hidraulico_2")
+```
+
+
+```{r}
+htmltools::tags$script(src = "../js/fix_slider.js")
 ```

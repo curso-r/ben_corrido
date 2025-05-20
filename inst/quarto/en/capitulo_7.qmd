@@ -188,5 +188,3 @@ benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_relacoes_precos_f
 benCorrido::tab_gastos_divisas_importacao_petroleo(con, lang = "en")
 benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_gastos_divisas_importacao_petroleo")
 ```
-
-
