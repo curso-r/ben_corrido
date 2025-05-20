@@ -19,7 +19,7 @@ ano <- params$ano
 #| label: tbl-oferta-interna-energia-pib-populacao
 #| tbl-cap: 'Oferta Interna de Energia / PIB / População. Valores em reais constantes de 2010 convertidos para dólares em paridade do poder de compra (ppc) de 2010. População Residente-POP: Estimativa elaborada pela EPE baseada na "Projeção da População do Brasil por sexo e idade: 2000-2060" - agosto de 2013 (IBGE).'
 
-benCorrido::tab_oferta_interna_energia_pib_populacao(con)
+benCorrido::tab_oferta_interna_energia_pib_populacao(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_populacao")
 ```
 
@@ -29,7 +29,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energia_pib_pop
 #| label: tbl-oferta-interna-energeticos-pib
 #| tbl-cap: 'Oferta Interna de Energéticos / PIB. Unidade: tep /10³ US$ ppc (2010).'
 
-benCorrido::tab_oferta_interna_energeticos_pib(con)
+benCorrido::tab_oferta_interna_energeticos_pib(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib")
 ```
 
@@ -39,7 +39,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oferta_interna_energeticos_pib
 #| label: tbl-consumo-final-energetico
 #| tbl-cap: 'Consumo Final Energético. Unidade: 10³ tep. Comercial e Outros: Corresponde aos setores público e comercial. Extrativa Mineral: Mineração e pelotização. Exclui exploração de petróleo, gás natural e mineração de carvão mineral. Não Metálicos: Corresponde aos setores cimento e cerâmica. Metalurgia: Corresponde aos setores ferro-gusa e aço, ferro-ligas e não-ferrosos.'
 
-benCorrido::tab_consumo_final_energetico(con)
+benCorrido::tab_consumo_final_energetico(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico")
 ```
 
@@ -49,7 +49,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energetico")
 #| label: tbl-produto-interno-bruto-setorial
 #| tbl-cap: 'Produto Interno Bruto Setorial. Unidade: 10⁶ US$ ppc (2010). Comercial e Público: Corresponde a comércio, comunicações, instituições financeiras, administrações públicas, aluguéis, outros serviços e SIUP, menos geração elétrica. Extrativa Mineral: Exclusive extração de petróleo, gás natural e de carvão mineral. Química: Exclusive refino de petróleo, destilação de álcool e produção de coque. Têxtil: Exclusive vestuário, calçados e artefatos de tecido. Outros: Corresponde a mecânica, material elétrico e comunicação, material de transporte, madeira, mobiliário, borracha, farmacêutica, perfumaria, sabões e velas, produção de matérias plásticas, fumo, construção e diversos.  Setor Energético: Corresponde a extração de petróleo, gás natural e carvão mineral; refino de petróleo; destilação de álcool, geração de eletricidade e produção de coque. Dummy financeiro distribuido proporcionalmente aos grupos de setores econômicos. Dólar constante de 2010.'
 #| 
-benCorrido::tab_produto_interno_bruto_setorial(con)
+benCorrido::tab_produto_interno_bruto_setorial(con, lab1 = "")
 benCorrido::gerar_botoes_download(tab_name = "tab_produto_interno_bruto_setorial")
 ```
  
@@ -59,7 +59,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_produto_interno_bruto_setorial
 #| label: tbl-consumo-final-energia-setor-pib-setor
 #| tbl-cap: 'Consumo Final de Energia do Setor / PIB do Setor. Unidade: tep/10⁶ US$ ppc (2010). Consumo Final Energético com Residencial/ Consumo Final Energético sem Residencial: Calculado sobre o PIB total. tep/10⁶ US$ ppc (2010):Dólar constante ppc de 2010.'
 
-benCorrido::tab_consumo_final_energia_setor_pib_setor(con)
+benCorrido::tab_consumo_final_energia_setor_pib_setor(con, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energia_setor_pib_setor")
 ```
 
@@ -69,7 +69,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_consumo_final_energia_setor_pi
 #| label: tbl-setor-residencial-energia-populacao
 #| tbl-cap: 'Setor Residencial – Energia / População. Consumo Final de Energia para Cocção: Consumo Final Energético para Cocção considera GLP, gás canalizado, lenha e carvão vegetal, inclusive o Gás Natural.'
 
-benCorrido::tab_setor_residencial_energia_populacao(con)
+benCorrido::tab_setor_residencial_energia_populacao(con, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial_energia_populacao")
 ```
 
@@ -79,7 +79,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_residencial_energia_popu
 #| label: tbl-setor-transportes-energia-pib-setor
 #| tbl-cap: 'Setor de Transportes – Energia / PIB do Setor.'
 
-benCorrido::tab_setor_transportes_energia_pib_setor(con)
+benCorrido::tab_setor_transportes_energia_pib_setor(con, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_energia_pib_setor")
 ```
 
@@ -94,7 +94,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_setor_transportes_energia_pib_
 setor <- "Cimento"
 segmento <- "Total"
 
-benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
 ```
 
@@ -111,7 +111,7 @@ tabelas <- purrr::map(
   segmentos,
   \(segmento) {
     htmltools::div(
-      benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento),
+      benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento, lab1 = "Identificação"),
       benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
     )
   }
@@ -136,7 +136,7 @@ benCorrido::create_dropdown(
 setor <- "Papel e Celulose"
 segmento <- "Total"
 
-benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
 ```
 
@@ -149,7 +149,7 @@ benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_
 setor <- "Setor Energético"
 segmento <- "Total"
 
-benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento)
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, .setor = setor, .segmento = segmento, lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
 ```
 

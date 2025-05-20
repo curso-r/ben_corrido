@@ -21,8 +21,8 @@ book:
         # - en/capitulo_3.qmd
         # - en/capitulo_4.qmd
         # - en/capitulo_5.qmd
-        - en/capitulo_6.qmd
-        # - en/capitulo_7.qmd
+        # - en/capitulo_6.qmd
+        - en/capitulo_7.qmd
         # - en/capitulo_8.qmd
     - part: Appendixes
       # chapters:

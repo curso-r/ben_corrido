@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,184 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Energy and Socioeconomics
+
+![](../img/capas/imagem_cap_7.png)
+
+## Total Energy Supply / GDP / Population
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-oferta-interna-energia-pib-populacao
+#| tbl-cap: 'Total Energy Supply / GDP / Population. Constant values in reais of 2010 converted to dollars at purchasing power parity (ppp) of 2010. Population - POP: Estimate made by EPE based on ‘Population Projection of Brazil by sex and age: 2000-2060’ - August 2013 (IBGE).'
+
+benCorrido::tab_oferta_interna_energia_pib_populacao(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_oferta_interna_energia_pib_populacao")
 ```
+
+## Energy Supply by Source per GDP
+
+```{r}
+#| label: tbl-oferta-interna-energeticos-pib
+#| tbl-cap: 'Energy Supply by Source per GDP. Unit: tep /10³ US$ ppc (2010).'
+
+benCorrido::tab_oferta_interna_energeticos_pib(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_oferta_interna_energeticos_pib")
+```
+
+## Final Energy Consumption by Sector
+
+```{r}
+#| label: tbl-consumo-final-energetico
+#| tbl-cap: 'Final Energy Consumption by Sector. Unit: 10³ toe. Commerce And Others: It corresponds to the public and commercial sectors. Mining: Mining and pelletizing. Excluding oil exploration, natural gas and coal mining. Non-Metals: It corresponds to the cement and ceramics industries. Metallurgy: It corresponds to the sectors iron and steel, iron-alloys and non-ferrous metals.'
+
+benCorrido::tab_consumo_final_energetico(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_final_energetico")
+```
+
+## Gross Domestic Product by Sector
+
+```{r}
+#| label: tbl-produto-interno-bruto-setorial
+#| tbl-cap: 'Gross Domestic Product by Sector. Unit: 10⁶ US$ ppp (2010). Commercial And Public: Matches commerce, communications, financial institutions, public administration, rent, other services and SIUP less power generation. Mining: Exclusive oil extraction, natural gas and coal. Chemical: Exclusive oil refining, alcohol distillation and coking production. Textiles: Exclusive clothes, shoes and cloth artifacts. Others: Sum of mechanics, electric and communication material, transportation material, wood, furniture, rubber, pharmaceutical, perfumery, soap e other. Energy Sector: Corresponds to the extraction of oil, natural gas and coal, oil refining, alcohol distillation, electricity generation and coking production. Financial dummy variable distributed proportionally among economic sector groups. 2010 Constant Dollar.'
+ 
+benCorrido::tab_produto_interno_bruto_setorial(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_produto_interno_bruto_setorial")
+```
+
+## Final Energy Consumption per Added Value Sector’s
+
+```{r}
+#| label: tbl-consumo-final-energia-setor-pib-setor
+#| tbl-cap: 'Final Energy Consumption per Added Value Sector’s. Unit: toe/10⁶ US$ ppp (2010). Final Energy Consumption With Residential/ Final Energy Consumption Without Residential: Based on total GDP. toe/10⁶ US$ ppp (2010):Constant US Dollar ppp of 2010.'
+
+benCorrido::tab_consumo_final_energia_setor_pib_setor(con, lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_final_energia_setor_pib_setor")
+```
+
+## Residencial Sector – Energy / Population
+
+```{r}
+#| label: tbl-setor-residencial-energia-populacao
+#| tbl-cap: 'Residencial Sector – Energy / Population. Energy Consumption for Cooking: It considers LPG, gasworks gas, firewood, charcoal and natural gas.'
+
+benCorrido::tab_setor_residencial_energia_populacao(con, lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_setor_residencial_energia_populacao")
+```
+
+## Transportation Sector – Energy / Added Value
+
+```{r}
+#| label: tbl-setor-transportes-energia-pib-setor
+#| tbl-cap: 'Transportation Sector – Energy / Added Value.'
+
+benCorrido::tab_setor_transportes_energia_pib_setor(con, lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_setor_transportes_energia_pib_setor")
+```
+
+## Energy Specific Consumption – Selected Sectors
+
+### Cement
+
+```{r}
+#| label: tbl-consumo-especifico-energia-cimento
+#| tbl-cap: 'Energy Specific Consumption - Cement.'
+
+setor <- "Cimento"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, lang = "en", .setor = setor, .segmento = segmento, lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
+
+### Metallurgy
+
+```{r}
+#| label: tbl-consumo-especifico-energia-metalurgia
+#| tbl-cap: 'Energy Specific Consumption -  Metallurgy by segment. Total: Sum of iron and steel, iron-alloys and non-ferrous metallurgical and other. Pig-iron and steel - Production: Production of crude steel.'
+
+setor <- "Metalurgia"
+segmentos <- c("Ferro-Gusa e Aço", "Ferroligas", "Não-Ferrosos e Outros Metalúrgicos", "Total")
+
+tabelas <- purrr::map(
+  segmentos,
+  \(segmento) {
+    htmltools::div(
+      benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, lang = "en", .setor = setor, .segmento = segmento, lab1 = "Identification"),
+      benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+    )
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = tabelas,
+  params = segmentos,
+  id = "tab_consumo_especifico_energia_setores_selecionados",
+  label = "Segmento:",
+  dropdown_width = "300px",
+  html = TRUE
+)
+```
+
+### Paper and Pulp
+
+```{r}
+#| label: tbl-consumo-especifico-energia-papel-celulose
+#| tbl-cap: 'Energy Specific Consumption -  Paper and Pulp.'
+
+setor <- "Papel e Celulose"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, lang = "en", .setor = setor, .segmento = segmento, lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
+
+### Energy Sector
+
+```{r}
+#| label: tbl-consumo-especifico-energia-setor-energetico
+#| tbl-cap: 'Energy Specific Consumption - Energy Sector.'
+
+setor <- "Setor Energético"
+segmento <- "Total"
+
+benCorrido::tab_consumo_especifico_energia_setores_selecionados(con, lang = "en", .setor = setor, .segmento = segmento, lab1 = "Identification")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_consumo_especifico_energia_setores_selecionados_{setor}_{segmento}"))
+```
+
+## Current Average Prices of Energy Sources
+
+```{r}
+#| label: tbl-precos-medios-correntes-fontes-energia-1
+#| tbl-cap: 'Current Average Prices of Energy Sources. Current Average Prices of Energy Sources: National current money converted to a current US$. Price to consumer with taxes. Diesel Oil/Gasoline/Hydrated Ethanol/LPG: Quotations of Rio De Janeiro, up to 2004. Brazil average from 2005 on. Natural Gas - Industry: Up to 1994, sale price of Petrobras the industrial consumers. From 1995 on, quotations of industries of some states. Industrial Electricity/ Residential Electricity: Brazilin average prices. Steam Coal/Charcoal/Native Firewood/Firewood from Reflorestation: Quotations of Several States Industries. Fuel Oil: Average price in Rio de Janeiro.'
+
+benCorrido::tab_precos_medios_correntes_fontes_energia_1(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_precos_medios_correntes_fontes_energia_1")
+```
+
+```{r}
+#| label: tbl-precos-medios-correntes-fontes-energia-2
+#| tbl-cap: 'Current Average Prices of Energy Sources. Unit: US\\$/boe. Imported Petroleum (2010 Prices): Current dollar converted to constant U.S. dollars of 2010 CPI (CPI-U) of the United States. US$/boe: In order to keep the series, is adopted boe based on higher calorific value of the source.'
+
+benCorrido::tab_precos_medios_correntes_fontes_energia_2(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_precos_medios_correntes_fontes_energia_2")
+```
+
+##  Prices relations of the Energy Sources
+
+```{r}
+#| label: tbl-relacoes-precos-fontes-energia
+#| tbl-cap: 'Prices relations of the Energy Sources. Imported Petroleum*: Oil at current prices, from @tbl-precos-medios-correntes-fontes-energia-2.'
+benCorrido::tab_relacoes_precos_fontes_energia(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_relacoes_precos_fontes_energia")
+```
+
+## Expenses on Oil Imports
+
+```{r}
+#| label: tbl-gastos-divisas-importacao-petroleo
+#| tbl-cap: 'Expenses on Oil Imports. Unit: 10⁶ US$ (FOB). Source: Petrobrás and SECEX (up to 2004), ANP and MDIC (2005 on).'
+benCorrido::tab_gastos_divisas_importacao_petroleo(con, lang = "en")
+benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_gastos_divisas_importacao_petroleo")
+```
+
+

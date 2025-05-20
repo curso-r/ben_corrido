@@ -2318,9 +2318,10 @@ tab_reservas_uranio <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
+tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_oferta_interna_energia_pib_populacao"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2368,7 +2369,7 @@ tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
           width = 130
         ),
         grupo = reactable::colDef(
-          name = "",
+          name = lab1,
           align = "left",
           minWidth = 220,
           width = 220,
@@ -2382,9 +2383,10 @@ tab_oferta_interna_energia_pib_populacao <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
+tab_oferta_interna_energeticos_pib <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_oferta_interna_energeticos_pib"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2394,7 +2396,7 @@ tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
+    lab1 = lab1,
     min_width = 220,
     casas_dec = 3
   )
@@ -2404,9 +2406,12 @@ tab_oferta_interna_energeticos_pib <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_consumo_final_energetico <- function(con, lang = "pt") {
+tab_consumo_final_energetico <- function(con, lang = "pt", lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_consumo_final_energetico"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2416,9 +2421,9 @@ tab_consumo_final_energetico <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220,
     casas_dec = 0
   )
@@ -2428,9 +2433,12 @@ tab_consumo_final_energetico <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
-tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
+tab_produto_interno_bruto_setorial <- function(con, lang = "pt", lab1 = "", lab2 = "", lab3 = "") {
   tab_name <- "tab_produto_interno_bruto_setorial"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2440,9 +2448,9 @@ tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 220,
     casas_dec = 0
   )
@@ -2452,9 +2460,10 @@ tab_produto_interno_bruto_setorial <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
+tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_consumo_final_energia_setor_pib_setor"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2462,12 +2471,7 @@ tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
 
   locale <- pegar_locale(lang)
 
-  if (lang != "pt") {
-    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
-  }
-
   tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
     dplyr::mutate(
       paddingLeft = dplyr::case_when(
         grupo %in% c("Consumo Final Energético Com Residencial", "Consumo Final Energético Sem Residencial") ~ "5px",
@@ -2476,6 +2480,13 @@ tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
         TRUE ~ "80px"
       )
     )
+
+  if (lang != "pt") {
+    tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
+  }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   tab_wide <- tab |>
     dplyr::select(-dplyr::matches("grupo_"))
@@ -2510,7 +2521,7 @@ tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
     ),
     columns = list(
       grupo = reactable::colDef(
-        name = "Identificação",
+        name = lab1,
         align = "left",
         minWidth = 100,
         width = 500,
@@ -2527,9 +2538,10 @@ tab_consumo_final_energia_setor_pib_setor <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
+tab_setor_residencial_energia_populacao <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_setor_residencial_energia_populacao"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2550,17 +2562,6 @@ tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
     dplyr::select(grupo, Unidade, ano, total)
 
   tab_wide <- tab_long |>
-    dplyr::mutate(
-      total = dplyr::case_when(
-        grupo %in% c(
-          "Consumo Final de Energia (1)",
-          "Consumo Final de Energia Para Cocção (2)",
-          "Consumo de Eletricidade (3)",
-          "População Residente (4)"
-        ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
-        TRUE ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
-      )
-    ) |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
@@ -2588,7 +2589,7 @@ tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
           width = 110
         ),
         grupo = reactable::colDef(
-          name = "",
+          name = lab1,
           align = "left",
           minWidth = 260,
           sticky = "left"
@@ -2601,9 +2602,10 @@ tab_setor_residencial_energia_populacao <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
+tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_setor_transportes_energia_pib_setor"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2624,25 +2626,6 @@ tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
     dplyr::select(grupo, Unidade, ano, total)
 
   tab_wide <- tab_long |>
-    dplyr::mutate(
-      total = dplyr::case_when(
-        grupo %in% c(
-          "Consumo Final de Energia (1)",
-          "Consumo Exclusive Gasolina, Etanol e Gás Natural (2)"
-        ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
-        grupo %in% c(
-          "PIB Do Setor (3)",
-          "PIB Total (4)"
-        ) ~ scales::number(total, accuracy = 0.1, decimal.mark = ",", big.mark = "."),
-        grupo %in% c(
-          "(1)/(3)",
-          "(2)/(3)"
-        ) ~ scales::number(total, accuracy = 0.01, decimal.mark = ",", big.mark = "."),
-        grupo %in% c(
-          "(1)/(4)"
-        ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
-      )
-    ) |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
@@ -2671,7 +2654,7 @@ tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
           align = "left"
         ),
         grupo = reactable::colDef(
-          name = "",
+          name = lab1,
           align = "left",
           minWidth = 400,
           sticky = "left"
@@ -2684,9 +2667,10 @@ tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param .setor Setor
 #'
 #' @export
-tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt", .setor, .segmento) {
+tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt", .setor, .segmento, lab1 = "") {
   tab_name <- "tab_consumo_especifico_energia_setores_selecionados"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2711,16 +2695,6 @@ tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt"
     dplyr::select(grupo, consumo_nivel_1, consumo_nivel_2, Unidade, ano, total)
 
   tab_wide <- tab_long |>
-    dplyr::mutate(
-      total = dplyr::case_when(
-        grupo %in% c(
-          "Relação Clinquer/Cimento",
-          "Consumo Total/Produção",
-          "Consumo de Eletricidade/Produção"
-        ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = "."),
-        TRUE ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")
-      )
-    ) |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
@@ -2751,7 +2725,7 @@ tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt"
           width = 110
         ),
         grupo = reactable::colDef(
-          name = "",
+          name = lab1,
           align = "left",
           minWidth = 260,
           sticky = "left"
@@ -2764,9 +2738,10 @@ tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt"
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
+tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_precos_medios_correntes_fontes_energia_1"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2787,7 +2762,6 @@ tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
     dplyr::select(grupo, Unidade, ano, total)
 
   tab_wide <- tab_long |>
-    dplyr::mutate(total = scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")) |>
     tidyr::pivot_wider(
       names_from = ano,
       values_from = total
@@ -2816,7 +2790,7 @@ tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
           width = 110
         ),
         grupo = reactable::colDef(
-          name = "",
+          name = lab1,
           align = "left",
           minWidth = 260,
           sticky = "left"
@@ -2829,9 +2803,10 @@ tab_precos_medios_correntes_fontes_energia_1 <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
+tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_precos_medios_correntes_fontes_energia_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2841,7 +2816,7 @@ tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
+    lab1 = lab1,
     min_width = 260,
     casas_dec = 1
   )
@@ -2851,9 +2826,10 @@ tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt") {
 #'
 #' @param conConexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
+tab_relacoes_precos_fontes_energia <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_relacoes_precos_fontes_energia"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2863,7 +2839,7 @@ tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -2872,9 +2848,10 @@ tab_relacoes_precos_fontes_energia <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param lab1 Label 1
 #'
 #' @export
-tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
+tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_gastos_divisas_importacao_petroleo"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -2884,7 +2861,7 @@ tab_gastos_divisas_importacao_petroleo <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    lab1 = "",
+    lab1 = lab1,
     min_width = 220
   )
 }
@@ -4039,11 +4016,23 @@ tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1)
 
   locale <- pegar_locale(lang)
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Brasil ") ~ "5px",
+        grupo %in% c("Norte", "Nordeste", "Centro-Oeste", "Sul", "Sudeste") ~ "20px",
+        TRUE ~ "40px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
     tab$setor <- tab[[glue::glue("setor_{lang}")]]
     tab$info <- tab[[glue::glue("info_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   tab_long <- tab |>
     dplyr::select(grupo, setor, info, valor)
@@ -4090,15 +4079,6 @@ tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1)
     }
   )
 
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Brasil ") ~ "5px",
-        grupo %in% c("Norte", "Nordeste", "Centro-Oeste", "Sul", "Sudeste") ~ "20px",
-        TRUE ~ "40px"
-      )
-    )
 
   gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
   gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
@@ -4605,9 +4585,20 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
 
   locale <- pegar_locale(lang)
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais") ~ "5px",
+        TRUE ~ "40px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   tab_wide <- tab |>
     dplyr::select(-dplyr::matches("grupo_"))
@@ -4617,15 +4608,6 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
       cols = -grupo,
       names_to = "ano",
       values_to = "valor"
-    )
-
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais") ~ "5px",
-        TRUE ~ "40px"
-      )
     )
 
   gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
@@ -4675,10 +4657,22 @@ tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt
 
   locale <- pegar_locale(lang)
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais", "Global") ~ "5px",
+        TRUE ~ "40px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
     tab$info <- tab[[glue::glue("info_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
+
 
   tab_long <- tab |>
     dplyr::select(grupo, info, ano, total)
@@ -4716,15 +4710,6 @@ tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt
       )
     }
   )
-
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais", "Global") ~ "5px",
-        TRUE ~ "40px"
-      )
-    )
 
   gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
   gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
@@ -4775,10 +4760,21 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
 
   locale <- pegar_locale(lang)
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais", "Global") ~ "5px",
+        TRUE ~ "40px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
     tab$info <- tab[[glue::glue("info_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   tab_long <- tab |>
     dplyr::select(grupo, info, ano, total)
@@ -4816,15 +4812,6 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
       )
     }
   )
-
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Principais Energéticos", "Principais Setores de Atividade", "Principais Usos Finais", "Global") ~ "5px",
-        TRUE ~ "40px"
-      )
-    )
 
   gerar_tabela_download(tab_long, tab_name = tab_name, .tipo_dado = NULL)
   gerar_matriz_download(tab_wide, tab_name = tab_name, .tipo_dado = NULL)
@@ -5583,11 +5570,24 @@ tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
 
   locale <- pegar_locale(lang)
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes") ~ "5px",
+        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
+        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro-Gusa e Aço", "Ferro-Ligas", "Mineração e Pelotização", "Não-Ferrosos e Outros da Metalurgia", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outros") ~ "65px",
+        TRUE ~ "25px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
     tab$tipo <- tab[[glue::glue("tipo_{lang}")]]
     tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   tab_long <- tab |>
     dplyr::select(grupo, tipo, fonte, valor)
@@ -5625,17 +5625,6 @@ tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
       )
     }
   )
-
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes") ~ "5px",
-        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
-        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro-Gusa e Aço", "Ferro-Ligas", "Mineração e Pelotização", "Não-Ferrosos e Outros da Metalurgia", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outros") ~ "65px",
-        TRUE ~ "25px"
-      )
-    )
 
   tab_name_download <- glue::glue("{tab_name}_{.ano}")
   gerar_tabela_download(tab_long, tab_name = tab_name_download, .tipo_dado = NULL)
@@ -5689,10 +5678,23 @@ tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", l
     dplyr::filter(ano == .ano) |>
     dplyr::collect()
 
+  tab_padding <- tab |>
+    dplyr::mutate(
+      paddingLeft = dplyr::case_when(
+        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes Estatísticos") ~ "5px",
+        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
+        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro Gusa e Aço", "Ferro Ligas", "Mineração e Pelotização", "Não Ferrosos e Outros Metalúrgicos", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outras Indústrias") ~ "65px",
+        TRUE ~ "25px"
+      )
+    )
+
   if (lang != "pt") {
     tab$grupo <- tab[[glue::glue("grupo_{lang}")]]
     tab$fonte <- tab[[glue::glue("fonte_{lang}")]]
+    tab_padding$grupo <- tab_padding[[glue::glue("grupo_{lang}")]]
   }
+
+  tab_padding <- dplyr::distinct(tab_padding, grupo, paddingLeft)
 
   locale <- pegar_locale(lang)
 
@@ -5703,17 +5705,6 @@ tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", l
     tidyr::pivot_wider(
       names_from = fonte,
       values_from = valor
-    )
-
-  tab_padding <- tab |>
-    dplyr::distinct(grupo) |>
-    dplyr::mutate(
-      paddingLeft = dplyr::case_when(
-        grupo %in% c("Oferta Total", "Oferta Interna Bruta", "Total Transformação", "Perdas na Distribuição e Armazenagem", "Consumo Final", "Ajustes Estatísticos") ~ "5px",
-        grupo %in% c("Setor Energético", "Residencial", "Comercial", "Público", "Agropecuário", "Transportes - Total", "Industrial - Total") ~ "45px",
-        grupo %in% c("Rodoviário", "Ferroviário", "Aéreo", "Hidroviário", "Cimento", "Ferro Gusa e Aço", "Ferro Ligas", "Mineração e Pelotização", "Não Ferrosos e Outros Metalúrgicos", "Química", "Alimentos e Bebidas", "Têxtil", "Papel e Celulose", "Cerâmica", "Outras Indústrias") ~ "65px",
-        TRUE ~ "25px"
-      )
     )
 
   tab_name_download <- glue::glue("{tab_name}_{.ano}")

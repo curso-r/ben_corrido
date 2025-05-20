@@ -28,7 +28,7 @@ reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...
   tab |>
     reactable::reactable(
       striped = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       resizable = TRUE,
       theme = tema_reactable(),
       defaultColDef = reactable::colDef(
@@ -82,6 +82,7 @@ reactable_painel_simples <- function(tab, tab_name, lang, lab1, casas_dec = NULL
       striped = TRUE,
       sortable = FALSE,
       resizable = TRUE,
+      pagination = FALSE,
       theme = tema_reactable(),
       defaultColDef = reactable::colDef(
         minWidth = 90,
@@ -135,7 +136,7 @@ reactable_painel_nivel_1 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
       striped = TRUE,
       sortable = FALSE,
       resizable = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       groupBy = "macro_grupo",
       theme = tema_reactable(),
       defaultColDef = reactable::colDef(
@@ -202,7 +203,7 @@ reactable_painel_nivel_2 <- function(tab, tab_name, lang, lab1, lab2, lab3, ...,
     reactable::reactable(
       striped = TRUE,
       resizable = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       groupBy = c("grupo_nivel_1", "grupo_nivel_2"),
       theme = tema_reactable(),
       defaultColDef = reactable::colDef(
@@ -284,7 +285,7 @@ reactable_painel_nivel_3 <- function(tab, tab_name, .tipo_dado = NULL, lang, lab
     reactable::reactable(
       striped = TRUE,
       resizable = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       groupBy = c(
         "grupo_nivel_1",
         "grupo_nivel_2",
@@ -370,7 +371,7 @@ reactable_painel_nivel_4 <- function(tab, tab_name, .tipo_dado, lang, lab1, lab2
     reactable::reactable(
       striped = TRUE,
       resizable = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       groupBy = c(
         "grupo_nivel_1",
         "grupo_nivel_2",
@@ -440,7 +441,7 @@ reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL) {
   tab_wide |>
     reactable::reactable(
       striped = TRUE,
-      defaultPageSize = 50,
+      pagination = FALSE,
       theme = reactable::reactableTheme(
         borderColor = "black",
         style = list(

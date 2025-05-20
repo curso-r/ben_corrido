@@ -111,7 +111,7 @@ pegar_locale <- function(lang) {
 }
 
 determinar_menor_ano <- function(anos) {
-  max(anos) - 9
+  max(anos) - 10
 }
 
 sys_file <- function(x) {

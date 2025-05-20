@@ -2630,7 +2630,7 @@ tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds") |>
 salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_pt")
 
 tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_4.rds") |>
-dplyr::mutate(ano = as.character(ano)) |>
+  dplyr::mutate(ano = as.character(ano)) |>
   dplyr::rename(Year = ano)
 salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_en")
 
@@ -2743,7 +2743,18 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_6_traduzido.rds
   dplyr::select(grupo_en = grupo)
 
 tab <- cbind(tab, tab_en) |>
-  dplyr::select(-verifica_percentual)
+  dplyr::select(-verifica_percentual) |>
+  dplyr::mutate(
+    total = dplyr::case_when(
+      grupo %in% c(
+        "Consumo Final de Energia (1)",
+        "Consumo Final de Energia Para Cocção (2)",
+        "Consumo de Eletricidade (3)",
+        "População Residente (4)"
+      ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
+      TRUE ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
+    )
+  )
 salvar_tab_bd(tab, "tab_setor_residencial_energia_populacao")
 
 # tab_setor_transportes_energia_pib_setor
@@ -2753,6 +2764,25 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_7_traduzido.rds
   dplyr::select(grupo_en = grupo)
 
 tab <- cbind(tab, tab_en) |>
+  dplyr::mutate(
+    total = dplyr::case_when(
+      grupo %in% c(
+        "Consumo Final de Energia (1)",
+        "Consumo Exclusive Gasolina, Etanol e Gás Natural (2)"
+      ) ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = "."),
+      grupo %in% c(
+        "PIB Do Setor (3)",
+        "PIB Total (4)"
+      ) ~ scales::number(total, accuracy = 0.1, decimal.mark = ",", big.mark = "."),
+      grupo %in% c(
+        "(1)/(3)",
+        "(2)/(3)"
+      ) ~ scales::number(total, accuracy = 0.01, decimal.mark = ",", big.mark = "."),
+      grupo %in% c(
+        "(1)/(4)"
+      ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = ".")
+    )
+  ) |>
   dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_setor_transportes_energia_pib_setor")
 
@@ -2763,6 +2793,16 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_8_traduzido.rds
   dplyr::select(grupo_en = grupo)
 
 tab <- cbind(tab, tab_en) |>
+  dplyr::mutate(
+    total = dplyr::case_when(
+      grupo %in% c(
+        "Relação Clinquer/Cimento",
+        "Consumo Total/Produção",
+        "Consumo de Eletricidade/Produção"
+      ) ~ scales::number(total, accuracy = 0.001, decimal.mark = ",", big.mark = "."),
+      TRUE ~ scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")
+    )
+  ) |>
   dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_consumo_especifico_energia_setores_selecionados")
 
@@ -2773,6 +2813,7 @@ tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_7_9_traduzido.rds
   dplyr::select(grupo_en = grupo)
 
 tab <- cbind(tab, tab_en) |>
+  dplyr::mutate(total = scales::number(total, accuracy = 1, decimal.mark = ",", big.mark = ".")) |>
   dplyr::select(-verifica_percentual)
 salvar_tab_bd(tab, "tab_precos_medios_correntes_fontes_energia_1")
 
