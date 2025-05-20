@@ -4,12 +4,14 @@
 \alias{tab_oferta_interna_energia_pib_populacao}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_oferta_interna_energia_pib_populacao(con, lang = "pt")
+tab_oferta_interna_energia_pib_populacao(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo VII

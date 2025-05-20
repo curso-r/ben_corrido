@@ -8,13 +8,16 @@ tab_consumo_especifico_energia_setores_selecionados(
   con,
   lang = "pt",
   .setor,
-  .segmento
+  .segmento,
+  lab1 = ""
 )
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{.setor}{Setor}
 }
 \description{
 Tabela do Capítulo VII

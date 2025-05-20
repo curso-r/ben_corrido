@@ -4,7 +4,7 @@
 \alias{tab_reservas_provadas_potencial_hidraulico_2}
 \title{Tabela do Capítulo VIII}
 \usage{
-tab_reservas_provadas_potencial_hidraulico_2(con, lang = "pt", lab1)
+tab_reservas_provadas_potencial_hidraulico_2(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

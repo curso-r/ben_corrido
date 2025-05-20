@@ -7,7 +7,7 @@
 tab_capacidade_instalada_mini_micro_geracao_distribuida_2(
   con,
   lang = "pt",
-  lab1
+  lab1 = ""
 )
 }
 \arguments{

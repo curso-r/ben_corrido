@@ -3004,10 +3004,9 @@ tab_producao_energia_fosseis_1 <- function(con, lang = "pt", lab1, lab2) {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
-#' @param lab2 Nome da segunda coluna
 #'
 #' @export
-tab_producao_energia_fosseis_2 <- function(con, lang = "pt", lab1) {
+tab_producao_energia_fosseis_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_producao_energia_fosseis_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -3226,7 +3225,7 @@ tab_producao_energia_eletricidade_alcool_1 <- function(con, lang = "pt", lab1, l
 #' @param lab2 Nome da segunda coluna
 #'
 #' @export
-tab_producao_energia_eletricidade_alcool_2 <- function(con, lang = "pt", lab1) {
+tab_producao_energia_eletricidade_alcool_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_producao_energia_eletricidade_alcool_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -3615,7 +3614,7 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_1 <- function(con, lang 
 #' @param lab2 Nome da segunda coluna
 #'
 #' @export
-tab_capacidade_instalada_mini_micro_geracao_distribuida_2 <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_mini_micro_geracao_distribuida_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_mini_micro_geracao_distribuida_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -3943,7 +3942,7 @@ tab_capacidade_instalada_1 <- function(con, lang = "pt", lab1, lab2) {
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_capacidade_instalada_2 <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4008,7 +4007,7 @@ tab_capacidade_instalada_2 <- function(con, lang = "pt", lab1) {
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1) {
+tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_reservas_provadas_potencial_hidraulico_1"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4122,7 +4121,7 @@ tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1)
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_reservas_provadas_potencial_hidraulico_2 <- function(con, lang = "pt", lab1) {
+tab_reservas_provadas_potencial_hidraulico_2 <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_reservas_provadas_potencial_hidraulico_2"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4189,7 +4188,7 @@ tab_reservas_provadas_potencial_hidraulico_2 <- function(con, lang = "pt", lab1)
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_geracao_eletrica"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4278,7 +4277,7 @@ tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1) {
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_itaipu"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4319,7 +4318,7 @@ tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1) {
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_geracao_energia_fonte"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4345,7 +4344,7 @@ tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab
 #' @param .tipo_dado Tipo de dado
 #'
 #' @export
-tab_capacidade_instalada_mini_micro_gd <- function(con, lang = "pt", lab1) {
+tab_capacidade_instalada_mini_micro_gd <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_capacidade_instalada_mini_micro_gd"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4449,6 +4448,8 @@ tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, 
       )
     )
 }
+
+# ANEXO 2 ----------------------------------------------------------------------
 
 #' Tabela do Anexo 2
 #'
@@ -4570,6 +4571,8 @@ tab_autoproducao_eletrecidade_setor_fonte_total <- function(con, lang = "pt", la
     )
 }
 
+# ANEXO 4 ----------------------------------------------------------------------
+
 #' Tabela do Anexo 4
 #'
 #' @param con Conexão com o banco de dados
@@ -4577,7 +4580,7 @@ tab_autoproducao_eletrecidade_setor_fonte_total <- function(con, lang = "pt", la
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1) {
+tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_evolucao_rendimentos_energeticos_setores"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4649,7 +4652,7 @@ tab_evolucao_rendimentos_energeticos_setores <- function(con, lang = "pt", lab1)
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt", lab1) {
+tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_evolucao_rendimentos_energeticos_setores_efeitos"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4752,7 +4755,7 @@ tab_evolucao_rendimentos_energeticos_setores_efeitos <- function(con, lang = "pt
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", lab1) {
+tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", lab1 = "") {
   tab_name <- "tab_variacao_rendimentos_energeticos_participacao"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -4846,6 +4849,8 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
       )
     )
 }
+
+# ANEXO 5 ----------------------------------------------------------------------
 
 #' Tabela do Anexo 5
 #'
@@ -5095,6 +5100,8 @@ tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
     )
 }
 
+# ANEXO 6 ----------------------------------------------------------------------
+
 #' Tabela do Anexo 6
 #'
 #' @param con Conexão com o banco de dados
@@ -5241,6 +5248,8 @@ tab_fator_capacidade_municipios <- function(con, lang = "pt", lab1, lab2, lab3) 
       )
     )
 }
+
+# ANEXO 8 ----------------------------------------------------------------------
 
 #' Tabela do Anexo 8
 #'
@@ -5554,6 +5563,8 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
     )
 }
 
+# ANEXO 9 ----------------------------------------------------------------------
+
 #' Tabela do Anexo 9
 #'
 #' @param con Conexão com o banco de dados
@@ -5561,7 +5572,7 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
+tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1 = "") {
   tab_name <- "tab_balanco_energitico_consolidado"
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -5663,6 +5674,8 @@ tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
     )
 }
 
+# ANEXO 10 ----------------------------------------------------------------------
+
 #' Tabela do Anexo 10
 #'
 #' @param con Conexão com o banco de dados
@@ -5671,7 +5684,7 @@ tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
 #' @param lab1 Nome da primeira coluna
 #'
 #' @export
-tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", lab1) {
+tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", lab1 = "") {
   tab_name <- glue::glue("tab_balanco_energitico_unidades_comerciais")
 
   tab <- dplyr::tbl(con, tab_name) |>

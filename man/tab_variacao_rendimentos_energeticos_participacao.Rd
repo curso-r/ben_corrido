@@ -4,7 +4,7 @@
 \alias{tab_variacao_rendimentos_energeticos_participacao}
 \title{Tabela do Anexo 4}
 \usage{
-tab_variacao_rendimentos_energeticos_participacao(con, lang = "pt", lab1)
+tab_variacao_rendimentos_energeticos_participacao(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

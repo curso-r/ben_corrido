@@ -4,7 +4,7 @@
 \alias{tab_capacidade_instalada_geracao_eletrica}
 \title{Tabela do ANEXO 1}
 \usage{
-tab_capacidade_instalada_geracao_eletrica(con, lang = "pt", lab1)
+tab_capacidade_instalada_geracao_eletrica(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

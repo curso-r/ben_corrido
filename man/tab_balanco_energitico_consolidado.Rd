@@ -4,7 +4,7 @@
 \alias{tab_balanco_energitico_consolidado}
 \title{Tabela do Anexo 9}
 \usage{
-tab_balanco_energitico_consolidado(con, .ano, lang = "pt", lab1)
+tab_balanco_energitico_consolidado(con, .ano, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

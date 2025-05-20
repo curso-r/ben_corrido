@@ -4,12 +4,18 @@
 \alias{tab_consumo_final_energetico}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_consumo_final_energetico(con, lang = "pt")
+tab_consumo_final_energetico(con, lang = "pt", lab1 = "", lab2 = "", lab3 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
 }
 \description{
 Tabela do Capítulo VII

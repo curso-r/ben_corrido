@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,24 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Annex II: Electricity Self-Production {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Electricity self-production by sector and source
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-autoproducao-eletricidade-setor-fonte
+#| tbl-cap: 'Electricity self-production by sector and source. Unit: GWh.'
+benCorrido::tab_autoproducao_eletrecidade_setor_fonte(con, lab1 = "Sector", lab2 = "", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte", lang = "en")
+```
+
+## Electricity self-production by sector and source (total)
+
+```{r}
+#| label: tbl-autoproducao-eletricidade-setor-fonte-total
+#| tbl-cap: 'Electricity self-production by sector and source (total). Unit: GWh.'
+benCorrido::tab_autoproducao_eletrecidade_setor_fonte_total(con, lab1 = "Sector", lab2 = "", lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_eletrecidade_setor_fonte_total", matriz = FALSE, lang = "en")
 ```

@@ -4,10 +4,12 @@
 \alias{tab_relacoes_precos_fontes_energia}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_relacoes_precos_fontes_energia(con, lang = "pt")
+tab_relacoes_precos_fontes_energia(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
 
 \item{conConexão}{com o banco de dados}
 }

@@ -4,12 +4,24 @@
 \alias{tab_produto_interno_bruto_setorial}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_produto_interno_bruto_setorial(con, lang = "pt")
+tab_produto_interno_bruto_setorial(
+  con,
+  lang = "pt",
+  lab1 = "",
+  lab2 = "",
+  lab3 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
 }
 \description{
 Tabela do Capítulo VII

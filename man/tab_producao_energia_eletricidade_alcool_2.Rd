@@ -4,7 +4,7 @@
 \alias{tab_producao_energia_eletricidade_alcool_2}
 \title{Tabela do Capítulo VIII}
 \usage{
-tab_producao_energia_eletricidade_alcool_2(con, lang = "pt", lab1)
+tab_producao_energia_eletricidade_alcool_2(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

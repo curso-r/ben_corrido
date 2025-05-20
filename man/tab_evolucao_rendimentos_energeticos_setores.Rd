@@ -4,7 +4,7 @@
 \alias{tab_evolucao_rendimentos_energeticos_setores}
 \title{Tabela do Anexo 4}
 \usage{
-tab_evolucao_rendimentos_energeticos_setores(con, lang = "pt", lab1)
+tab_evolucao_rendimentos_energeticos_setores(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

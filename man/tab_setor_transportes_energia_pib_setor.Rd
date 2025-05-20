@@ -4,12 +4,14 @@
 \alias{tab_setor_transportes_energia_pib_setor}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_setor_transportes_energia_pib_setor(con, lang = "pt")
+tab_setor_transportes_energia_pib_setor(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo VII

@@ -4,7 +4,7 @@
 \alias{tab_producao_energia_fosseis_2}
 \title{Tabela do Capítulo VIII}
 \usage{
-tab_producao_energia_fosseis_2(con, lang = "pt", lab1)
+tab_producao_energia_fosseis_2(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,8 +12,6 @@ tab_producao_energia_fosseis_2(con, lang = "pt", lab1)
 \item{lang}{Idioma}
 
 \item{lab1}{Nome da primeira coluna}
-
-\item{lab2}{Nome da segunda coluna}
 }
 \description{
 Tabela do Capítulo VIII

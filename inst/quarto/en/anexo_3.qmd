@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,223 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Annex III: World Energy Data {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+Source: International Energy Agency - Key World Energy Statistics
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+tab <- dplyr::tbl(con, "grafico_comp_oferta_energia_fonte") |>
+  dplyr::collect()
+
+anos <- unique(tab$ano)
+anos_comparacao <- sort(anos[anos != max(anos, na.rm = TRUE)])
+```
+
+## Energy Supply by Source
+
+```{r}
+#| label: fig-grafico-comp-oferta-energia-fonte
+#| fig-cap: 'Energy Supply by Source. Unit: %.'
+plots <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_comp_oferta_energia_fonte(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots,
+  id = "grafico_comp_oferta_energia_fonte",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Energy Supply by Region
+
+```{r}
+#| label: fig-grafico-oferta-energia-regiao
+#| fig-cap: 'Energy Supply by Region. Unit: %.'
+plots_regiao <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_oferta_interna_energia_regiao(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_regiao,
+  id = "grafico_oferta_interna_energia_regiao",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Final Consumption by Source
+
+```{r}
+#| label: fig-grafico-consumo-final-energia-fonte
+#| fig-cap: 'Final Consumption by Source. Unit: %.'
+plots_consumo_fonte <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_final_energia_fonte(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_consumo_fonte,
+  id = "grafico_consumo_final_energia_fonte",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Sectorial Consumption of Oil Produtcs
+
+```{r}
+#| label: fig-grafico-consumo-setorial-derivados-petroleo
+#| fig-cap: 'Sectorial Consumption of Oil Produtcs. Unit: %.'
+plots_derivados_petroleo <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_derivados_petroleo(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_derivados_petroleo,
+  id = "grafico_consumo_setorial_derivados_petroleo",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Sectorial Consumption of Electricity
+
+```{r}
+#| label: fig-grafico-consumo-setorial-eletricidade
+#| fig-cap: 'Sectorial Consumption of Electricity. Unit: %.'
+plots_eletricidade <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_eletricidade(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_eletricidade,
+  id = "grafico_consumo_setorial_eletricidade",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Sectorial Consumption of Natural Gas
+
+```{r}
+#| label: fig-grafico-consumo-setorial-gas-natural
+#| fig-cap: 'Sectorial Consumption of Natural Gas. Unit: %.'
+plots_gas_natural <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_gas_natural(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_gas_natural,
+  id = "grafico_consumo_setorial_gas_natural",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Sectorial Consumption of Coal
+
+```{r}
+#| label: fig-grafico-consumo-setorial-carvao-vapor
+#| fig-cap: 'Sectorial Consumption of Coal. Unit: %.'
+plots_carvao <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_consumo_setorial_carvao_vapor(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_carvao,
+  id = "grafico_consumo_setorial_carvao_vapor",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Electricity Generation by Source
+
+```{r}
+#| label: fig-grafico-producao-energia-eletrica-fonte
+#| fig-cap: 'Electricity Generation by Source. Unit: %.'
+plots_producao_fonte <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_producao_energia_eletrica_fonte(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_producao_fonte,
+  id = "grafico_producao_energia_eletrica_fonte",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
+```
+
+## Hydro Generation by Region
+
+```{r}
+#| label: fig-grafico-geracao-hidreletrica-regiao
+#| fig-cap: 'Hydro Generation by Region. Unit: %.'
+plots_hidreletrica <- purrr::map(
+  anos_comparacao,
+  \(.ano) {
+    benCorrido::grafico_geracao_hidreletrica_regiao(con, .ano, lang = "en")
+  }
+)
+
+benCorrido::create_dropdown(
+  elementos = plots_hidreletrica,
+  id = "grafico_geracao_hidreletrica_regiao",
+  params = anos_comparacao,
+  label = "Choose the Year:",
+  fig_width = 11,
+  fig_height = 5,
+  dropdown_width = "200px"
+)
 ```

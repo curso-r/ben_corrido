@@ -4,7 +4,7 @@
 \alias{tab_capacidade_instalada_itaipu}
 \title{Tabela do ANEXO 1}
 \usage{
-tab_capacidade_instalada_itaipu(con, lang = "pt", lab1)
+tab_capacidade_instalada_itaipu(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

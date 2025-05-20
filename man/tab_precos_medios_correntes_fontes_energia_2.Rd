@@ -4,12 +4,14 @@
 \alias{tab_precos_medios_correntes_fontes_energia_2}
 \title{Tabela do Capítulo VII}
 \usage{
-tab_precos_medios_correntes_fontes_energia_2(con, lang = "pt")
+tab_precos_medios_correntes_fontes_energia_2(con, lang = "pt", lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo VII
