@@ -4,7 +4,14 @@
 \alias{tab_exportacoes_energia}
 \title{Tabela do Capítulo IV}
 \usage{
-tab_exportacoes_energia(con, lang = "pt", .tipo_dado)
+tab_exportacoes_energia(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = "",
+  lab3 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

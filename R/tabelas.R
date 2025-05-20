@@ -2195,11 +2195,7 @@ tab_recursos_reservas_energeticas_brasileiras_1 <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    columns = list(
-      grupo = reactable::colDef(
-        name = ""
-      )
-    )
+    labs = c("", names(tab[, -1]))
   )
 }
 
@@ -2219,11 +2215,7 @@ tab_recursos_reservas_energeticas_brasileiras_2 <- function(con, lang = "pt") {
     tab = tab,
     tab_name = tab_name,
     lang = lang,
-    columns = list(
-      grupo = reactable::colDef(
-        name = ""
-      )
-    )
+    labs = c("", names(tab[, -1]))
   )
 }
 
@@ -2296,13 +2288,7 @@ tab_reservas_carvao_mineral_turfa <- function(con, lang = "pt") {
     tab_name = tab_name,
     lang = lang,
     width = "600px",
-    columnGroups = column_groups,
-    columns = list(
-      ano = reactable::colDef(
-        name = "",
-        align = "left"
-      )
-    )
+    columnGroups = column_groups
   )
 }
 
@@ -5529,7 +5515,6 @@ tab_densidades_poderes_calorificos <- function(con, lang = "pt", lab1, lab2) {
 #'
 #' @export
 tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
-
   tab_name <- glue::glue("tab_fatores_conversao_tep_medio")
 
   tab <- dplyr::tbl(con, tab_name) |>
@@ -5698,7 +5683,6 @@ tab_balanco_energitico_consolidado <- function(con, .ano, lang = "pt", lab1) {
 #'
 #' @export
 tab_balanco_energitico_unidades_comerciais <- function(con, .ano, lang = "pt", lab1) {
-
   tab_name <- glue::glue("tab_balanco_energitico_unidades_comerciais")
 
   tab <- dplyr::tbl(con, tab_name) |>

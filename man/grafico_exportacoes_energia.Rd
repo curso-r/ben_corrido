@@ -4,7 +4,7 @@
 \alias{grafico_exportacoes_energia}
 \title{Gráfico do Capítulo IV}
 \usage{
-grafico_exportacoes_energia(con, lang = "pt")
+grafico_exportacoes_energia(con, lang = "pt", laby = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

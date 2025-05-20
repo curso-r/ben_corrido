@@ -7,10 +7,23 @@ tema_reactable <- function() {
   )
 }
 
-reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...) {
+reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ..., labs = NULL) {
   gerar_matriz_download(tab, tab_name = tab_name, .tipo_dado = .tipo_dado)
 
   locale <- pegar_locale(lang)
+
+  if (is.null(labs)) {
+    labs <- names(tab)
+  }
+
+  col_defs <- purrr::map(
+    labs,
+    \(lab) reactable::colDef(
+      name = lab,
+      minWidth = max(nchar(lab) * 10, 100)
+    )
+  ) |>
+    purrr::set_names(names(tab))
 
   tab |>
     reactable::reactable(
@@ -25,6 +38,7 @@ reactable_tabela_simples <- function(tab, tab_name, .tipo_dado = NULL, lang, ...
           locales = locale
         )
       ),
+      columns = col_defs,
       ...
     )
 }

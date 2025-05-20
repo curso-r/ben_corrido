@@ -4,7 +4,14 @@
 \alias{tab_centrais_eletricas_total}
 \title{Tabela do Capítulo V}
 \usage{
-tab_centrais_eletricas_total(con, lang = "pt", .tipo_dado)
+tab_centrais_eletricas_total(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = "",
+  lab3 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +19,12 @@ tab_centrais_eletricas_total(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
 }
 \description{
 Tabela do Capítulo V

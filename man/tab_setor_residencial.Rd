@@ -4,7 +4,7 @@
 \alias{tab_setor_residencial}
 \title{Tabela do Capítulo III}
 \usage{
-tab_setor_residencial(con, lang = "pt", .tipo_dado)
+tab_setor_residencial(con, lang = "pt", .tipo_dado, lab1 = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

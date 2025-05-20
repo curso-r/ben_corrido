@@ -1,13 +1,198 @@
+---
 params:
   ano: ""
   duckdb_path: ""
 ---
 
-```{r}
+```{r setup}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+# Energy Resources and Reserves
+
+![](../img/capas/imagem_cap_6.png)
+
+## Criteria
+
+The basic criteria for the estimation of energy reserves and resources are the following:
+
+### Oil and Natural Gas
+
+Estimates of the volume of oil and/or gas are measured under the basic atmospheric conditions, multiplying the recovery factors (checked by engineering studies of reservoirs) by the proven volume of oil or gas discounting the volume produced up to the reference date.
+
+a) **Recovery Factor**: it is the index that measures the efficiency of the techniques used for extracting the natural energy contained in the reservoir, as well as the additional external energy introduced into the reservoir, in order to produce a certain amount of oil and/or gas of the originally proved volume.
+
+b) **original volume of oil and/or gas**: it is the volume of oil or gas checked in basic conditions, originally existing in the reservoir.
+
+c) **cumulative production of oil and/or gas**: it is the volume of oil and/or gas measured under basic condition, extracted from the reservoir up to the time of evaluation.
+
+d) **pressure and temperature basic conditions**:
+   - Absolute pressure: 1 atm. = 1.0332 kg/cm² (14.7 psi)
+   - Temperature: 20º C
+
+
+### Shale Oil
+
+Concepts of resources and reserves for shale oil are those adopted by the Brazilian Mining Code:
+
+a) **Resources**: concentration of solid, liquid or gaseous materials occurring naturally inside or on the surface of Earth’s crust so that economic extraction is usually or potentially feasible.
+
+b) **Identified Resources**: specific deposits or bodies of solid, liquid or gaseous materials, whose location, quality and quantity are known through geological evidences or prospection in a greater or lesser degree of detail.
+
+c) **Reserve**: portion of an identified resource from which an useful mineral or energy can be economically and legally extracted, at the time of its identification.
+
+The definition of the terms “measured”, “indicated”, and “inferred” are applicable to both reserves and identified resources, depending on the degree of details of the research work performed:
+
+d) **Measured**: refers to materials for which the estimates of quantity and quality have been computed with a margin of error of less than 20%, with detailed geological research and with systematic and representative sampling analysis.
+
+e) **Indicated**: materials for which quality and quantity estimates have been computed both by detailed geological research and representative sampling, and by reasonable geological projections (extrapolation).
+
+f) **Inferred**: materials for which quality and quantity estimates are based only on certain geological evidences and projections.
+
+
+
+### Carvão Mineral
+
+Coal reserves have been determined as follows:
+
+a) **Minimum thickness**: 0.5 to 1.0 m of coal in layer.
+
+b) **Measured reserve**: reserve within a radius of 400 meters and an area of 0.5 km² , around the bore hole.
+
+c) **Indicated reserve**: reserve external to the measured reserve within a radius of 1,200 meters from the holes, covering an area of 4.02 km².
+
+d) **Inferred reserve**: reserve situated beyond the indicated reserve, up to a maximum distance of 4.8 km from the bore holes. The reserves shown in the balance sheet are geological “in situ”. For determination of recoverable reserves should be taken into account the losses in mining and benefaction, as well as problems due to faulting and diabasio intrusions.
+
+### Hydraulic Potential
+
+Hydraulic potential is the potential which can be technically and economically exploited under existing technological conditions.
+
+Hydro-electric potential is measured in terms of firm energy, meaning the largest power that can be generated during the worst hydrological period.
+
+Inventoried hydro-electric potential includes operating and in construction power plants and those for which a basic and feasibility study has been prepared.
+
+Considering the inventory as the base in which the potential is measured with high precision, it is possible to evaluate the precision of the values obtained for the estimated potential.
+
+According with evaluation studies, that have already been proceeded, the estimated values stay up to 35% under the final inventoried value, thus it can be concluded that the estimated potential is very conservative.
+
+### Uranium
+
+In Brazil, uranium reserves follow the conventional geological classification based on the criteria classification of the Brazilian Mining Code – measured, indicated and inferred.
+
+The table information shows the geological reserves, because of the calculation of oil equivalence is based on the assumption that there are up to 30% losses in mining and benefaction.
+
+The International Atomic Energy Agency – IAEA – has its own classification, which includes the criterion of cut-off for the cost of extraction and benefaction of the uranium.
+
+Correspondence between the classifications:
+<!-- FIXME: parece estar faltando um texto aqui -->
+
+### Biomass
+
+Biomass, intended for energetic use, is a primary, non-fossil, energy source consisting of organic matter of animal or vegetable origin. Biomass contains stored energy in form of chemical energy. Regarding its origin, biomass for energy purposes can be classified in the categories of forest biomass, its products and by-products or waste; agricultural biomass, agro-energy crops, wastes and by-products of agricultural, agroindustrial and animal production activities; and urban waste.
+
+## Brazilian Energy Resources and Reserves: Not including other renewable sources.
+
+```{r recursos-reservas-energeticas-brasileiras-1}
+#| label: tbl-recursos-reservas-energeticas-brasileiras-1
+#| tbl-cap: 'Brazilian Energy Resources and Reserves: Not including other renewable sources. - Part 1. Brazilian Energy Resources and Reserves: Not including other renewable sources. Coal: Considers recovery of 70% and heating value of 3,900 kcal/kg. Hydraulic: Based on capacity factor of 55%. Nuclear Energy: Only losses due to mining and beneficiation are considered. Oil Equivalent - 10³ toe: Calculated over measured, indicated and inventoried reserves.'
+
+benCorrido::tab_recursos_reservas_energeticas_brasileiras_1(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_reservas_energeticas_brasileiras_1_pt", tabela = FALSE, lang = "en")
+```
+
+```{r recursos-reservas-energeticas-brasileiras-2}
+#| label: tbl-recursos-reservas-energeticas-brasileiras-2
+#| tbl-cap: 'Brazilian Energy Resources and Reserves: Not including other renewable sources. - Part 2. Brazilian Energy Resources and Reserves: Not including other renewable sources. Oil Equivalent - 10³ toe: Calculated over proved reserves. Natural Gas: As ANP 47/2014.'
+
+benCorrido::tab_recursos_reservas_energeticas_brasileiras_2(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_reservas_energeticas_brasileiras_2_pt", tabela = FALSE, lang = "en")
+```
+
+## Petroleum and Natural Gas Proved Reserves
+
+```{r reservas-provadas-petroleo-gas}
+#| label: tbl-reservas-provadas-petroleo-gas
+#| tbl-cap: 'Petroleum and Natural Gas Proved Reserves. Source: Agência Nacional de Petróleo. Petroleum and Natural Gas Proved Reserves: Developing fields are considered. From 1990 to 1998, criteria adopted from both SPE and WPC, which slightly increased reserves in comparison to previous years. From 1999 to 2014, values are based on ANP Decree 009/2000. From 2015 on, values are based on ANP Resolution 47/2014.'
+
+benCorrido::tab_reservas_provadas_petroleo_gas(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_provadas_petroleo_gas_pt", tabela = FALSE, lang = "en")
+```
+
+## Proven Petroleum Reserves
+
+```{r reservas-provadas-petroleo}
+#| label: fig-reservas-provadas-petroleo
+#| fig-cap: 'Proven Petroleum Reserves.'
+#| fig-height: 3
+
+benCorrido::grafico_reservas_provadas_petroleo(con, lang = "en")
+```
+
+## Proven Natural Gas Reserves
+
+```{r reservas-provadas-gas}
+#| label: fig-reservas-provadas-gas
+#| fig-cap: 'Proven Natural Gas Reserves.'
+#| fig-height: 3
+
+benCorrido::grafico_reservas_provadas_gas(con, lang = "en")
+```
+
+## Hydraulic Potential
+
+```{r recursos-hidraulicos}
+#| label: tbl-recursos-hidraulicos
+#| tbl-cap: 'Hydraulic Potential. Unit: MW. Hydraulic Potential: Firm Energy.'
+
+benCorrido::tab_recursos_hidraulicos(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_recursos_hidraulicos_pt", tabela = FALSE, lang = "en")
+```
+
+## Hydroelectric Potential
+
+```{r potencial-hidreletrico}
+#| label: fig-potencial-hidreletrico
+#| fig-cap: 'Potencial Hidrelétrico.'
+#| fig-height: 3
+
+benCorrido::grafico_potencial_hidreletrico(con, lang = "en")
+```
+
+## Coal and Peat Reserves
+
+```{r reservas-carvao-mineral-turfa}
+#| label: tbl-reservas-carvao-mineral-turfa
+#| tbl-cap: 'Coal and Peat Reserves. Unit: 10⁶ t. Coal and Peat Reserves: Includes measured, indicated and inferred reserves.'
+
+benCorrido::tab_reservas_carvao_mineral_turfa(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_carvao_mineral_turfa_pt", tabela = FALSE, lang = "en")
+```
+
+## Coal Reserves
+
+```{r reservas-carvao-mineral}
+#| label: fig-reservas-carvao-mineral
+#| fig-cap: 'Coal Reserves.'
+#| fig-height: 3
+
+benCorrido::grafico_reservas_carvao_mineral(con, lang = "en")
+```
+
+## Uranium Reserves
+
+```{r reservas-uranio-tabela}
+#| label: tbl-reservas-uranio
+#| tbl-cap: 'Uranium Reserves. Unit: t. Uranium Reserves: Includes measured, indicated and inferred reserves.'
+
+benCorrido::tab_reservas_uranio(con, lang = "en")
+benCorrido::gerar_botoes_download(tab_name = "tab_reservas_uranio_pt", tabela = FALSE, lang = "en")
+```
+
+```{r reservas-uranio-grafico}
+#| label: fig-reservas-uranio
+#| fig-cap: 'Uranium Reserves.'
+#| fig-height: 3
+
+benCorrido::grafico_reservas_uranio(con, lang = "en")
 ```

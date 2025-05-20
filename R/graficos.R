@@ -1954,7 +1954,6 @@ grafico_reservas_provadas_gas <- function(con, lang = "pt") {
     ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
 }
 
-
 #' Gráfico do Capítulo VI
 #'
 #' @param con Conexão com o banco de dados
@@ -2003,7 +2002,6 @@ grafico_potencial_hidreletrico <- function(con, lang = "pt") {
     ggplot2::geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.35) +
     ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
 }
-
 
 #' Gráfico do Capítulo VI
 #'
@@ -2091,6 +2089,7 @@ grafico_reservas_uranio <- function(con, lang = "pt") {
     ggplot2::theme(panel.grid = ggplot2::element_blank(), panel.grid.minor = ggplot2::element_blank())
 }
 
+# Anexo 1 -------------------------------------------------------------------
 
 #' Gráfico do Anexo 1
 #'
@@ -2153,6 +2152,7 @@ grafico_capacidade_instalada_refino_petroleo <- function(con, lang = "pt") {
     )
 }
 
+# Anexo 3 -------------------------------------------------------------------
 
 #' Gráfico do Anexo 3
 #'

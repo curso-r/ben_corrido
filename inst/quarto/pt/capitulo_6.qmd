@@ -21,13 +21,13 @@ Os conceitos básicos utilizados para o levantamento dos recursos e reservas de 
 
 Considera-se o volume de óleo e/ou gás, medido nas condições básicas, originado da multiplicação de fatores de recuperação (determinados em estudos de engenharia de reservatórios) pelo volume original provado de óleo e/ou gás, descontando-se o volume produzido até a data considerada.
 
-a) Fator de Recuperação: é o índice que mede a eficiência das técnicas utilizadas para o aproveitamento da energia natural contida no reservatório, bem como da energia externa adicional introduzida no reservatório, com a finalidade de produzir certa quantidade de óleo e/ou gás do volume original provado.
+a) **Fator de Recuperação**: é o índice que mede a eficiência das técnicas utilizadas para o aproveitamento da energia natural contida no reservatório, bem como da energia externa adicional introduzida no reservatório, com a finalidade de produzir certa quantidade de óleo e/ou gás do volume original provado.
 
-b) volume Original de Óleo e/ou Gás: é o volume de óleo e/ou gás, medido nas condições básicas, originalmente existente no reservatório.
+b) **volume Original de Óleo e/ou Gás**: é o volume de óleo e/ou gás, medido nas condições básicas, originalmente existente no reservatório.
 
-c) produção Acumulada de Óleo e/ou Gás: é o volume de óleo e/ou gás, medido nas condições básicas, produzido no reservatório até a época da avaliação.
+c) **produção Acumulada de Óleo e/ou Gás**: é o volume de óleo e/ou gás, medido nas condições básicas, produzido no reservatório até a época da avaliação.
 
-d) condições Básicas de Temperatura e Pressão:
+d) **condições Básicas de Temperatura e Pressão**:
    - Pressão absoluta: 1 atm. = 1,0332 kg/cm² (14,7 psi)
    - Temperatura: 20º C
 
@@ -36,31 +36,31 @@ d) condições Básicas de Temperatura e Pressão:
 
 Os conceitos de recursos e reservas utilizados para o xisto são aqueles adotados pelo Código de Mineração Brasileiro, a saber:
 
-a) Recurso: uma concentração de materiais sólidos, líquidos ou gasosos que ocorre naturalmente no interior ou na superfície da crosta terrestre de tal forma que a extração econômica é usual ou potencialmente viável.
+a) **Recurso**: uma concentração de materiais sólidos, líquidos ou gasosos que ocorre naturalmente no interior ou na superfície da crosta terrestre de tal forma que a extração econômica é usual ou potencialmente viável.
 
-b) Recursos Identificados: depósitos ou corpos específicos de materiais sólidos, líquidos ou gasosos cuja localização, qualidade e quantidade são conhecidas por meio de evidências ou de pesquisas geológicas com maior ou menor grau de detalhamento.
+b) **Recursos Identificados**: depósitos ou corpos específicos de materiais sólidos, líquidos ou gasosos cuja localização, qualidade e quantidade são conhecidas por meio de evidências ou de pesquisas geológicas com maior ou menor grau de detalhamento.
 
-c) Reserva: a parte de um recurso identificado na qual um mineral útil ou uma utilidade energética pode ser econômica e legalmente extraída na época de sua determinação.
+c) **Reserva**: a parte de um recurso identificado na qual um mineral útil ou uma utilidade energética pode ser econômica e legalmente extraída na época de sua determinação.
 
 As definições para os termos “medida”, “indicada” e “inferida” são aplicáveis tanto para reservas como para recursos identificados, dependendo do grau de detalhamento dos trabalhos realizados:
 
-d) Medida: material para o qual as estimativas de qualidade e quantidade foram computadas com uma margem de erro menor que 20%, por meio de trabalhos geológicos detalhados e amostragens e análises absolutamente sistemáticas e representativas.
+d) **Medida**: material para o qual as estimativas de qualidade e quantidade foram computadas com uma margem de erro menor que 20%, por meio de trabalhos geológicos detalhados e amostragens e análises absolutamente sistemáticas e representativas.
 
-e) Indicada: material para o qual as estimativas de qualidade e quantidade foram computadas parcialmente por meio de trabalhos geológicos detalhados e amostragem representativa e parcialmente por meio de projeções geológicas razoáveis (extrapolação).
+e) **Indicada**: material para o qual as estimativas de qualidade e quantidade foram computadas parcialmente por meio de trabalhos geológicos detalhados e amostragem representativa e parcialmente por meio de projeções geológicas razoáveis (extrapolação).
 
-f) Inferida: material para o qual as estimativas de qualidade e quantidade são baseadas apenas em algumas evidências e projeções geológicas.
+f) **Inferida**: material para o qual as estimativas de qualidade e quantidade são baseadas apenas em algumas evidências e projeções geológicas.
 
 ### Carvão Mineral
 
 As reservas de carvão são determinadas considerando-se os seguintes parâmetros:
 
-a) Espessura mínima: 0,5 a 1,0 m de carvão na camada.
+a) **Espessura mínima**: 0,5 a 1,0 m de carvão na camada.
 
-b) Reserva medida: reserva contígua aos furos de sonda em um raio de 400 m e área de 0,50 km².
+b) **Reserva medida**: reserva contígua aos furos de sonda em um raio de 400 m e área de 0,50 km².
 
-c) Reserva indicada: reserva externa à reserva medida em um raio de 1.200 m dos furos, representando uma área de 4,02 km².
+c) **Reserva indicada**: reserva externa à reserva medida em um raio de 1.200 m dos furos, representando uma área de 4,02 km².
 
-d) Reserva inferida: reserva situada além da reserva indicada até uma distância máxima de 4,8 km dos furos. As reservas apresentadas no balanço são geológicas “in situ”. Para determinação das reservas recuperáveis devem ser levadas em consideração as perdas de mineração e de beneficiamento, bem como problemas de falhamentos e intrusões de diabásio.
+d) **Reserva inferida**: reserva situada além da reserva indicada até uma distância máxima de 4,8 km dos furos. As reservas apresentadas no balanço são geológicas “in situ”. Para determinação das reservas recuperáveis devem ser levadas em consideração as perdas de mineração e de beneficiamento, bem como problemas de falhamentos e intrusões de diabásio.
 
 ### Potencial Hidrelétrico
 
@@ -81,6 +81,9 @@ No Brasil, as reservas de urânio seguem a classificação convencional de geolo
 As informações da tabela mostram as reservas geológicas. Ao fazer a conversão para tep supõe-se que haja perdas da ordem de 30% na mineração e beneficiamento.
 
 A Agência Internacional de Energia Atômica – AIEA tem uma classificação própria, que inclui o critério de custo de uma extração e beneficiamento de urânio.
+
+Correspondência entre classificações:
+<!-- FIXME: parece estar faltando um texto aqui -->
 
 ### Biomassa
 

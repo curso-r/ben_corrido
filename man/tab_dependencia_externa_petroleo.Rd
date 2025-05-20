@@ -4,7 +4,13 @@
 \alias{tab_dependencia_externa_petroleo}
 \title{Tabela do Capítulo IV}
 \usage{
-tab_dependencia_externa_petroleo(con, lang = "pt", .tipo_dado)
+tab_dependencia_externa_petroleo(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  lab1 = "",
+  lab2 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

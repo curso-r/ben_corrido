@@ -4,7 +4,13 @@
 \alias{tab_setor_transportes_segmento}
 \title{Tabela do Capítulo III}
 \usage{
-tab_setor_transportes_segmento(con, lang = "pt", .tipo_dado, .segmento)
+tab_setor_transportes_segmento(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  .segmento,
+  lab1 = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

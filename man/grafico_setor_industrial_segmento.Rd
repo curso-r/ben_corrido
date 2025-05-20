@@ -9,7 +9,8 @@ grafico_setor_industrial_segmento(
   lang = "pt",
   .tipo_dado,
   .tipo_grafico,
-  .segmento
+  .segmento,
+  laby = NULL
 )
 }
 \arguments{

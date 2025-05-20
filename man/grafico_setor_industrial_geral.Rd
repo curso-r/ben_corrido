@@ -4,7 +4,13 @@
 \alias{grafico_setor_industrial_geral}
 \title{Gráfico do Capítulo III}
 \usage{
-grafico_setor_industrial_geral(con, lang = "pt", .tipo_dado, .tipo_grafico)
+grafico_setor_industrial_geral(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  .tipo_grafico,
+  laby = NULL
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

@@ -4,7 +4,7 @@
 \alias{grafico_exportacoes_importacoes_liquidas}
 \title{Gráfico do Capítulo IV}
 \usage{
-grafico_exportacoes_importacoes_liquidas(con, lang = "pt")
+grafico_exportacoes_importacoes_liquidas(con, lang = "pt", laby = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}

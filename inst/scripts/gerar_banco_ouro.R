@@ -2624,10 +2624,14 @@ salvar_tab_bd(tab, "tab_recursos_hidraulicos_en")
 
 # tab_reservas_carvao_mineral_turfa
 
-tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds")
+tab <- readr::read_rds("./data-raw/rds/pt/tratamento_inicial_tabela_6_4.rds") |>
+  dplyr::mutate(ano = as.character(ano)) |>
+  dplyr::rename(Ano = ano)
 salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_pt")
 
-tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_4.rds")
+tab <- readr::read_rds("./data-raw/rds/en/tratamento_inicial_tabela_6_4.rds") |>
+dplyr::mutate(ano = as.character(ano)) |>
+  dplyr::rename(Year = ano)
 salvar_tab_bd(tab, "tab_reservas_carvao_mineral_turfa_en")
 
 # tab_reservas_uranio
