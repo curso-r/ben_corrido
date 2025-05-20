@@ -371,7 +371,6 @@ tab_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
   )
 }
 
-
 #' Tabela do Capítulo II
 #'
 #' @param con Conexão com o banco de dados
@@ -1609,7 +1608,6 @@ tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
   )
 }
 
-
 #' Tabela do Capítulo III
 #'
 #' @param con Conexão com o banco de dados
@@ -1633,7 +1631,6 @@ tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "",
     min_width = 100
   )
 }
-
 
 #' Tabela do Capítulo III
 #'
@@ -1854,8 +1851,8 @@ tab_refinarias_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 260
   )
 }
@@ -1879,7 +1876,7 @@ tab_unidades_processamento_gas_natural <- function(con, lang = "pt", .tipo_dado,
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
+    lab1 = lab1,
     min_width = 250
   )
 }
@@ -1905,9 +1902,9 @@ tab_centrais_eletricas_total <- function(con, lang = "pt", .tipo_dado, lab1 = ""
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 250
   )
 }
@@ -1933,9 +1930,9 @@ tab_centrais_eletricas_servico_publico <- function(con, lang = "pt", .tipo_dado,
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 250
   )
 }
@@ -1961,9 +1958,9 @@ tab_centrais_eletricas_autoprodutoras <- function(con, lang = "pt", .tipo_dado, 
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 250
   )
 }
@@ -1989,9 +1986,9 @@ tab_autoproducao_nao_injetada_rede <- function(con, lang = "pt", .tipo_dado, lab
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 250
   )
 }
@@ -2017,9 +2014,9 @@ tab_micro_mini_geracao_distribuida <- function(con, lang = "pt", .tipo_dado, lab
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Identificação",
-    lab2 = "",
-    lab3 = "",
+    lab1 = lab1,
+    lab2 = lab2,
+    lab3 = lab3,
     min_width = 250
   )
 }
@@ -2044,8 +2041,8 @@ tab_coqueiras <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -2070,8 +2067,8 @@ tab_destilarias <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") 
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -2096,8 +2093,8 @@ tab_plantas_biodiesel <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -2122,8 +2119,8 @@ tab_ciclo_combustivel_nuclear <- function(con, lang = "pt", .tipo_dado, lab1 = "
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -2148,8 +2145,8 @@ tab_carvoarias <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -2174,8 +2171,8 @@ tab_usinas_gaseificacao <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab
     tab_name = tab_name,
     .tipo_dado = .tipo_dado,
     lang = lang,
-    lab1 = "Fonte",
-    lab2 = "",
+    lab1 = lab1,
+    lab2 = lab2,
     min_width = 250
   )
 }
@@ -3127,7 +3124,6 @@ tab_producao_energia_fosseis_2 <- function(con, lang = "pt", lab1) {
     )
 }
 
-
 #' Tabela do Capítulo VIII
 #'
 #' @param con Conexão com o banco de dados
@@ -3429,7 +3425,6 @@ tab_geracao_eletricidade_por_fonte <- function(con, lang = "pt", .ano, .coluna_t
     )
 }
 
-
 #' Tabela do Capítulo VIII
 #'
 #' @param con Conexão com o banco de dados
@@ -3481,7 +3476,6 @@ tab_consumo_residencial_gas_liquefeito_petroleo <- function(con, lang = "pt", .t
     min_width = 100
   )
 }
-
 
 #' Tabela do Capítulo VIII
 #'
@@ -3979,7 +3973,6 @@ tab_capacidade_instalada_1 <- function(con, lang = "pt", lab1, lab2) {
     )
 }
 
-
 #' Tabela do Capítulo VIII
 #'
 #' @param con Conexão com o banco de dados
@@ -4156,7 +4149,6 @@ tab_reservas_provadas_potencial_hidraulico_1 <- function(con, lang = "pt", lab1)
     )
 }
 
-
 #' Tabela do Capítulo VIII
 #'
 #' @param con Conexão com o banco de dados
@@ -4312,7 +4304,6 @@ tab_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt", lab1) {
       )
     )
 }
-
 
 #' Tabela do ANEXO 1
 #'
@@ -4492,7 +4483,6 @@ tab_capacidade_instalada_producao_biodiesel <- function(con, lang = "pt", lab1, 
       )
     )
 }
-
 
 #' Tabela do Anexo 2
 #'
@@ -5132,8 +5122,6 @@ tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
     )
 }
 
-
-
 #' Tabela do Anexo 6
 #'
 #' @param con Conexão com o banco de dados
@@ -5281,7 +5269,6 @@ tab_fator_capacidade_municipios <- function(con, lang = "pt", lab1, lab2, lab3) 
     )
 }
 
-
 #' Tabela do Anexo 8
 #'
 #' @param con Conexão com o banco de dados
@@ -5314,7 +5301,6 @@ tab_relacoes_entre_unidades <- function(con, lang = "pt") {
       )
     )
 }
-
 
 #' Tabela do Anexo 8
 #'
@@ -5595,7 +5581,6 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
       )
     )
 }
-
 
 #' Tabela do Anexo 9
 #'

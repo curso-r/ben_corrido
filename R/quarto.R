@@ -1,6 +1,6 @@
 gerar_livro <- function(con = NULL, ano = 2023,
                         out_dir = "~/Desktop/ben_corrido",
-                        duckdb_path = "~/Documentos/curso-r/ben_corrido/data-raw/bd_ouro.duckdb") {
+                        duckdb_path = "~/Documents/curso-r/ben_corrido/data-raw/bd_ouro.duckdb") {
   fs::dir_copy(
     path = sys_file("quarto"),
     new_path = glue::glue("{out_dir}/quarto"),

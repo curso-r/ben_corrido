@@ -421,7 +421,6 @@ grafico_consumo_final_setor <- function(con, lang = "pt", .tipo_dado, .tipo_graf
   }
 }
 
-
 #' Gráfico do Capítulo I
 #'
 #' @param con Conexão com o banco de dados
@@ -595,7 +594,6 @@ grafico_composicao_setorial_consumo_biomassa <- function(con, lang = "pt", .tipo
   }
 }
 
-
 #' Gráfico do Capítulo I
 #'
 #' @param con Conexão com o banco de dados
@@ -626,7 +624,6 @@ grafico_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, .tipo
   }
 }
 
-
 #' Gráfico do Capítulo I
 #'
 #' @param con Conexão com o banco de dados
@@ -653,7 +650,6 @@ grafico_sankey_fluxo_energetico <- function(con, lang = "pt") {
     )
   )
 }
-
 
 #' Gráfico do Capítulo I
 #'
@@ -767,7 +763,6 @@ grafico_estrutura_consumo_gas_natural <- function(con, lang = "pt", .tipo_dado) 
     lang = lang
   )
 }
-
 
 #' Gráfico do Capítulo II
 #'
@@ -1252,7 +1247,7 @@ grafico_estrutura_consumo_alcool_etilico <- function(con, lang = "pt", .tipo_dad
   )
 }
 
-# Capítulo III -------------------------------------------------------------------
+# Capítulo III ------------------------------------------------------------------
 
 #' Gráfico do Capítulo III
 #'
@@ -1422,7 +1417,6 @@ grafico_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, .tipo_
     )
   }
 }
-
 
 #' Gráfico do Capítulo III
 #'
@@ -1608,25 +1602,24 @@ grafico_exportacoes_importacoes_liquidas <- function(con, lang = "pt", laby = ""
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_renov_nao_renov") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1638,25 +1631,24 @@ grafico_total_geracao_centrais_eletr_renov_nao_renov <- function(con, lang = "pt
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_por_fonte") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1668,25 +1660,24 @@ grafico_total_geracao_centrais_eletr_por_fonte <- function(con, lang = "pt", .ti
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1698,25 +1689,24 @@ grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov <- function(con
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_servico_pub_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_servico_pub_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_servico_pub_por_fonte") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1728,25 +1718,24 @@ grafico_total_geracao_centrais_eletr_servico_pub_por_fonte <- function(con, lang
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1758,25 +1747,24 @@ grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov <- function(con, l
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_total_geracao_centrais_eletr_autoprod_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_total_geracao_centrais_eletr_autoprod_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_total_geracao_centrais_eletr_autoprod_por_fonte") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1788,25 +1776,24 @@ grafico_total_geracao_centrais_eletr_autoprod_por_fonte <- function(con, lang = 
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_autoprod_nao_injetada_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_autoprod_nao_injetada_renov_nao_renov <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_autoprod_nao_injetada_renov_nao_renov") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1818,25 +1805,24 @@ grafico_autoprod_nao_injetada_renov_nao_renov <- function(con, lang = "pt", .tip
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_autoprod_nao_injetada_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico) {
+grafico_autoprod_nao_injetada_por_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = "") {
   tab <- dplyr::tbl(con, "grafico_autoprod_nao_injetada_por_fonte") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
-  rotulo_y <- ifelse(.tipo_dado == "Absoluto", "10³ tep", "%")
-
   if (.tipo_grafico == "area") {
     grafico_area(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
-      rotulo_y = rotulo_y,
+      rotulo_y = laby,
       lang = lang
     )
   }
@@ -1886,6 +1872,7 @@ grafico_micro_mini_geracao_dist <- function(con, lang = "pt") {
     )
 }
 
+# Capítulo VI ------------------------------------------------------------------
 
 #' Gráfico do Capítulo VI
 #'

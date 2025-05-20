@@ -19,7 +19,7 @@ ano <- params$ano
 #| label: tbl-refinarias-petroleo
 #| tbl-cap: 'Refinarias de Petróleo. Unidade: 10³ tep.'
 
-benCorrido::tab_refinarias_petroleo(con, .tipo_dado = "Absoluto")
+benCorrido::tab_refinarias_petroleo(con, .tipo_dado = "Absoluto", lab1 = "Fontes")
 benCorrido::gerar_botoes_download(tab_name = "tab_refinarias_petroleo", .tipo_dado = "Absoluto")
 ```
 
@@ -29,7 +29,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_refinarias_petroleo", .tipo_da
 #| label: tbl-unidades-processamento-gas-natural
 #| tbl-cap: 'Unidades de Processamento de Gás Natural. Unidade: 10³ tep.'
 
-benCorrido::tab_unidades_processamento_gas_natural(con, .tipo_dado = "Absoluto")
+benCorrido::tab_unidades_processamento_gas_natural(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_unidades_processamento_gas_natural", .tipo_dado = "Absoluto")
 ```
 
@@ -39,7 +39,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_unidades_processamento_gas_nat
 #| label: tbl-centrais-eletricas-total
 #| tbl-cap: 'Centrais Elétricas - Total (Serviço Público + Autoprodução). Unidade: 10³ tep.'
 
-benCorrido::tab_centrais_eletricas_total(con, .tipo_dado = "Absoluto")
+benCorrido::tab_centrais_eletricas_total(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_total", .tipo_dado = "Absoluto")
 ```
 
@@ -49,8 +49,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_total", .ti
 #| label: fig-total-geracao-centrais-eletr-renov-nao-renov
 #| fig-cap: 'Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por tipo de fonte (Renovável ou Não-Renovável).'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -61,8 +61,8 @@ benCorrido::criar_carrossel(area, linha)
 #| label: fig-total-geracao-centrais-eletr-por-fonte
 #| fig-cap: 'Total da Geração em Centrais Elétricas (Serviço Público + Autoprodução) por Fonte.'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -73,7 +73,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-centrais-eletricas-servico-publico
 #| tbl-cap: 'Centrais Elétricas de Serviço Público (SP). Unidade: 10³ tep.'
 
-benCorrido::tab_centrais_eletricas_servico_publico(con, .tipo_dado = "Absoluto")
+benCorrido::tab_centrais_eletricas_servico_publico(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_servico_publico", .tipo_dado = "Absoluto")
 ```
 
@@ -83,8 +83,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_servico_pub
 #| label: fig-total-geracao-centrais-eletr-servico-pub-renov-nao-renov
 #| fig-cap: 'Total da Geração em Centrais Elétricas de Serviço Público por tipo de fonte (Renovável ou Não-Renovável).'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -95,8 +95,8 @@ benCorrido::criar_carrossel(area, linha)
 #| label: fig-total-geracao-centrais-eletr-servico-pub-por-fonte
 #| fig-cap: 'Total da Geração em Centrais Elétricas de Serviço Público por Fonte.'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -107,7 +107,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-centrais-eletricas-autoprodutoras
 #| tbl-cap: 'Centrais Elétricas Autoprodutoras (APE). Unidade: 10³ tep. Centrais Elétricas Autoprodutoras (APE): Inclui Autoprodução Injetada e Não Injetada no Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-benCorrido::tab_centrais_eletricas_autoprodutoras(con, .tipo_dado = "Absoluto")
+benCorrido::tab_centrais_eletricas_autoprodutoras(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_autoprodutoras", .tipo_dado = "Absoluto")
 ```
 
@@ -117,8 +117,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_autoproduto
 #| label: fig-total-geracao-centrais-eletr-autoprod-renov-nao-renov
 #| fig-cap: 'Total da Geração em Centrais Elétricas Autoprodutoras por tipo de Fonte (Renovável ou Não-Renovável). Centrais Elétricas Autoprodutoras - APE: Inclui autoprodução Injetada e Não Injetada no Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -129,8 +129,8 @@ benCorrido::criar_carrossel(area, linha)
 #| label: fig-total-geracao-centrais-eletr-autoprod-por-fonte
 #| fig-cap: 'Total da Geração em Centrais Elétricas Autoprodutoras por Fonte. Centrais Elétricas Autoprodutoras - APE: Inclui autoprodução Injetada e Não Injetada no Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -141,7 +141,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-autoproducao-nao-injetada-rede
 #| tbl-cap: 'Autoprodução Não Injetada Na Rede. Autoprodução Não Injetada Na Rede: Autoprodução gerada e consumida in loco, não utilizando o Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-benCorrido::tab_autoproducao_nao_injetada_rede(con, .tipo_dado = "Absoluto")
+benCorrido::tab_autoproducao_nao_injetada_rede(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_nao_injetada_rede", .tipo_dado = "Absoluto")
 ```
 
@@ -151,8 +151,8 @@ benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_nao_injetada_rede
 #| label: fig-autoprod-nao-injetada-renov-nao-renov
 #| fig-cap: 'Autoprodução Não-Injetada na Rede por tipo de Fonte (Renovável ou Não-Renovável). Autoprodução de Energia Elétrica Não Injetada na Rede: Autoprodução gerada e consumida in loco, não utilizando o Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-linha <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -163,8 +163,8 @@ benCorrido::criar_carrossel(area, linha)
 #| label: fig-autoprod-nao-injetada-por-fonte
 #| fig-cap: 'Autoprodução Não-Injetada na Rede por Fonte. Autoprodução de Energia Elétrica Não Injetada na Rede: Autoprodução gerada e consumida in loco, não utilizando o Sistema Público de Transmissão e Distribuição de Energia Elétrica.'
 
-linha <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha")
-area <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area")
+linha <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", .tipo_grafico = "area", laby = "GWh")
 
 benCorrido::criar_carrossel(area, linha)
 ```
@@ -175,7 +175,7 @@ benCorrido::criar_carrossel(area, linha)
 #| label: tbl-micro-mini-geracao-distribuida
 #| tbl-cap: 'Micro e Mini Geração Distribuída.'
 
-benCorrido::tab_micro_mini_geracao_distribuida(con, .tipo_dado = "Absoluto")
+benCorrido::tab_micro_mini_geracao_distribuida(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_micro_mini_geracao_distribuida", .tipo_dado = "Absoluto")
 ```
 
@@ -193,7 +193,7 @@ benCorrido::grafico_micro_mini_geracao_dist(con)
 #| label: tbl-coquerias
 #| tbl-cap: 'Coquerias. Unidade: 10³ tep.'
 
-benCorrido::tab_coqueiras(con, .tipo_dado = "Absoluto")
+benCorrido::tab_coqueiras(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_coqueiras", .tipo_dado = "Absoluto")
 ```
 
@@ -203,7 +203,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_coqueiras", .tipo_dado = "Abso
 #| label: tbl-destilarias
 #| tbl-cap: 'Destilarias. Unidade: 10³ tep.'
 
-benCorrido::tab_destilarias(con, .tipo_dado = "Absoluto")
+benCorrido::tab_destilarias(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_destilarias", .tipo_dado = "Absoluto")
 ```
 
@@ -213,7 +213,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_destilarias", .tipo_dado = "Ab
 #| label: tbl-plantas-biodiesel
 #| tbl-cap: 'Plantas de Biodiesel. Unidade: m³.'
 
-benCorrido::tab_plantas_biodiesel(con, .tipo_dado = "Absoluto")
+benCorrido::tab_plantas_biodiesel(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_plantas_biodiesel", .tipo_dado = "Absoluto")
 ```
 
@@ -223,7 +223,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_plantas_biodiesel", .tipo_dado
 #| label: tbl-ciclo-combustivel-nuclear
 #| tbl-cap: 'Ciclo do Combustível Nuclear. Unidade: 10³ tep.'
 
-benCorrido::tab_ciclo_combustivel_nuclear(con, .tipo_dado = "Absoluto")
+benCorrido::tab_ciclo_combustivel_nuclear(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_ciclo_combustivel_nuclear", .tipo_dado = "Absoluto")
 ```
 
@@ -233,7 +233,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_ciclo_combustivel_nuclear", .t
 #| label: tbl-carvoarias
 #| tbl-cap: 'Carvoarias.Unidade: 10³ tep.'
 
-benCorrido::tab_carvoarias(con, .tipo_dado = "Absoluto")
+benCorrido::tab_carvoarias(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_carvoarias", .tipo_dado = "Absoluto")
 ```
 
@@ -243,7 +243,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_carvoarias", .tipo_dado = "Abs
 #| label: tbl-usinas-gaseificacao
 #| tbl-cap: 'Usinas de Gaseificação. Unidade: 10³ tep.'
 
-benCorrido::tab_usinas_gaseificacao(con, .tipo_dado = "Absoluto")
+benCorrido::tab_usinas_gaseificacao(con, .tipo_dado = "Absoluto", lab1 = "Identificação")
 benCorrido::gerar_botoes_download(tab_name = "tab_usinas_gaseificacao", .tipo_dado = "Absoluto")
 ```
 

@@ -1,13 +1,252 @@
+---
 params:
   ano: ""
   duckdb_path: ""
 ---
 
-```{r}
+```{r setup}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
+# Transformation Centers Balances
+
+![](../img/capas/imagem_cap_5.png)
+
+## Oil Refineries
+
+```{r refinarias_petroleo}
+#| label: tbl-refinarias-petroleo
+#| tbl-cap: 'Oil Refineries. Unit: 10³ toe.'
+
+benCorrido::tab_refinarias_petroleo(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Sources")
+benCorrido::gerar_botoes_download(tab_name = "tab_refinarias_petroleo", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Natural Gas Processing Plants
+
+```{r unidades_processamento_gas_natural}
+#| label: tbl-unidades-processamento-gas-natural
+#| tbl-cap: 'Natural Gas Processing Plants. Unit: 10³ toe.'
+
+benCorrido::tab_unidades_processamento_gas_natural(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_unidades_processamento_gas_natural", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Power Plants - Total (Public Service + Self-Production)
+
+```{r centrais_eletricas_total}
+#| label: tbl-centrais-eletricas-total
+#| tbl-cap: 'Power Plants - Total (Public Service + Self-Production). Unit: 10³ toe.'
+
+benCorrido::tab_centrais_eletricas_total(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_total", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Total Generation in Power Plants (Public Service + Self-Production) by type of source (Renewable or Non-Renewable)
+
+```{r total_geracao_centrais_eletr_renov_nao_renov}
+#| label: fig-total-geracao-centrais-eletr-renov-nao-renov
+#| fig-cap: 'Total Generation in Power Plants (Public Service + Self-Production) by type of source (Renewable or Non-Renewable).'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Total Generation in Power Plants (Public Service + Self-Production) by Source
+
+```{r total_geracao_centrais_eletr_por_fonte}
+#| label: fig-total-geracao-centrais-eletr-por-fonte
+#| fig-cap: 'Total Generation in Power Plants (Public Service + Self-Production) by Source.'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Public Utility Power Plants (SP)
+
+```{r centrais_eletricas_servico_publico}
+#| label: tbl-centrais-eletricas-servico-publico
+#| tbl-cap: 'Public Utility Power Plants (SP). Unit: 10³ toe.'
+
+benCorrido::tab_centrais_eletricas_servico_publico(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_servico_publico", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Total Generation in Public Service Power Plants by type of source (Renewable or Non-Renewable)
+
+```{r total_geracao_centrais_eletr_servico_pub_renov_nao_renov}
+#| label: fig-total-geracao-centrais-eletr-servico-pub-renov-nao-renov
+#| fig-cap: 'Total Generation in Public Service Power Plants by type of source (Renewable or Non-Renewable).'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Total Generation in Public Service Power Plants by Source
+
+```{r total_geracao_centrais_eletr_servico_pub_por_fonte}
+#| label: fig-total-geracao-centrais-eletr-servico-pub-por-fonte
+#| fig-cap: 'Total Generation in Public Service Power Plants by Source.'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_servico_pub_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Self Producers Power Plants (APE)
+
+```{r centrais_eletricas_autoprodutoras}
+#| label: tbl-centrais-eletricas-autoprodutoras
+#| tbl-cap: 'Self Producers Power Plants (APE). Unit: 10³ toe. Self-Producers Power Plants (APE): Includes Self-production Injected and Not Injected in the Public System of Transmission and Distribution of Electricity.'
+
+benCorrido::tab_centrais_eletricas_autoprodutoras(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_centrais_eletricas_autoprodutoras", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Total Generation in Self-Producers Power Plants by Type of Source (Renewable or Non-Renewable)
+
+```{r total_geracao_centrais_eletr_autoprod_renov_nao_renov}
+#| label: fig-total-geracao-centrais-eletr-autoprod-renov-nao-renov
+#| fig-cap: 'Total Generation in Self-Producers Power Plants by Type of Source (Renewable or Non-Renewable). Self-Producers Power Plants (APE): Includes autoproduction both injected and not injected into the Public Electricity Transmission and Distribution Systems.'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Total Generation in Self-Producers Power Plants by Source
+
+```{r total_geracao_centrais_eletr_autoprod_por_fonte}
+#| label: fig-total-geracao-centrais-eletr-autoprod-por-fonte
+#| fig-cap: 'Total Generation in Self-Producers Power Plants by Source. Self-Producers Power Plants (APE): Includes autoproduction both injected and not injected into the Public Electricity Transmission and Distribution Systems.'
+
+linha <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_total_geracao_centrais_eletr_autoprod_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Self Producers Not Injected in Electricity Network
+
+```{r autoproducao_nao_injetada_rede}
+#| label: tbl-autoproducao-nao-injetada-rede
+#| tbl-cap: 'Self Producers Not Injected in Electricity Network. Self Producers Not Injected in Electricity Network: Self-production of electricity consumed on-site, without using the Public Electricity Transmission and Distribution Systems.'
+
+benCorrido::tab_autoproducao_nao_injetada_rede(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_autoproducao_nao_injetada_rede", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Non-Injected Self-Production by Type of Source (Renewable or Non-Renewable)
+
+```{r autoprod_nao_injetada_renov_nao_renov}
+#| label: fig-autoprod-nao-injetada-renov-nao-renov
+#| fig-cap: 'Non-Injected Self-Production by Type of Source (Renewable or Non-Renewable). Self Producers Not Injected in Electricity Network: Self-production of electricity consumed on-site, without using the Public Electricity Transmission and Distribution Systems.'
+
+linha <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_autoprod_nao_injetada_renov_nao_renov(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Non-Grid-Injected Self-Production by Source
+
+```{r autoprod_nao_injetada_por_fonte}
+#| label: fig-autoprod-nao-injetada-por-fonte
+#| fig-cap: 'Non-Grid-Injected Self-Production by Source. Self Producers Not Injected in Electricity Network: Self-production of electricity consumed on-site, without using the Public Electricity Transmission and Distribution Systems.'
+
+linha <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "linha", laby = "GWh")
+area <- benCorrido::grafico_autoprod_nao_injetada_por_fonte(con, .tipo_dado = "Absoluto", lang = "en", .tipo_grafico = "area", laby = "GWh")
+
+benCorrido::criar_carrossel(area, linha, lang = "en")
+```
+
+## Distributed Generation
+
+```{r micro_mini_geracao_distribuida}
+#| label: tbl-micro-mini-geracao-distribuida
+#| tbl-cap: 'Distributed Generation.'
+
+benCorrido::tab_micro_mini_geracao_distribuida(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_micro_mini_geracao_distribuida", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r fig-micro_mini_geracao_dist}
+#| fig-height: 3
+#| label: fig-micro-mini-geracao-dist
+#| fig-cap: 'Distributed Generation.'
+
+benCorrido::grafico_micro_mini_geracao_dist(con)
+```
+
+## Coking Plants
+
+```{r Coking Plants}
+#| label: tbl-coqueiras
+#| tbl-cap: 'Coking Plants. Unit: 10³ toe.'
+
+benCorrido::tab_coqueiras(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_coqueiras", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Distilleries
+
+```{r Distilleries}
+#| label: tbl-destilarias
+#| tbl-cap: 'Distilleries. Unit: 10³ toe.'
+
+benCorrido::tab_destilarias(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_destilarias", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Biodiesel Plants
+
+```{r plantas_biodiesel}
+#| label: tbl-plantas-biodiesel
+#| tbl-cap: 'Biodiesel Plants. Unidade: m³.'
+
+benCorrido::tab_plantas_biodiesel(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_plantas_biodiesel", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Nuclear Fuel Cycle
+
+```{r ciclo_combustivel_nuclear}
+#| label: tbl-ciclo-combustivel-nuclear
+#| tbl-cap: 'Nuclear Fuel Cycle. Unit: 10³ toe.'
+
+benCorrido::tab_ciclo_combustivel_nuclear(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_ciclo_combustivel_nuclear", .tipo_dado = "Absoluto", lang = "en")
+```
+
+##  Charcoal Plants
+
+```{r carvoarias}
+#| label: tbl-carvoarias
+#| tbl-cap: 'Charcoal Plants. Unit: 10³ toe.'
+
+benCorrido::tab_carvoarias(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_carvoarias", .tipo_dado = "Absoluto", lang = "en")
+```
+
+## Gasification Plants
+
+```{r usinas_gaseificacao}
+#| label: tbl-usinas-gaseificacao
+#| tbl-cap: 'Gasification Plants. Unit: 10³ toe.'
+
+benCorrido::tab_usinas_gaseificacao(con, .tipo_dado = "Absoluto", lang = "en", lab1 = "Identification")
+benCorrido::gerar_botoes_download(tab_name = "tab_usinas_gaseificacao", .tipo_dado = "Absoluto", lang = "en")
+```
+
+```{r fix_slider}
 htmltools::tags$script(src = "js/fix_slider.js")
 ```
