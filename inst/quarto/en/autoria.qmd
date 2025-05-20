@@ -3,7 +3,7 @@
 # Authoring {.unnumbered}
 :::
 
-![](img/governo_federal.png){fig-align="center" width=40%}
+![](../img/governo_federal.png){fig-align="center" width=20% style="margin-bottom: 0;"}
 
 :::{.centro}
 FEDERAL GOVERNMENT \
@@ -30,6 +30,131 @@ Pietro Adamo Sampaio Mendes
 
 **National Secretary of Geology, Mining and Mineral Processing** \
 Vitor Eduardo de Almeida Saback
+
+\
+
+![](../img/epe.png){fig-align="center" width=200px style="margin-bottom: 0;"}
+
+EMPRESA DE PESQUISA ENERGÉTICA - EPE
+
+A public company, linked to the Ministry of Mines and Energy, established under Law No. 10,847 of March 15, 2004, the EPE’s purpose is to provide services in the area of studies and research to support the planning of the energy sector, such as electric power, oil and natural gas and their derivatives, mineral coal, renewable energy sources, and energy efficiency, among others.
+
+**President** \
+Thiago Guilherme Ferreira Prado
+
+**Director for Energy Economic and Environmental Studies** \
+Thiago Ivanoski Teixeira
+
+**Director for Power System Studies** \
+Reinaldo da Cruz Garcia
+
+**Director for Oil, Gas and Biofuels Studies** \
+Heloísa Borges Esteves
+
+**Interim Director for Corporate Management** \
+Thiago Guilherme Ferreira Prado
+
+URL: http://www.epe.gov.br
+
+**Headquarters** \
+Esplanada dos Ministérios Bloco "U" - Ministério de Minas e Energia \
+Sala 744 - 7º andar – 70065-900 - Brasília – DF
+
+**Head Office** \
+Praça Pio X, 54, Centro \
+20091-040 - Rio de Janeiro – RJ
+
+\
+
+:::{.grande}
+**2024 BRAZILIAN ENERGY BALANCE** 
+:::
+Base year 2023
+
+\
+
+**General Coordination** \
+Thiago Ivanoski Teixeira
+
+**Executive Coordination** \
+Carla da Costa Lopes Achão
+
+**Technical Consultant** \
+Glaucio Vinicius Ramalho Faria
+
+\
+
+TECHNICAL COORDINATION, TECHNICAL TEAM AND ACKNOWLEDGMENT
+
+**Technical Coordination**  \
+Rogério Antônio da Silva Matos  \
+
+**Technical Team**  \
+Bernardo Honigbaum  \
+Flávio Raposo de Almeida  \
+Rogério Antônio da Silva Matos  \
+
+**Acknowledgment**  \
+Aline Moreira Gomes (EPE)  \
+Andre Luis Gonçalves de Oliveira (MME)  \
+André Suriane da Silva (ANP)  \
+Bernard Fernandes Kusel (ONS)  \
+Daniel Lopes Pego (MME)  \
+Daniel Silva Moro (EPE)  \
+Deivson Matos Timbo (MME)  \
+Diogo Santos Baleeiro (MME)  \
+Edgar Fonseca Franco (CCEE)  \
+Edson Thiago Nascimento De Jesus (MME)  \
+Esdras Godinho Ramos (MME)  \
+Gabriel Konzen (EPE)  \
+Gilberto Kwitko Ribeiro (MME)  \
+Gustavo Daou Palladini (EPE)  \
+Gustavo Luis de Souza Motta (MME)  \
+Gustavo Santos Masili (MME)  \
+Hevilo de Oliveira Gonçalves (EPE)  \
+José Lopes de Souza (ANP)  \
+José Nilton de Souza Vieira (MME)  \
+Juliana Oliveira do Nascimento (MME)  \
+Lena Santini Souza Menezes Loureiro (EPE)  \
+Lidiane de Almeida Modesto (EPE)  \
+Lúcio Carlos Resende (EPE)  \
+Marcelo Henrique Cayres Loureiro (EPE)  \
+Mariana Ferreira Carriconde de Azevedo (MME)  \
+Mariana Weiss de Abreu (EPE)  \
+Pedro Augusto de Menezes Filho (MME)  \
+Ranielle Noleto Paz Araújo (MME)  \
+Raquel Nascimento Marques (MME)  \
+Renato Sampaio (MME)  \
+Ricardo Gedra (CCEE)  \
+Rodrigo Chaves Cardoso de Oliveira (Petrobras)  \
+Ronny Jose Peixoto (MME)  \
+Sergio Luis Nogueira (MME)  \
+Simone Saviolo Rocha (EPE)  \
+Thiago Varella Faria (MME)  \
+Ubyrajara Nery Graça Gomes (MME)  \
+Vânia Moises Tenorio Cavalcante (ANEEL)  \
+Wellington de Lemos Santos (ANEEL)  \
+William de Oliveira Medeiros (MME)  \
+
+\
+
+DEVELOPMENT OF THE DIGITAL VERSION OF THE BRAZILIAN ENERGY BALANCE
+
+**Coordination**  \
+Flávio Raposo de Almeida  \
+
+**Development Team**  \
+Gabriel Silva de Araujo Costa (intern)  \
+Daniel Henrique Lírio Costa (intern)  \
+Karin Stayssy da Costa Alves (intern)  \
+Lúcio Carlos Resende  \
+
+**Acknowledgment**  \
+Andrea de Sá Pinto  \
+Bruno Eduardo Moreira Montezano  \
+Luciana Smiderle de Avilla  \
+Rafael de Carvalho Kukol  \
+Thiago Lins Garcia da Silveira (intern)  \
 
 \
 

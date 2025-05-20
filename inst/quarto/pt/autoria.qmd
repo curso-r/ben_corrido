@@ -33,6 +33,131 @@ Vitor Eduardo de Almeida Saback
 
 \
 
+![](../img/epe.png){fig-align="center" width=200px style="margin-bottom: 0;"}
+
+EMPRESA DE PESQUISA ENERGÉTICA - EPE
+
+Empresa pública, vinculada ao Ministério de Minas e Energia, instituída nos termos da Lei nº 10.847, de 15 de março de 2004, a EPE tem por finalidade prestar serviços na área de estudos e pesquisas destinadas a subsidiar o planejamento do setor energético, tais como energia elétrica, petróleo e gás natural e seus derivados, carvão mineral, fontes energéticas renováveis e eficiência energética, dentre outras.
+
+**Presidente** \
+Thiago Guilherme Ferreira Prado
+
+**Diretor de Estudos Econômico, Energéticos e Ambientais** \
+Thiago Ivanoski Teixeira
+
+**Diretor de Estudos de Energia Elétrica** \
+Reinaldo da Cruz Garcia
+
+**Diretora de Estudos do Petróleo, Gás e Biocombustíveis** \
+Heloísa Borges Esteves
+
+**Diretor Interino de Gestão Corporativa** \
+Thiago Guilherme Ferreira Prado
+
+URL: http://www.epe.gov.br
+
+**Sede** \
+Esplanada dos Ministérios Bloco "U" - Ministério de Minas e Energia \
+Sala 744 - 7º andar – 70065-900 - Brasília – DF
+
+**Escritório Central** \
+Praça Pio X, 54, Centro \
+20091-040 - Rio de Janeiro – RJ
+
+\
+
+:::{.grande}
+**BALANÇO ENERGÉTICO NACIONAL 2024** 
+:::
+Ano base 2023
+
+\
+
+**Coordenação Geral** \
+Thiago Ivanoski Teixeira
+
+**Coordenação Executiva** \
+Carla da Costa Lopes Achão
+
+**Consultor Técnico** \
+Glaucio Vinicius Ramalho Faria
+
+\
+
+COORDENAÇÃO TÉCNICA, EQUIPE TÉCNICA E COLABORADORES
+
+**Coordenação Técnica**  \
+Rogério Antônio da Silva Matos  \
+
+**Equipe Técnica**  \
+Bernardo Honigbaum  \
+Flávio Raposo de Almeida  \
+Rogério Antônio da Silva Matos  \
+
+**Colaboradores**  \
+Aline Moreira Gomes (EPE)  \
+Andre Luis Gonçalves de Oliveira (MME)  \
+André Suriane da Silva (ANP)  \
+Bernard Fernandes Kusel (ONS)  \
+Daniel Lopes Pego (MME)  \
+Daniel Silva Moro (EPE)  \
+Deivson Matos Timbo (MME)  \
+Diogo Santos Baleeiro (MME)  \
+Edgar Fonseca Franco (CCEE)  \
+Edson Thiago Nascimento De Jesus (MME)  \
+Esdras Godinho Ramos (MME)  \
+Gabriel Konzen (EPE)  \
+Gilberto Kwitko Ribeiro (MME)  \
+Gustavo Daou Palladini (EPE)  \
+Gustavo Luis de Souza Motta (MME)  \
+Gustavo Santos Masili (MME)  \
+Hevilo de Oliveira Gonçalves (EPE)  \
+José Lopes de Souza (ANP)  \
+José Nilton de Souza Vieira (MME)  \
+Juliana Oliveira do Nascimento (MME)  \
+Lena Santini Souza Menezes Loureiro (EPE)  \
+Lidiane de Almeida Modesto (EPE)  \
+Lúcio Carlos Resende (EPE)  \
+Marcelo Henrique Cayres Loureiro (EPE)  \
+Mariana Ferreira Carriconde de Azevedo (MME)  \
+Mariana Weiss de Abreu (EPE)  \
+Pedro Augusto de Menezes Filho (MME)  \
+Ranielle Noleto Paz Araújo (MME)  \
+Raquel Nascimento Marques (MME)  \
+Renato Sampaio (MME)  \
+Ricardo Gedra (CCEE)  \
+Rodrigo Chaves Cardoso de Oliveira (Petrobras)  \
+Ronny Jose Peixoto (MME)  \
+Sergio Luis Nogueira (MME)  \
+Simone Saviolo Rocha (EPE)  \
+Thiago Varella Faria (MME)  \
+Ubyrajara Nery Graça Gomes (MME)  \
+Vânia Moises Tenorio Cavalcante (ANEEL)  \
+Wellington de Lemos Santos (ANEEL)  \
+William de Oliveira Medeiros (MME)  \
+
+\
+
+DESENVOLVIMENTO DA VERSÃO DIGITAL DO BALANÇO ENERGÉTICO NACIONAL
+
+**Coordenação**  \
+Flávio Raposo de Almeida  \
+
+**Equipe de Desenvolvimento**  \
+Gabriel Silva de Araujo Costa (estagiário)  \
+Daniel Henrique Lírio Costa (estagiário)  \
+Karin Stayssy da Costa Alves (estagiária)  \
+Lúcio Carlos Resende  \
+
+**Colaboradores**  \
+Andrea de Sá Pinto  \
+Bruno Eduardo Moreira Montezano  \
+Luciana Smiderle de Avilla  \
+Rafael de Carvalho Kukol  \
+Thiago Lins Garcia da Silveira (estagiário)  \
+
+\
+
 Rio de Janeiro \
 Agosto de 2024
 :::
