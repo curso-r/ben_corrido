@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,92 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Annex VIII: Conversion Factors {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Relations between Units
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-relacoes-entre-unidades
+#| tbl-cap: 'Relations between Units.'
+
+benCorrido::tab_relacoes_entre_unidades(con, lang = "en")
+```
+
+## Coefficient of Equivalence of the Measure Units
+
+```{r}
+#| label: tbl-coeficientes-equivalencia-calorica
+#| tbl-cap: 'Coefficient of Equivalence of the Measure Units.'
+
+benCorrido::tab_coeficientes_equivalencia_calorica(con, lang = "en", lab1 = "From", lab2 = "To")
+```
+
+## Conversion Factors for Mass
+
+```{r}
+#| label: tbl-fatores-conversao-massa
+#| tbl-cap: 'Conversion Factors for Mass.'
+
+benCorrido::tab_fatores_conversao_massa(con, lang = "en", lab1 = "From", lab2 = "To")
+```
+
+## Conversion Factors for Volume
+
+```{r}
+#| label: tbl-fatores-conversao-volume
+#| tbl-cap: 'Conversion Factors for Volume.'
+
+benCorrido::tab_fatores_conversao_volume(con, lang = "en", lab1 = "From", lab2 = "To")
+```
+
+## Energy Conversion Factors
+
+```{r}
+#| label: tbl-fatores-conversao-energia
+#| tbl-cap: 'Energy Conversion Factors.'
+benCorrido::tab_fatores_conversao_energia(con, lang = "en", lab1 = "From", lab2 = "To")
+```
+
+## Average Coefficients of Equivalence to the Gas Fuels
+
+```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-gasosos
+#| tbl-cap: 'Average Coefficients of Equivalence to the Gas Fuels.'
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_gasosos(con, lang = "en", lab1 = "From (10³ m³)", lab2 = "To")
+```
+
+## Average Coefficients of Equivalence to the Liquid Fuels
+
+```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-liquidos
+#| tbl-cap: 'Average Coefficients of Equivalence to the Liquid Fuels.'
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_liquidos(con, lang = "en", lab1 = "From (m³)", lab2 = "To")
+```
+
+## Average Coefficients of Equivalence to the Solid Fuels
+
+```{r}
+#| label: tbl-coeficientes-equivalencia-medios-combustiveis-solidos
+#| tbl-cap: 'Average Coefficients of Equivalence to the Solid Fuels.'
+benCorrido::tab_coeficientes_equivalencia_medios_combustiveis_solidos(con, lang = "en", lab1 = "From (ton)", lab2 = "To")
+```
+
+## Specific Mass and Heating Values
+
+```{r}
+#| label: tbl-densidades-poderes-calorificos
+#| tbl-cap: 'Specific Mass and Heating Values. Specific Mass/ Sugar-Cane Bagass: Bagasse with 50% of humidity. Electricity/Hydraulic Energy: kcal/kWh. Gasworks Gas - Rio de Janeiro/Gasworks Gas - São Paulo/ Coke Oven Gas/Dry Natural Gas/Humid Natural Gas: kcal/m³. Dry Natural Gas/Humid Natural Gas: At 20°C, for oil and natural gas products.'
+benCorrido::tab_densidades_poderes_calorificos(con, lang = "en", lab1 = "From", lab2 = "To")
+benCorrido::gerar_botoes_download(tab_name = "tab_densidades_poderes_calorificos", tabela = FALSE, lang = "en")
+```
+
+## Conversion Factors for Average toe Values
+
+```{r}
+#| label: tbl-fatores-conversao-tep-medio
+#| tbl-cap: 'Conversion Factors for Average toe Values.'
+benCorrido::tab_fatores_conversao_tep_medio(con, lang = "en", lab1 = "", lab2 = "Unit")
+benCorrido::gerar_botoes_download(tab_name = "tab_fatores_conversao_tep_medio", tabela = FALSE, lang = "en")
 ```

@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,257 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
+# Annex VI: Treatment of Information {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## General Aspects
+
+As a result of a continuing search for improvement, each edition of the Brazilian Energy Balance contains the most accurate and detailed figures to date. For this reason some differences between the data shown in the latest edition and the previous ones may arise. Explanatory notes on these differences are included in the latest edition.
+
+Therefore, this Annex presents the data source and peculiar aspects of some energy sources regarding the way they were obtained, as well as clarifications about changes compared to previous energy balances.
+
+
+## Sector Classification
+
+The classification for the sector consumption of Brazilian Energy Balance follows the Activities Code of Federal Revenue Bureau (Decrees n. 907, 08/28/1989, and n. 962, 12/29/1998).
+
+
+## Data Sources
+
+This item presents the entities that work, direct or indirectly, as data sources for the BEB elaboration:
+
+### Petroleum, Natural Gas and Oil Shale
+
+* Agência Nacional de Petróleo - ANP
+
+* Petróleo Brasileiro S.A. - Petrobras
+
+* Oil Products Distribution Companies
+
+* Class Entities and Large Industries
+
+
+### Steam Coal And Metallurgical Coal
+
+* Sindicato Nacional da Indústria de Extração do Carvão
+
+* Large Industries
+
+### Hydraulic Energy and Electricity
+
+* Agência Nacional de Energia Elétrica – ANEEL
+
+* Centrais Elétricas Brasileiras S.A. – Eletrobras
+
+* Electric Energy Concessionaries
+
+* Operador Nacional do Sistema – ONS
+
+* SIMPLES - EPE
+
+* Câmara de Comercialização de Energia Elétrica - CCEE
+
+* Large Industries
+
+
+### Firewood and Charcoal
+
+* Fundação Instituto Brasileiro de Geografia e Estatística - IBGE
+
+* Large Industries
+
+* Coal Mining Companies
+
+* Projeto Matriz Energética Brasileira – MEB - MME / IPEA
+
+
+### Sugar Cane, Alcohol and Sugar Cane Bagasse
+
+* Alcohol and Sugar Department – Agriculture Ministry
+
+* Class Entities
+
+* Sector Industries
+
+* Brazil´s National Agency of Petroleum, Natural Gas and Biofuels
+
+
+### Nuclear Energy
+
+* Indústrias Nucleares do Brasil - INB
+
+
+### Other Information Sources
+
+* Associação Brasileira de Celulose e Papel - BRACELPA
+
+* Sindicato Nacional da Indústria de Cimento – SNIC
+
+* Associação Brasileira dos Produtores de Ferro-ligas – ABRAFE
+
+* Brazil Steel Institute– IBS
+
+* Associação Brasileira de Fundição – ABIFA
+
+* Sindicato Nacional da Indústria e Extração de Estanho – SNIEE
+
+* Associação Brasileira de Alumínio – ABAL
+
+* Sindicato da Indústria de Ferro no Estado de Minas Gerais – SINDIFER
+
+* Fundação IBGE, for general data about Brazil.
+
+
+## Peculiarities in Data Processing
+
+### Petroleum, Natural Gas and By-Products
+
+The sources of data on production, imports, exports, inventories and transformation, are from Petrobras, ANP and Federal Revenue Bureau.
+
+For sector consumption are used the sources: Petrobras, ANP, Industry Associations and Large Industries. Informations referring to sales made directly by the refineries are furnished from Petrobras. The information referring to sales made by the distributors to consumers is furnished by ANP, which is regulated by Decree CNP-DIPLAN n.° 221, dated June 25, 1981 and is broken down according to Federal Revenue Bureau criteria. Real consumption data is obtained from Industry Associations and Large Industries.
+
+Based on the reconciliation of these sources and on the analysis of the consistency of the information, the petroleum, natural gas and by-products energy flows are elaborated.
+
+
+### Steam Coal and Metallurgical Coal
+
+Geological conditions of the coal pits (small thickness of layers) and the methods of mining coal lead to the extraction of run-of-mine coal with large amounts of inert matter (argillites, etc). In the balance calculations fossil coal after benefaction, in the forms of steam and metallurgical coal is considered primary energy.
+
+
+### Nuclear Energy
+
+In the Brazilian Energy Balance, the accounting of nuclear energy is according to the following flow: the natural uranium in the form of U3O8 (primary energy) enters in the nuclear fuel cycle (transformation center) and is transformed into uranium in UO2 fuel elements (secondary energy), with the losses due to the manufacturing process.
+
+Due to the large number of activities involved in the processing of natural uranium in the form of U3O8 into enriched uranium contained in UO2 pellets, components of the fuel elements, the average processing time is 21 months (without taking into account the recycling time of uranium and plutonium from the fuel already irradiated).
+
+Because of this, all the uranium that is in being processed in the nuclear fuel cycle is considered as inventory of U3O8. Every year an account is made for the amount of uranium (content of the UO2) put out of the inventory. Losses of 1.5% due to the transformation are considered in the account.
+
+
+### Hydraulic Energy and Electricity
+
+In this case hydraulic generation is the gross electricity production as measured at the hydraulic plants. The portion corresponding to leaked energy is not considered.
+
+
+### Firewood and Charcoal
+
+Production of firewood and charcoal is determined based on consumption data, not taking into account any inventory variation. Firewood sector consumption data, except those from Pulp and Paper and Non-ferrous Industries, from which real consumption data are furnished, are obtained through extrapolation of the data from the Energy Matrix Project, 1970, from IBGE survey and by means of correlation with the sector consumption of the energy products, such as LPG in the residential sector.
+
+Charcoal: the industrial sector consumption is directly obtained from the consumers. The consumption data of the other sectors is obtained in the same manner as for firewood. Charcoal production is calculated taking in account percentage losses in distribution and storage.
+
+
+###  Sugar Cane Products
+
+They are obtained from squeezed Sugar-cane to produce sugar and alcohol. It is considered as primary products the cane juice, molasses, bagasse, leaves and points, and as secondary products the anhydrous and hydrated alcohol. Each ton of squeezed Sugar-cane produces around 730 kg of Sugar-cane juice (it is not considered the water used in the Sugar-cane wash). Concerning the bagasse, it is considered only the energetic use. The technical note COBEN 03/88, mentioned in the item 5, provides more information about this subject.
+
+
+### Coke
+
+Production and consumption data are directly obtained from industries (CSN, COSIPA, USIMINAS, AÇOMINAS, and others). Energy import and export data are provided by the Federal Revenue Bureau.
+
+
+## Technical Notes
+
+In order to better show up the adopted criteria in data appropriation of the energy balances, technical notes were elaborated, which are available in the site: [https://www.gov.br/mme/pt-br/assuntos/secretarias/spe/publicacoes/balanco-energetico-nacional/1-sobre-o-ben](https://www.gov.br/mme/pt-br/assuntos/secretarias/spe/publicacoes/balanco-energetico-nacional/1-sobre-o-ben)
+
+* NT COBEN 01/1988 – Appropriation criteria of the Brazilian Energy Balance Matrix data.
+
+* NT COBEN 02/1988 – Appropriation criteria of the DNC sale data by sectors of the Brazilian Energy Balance.
+
+* NT COBEN 03/1988 – Sugar-cane treatment in BEB.
+
+* NT COBEN 04/1988 – New conversion factor for firewood.
+
+* NT COBEN 05/1988 – Brazilian Energy Balance: BEB1988: Changes in relation to the previous balance.
+
+* NT COBEN 06/1988 – Distribution analysis of the diesel oil consumption in BEB.
+
+* NT COBEN 07/1988 – Evaluation of the residential consumption of firewood and charcoal in BEB.
+
+* NT 08/1993 – Cogeneration Treatment in Energy Balances.
+
+* NT 09 – Conversion Factors from Hydraulic and Electricity to toe.
+
+
+## Electricity in the Brazilian Energy Balance – BEB
+
+The previous editions of the Brazilian Energy Balance 2002 adopted criteria to evaluation of the electricity and hydroelectricity generation segments considered the thermic base parameters, that means 1kWh = 3132 kcal, which corresponds to the fuel oil burned in a thermoelectric plant with an yield of 27.5%. This resulted in a conversion index of 0.29 toe/MWh (3132/10800kcal/kg), which increase the hydraulic energy values in order to compare with the other countries eminently with thermic generation.
+
+The Brazilian Energy Balance 2002 adopted, for hydraulic and electricity supply and consumption, the conversion factor 0.08 toe/MWh (1 kWh = 860 kcal). However, it maintained the petroleum reference of 10,800 kcal/kg and the use of superior calorific powers to the energy sources.
+
+In this edition, and in the last one these conversion criteria for electricity and hydraulic generation kept in the theoretical base (1 kWh = 860 kcal), but it were adopted the petroleum reference of 10000 kcal/kg and inferior calorific powers for the other energy sources. These new criteria are in agreement with the international criteria, specially the ones of International Energy Agency, World Energy Consul, Latin-American Energy Organization and, United State energy Department.
+
+
+###  METHODOLOGICAL NOTE – MICRO AND MINI DISTRIBUTED GENERATION ESTIMATION
+
+This Note records the methodology used to estimate the total electricity production coming from micro and mini electricity power plants, until the base year of 2020.
+
+The estimate is made by quantifying the energy contribution of each existing generation system present in ANEEL’s database. The following equation is used in the estimation
+
+ $$ E_{f,m,s} = \sum_{i=1}^{n} P_{i,f,m,s} \times{FC_{f,m,s}} \times{Z_{b}} \times{24} \times{(1-k)^{Z_{T}}} $$
+
+ Where:
+
+* Ef,m,s is the electricity generated in the reference year, with the source f, municipality m and sector s.
+
+* i is the index for each generation system in operation in the base year, being incremented from the first to the total n;
+
+* Pi,f,m,s is the installed capacity of system i, from source f, in the municipality m, in sector s;
+
+* FCf,m,s is the capacity factor for source f, in county m and sector s;
+
+* Zb is the number of days of operation of the Pi power in the base year;
+
+* k is the daily degradation factor of the technology. For the photovoltaic source, it was calculated as (1+0,005)(1/365) -1. For the other sources, k is equal to zero;
+
+* Zt is the total number of days in operation for Pi from its installation until the end of the base year.
+
+It should be noticed that for the new plants that start operation during the reference year of the Brazilian Energy Balance, the generation estimation considers the proportional operation to the number of days that the unit was connected during the base year. For the plants registered in previous years the operation during the entire year is considered.
+
+To estimate the capacity factor of photovoltaic systems, the following formula is used (adapted from Zilles, 2012):
+
+$$ FC_{m,s} = \frac{PR_{s} \times{GTI_{m}}}{24 \times{I_{STC}}} $$
+
+Onde:
+
+a) PR is the Performance Ratio. It is a factor that incorporates losses due to temperature, dirt, DC/AC conversion, inverter efficiency, etc. It is assumed a value equal to 0.80 for remote systems installed at high voltage and 0.75 for other systems (based on Pinho and Galdino, 2014). This is justified by the fact that ground systems have better orientation of the modules and more frequent cleaning, which ensures lower production losses.
+
+b) $GTI_m$ is the daily average global global irradiation on the inclined surface for the municipality m. Obtained from the Brazilian Atlas of Solar Energy - 2nd Edition (Pereira et al., 2017).
+
+c) $I_{STC}$ is the irradiance at standard test conditions = 1  $[kW/m^2]$.
+
+The daily degradation factor for PV technology is based on annual degradation equal to 0.5% per year. This annual value is the median of the studies reviewed by Jordan and Kurtz (2012).
+
+The capacity factors used for the other sources are presented below. The values were obtained from the generation verified in larger plants, whose generation is measured by the CCEE.
+
+
 ```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
+#| label: tbl-fatores-capacidade
+#| tbl-cap: 'Capacity Factors for different sources.'
+benCorrido::tab_fatores_capacidade_diferentes_fontes(con, lab1 = "Source", lab2 = "CF", lang = "en")
+```
+
+
+```{r}
+#| label: tbl-fatores-capacidade-fonte-hidraulica
+#| tbl-cap: 'Capacity Factors for hydro source.'
+benCorrido::tab_fatores_capacidade_fonte_hidraulica(con, lab1 = "Class", lab2 = "Source", lab3 = "CF", lang = "en")
+```
+
+Finally, it is worth mentioning that the municipal data are aggregated according to BEB’s needs.
+
+References
+
+* JORDAN, D. C. e KURTZ, S. R. Photovoltaic Degradation Rates — An Analytical Review. NREL/JA-5200-51664. 2012
+
+* PEREIRA, E. B. et al. Atlas brasileiro de energia solar. 2ª ed. São José dos Campos: INPE, 2017
+
+* PINHO, J. T.; GALDINO, M. A. Manual de Engenharia para Sistemas Fotovoltaicos. [s.l: s.n.]. 2014.
+
+* ZILLES, R. et al. Sistemas Fotovoltaicos Conectados à Rede Elétrica. Oficina de Textos, São Paulo, 2012.
+
+```{r}
+#| label: tbl-fatores-capacidade-municipios
+#| tbl-cap: 'Capacity Factor.'
+benCorrido::tab_fator_capacidade_municipios(con, lab1 = "State", lab2 = "City", lab3 = "CF", lang = "en")
 ```

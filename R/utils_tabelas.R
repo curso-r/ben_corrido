@@ -450,7 +450,7 @@ reactable_fator_conversao <- function(tab, lang, lab1, lab2, casas_dec = NULL) {
       ),
       defaultColDef = reactable::colDef(
         format = reactable::colFormat(digits = casas_dec, separators = TRUE, locales = locale),
-        width = 200,
+        minWidth = 200,
         align = "center"
       ),
       columnGroups = list(

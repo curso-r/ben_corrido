@@ -1,3 +1,4 @@
+---
 params:
   ano: ""
   duckdb_path: ""
@@ -8,6 +9,83 @@ con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
 ano <- params$ano
 ```
 
-```{r}
-htmltools::tags$script(src = "js/fix_slider.js")
-```
+# Annex VII: Units {-}
+
+![](../img/capas/imagem_cap_anexo.png)
+
+## Basic Unit Adopted
+
+As energy flows are expressed in different units, a uniform unit of measure must be adopted.
+
+The basic unit adopted in Brazilian Energy Balance - BEB was the “TON OIL EQUIVALENT - toe”, because it:
+
+* is directly related to the most important current source of energy;
+
+* expresses a physical value.
+
+Note: This document, like the previus edition, adopt the most used international criteria for the conversion of energy commercial units to a common reference unit. Thus, (i) the petroleum reference adopted was 10000 kcal/kg; (ii) all the conversion factors were determined using the inferior calorific powers of energy sources; and (iii) it was considered the equivalence theoretical coefficient to hydraulic energy and electricity, which means 1kwh = 860 kcal (First Thermodynamic Axiom).
+
+
+## Unit Treatment by Products
+
+### Petroleum and its Derivatives, Natural Gas, Alcohol and Oil Shale
+
+Petrobras, by means of the quality control sectors of its petroleum refineries and of the Leopoldo Américo Miguez from Mello Research Center - CENPES, maintains updated the physical and chemical characteristics of all of its products, establishing at the end of each year, average coefficients for each one. Thus, the specific mass and the inferior heating values, observed in each year, are showed in the balance.
+
+
+### Steam Coal
+
+The brazilian steam coal is produced in several ways concerning its physical and chemical characteristics, presenting ash contents from 20% to 54% and several variations of sulphur, volatiles, fixed carbon and other contents. The coal analysis is done by some processing plants, with their own laboratories, in Science and Technology Foundation - CIENTEC and in the Mineral Technology Center - CETEM.
+
+Its equivalence to toe is determined from the average calorific powers of the several types of processed coal.
+
+
+### Metallurgical Coal
+
+a) Imported: it was adopted the calorific power provided by the National Metallurgical Company – CSN, which stays in the zone of theseveral imported metallurgical coals.
+
+b) Brazilian: it was adopted the calorific power provided by CSN.
+
+
+### Uranium – U308
+
+It was adopted the coefficient of equivalence provided by Brazilian Nuclear Industry.
+
+
+### Hydroelectricity and Electricity
+
+The equivalence coefficient used was 0.086 tep/MWh, resulting from a caloric equivalence of 860 kcal/kWh. This coefficient was determined by the equivalence of the potential energy of water (mechanical energy) into heat.
+
+
+### Firewood
+
+The primary unit of firewood is the stere cubic meter (m³ st). It was adopted a density of 300 kg/m³ st for firewood of residential use (colloquially identified as “picking firewood”), average value identified in research made by the Foundation Technologic Center of Minas Gerais - CETEC in cities from Minas Gerais State.
+
+It was adopted a density of 390 kg/m³ st for commercial firewood, considering the data provided by BRACELPA. The Technical Note COBEN 04/88, mentioned in Appendix D – item 5, contains greater details about this subject.
+
+
+### Sugar Cane Products
+
+The calorific containts of Sugar-cane, considering its components (“sacarose”, fibers, water and others),is of, approximately, 1060 kcal/kg. Discounting from this quantity the energy existing in the fibers (bagasse), the calorific power for the Sugar-cane juice gets 620 kcal/kg. It was used the value of 1930 kcal/kg for the molasse with 55% of sugar weight reductors and capable of producing 350 liters of alcohol/t. For the bagasse it was used the calorific power experimentally calculated by the former Sugar and Alcohol Institute -IAA.
+
+
+### Other Primary Sources
+
+This item contains vegetal and industrial residues use by heat and vapor generation. The equivalence to toe was established from the estimated average calorific power. For the Black Liquor, it was used the calorific power adopted by BRACELPA.
+
+
+### Gasworks Gas and Coke Gas
+
+The calorific powers adopted by the Gas Company of Rio de Janeiro State - CEG and Gas Company of São Paulo State - COMGAS.
+
+### Coal Coke
+
+It was used the calorific power theoretically obtained with the use of the Dulong’s Equation, from the chemical analysis of an average coke sampling.
+
+### Uranium Contained in UO₂
+
+It was used the equivalence coefficient adopted by the Brazilian Nuclear Industries.
+
+### Carvão Vegetal
+
+The caloric power used was in function of researches done by Belgo-Mineira and Acesita Metallurgical Companies.
