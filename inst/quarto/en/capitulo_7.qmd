@@ -48,7 +48,7 @@ benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_consumo_final_ene
 ```{r}
 #| label: tbl-produto-interno-bruto-setorial
 #| tbl-cap: 'Gross Domestic Product by Sector. Unit: 10⁶ US$ ppp (2010). Commercial And Public: Matches commerce, communications, financial institutions, public administration, rent, other services and SIUP less power generation. Mining: Exclusive oil extraction, natural gas and coal. Chemical: Exclusive oil refining, alcohol distillation and coking production. Textiles: Exclusive clothes, shoes and cloth artifacts. Others: Sum of mechanics, electric and communication material, transportation material, wood, furniture, rubber, pharmaceutical, perfumery, soap e other. Energy Sector: Corresponds to the extraction of oil, natural gas and coal, oil refining, alcohol distillation, electricity generation and coking production. Financial dummy variable distributed proportionally among economic sector groups. 2010 Constant Dollar.'
- 
+
 benCorrido::tab_produto_interno_bruto_setorial(con, lang = "en")
 benCorrido::gerar_botoes_download(lang = "en", tab_name = "tab_produto_interno_bruto_setorial")
 ```
@@ -105,7 +105,12 @@ benCorrido::gerar_botoes_download(lang = "en", tab_name = glue::glue("tab_consum
 #| tbl-cap: 'Energy Specific Consumption -  Metallurgy by segment. Total: Sum of iron and steel, iron-alloys and non-ferrous metallurgical and other. Pig-iron and steel - Production: Production of crude steel.'
 
 setor <- "Metalurgia"
-segmentos <- c("Ferro-Gusa e Aço", "Ferroligas", "Não-Ferrosos e Outros Metalúrgicos", "Total")
+segmentos <- c(
+  "Pig-Iron and Steel" = "Ferro-Gusa e Aço",
+  "Iron-Alloys" = "Ferroligas",
+  "Non-Ferrous and Others Metals" = "Não-Ferrosos e Outros Metalúrgicos",
+  "Total" = "Total"
+)
 
 tabelas <- purrr::map(
   segmentos,
@@ -121,7 +126,7 @@ benCorrido::create_dropdown(
   elementos = tabelas,
   params = segmentos,
   id = "tab_consumo_especifico_energia_setores_selecionados",
-  label = "Segmento:",
+  label = "Segment:",
   dropdown_width = "300px",
   html = TRUE
 )
