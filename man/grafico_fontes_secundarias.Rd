@@ -4,7 +4,7 @@
 \alias{grafico_fontes_secundarias}
 \title{Gráfico do Capítulo II}
 \usage{
-grafico_fontes_secundarias(con, lang = "pt", .tipo_dado)
+grafico_fontes_secundarias(con, lang = "pt", .tipo_dado, laby = "")
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +12,8 @@ grafico_fontes_secundarias(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo II

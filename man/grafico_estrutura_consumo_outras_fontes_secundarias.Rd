@@ -7,7 +7,8 @@
 grafico_estrutura_consumo_outras_fontes_secundarias(
   con,
   lang = "pt",
-  .tipo_dado
+  .tipo_dado,
+  laby = ""
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ grafico_estrutura_consumo_outras_fontes_secundarias(
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo II

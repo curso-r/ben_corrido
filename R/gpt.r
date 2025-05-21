@@ -6,8 +6,8 @@
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_fontes_primarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_fontes_primarias") |>
+grafico_estrutura_consumo_derivados_petrolo_gas_natural <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_derivados_petrolo_gas_natural") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -27,8 +27,8 @@ grafico_estrutura_consumo_fontes_primarias <- function(con, lang = "pt", .tipo_d
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_fontes_primarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_fontes_primarias") |>
+grafico_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_oleo_diesel_total") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -48,8 +48,8 @@ grafico_fontes_primarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_petroleo <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_petroleo") |>
+grafico_diesel_petroleo <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_diesel_petroleo") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -69,8 +69,8 @@ grafico_petroleo <- function(con, lang = "pt", .tipo_dado, laby = "") {
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_gas_natural <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_gas_natural") |>
+grafico_oleo_combustivel <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_oleo_combustivel") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -90,8 +90,8 @@ grafico_estrutura_consumo_gas_natural <- function(con, lang = "pt", .tipo_dado, 
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_carvao_vapor <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_carvao_vapor") |>
+grafico_gasolina <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_gasolina") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -111,8 +111,8 @@ grafico_carvao_vapor <- function(con, lang = "pt", .tipo_dado, laby = "") {
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_transformacao_energia_hidraulica <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_transformacao_energia_hidraulica") |>
+grafico_glp <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_glp") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -132,8 +132,8 @@ grafico_transformacao_energia_hidraulica <- function(con, lang = "pt", .tipo_dad
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_consumo_energia_solar_termica_setor <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_consumo_energia_solar_termica_setor") |>
+grafico_estrutura_consumo_nafta <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_nafta") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -153,8 +153,8 @@ grafico_consumo_energia_solar_termica_setor <- function(con, lang = "pt", .tipo_
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_uranio <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_uranio") |>
+grafico_nafta <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_nafta") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -174,8 +174,8 @@ grafico_uranio <- function(con, lang = "pt", .tipo_dado, laby = "") {
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_lenha <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_lenha") |>
+grafico_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_coque_carvao_mineral") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -195,8 +195,8 @@ grafico_estrutura_consumo_lenha <- function(con, lang = "pt", .tipo_dado, laby =
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_bagaco_cana <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_bagaco_cana") |>
+grafico_querosene <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_querosene") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -216,8 +216,8 @@ grafico_estrutura_consumo_bagaco_cana <- function(con, lang = "pt", .tipo_dado, 
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_lixivia <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_lixivia") |>
+grafico_estrutura_consumo_gas_coqueria <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_gas_coqueria") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -237,8 +237,8 @@ grafico_estrutura_consumo_lixivia <- function(con, lang = "pt", .tipo_dado, laby
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_outras_fontes_primarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_outras_fontes_primarias") |>
+grafico_consumo_final_eletricidade_setor <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_consumo_final_eletricidade_setor") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 
@@ -258,29 +258,8 @@ grafico_estrutura_consumo_outras_fontes_primarias <- function(con, lang = "pt", 
 #' @param laby Rótulo do eixo y
 #'
 #' @export
-grafico_estrutura_consumo_outras_fontes_secundarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_outras_fontes_secundarias") |>
-    dplyr::collect() |>
-    dplyr::filter(tipo_dado == .tipo_dado)
-
-  grafico_linha(
-    tab = tab,
-    rotulo_y = laby,
-    lang = lang,
-    .cap = 2
-  )
-}
-
-#' Gráfico do Capítulo II
-#'
-#' @param con Conexão com o banco de dados
-#' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
-#' @param laby Rótulo do eixo y
-#'
-#' @export
-grafico_fontes_secundarias <- function(con, lang = "pt", .tipo_dado, laby = "") {
-  tab <- dplyr::tbl(con, "grafico_fontes_secundarias") |>
+grafico_estrutura_consumo_alcool_etilico <- function(con, lang = "pt", .tipo_dado, laby = "") {
+  tab <- dplyr::tbl(con, "grafico_estrutura_consumo_alcool_etilico") |>
     dplyr::collect() |>
     dplyr::filter(tipo_dado == .tipo_dado)
 

@@ -4,7 +4,12 @@
 \alias{grafico_estrutura_consumo_fontes_primarias}
 \title{Gráfico do Capítulo II}
 \usage{
-grafico_estrutura_consumo_fontes_primarias(con, lang = "pt", .tipo_dado)
+grafico_estrutura_consumo_fontes_primarias(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  laby = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +17,8 @@ grafico_estrutura_consumo_fontes_primarias(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo II

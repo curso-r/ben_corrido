@@ -34,7 +34,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_primarias", .tipo
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -45,7 +45,7 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Absolu
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -58,7 +58,7 @@ benCorrido::grafico_estrutura_consumo_fontes_primarias(con, .tipo_dado = "Percen
 #| fig-height: 2.8
 #| fig-width: 7
 #| out-width: 90%
-benCorrido::grafico_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Oil
@@ -78,7 +78,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_petroleo", .tipo_dado = "Absol
 #| fig-height: 2.8
 #| fig-width: 7
 #| out-width: 90%
-benCorrido::grafico_petroleo(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_petroleo(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Natural Gas
@@ -102,7 +102,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_natural", .tipo_dado = "Ab
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -113,7 +113,7 @@ benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Absoluto", 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_gas_natural(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -137,7 +137,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_carvao_vapor", .tipo_dado = "A
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -148,7 +148,7 @@ benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Absoluto", lang = "en")
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_carvao_vapor(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -183,7 +183,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_hidraulica", .tipo_dad
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -194,7 +194,7 @@ benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Absoluto
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_transformacao_energia_hidraulica(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -234,7 +234,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_energia_solar_termica", .tipo_
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_consumo_energia_solar_termica_setor(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_consumo_energia_solar_termica_setor(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Uranium (U₃O₈)
@@ -252,7 +252,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_uranio", .tipo_dado = "Absolut
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_uranio(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_uranio(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Firewood
@@ -277,7 +277,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_lenha", .tipo_dado = "Absoluto
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -288,7 +288,7 @@ benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Absoluto", lang =
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_lenha(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -319,7 +319,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_melaco", .tipo_dado = "Absolut
 #| label: tbl-bagaco-cana
 #| tbl-cap: 'Sugar Cane Bagasse. Unit: 10³ t. Transformation: Input for electricity generation.'
 
-benCorrido::tab_bagaco_cana(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::tab_bagaco_cana(con, .tipo_dado = "Absoluto", lab1 = "Flow", lang = "en")
 benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Absoluto", lang = "en")
 ```
 
@@ -335,7 +335,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_bagaco_cana", .tipo_dado = "Ab
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -346,7 +346,7 @@ benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Absoluto", 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_bagaco_cana(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -373,7 +373,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_lixivia", .tipo_dado = "Absolu
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -384,7 +384,7 @@ benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Absoluto", lang
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_lixivia(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -411,7 +411,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_outras_fontes_primarias", .tip
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -422,7 +422,7 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_outras_fontes_primarias(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -449,7 +449,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_total_fontes_secundarias", .ti
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -460,7 +460,7 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -473,7 +473,7 @@ benCorrido::grafico_estrutura_consumo_outras_fontes_secundarias(con, .tipo_dado 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_fontes_secundarias(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_fontes_secundarias(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ##  Oil Products and Natural Gas Products
@@ -498,7 +498,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_derivados_petroleo_e_gas_natur
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -509,7 +509,7 @@ benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_d
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_derivados_petrolo_gas_natural(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -530,7 +530,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oleo_diesel_total", .tipo_dado
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_oleo_diesel_total(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_oleo_diesel_total(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Diesel of Petroleum
@@ -549,7 +549,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_diesel_petroleo", .tipo_dado =
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_diesel_petroleo(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_diesel_petroleo(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Biodiesel
@@ -578,7 +578,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_oleo_combustivel", .tipo_dado 
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_oleo_combustivel(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_oleo_combustivel(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Gasoline
@@ -597,7 +597,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gasolina", .tipo_dado = "Absol
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_gasolina(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_gasolina(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## LPG
@@ -616,7 +616,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_liquefeito_de_petroleo", .
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_glp(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_glp(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Naphtha
@@ -641,7 +641,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_nafta", .tipo_dado = "Absoluto
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -652,7 +652,7 @@ benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Absoluto", lang =
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -665,7 +665,7 @@ benCorrido::grafico_estrutura_consumo_nafta(con, .tipo_dado = "Percentual", lang
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_nafta(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_nafta(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Coal Coke
@@ -684,7 +684,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_coque_carvao_mineral", .tipo_d
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_coque_carvao_mineral(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_coque_carvao_mineral(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Kerosene
@@ -703,7 +703,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_querosene", .tipo_dado = "Abso
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_querosene(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_querosene(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Gasworks Gas
@@ -738,7 +738,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_gas_coqueira", .tipo_dado = "A
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -749,7 +749,7 @@ benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Absoluto",
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_gas_coqueria(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -776,7 +776,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_eletricidade", .tipo_dado = "A
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -787,7 +787,7 @@ benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Absoluto
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_consumo_final_eletricidade_setor(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::
@@ -824,7 +824,7 @@ benCorrido::gerar_botoes_download(tab_name = "tab_alcool_etilico_total", .tipo_d
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto", lang = "en")
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto", lang = "en", laby = "10³ toe")
 ```
 
 ## Percentage
@@ -835,7 +835,7 @@ benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Absoluto
 #| fig-width: 7
 #| fig-height: 2.8
 #| out-width: 90%
-benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Percentual", lang = "en")
+benCorrido::grafico_estrutura_consumo_alcool_etilico(con, .tipo_dado = "Percentual", lang = "en", laby = "%")
 ```
 
 :::

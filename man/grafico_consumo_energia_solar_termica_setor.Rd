@@ -4,7 +4,12 @@
 \alias{grafico_consumo_energia_solar_termica_setor}
 \title{Gráfico do Capítulo II}
 \usage{
-grafico_consumo_energia_solar_termica_setor(con, lang = "pt", .tipo_dado)
+grafico_consumo_energia_solar_termica_setor(
+  con,
+  lang = "pt",
+  .tipo_dado,
+  laby = ""
+)
 }
 \arguments{
 \item{con}{Conexão com o banco de dados}
@@ -12,6 +17,8 @@ grafico_consumo_energia_solar_termica_setor(con, lang = "pt", .tipo_dado)
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo II
