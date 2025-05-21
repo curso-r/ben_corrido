@@ -1,10 +1,10 @@
-grafico_linha <- function(tab, rotulo_y, lang) {
+grafico_linha <- function(tab, rotulo_y, lang, .cap) {
   tab_plot <- tab |>
     dplyr::arrange(desc(ano), total) |>
     dplyr::mutate(
       grupo = forcats::fct_inorder(grupo),
       grupo_en = forcats::fct_inorder(grupo_en),
-      cor = pegar_cor(grupo)
+      cor = pegar_cor(grupo, cap = .cap)
     )
 
   if (lang != "pt") {
@@ -48,13 +48,13 @@ grafico_linha <- function(tab, rotulo_y, lang) {
 }
 
 
-grafico_area <- function(tab, rotulo_y, lang) {
+grafico_area <- function(tab, rotulo_y, lang, .cap) {
   tab_plot <- tab |>
     dplyr::arrange(desc(ano), total) |>
     dplyr::mutate(
       grupo = forcats::fct_inorder(grupo),
       grupo_en = forcats::fct_inorder(grupo_en),
-      cor = pegar_cor(grupo)
+      cor = pegar_cor(grupo, cap = .cap)
     )
 
   if (lang != "pt") {

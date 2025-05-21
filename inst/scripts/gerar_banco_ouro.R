@@ -116,11 +116,11 @@ salvar_tab_bd(tab, "grafico_consumo_final_fonte")
 
 # grafico_consumo_final_setor
 tab_en <- readr::read_rds("./data-raw/rds/en/tratamento_tabela_1_5_traduzido.rds") |>
-  dplyr::select(grupo_en = grupo_nivel_menor)
+  dplyr::select(grupo_en = grupo_nivel_2)
 
 tab <- readr::read_rds("./data-raw/rds/pt/tratamento_tabela_1_5_traduzido.rds") |>
   dplyr::select(
-    grupo = grupo_nivel_menor,
+    grupo = grupo_nivel_2,
     ano,
     tipo_dado,
     total

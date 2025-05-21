@@ -14,7 +14,7 @@ book:
     - text: Sobre
       href: index.qmd
     - en/autoria.qmd
-    - part: Capítulos
+    - part: Chapters
       chapters:
         - en/capitulo_1.qmd
         - en/capitulo_2.qmd

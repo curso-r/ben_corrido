@@ -2,7 +2,7 @@
 % Please edit documentation in R/graficos.R
 \name{grafico_variacao_energia_final_util_potencial}
 \alias{grafico_variacao_energia_final_util_potencial}
-\title{Gráfico do Anexo 3 - Geração Hidrelétrica por Região}
+\title{Gráfico do Anexo 4}
 \usage{
 grafico_variacao_energia_final_util_potencial(con, lang = "pt")
 }
@@ -14,5 +14,5 @@ grafico_variacao_energia_final_util_potencial(con, lang = "pt")
 \item{.ano}{Ano}
 }
 \description{
-Gráfico do Anexo 3 - Geração Hidrelétrica por Região
+Gráfico do Anexo 4
 }

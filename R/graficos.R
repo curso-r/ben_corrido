@@ -10,7 +10,7 @@ grafico_geracao_energia_fontes_nr <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_geracao_energia_fontes_nr") |>
     dplyr::collect() |>
     dplyr::mutate(
-      cor = pegar_cor(variavel)
+      cor = pegar_cor(variavel, cap = 1)
     )
 
   if (lang != "pt") {
@@ -70,7 +70,7 @@ grafico_oferta_interna_el_fonte <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_oferta_interna_el_fonte") |>
     dplyr::collect() |>
     dplyr::mutate(
-      cor = pegar_cor(variavel)
+      cor = pegar_cor(variavel, cap = 1)
     )
 
   if (lang != "pt") {
@@ -185,7 +185,7 @@ grafico_participacao_setorial_consumo_el <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_participacao_setorial_consumo_el") |>
     dplyr::collect() |>
     dplyr::mutate(
-      cor = pegar_cor(variavel)
+      cor = pegar_cor(variavel, cap = 1)
     )
 
   if (lang != "pt") {
@@ -226,7 +226,7 @@ grafico_participacao_fontes_capacidade_instalada <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_participacao_fontes_capacidade_instalada") |>
     dplyr::collect() |>
     dplyr::mutate(
-      cor = pegar_cor(variavel)
+      cor = pegar_cor(variavel, cap = 1)
     )
 
   if (lang != "pt") {
@@ -322,13 +322,15 @@ grafico_producao_energia_primaria <- function(con, lang = "pt", .tipo_dado, .tip
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -352,13 +354,15 @@ grafico_oferta_interna_energia <- function(con, lang = "pt", .tipo_dado, .tipo_g
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -382,13 +386,15 @@ grafico_consumo_final_fonte <- function(con, lang = "pt", .tipo_dado, .tipo_graf
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -410,13 +416,15 @@ grafico_consumo_final_setor <- function(con, lang = "pt", .tipo_dado, .tipo_graf
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -438,7 +446,7 @@ grafico_dependencia_externa_energia <- function(con, lang = "pt") {
     dplyr::mutate(
       grupo = forcats::fct_inorder(grupo),
       grupo_en = forcats::fct_inorder(grupo_en),
-      cor = pegar_cor(grupo)
+      cor = pegar_cor(grupo, cap = 1)
     )
 
   if (lang != "pt") {
@@ -493,13 +501,15 @@ grafico_composicao_setorial_consumo_derivados_petroleo <- function(con, lang = "
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -523,13 +533,15 @@ grafico_composicao_setorial_consumo_eletricidade <- function(con, lang = "pt", .
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -553,13 +565,15 @@ grafico_composicao_setorial_consumo_carvao_vapor <- function(con, lang = "pt", .
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -583,13 +597,15 @@ grafico_composicao_setorial_consumo_biomassa <- function(con, lang = "pt", .tipo
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -613,13 +629,15 @@ grafico_oferta_interna_energia_2 <- function(con, lang = "pt", .tipo_dado, .tipo
     grafico_area(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = rotulo_y,
-      lang = lang
+      lang = lang,
+      .cap = 1
     )
   }
 }
@@ -697,7 +715,8 @@ grafico_estrutura_consumo_fontes_primarias <- function(con, lang = "pt", .tipo_d
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -718,7 +737,8 @@ grafico_fontes_primarias <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -739,7 +759,8 @@ grafico_petroleo <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -760,7 +781,8 @@ grafico_estrutura_consumo_gas_natural <- function(con, lang = "pt", .tipo_dado) 
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -781,7 +803,8 @@ grafico_carvao_vapor <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -802,7 +825,8 @@ grafico_transformacao_energia_hidraulica <- function(con, lang = "pt", .tipo_dad
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -823,7 +847,8 @@ grafico_consumo_energia_solar_termica_setor <- function(con, lang = "pt", .tipo_
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -844,7 +869,8 @@ grafico_uranio <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -865,7 +891,8 @@ grafico_estrutura_consumo_lenha <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -886,7 +913,8 @@ grafico_estrutura_consumo_bagaco_cana <- function(con, lang = "pt", .tipo_dado) 
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -907,7 +935,8 @@ grafico_estrutura_consumo_lixivia <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -928,7 +957,8 @@ grafico_estrutura_consumo_outras_fontes_primarias <- function(con, lang = "pt", 
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -949,7 +979,8 @@ grafico_estrutura_consumo_outras_fontes_secundarias <- function(con, lang = "pt"
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -970,7 +1001,8 @@ grafico_fontes_secundarias <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -991,7 +1023,8 @@ grafico_estrutura_consumo_derivados_petrolo_gas_natural <- function(con, lang = 
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1012,7 +1045,8 @@ grafico_oleo_diesel_total <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1033,7 +1067,8 @@ grafico_diesel_petroleo <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1054,7 +1089,8 @@ grafico_oleo_combustivel <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1075,7 +1111,8 @@ grafico_gasolina <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1096,7 +1133,8 @@ grafico_glp <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1117,7 +1155,8 @@ grafico_estrutura_consumo_nafta <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1138,7 +1177,8 @@ grafico_nafta <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1159,7 +1199,8 @@ grafico_coque_carvao_mineral <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1180,7 +1221,8 @@ grafico_querosene <- function(con, lang = "pt", .tipo_dado) {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1201,7 +1243,8 @@ grafico_estrutura_consumo_gas_coqueria <- function(con, lang = "pt", .tipo_dado)
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1222,7 +1265,8 @@ grafico_consumo_final_eletricidade_setor <- function(con, lang = "pt", .tipo_dad
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1243,7 +1287,8 @@ grafico_estrutura_consumo_alcool_etilico <- function(con, lang = "pt", .tipo_dad
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = 2
   )
 }
 
@@ -1266,13 +1311,15 @@ grafico_setor_energetico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1294,13 +1341,15 @@ grafico_setor_comercial <- function(con, lang = "pt", .tipo_dado, .tipo_grafico,
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1322,13 +1371,15 @@ grafico_setor_publico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, l
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1351,13 +1402,15 @@ grafico_setor_residencial <- function(con, lang = "pt", .tipo_dado, .tipo_grafic
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1379,13 +1432,15 @@ grafico_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, .tipo_grafi
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1407,13 +1462,15 @@ grafico_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, .tipo_
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1436,13 +1493,15 @@ grafico_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .ti
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1464,13 +1523,15 @@ grafico_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, .tipo_g
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1494,13 +1555,15 @@ grafico_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .tip
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 3
     )
   }
 }
@@ -1520,7 +1583,8 @@ grafico_dependencia_externa_energia_2 <- function(con, lang = "pt", laby = "") {
   grafico_linha(
     tab = tab,
     rotulo_y = laby,
-    lang = lang
+    lang = lang,
+    .cap = 4
   ) +
     ggplot2::guides(color = ggplot2::guide_legend(nrow = 2))
 }
@@ -1538,7 +1602,8 @@ grafico_dependencia_externa_petroleo <- function(con, lang = "pt", laby = "") {
   grafico_linha(
     tab = tab,
     rotulo_y = laby,
-    lang = lang
+    lang = lang,
+    .cap = 4
   ) +
     ggplot2::guides(color = ggplot2::guide_legend(nrow = 2))
 }
@@ -1556,7 +1621,8 @@ grafico_importacoes_energia <- function(con, lang = "pt", laby = "") {
   grafico_linha(
     tab = tab,
     rotulo_y = laby,
-    lang = lang
+    lang = lang,
+    .cap = 4
   )
 }
 
@@ -1573,7 +1639,8 @@ grafico_exportacoes_energia <- function(con, lang = "pt", laby = "") {
   grafico_linha(
     tab = tab,
     rotulo_y = laby,
-    lang = lang
+    lang = lang,
+    .cap = 4
   )
 }
 
@@ -1590,7 +1657,8 @@ grafico_exportacoes_importacoes_liquidas <- function(con, lang = "pt", laby = ""
   grafico_linha(
     tab = tab,
     rotulo_y = laby,
-    lang = lang
+    lang = lang,
+    .cap = 4
   )
 }
 
@@ -1614,13 +1682,15 @@ grafico_total_geracao_centrais_eletr_renov_nao_renov <- function(con, lang = "pt
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1643,13 +1713,15 @@ grafico_total_geracao_centrais_eletr_por_fonte <- function(con, lang = "pt", .ti
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1672,13 +1744,15 @@ grafico_total_geracao_centrais_eletr_servico_pub_renov_nao_renov <- function(con
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1701,13 +1775,15 @@ grafico_total_geracao_centrais_eletr_servico_pub_por_fonte <- function(con, lang
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1730,13 +1806,15 @@ grafico_total_geracao_centrais_eletr_autoprod_renov_nao_renov <- function(con, l
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1759,13 +1837,15 @@ grafico_total_geracao_centrais_eletr_autoprod_por_fonte <- function(con, lang = 
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1788,13 +1868,15 @@ grafico_autoprod_nao_injetada_renov_nao_renov <- function(con, lang = "pt", .tip
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1817,13 +1899,15 @@ grafico_autoprod_nao_injetada_por_fonte <- function(con, lang = "pt", .tipo_dado
     grafico_area(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   } else if (.tipo_grafico == "linha") {
     grafico_linha(
       tab = tab,
       rotulo_y = laby,
-      lang = lang
+      lang = lang,
+      .cap = 5
     )
   }
 }
@@ -1841,7 +1925,7 @@ grafico_micro_mini_geracao_dist <- function(con, lang = "pt") {
       ano = as.factor(ano),
       grupo = forcats::fct_inorder(grupo),
       grupo_en = forcats::fct_inorder(grupo_en),
-      cor = pegar_cor(grupo)
+      cor = pegar_cor(grupo, cap = 5)
     )
 
   cores <- setNames(tab$cor, tab$grupo) |> unique()
@@ -2106,7 +2190,8 @@ grafico_capacidade_instalada_geracao_eletrica <- function(con, lang = "pt") {
   grafico_linha(
     tab = tab,
     rotulo_y = rotulo_y,
-    lang = lang
+    lang = lang,
+    .cap = "anexo_1"
   )
 }
 
@@ -2343,7 +2428,9 @@ grafico_geracao_hidreletrica_regiao <- function(con, .ano, lang = "pt") {
   )
 }
 
-#' Gráfico do Anexo 3 - Geração Hidrelétrica por Região
+# Anexo 4 -------------------------------------------------------------------
+
+#' Gráfico do Anexo 4
 #'
 #' @param con Conexão com o banco de dados
 #' @param .ano Ano
@@ -2353,7 +2440,7 @@ grafico_geracao_hidreletrica_regiao <- function(con, .ano, lang = "pt") {
 grafico_variacao_energia_final_util_potencial <- function(con, lang = "pt") {
   tab <- dplyr::tbl(con, "grafico_variacao_energia_final_util_potencial") |>
     dplyr::collect() |>
-    dplyr::mutate(cor = pegar_cor(variavel))
+    dplyr::mutate(cor = pegar_cor(variavel, cap = "anexo_4"))
 
   rotulo_y <- ifelse(lang == "pt", expression(10^6 * "tep"), expression(10^6 * "toe"))
 
