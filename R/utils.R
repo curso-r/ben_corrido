@@ -265,9 +265,12 @@ create_dropdown <- function(elementos, id, params, label = "", html = FALSE,
     element_div
   })
 
+  loader <- htmltools::tags$div(class = "loader")
+
   # Combine everything into a single HTML document
   htmltools::tagList(
     dropdown_html,
+    loader,
     element_html
   )
 }

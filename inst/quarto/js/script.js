@@ -9,3 +9,11 @@ function updateElement(id) {
     element_div.style.display = 'block';
   }
 }
+
+window.addEventListener('load', function() {
+  var loaders = document.getElementsByClassName('loader');
+  for (var i = 0; i < loaders.length; i++) {
+    loaders[i].style.display = 'none';
+  }
+});
+

@@ -11,31 +11,31 @@ book:
       - text: "Portuguese"
         href: ../livro/index.html
   chapters:
-    - text: Sobre
+    - text: About
       href: index.qmd
     - en/autoria.qmd
     - part: Chapters
       chapters:
-        # - en/capitulo_1.qmd
-        # - en/capitulo_2.qmd
-        # - en/capitulo_3.qmd
-    #     - en/capitulo_4.qmd
-    #     - en/capitulo_5.qmd
-    #     - en/capitulo_6.qmd
+        - en/capitulo_1.qmd
+        - en/capitulo_2.qmd
+        - en/capitulo_3.qmd
+        - en/capitulo_4.qmd
+        - en/capitulo_5.qmd
+        - en/capitulo_6.qmd
         - en/capitulo_7.qmd
-    #     - en/capitulo_8.qmd
-    # - part: Appendixes
-    #   chapters:
-    #     - en/anexo_1.qmd
-    #     - en/anexo_2.qmd
-    #     - en/anexo_3.qmd
-    #     - en/anexo_4.qmd
-    #     - en/anexo_5.qmd
-    #     - en/anexo_6.qmd
-    #     - en/anexo_7.qmd
-    #     - en/anexo_8.qmd
-    #     - en/anexo_9.qmd
-    #     - en/anexo_10.qmd
+        - en/capitulo_8.qmd
+    - part: Appendixes
+      chapters:
+        - en/anexo_1.qmd
+        - en/anexo_2.qmd
+        - en/anexo_3.qmd
+        - en/anexo_4.qmd
+        - en/anexo_5.qmd
+        - en/anexo_6.qmd
+        - en/anexo_7.qmd
+        - en/anexo_8.qmd
+        - en/anexo_9.qmd
+        - en/anexo_10.qmd
     - text: References
       href: en/referencias.qmd
 
