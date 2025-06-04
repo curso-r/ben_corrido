@@ -1,12 +1,10 @@
 ---
 params:
-  ano: ""
   duckdb_path: ""
 ---
 
 ```{r}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
-ano <- params$ano
 ```
 
 # Annex X: Brazilian Energy Balance from 1970 to 2023 (Usual Units) {-}

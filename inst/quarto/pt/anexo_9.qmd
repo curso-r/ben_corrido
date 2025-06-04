@@ -1,12 +1,10 @@
 ---
 params:
-  ano: ""
   duckdb_path: ""
 ---
 
 ```{r}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
-ano <- params$ano
 ```
 
 # Anexo IX: Balanços Energéticos Consolidados – 1970 a 2023 {-}

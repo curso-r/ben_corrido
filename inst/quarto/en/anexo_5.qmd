@@ -1,12 +1,10 @@
 ---
 params:
-  ano: ""
   duckdb_path: ""
 ---
 
 ```{r}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
-ano <- params$ano
 ```
 
 # Annex V: General Structure of the Brazilian Energy Balance {-}

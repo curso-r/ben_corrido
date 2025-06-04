@@ -1,12 +1,10 @@
 ---
 params:
-  ano: ""
   duckdb_path: ""
 ---
 
 ```{r setup}
 con <- duckdb::dbConnect(duckdb::duckdb(), params$duckdb_path)
-ano <- params$ano
 ```
 
 # Transformation Centers Balances
