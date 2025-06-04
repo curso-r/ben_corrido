@@ -1,6 +1,6 @@
 ^ben_corrido\.Rproj$
 ^\.Rproj\.user$
 data-raw
-.quarto
+\.quarto
 ^README\.Rmd$
 docs

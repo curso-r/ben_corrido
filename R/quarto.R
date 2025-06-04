@@ -10,10 +10,6 @@
 #' @return Não retorna valor. Gera os arquivos do livro nos perfis especificados.
 #' @export
 #'
-#' @examples
-#' \dontrun{
-#' gerar_livro(profiles = c("pt"))
-#' }
 gerar_livro <- function(out_dir = "~/Desktop/ben_corrido",
                         profiles = c("pt", "en"),
                         duckdb_path = "~/Documents/curso-r/ben_corrido/data-raw/bd_ouro.duckdb") {
