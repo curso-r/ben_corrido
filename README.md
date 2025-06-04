@@ -1,0 +1,38 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# benCorrido (development version)
+
+## Texto
+
+- O texto de cada capítulo fica agora dentro do seu respectivo arquivo
+  `.qmd`, não mais na planilha de tradução.
+
+- Os títulos dos capítulos e seções são gerados pelas marcações de
+  *heading*, para que fiquem destacados do texto e sejam estilizados
+  automaticamente.
+
+- As referências cruzadas são geradas automaticamente pelo quarto, a
+  partir do argumento `label` e da marcação `@fig-xxx` ou `@tbl-xxx`.
+
+- As “Notas” foram inseridas nas legendas dos gráficos e tabelas.
+
+## Gráficos
+
+- Cada gráfico possui sua própria função, que recebe a conexão com o
+  banco de dados ouro e alguns parâmetros específicos de filtro e
+  tradução.
+
+## Tabelas
+
+- Cada tabela possui sua própria função, que recebe a conexão com o
+  banco de dados ouro e alguns parâmetros específicos de filtro e
+  tradução.
+
+## Internacionalização
+
+- A função `traduz()` não é mais utilizada, assim como o dicionário que
+  a alimenta.
+
+- Cada idioma possui seu próprio conjunto de arquivos, que dividem uma
+  mesma coleção de códigos para geração das tabelas e gráficos.

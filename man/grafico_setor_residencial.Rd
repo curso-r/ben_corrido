@@ -20,6 +20,8 @@ grafico_setor_residencial(
 \item{.tipo_dado}{Tipo de dado}
 
 \item{.tipo_grafico}{Tipo de gráfico}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo III

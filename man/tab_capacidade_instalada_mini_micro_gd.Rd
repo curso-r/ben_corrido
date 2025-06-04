@@ -11,7 +11,7 @@ tab_capacidade_instalada_mini_micro_gd(con, lang = "pt", lab1 = "")
 
 \item{lang}{Idioma}
 
-\item{.tipo_dado}{Tipo de dado}
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Anexo 1

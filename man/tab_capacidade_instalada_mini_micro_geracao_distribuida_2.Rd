@@ -16,8 +16,6 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_2(
 \item{lang}{Idioma}
 
 \item{lab1}{Nome da primeira coluna}
-
-\item{lab2}{Nome da segunda coluna}
 }
 \description{
 Tabela do Capítulo VIII

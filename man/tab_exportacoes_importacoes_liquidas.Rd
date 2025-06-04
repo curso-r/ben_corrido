@@ -18,6 +18,10 @@ tab_exportacoes_importacoes_liquidas(
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
 }
 \description{
 Tabela do Capítulo IV

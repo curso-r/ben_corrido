@@ -17,6 +17,8 @@ tab_capacidade_instalada_geracao_energia(
 
 \item{lang}{Idioma}
 
+\item{.tipo_dado}{Tipo de dado}
+
 \item{lab1}{Nome da primeira coluna}
 
 \item{lab2}{Nome da segunda coluna}

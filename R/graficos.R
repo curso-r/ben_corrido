@@ -1266,6 +1266,7 @@ grafico_estrutura_consumo_alcool_etilico <- function(con, lang = "pt", .tipo_dad
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_energetico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1296,6 +1297,7 @@ grafico_setor_energetico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_comercial <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1326,6 +1328,7 @@ grafico_setor_comercial <- function(con, lang = "pt", .tipo_dado, .tipo_grafico,
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_publico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1356,6 +1359,7 @@ grafico_setor_publico <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, l
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_residencial <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1387,6 +1391,7 @@ grafico_setor_residencial <- function(con, lang = "pt", .tipo_dado, .tipo_grafic
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1417,6 +1422,7 @@ grafico_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, .tipo_grafi
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1448,6 +1454,7 @@ grafico_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, .tipo_
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
 #' @param .segmento Segmento
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, .segmento, laby = NULL) {
@@ -1478,6 +1485,7 @@ grafico_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .ti
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL) {
@@ -1509,6 +1517,7 @@ grafico_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, .tipo_g
 #' @param .tipo_dado Tipo de dado
 #' @param .tipo_grafico Tipo de gráfico
 #' @param .segmento Segmento
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .tipo_grafico, .segmento, laby = NULL) {
@@ -1540,6 +1549,7 @@ grafico_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .tip
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_dependencia_externa_energia_2 <- function(con, lang = "pt", laby = "") {
@@ -1559,6 +1569,7 @@ grafico_dependencia_externa_energia_2 <- function(con, lang = "pt", laby = "") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_dependencia_externa_petroleo <- function(con, lang = "pt", laby = "") {
@@ -1578,6 +1589,7 @@ grafico_dependencia_externa_petroleo <- function(con, lang = "pt", laby = "") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_importacoes_energia <- function(con, lang = "pt", laby = "") {
@@ -1596,6 +1608,7 @@ grafico_importacoes_energia <- function(con, lang = "pt", laby = "") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_exportacoes_energia <- function(con, lang = "pt", laby = "") {
@@ -1614,6 +1627,7 @@ grafico_exportacoes_energia <- function(con, lang = "pt", laby = "") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param laby Rótulo do eixo y
 #'
 #' @export
 grafico_exportacoes_importacoes_liquidas <- function(con, lang = "pt", laby = "") {
@@ -2399,7 +2413,6 @@ grafico_geracao_hidreletrica_regiao <- function(con, .ano, lang = "pt") {
 #' Gráfico do Anexo 4
 #'
 #' @param con Conexão com o banco de dados
-#' @param .ano Ano
 #' @param lang Idioma
 #'
 #' @export

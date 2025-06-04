@@ -12,6 +12,8 @@ tab_setor_agropecuario(con, lang = "pt", .tipo_dado, lab1 = "")
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo III

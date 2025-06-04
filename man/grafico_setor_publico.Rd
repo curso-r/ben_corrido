@@ -14,6 +14,8 @@ grafico_setor_publico(con, lang = "pt", .tipo_dado, .tipo_grafico, laby = NULL)
 \item{.tipo_dado}{Tipo de dado}
 
 \item{.tipo_grafico}{Tipo de gráfico}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo III

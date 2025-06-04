@@ -20,6 +20,8 @@ tab_setor_transportes_segmento(
 \item{.tipo_dado}{Tipo de dado}
 
 \item{.segmento}{Segmento do setor de transportes}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo III

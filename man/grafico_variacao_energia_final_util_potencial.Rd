@@ -10,8 +10,6 @@ grafico_variacao_energia_final_util_potencial(con, lang = "pt")
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
-
-\item{.ano}{Ano}
 }
 \description{
 Gráfico do Anexo 4

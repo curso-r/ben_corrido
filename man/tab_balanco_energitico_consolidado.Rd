@@ -9,6 +9,8 @@ tab_balanco_energitico_consolidado(con, .ano, lang = "pt", lab1 = "")
 \arguments{
 \item{con}{Conexão com o banco de dados}
 
+\item{.ano}{Ano}
+
 \item{lang}{Idioma}
 
 \item{lab1}{Nome da primeira coluna}

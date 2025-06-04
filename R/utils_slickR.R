@@ -3,6 +3,7 @@
 #' Esta função cria um carrossel de gráficos utilizando a biblioteca `slickR`.
 #'
 #' @param ... Gráficos a serem incluídos no carrossel.
+#' @param lang Idioma dos rótulos do carrossel. Aceita "pt" (padrão) para português ou "en" para inglês.
 #' @param labels Vetor de caracteres com os rótulos a serem exibidos nos pontos do carrossel. O padrão é c("Área empilhada", "Linha").
 #'
 #' @return Um objeto `slickR` que representa o carrossel de gráficos.

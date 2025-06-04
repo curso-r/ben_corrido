@@ -1498,6 +1498,7 @@ tab_produtos_nao_energeticos_petroleo <- function(con, lang = "pt", .tipo_dado, 
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_energetico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1521,6 +1522,7 @@ tab_setor_energetico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_comercial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1544,6 +1546,7 @@ tab_setor_comercial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_publico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1567,6 +1570,7 @@ tab_setor_publico <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_residencial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1590,6 +1594,7 @@ tab_setor_residencial <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1613,6 +1618,8 @@ tab_setor_agropecuario <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
 tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
@@ -1638,6 +1645,7 @@ tab_setor_transportes_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "",
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .segmento Segmento do setor de transportes
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmento, lab1 = "") {
@@ -1662,6 +1670,7 @@ tab_setor_transportes_segmento <- function(con, lang = "pt", .tipo_dado, .segmen
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "") {
@@ -1686,6 +1695,7 @@ tab_setor_industrial_geral <- function(con, lang = "pt", .tipo_dado, lab1 = "") 
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
 #' @param .segmento Segmento do setor de transportes
+#' @param lab1 Label 1
 #'
 #' @export
 tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segmento, lab1 = "") {
@@ -1712,6 +1722,8 @@ tab_setor_industrial_segmento <- function(con, lang = "pt", .tipo_dado, .segment
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
 tab_dependencia_externa_energia_2 <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
@@ -1736,6 +1748,8 @@ tab_dependencia_externa_energia_2 <- function(con, lang = "pt", .tipo_dado, lab1
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
 tab_dependencia_externa_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
@@ -1760,6 +1774,9 @@ tab_dependencia_externa_petroleo <- function(con, lang = "pt", .tipo_dado, lab1 
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
 tab_importacoes_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
@@ -1785,6 +1802,9 @@ tab_importacoes_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
+#' @param lab3 Label 3
 #'
 #' @export
 tab_exportacoes_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "", lab3 = "") {
@@ -1810,6 +1830,8 @@ tab_exportacoes_energia <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
+#' @param lab2 Label 2
 #'
 #' @export
 tab_exportacoes_importacoes_liquidas <- function(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "") {
@@ -2668,6 +2690,8 @@ tab_setor_transportes_energia_pib_setor <- function(con, lang = "pt", lab1 = "")
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param .setor Setor
+#' @param .segmento Segmento
+#' @param lab1 Label 1
 #'
 #' @export
 tab_consumo_especifico_energia_setores_selecionados <- function(con, lang = "pt", .setor, .segmento, lab1 = "") {
@@ -2824,7 +2848,7 @@ tab_precos_medios_correntes_fontes_energia_2 <- function(con, lang = "pt", lab1 
 
 #' Tabela do Capítulo VII
 #'
-#' @param conConexão com o banco de dados
+#' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Label 1
 #'
@@ -3222,7 +3246,6 @@ tab_producao_energia_eletricidade_alcool_1 <- function(con, lang = "pt", lab1, l
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
-#' @param lab2 Nome da segunda coluna
 #'
 #' @export
 tab_producao_energia_eletricidade_alcool_2 <- function(con, lang = "pt", lab1 = "") {
@@ -3309,6 +3332,8 @@ tab_producao_energia_eletricidade_alcool_2 <- function(con, lang = "pt", lab1 = 
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param .ano Ano
+#' @param .coluna_total Coluna total
 #' @param lab1 Nome da primeira coluna
 #' @param lab2 Nome da segunda coluna
 #'
@@ -3443,6 +3468,7 @@ tab_consumo_residencial_gas_liquefeito_petroleo <- function(con, lang = "pt", .t
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param .tipo_dado Tipo de dado
 #' @param lab1 Nome da primeira coluna
 #' @param lab2 Nome da segunda coluna
 #'
@@ -3544,6 +3570,7 @@ tab_capacidade_instalada_geracao_energia <- function(con, lang = "pt", .tipo_dad
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
+#' @param .coluna_total Coluna total
 #' @param lab1 Nome da primeira coluna
 #' @param lab2 Nome da segunda coluna
 #'
@@ -3611,7 +3638,6 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_1 <- function(con, lang 
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
-#' @param lab2 Nome da segunda coluna
 #'
 #' @export
 tab_capacidade_instalada_mini_micro_geracao_distribuida_2 <- function(con, lang = "pt", lab1 = "") {
@@ -4315,7 +4341,7 @@ tab_capacidade_instalada_itaipu <- function(con, lang = "pt", lab1 = "") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab1 = "") {
@@ -4341,7 +4367,7 @@ tab_capacidade_instalada_geracao_energia_fonte <- function(con, lang = "pt", lab
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param .tipo_dado Tipo de dado
+#' @param lab1 Label 1
 #'
 #' @export
 tab_capacidade_instalada_mini_micro_gd <- function(con, lang = "pt", lab1 = "") {
@@ -4856,7 +4882,6 @@ tab_variacao_rendimentos_energeticos_participacao <- function(con, lang = "pt", 
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_energia_primaria <- function(con, lang = "pt") {
@@ -4887,7 +4912,6 @@ tab_conceituacao_energia_primaria <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_energia_secundaria <- function(con, lang = "pt") {
@@ -4918,7 +4942,6 @@ tab_conceituacao_energia_secundaria <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_total_geral <- function(con, lang = "pt") {
@@ -4949,7 +4972,6 @@ tab_conceituacao_total_geral <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_oferta <- function(con, lang = "pt") {
@@ -4980,7 +5002,6 @@ tab_conceituacao_oferta <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_transformacao <- function(con, lang = "pt") {
@@ -5011,7 +5032,6 @@ tab_conceituacao_transformacao <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_perdas <- function(con, lang = "pt") {
@@ -5042,7 +5062,6 @@ tab_conceituacao_perdas <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_consumo_final <- function(con, lang = "pt") {
@@ -5073,7 +5092,6 @@ tab_conceituacao_consumo_final <- function(con, lang = "pt") {
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_conceituacao_ajustes_estatisticos <- function(con, lang = "pt") {
@@ -5255,7 +5273,6 @@ tab_fator_capacidade_municipios <- function(con, lang = "pt", lab1, lab2, lab3) 
 #'
 #' @param con Conexão com o banco de dados
 #' @param lang Idioma
-#' @param lab1 Nome da primeira coluna
 #'
 #' @export
 tab_relacoes_entre_unidades <- function(con, lang = "pt") {
@@ -5568,6 +5585,7 @@ tab_fatores_conversao_tep_medio <- function(con, lang = "pt", lab1, lab2) {
 #' Tabela do Anexo 9
 #'
 #' @param con Conexão com o banco de dados
+#' @param .ano Ano
 #' @param lang Idioma
 #' @param lab1 Nome da primeira coluna
 #'

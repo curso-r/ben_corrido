@@ -10,6 +10,8 @@ grafico_dependencia_externa_energia_2(con, lang = "pt", laby = "")
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo IV

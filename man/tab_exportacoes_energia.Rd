@@ -19,6 +19,12 @@ tab_exportacoes_energia(
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
+
+\item{lab3}{Label 3}
 }
 \description{
 Tabela do Capítulo IV

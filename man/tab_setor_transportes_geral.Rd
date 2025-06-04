@@ -12,6 +12,10 @@ tab_setor_transportes_geral(con, lang = "pt", .tipo_dado, lab1 = "", lab2 = "")
 \item{lang}{Idioma}
 
 \item{.tipo_dado}{Tipo de dado}
+
+\item{lab1}{Label 1}
+
+\item{lab2}{Label 2}
 }
 \description{
 Tabela do Capítulo III

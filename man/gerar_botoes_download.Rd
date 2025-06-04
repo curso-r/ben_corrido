@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils_download.R
 \name{gerar_botoes_download}
 \alias{gerar_botoes_download}
-\title{Gerar botões de download}
+\title{Gerar Botões de Download}
 \usage{
 gerar_botoes_download(
   tab_name,
@@ -15,10 +15,24 @@ gerar_botoes_download(
 )
 }
 \arguments{
-\item{tab_name}{Nome da tabela}
+\item{tab_name}{\code{character}. Nome base da aba ou tabela, utilizado para compor o nome do arquivo.}
 
-\item{.tipo_dado}{Tipo de dado}
+\item{...}{Elementos HTML adicionais a serem incluídos no container dos botões.}
+
+\item{lang}{\code{character}. Idioma dos botões. Aceita \code{"pt"} (padrão) para português ou \code{"en"} para inglês.}
+
+\item{.tipo_dado}{\code{character} ou \code{NULL}. Sufixo opcional para diferenciar tipos de dados nos nomes dos arquivos.}
+
+\item{matriz}{\code{logical}. Se \code{TRUE} (padrão), exibe o botão para download da matriz.}
+
+\item{tabela}{\code{logical}. Se \code{TRUE} (padrão), exibe o botão para download da tabela.}
+
+\item{position}{\code{character}. Posição do alinhamento dos botões. Padrão é \code{"end"}.}
+}
+\value{
+Um objeto HTML (\code{htmltools::div}) contendo os botões de download.
 }
 \description{
-Gerar botões de download
+Esta função cria botões de download para arquivos de matriz e tabela em formato Excel,
+permitindo ao usuário baixar os dados exibidos em uma aplicação Shiny ou relatório HTML.
 }

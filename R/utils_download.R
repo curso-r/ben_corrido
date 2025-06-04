@@ -1,7 +1,17 @@
-#' Gerar botões de download
+#' Gerar Botões de Download
 #'
-#' @param tab_name Nome da tabela
-#' @param .tipo_dado Tipo de dado
+#' Esta função cria botões de download para arquivos de matriz e tabela em formato Excel, 
+#' permitindo ao usuário baixar os dados exibidos em uma aplicação Shiny ou relatório HTML.
+#'
+#' @param tab_name `character`. Nome base da aba ou tabela, utilizado para compor o nome do arquivo.
+#' @param ... Elementos HTML adicionais a serem incluídos no container dos botões.
+#' @param lang `character`. Idioma dos botões. Aceita `"pt"` (padrão) para português ou `"en"` para inglês.
+#' @param .tipo_dado `character` ou `NULL`. Sufixo opcional para diferenciar tipos de dados nos nomes dos arquivos.
+#' @param matriz `logical`. Se `TRUE` (padrão), exibe o botão para download da matriz.
+#' @param tabela `logical`. Se `TRUE` (padrão), exibe o botão para download da tabela.
+#' @param position `character`. Posição do alinhamento dos botões. Padrão é `"end"`.
+#'
+#' @return Um objeto HTML (`htmltools::div`) contendo os botões de download.
 #'
 #' @export
 gerar_botoes_download <- function(tab_name, ..., lang = "pt", .tipo_dado = NULL, 

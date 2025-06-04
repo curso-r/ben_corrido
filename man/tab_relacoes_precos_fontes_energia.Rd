@@ -7,11 +7,11 @@
 tab_relacoes_precos_fontes_energia(con, lang = "pt", lab1 = "")
 }
 \arguments{
+\item{con}{Conexão com o banco de dados}
+
 \item{lang}{Idioma}
 
 \item{lab1}{Label 1}
-
-\item{conConexão}{com o banco de dados}
 }
 \description{
 Tabela do Capítulo VII

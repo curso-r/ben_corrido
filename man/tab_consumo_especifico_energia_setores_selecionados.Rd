@@ -18,6 +18,10 @@ tab_consumo_especifico_energia_setores_selecionados(
 \item{lang}{Idioma}
 
 \item{.setor}{Setor}
+
+\item{.segmento}{Segmento}
+
+\item{lab1}{Label 1}
 }
 \description{
 Tabela do Capítulo VII

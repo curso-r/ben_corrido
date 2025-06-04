@@ -9,6 +9,8 @@ criar_carrossel(..., lang = "pt", labels = NULL)
 \arguments{
 \item{...}{Gráficos a serem incluídos no carrossel.}
 
+\item{lang}{Idioma dos rótulos do carrossel. Aceita "pt" (padrão) para português ou "en" para inglês.}
+
 \item{labels}{Vetor de caracteres com os rótulos a serem exibidos nos pontos do carrossel. O padrão é c("Área empilhada", "Linha").}
 }
 \value{

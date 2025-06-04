@@ -10,8 +10,6 @@ tab_conceituacao_energia_primaria(con, lang = "pt")
 \item{con}{Conexão com o banco de dados}
 
 \item{lang}{Idioma}
-
-\item{lab1}{Nome da primeira coluna}
 }
 \description{
 Tabela do Anexo 5

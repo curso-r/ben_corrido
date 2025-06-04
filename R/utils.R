@@ -8,13 +8,6 @@ salvar_tab_bd <- function(tab, tab_name) {
   DBI::dbDisconnect(con)
 }
 
-#' Retorna cor de acordo com o capítulo e variável
-#'
-#' @param x Nome da variável
-#' @param cap Capítulo
-#' 
-#' @return Cor correspondente em hexadecimal
-#' @export
 pegar_cor <- function(x, cap) {
   dplyr::case_when(
     # Capítulo 1
@@ -179,98 +172,4 @@ sys_file <- function(x) {
   system.file(x, package = "benCorrido")
 }
 
-#' Transformar gráfico em SVG
-#'
-#' @export
-transformar_svg <- function(p, width = 8, height = 4, html = FALSE) {
-  svg <- svglite::xmlSVG(
-    show(p),
-    standalone = TRUE,
-    width = width,
-    height = height
-  )
 
-  if (html) {
-    svg <- svg |>
-      as.character() |>
-      htmltools::HTML()
-  }
-
-  return(svg)
-}
-
-#' Create a dropdown plot
-#'
-#' @export
-create_dropdown <- function(elementos, id, params, label = "", html = FALSE,
-                            fig_width = 8, fig_height = 4,
-                            dropdown_width = "300px") {
-  if (length(elementos) != length(params)) {
-    stop("The number of elements must match the number of parameters")
-  }
-
-  if (!html) {
-    elementos <- purrr::map(
-      elementos,
-      \(x) {
-        transformar_svg(
-          x,
-          html = TRUE,
-          width = fig_width,
-          height = fig_height
-        )
-      }
-    )
-  }
-
-  # Create a unique ID for the dropdown and plot container
-  dropdown_id <- paste0("dropdown_", id)
-
-  # Create the dropdown HTML
-  select_html <- htmltools::tags$select(
-    id = dropdown_id,
-    class = "form-select",
-    onchange = sprintf("updateElement('%s')", id),
-    style = glue::glue("width: {dropdown_width};")
-  )
-  
-  labels <- names(params)
-  if (is.null(labels)) {
-    labels <- params
-  }
-
-  for (i in seq_along(params)) {
-    select_html <- htmltools::tagAppendChild(
-      select_html,
-      htmltools::tags$option(value = params[i], labels[i])
-    )
-  }
-
-  dropdown_html <- htmltools::div(
-    class = "dropdown-label form-group mb-3",
-    htmltools::tags$label(label, `for` = dropdown_id),
-    select_html
-  )
-
-  # Create the HTML for each plot
-  element_html <- lapply(seq_along(elementos), function(i) {
-    element_id <- glue::glue("element_{id}_{params[i]}")
-    display <- ifelse(i == 1, "block", "none")
-    element_div <- htmltools::tags$div(
-      id = element_id,
-      class = glue::glue("element_container_{id}"),
-      style = glue::glue("display: {display}; width: 100%; margin: auto"),
-      elementos[[i]]
-    )
-    element_div
-  })
-
-  loader <- htmltools::tags$div(class = "loader")
-
-  # Combine everything into a single HTML document
-  htmltools::tagList(
-    dropdown_html,
-    loader,
-    element_html
-  )
-}

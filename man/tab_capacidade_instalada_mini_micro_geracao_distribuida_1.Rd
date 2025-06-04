@@ -17,6 +17,8 @@ tab_capacidade_instalada_mini_micro_geracao_distribuida_1(
 
 \item{lang}{Idioma}
 
+\item{.coluna_total}{Coluna total}
+
 \item{lab1}{Nome da primeira coluna}
 
 \item{lab2}{Nome da segunda coluna}

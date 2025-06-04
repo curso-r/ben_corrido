@@ -23,6 +23,8 @@ grafico_setor_transportes_segmento(
 \item{.tipo_grafico}{Tipo de gráfico}
 
 \item{.segmento}{Segmento}
+
+\item{laby}{Rótulo do eixo y}
 }
 \description{
 Gráfico do Capítulo III

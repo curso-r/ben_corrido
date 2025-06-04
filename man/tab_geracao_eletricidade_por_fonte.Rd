@@ -18,6 +18,10 @@ tab_geracao_eletricidade_por_fonte(
 
 \item{lang}{Idioma}
 
+\item{.ano}{Ano}
+
+\item{.coluna_total}{Coluna total}
+
 \item{lab1}{Nome da primeira coluna}
 
 \item{lab2}{Nome da segunda coluna}

@@ -12,8 +12,6 @@ tab_producao_energia_eletricidade_alcool_2(con, lang = "pt", lab1 = "")
 \item{lang}{Idioma}
 
 \item{lab1}{Nome da primeira coluna}
-
-\item{lab2}{Nome da segunda coluna}
 }
 \description{
 Tabela do Capítulo VIII
