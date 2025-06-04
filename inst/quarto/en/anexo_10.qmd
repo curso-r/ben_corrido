@@ -21,7 +21,7 @@ tabelas <- purrr::map(
   \(.ano) {
     htmltools::div(
       benCorrido::tab_balanco_energitico_unidades_comerciais(con, .ano, lab1 = "", lang = "en"),
-      benCorrido::gerar_botoes_download(glue::glue("tab_balanco_energitico_unidades_comerciais{.ano}"), lang = "en")
+      benCorrido::gerar_botoes_download(glue::glue("tab_balanco_energitico_unidades_comerciais_{.ano}"), lang = "en")
     )
   }
 )
